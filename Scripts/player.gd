@@ -72,16 +72,17 @@ func _physics_process(delta):
 	if direction != 0:
 		last_dir = direction
 	
-	if Input.is_action_just_pressed("attack"):
-		if last_dir == 1:
+	if last_dir == 1:
 			$slash.flip_h = false
 			$slash.position.x = 90
 			$slash.rotation_degrees = 20
 		
-		elif last_dir == -1:
-			$slash.flip_h = true
-			$slash.position.x = -90
-			$slash.rotation_degrees = -20
+	elif last_dir == -1:
+		$slash.flip_h = true
+		$slash.position.x = -90
+		$slash.rotation_degrees = -20
+	
+	if Input.is_action_just_pressed("attack"):
 		slashing = true
 		$slash.play()
 		var areas = $slash/slash.get_overlapping_bodies()

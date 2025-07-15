@@ -4,18 +4,27 @@ var player: CharacterBody2D
 
 var chasing = false
 
-const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
+var dir = 1
+
+var knocked = false
+
+@export var max_speed = 1400.0
 
 @export var health = 15
-@export var speed = 200
+var speed = 200
 
 func _ready():
 	freeze_mode = RigidBody2D.FREEZE_MODE_KINEMATIC
 
 func _physics_process(delta):
-	if chasing:
-		self.position.x = move_toward(self.position.x,player.position.x,delta*speed)
+	if chasing and not knocked:
+		if player.position.x > self.position.x:
+			dir = 1
+		else:
+			dir = -1
+		var target_velocity = Vector2(max_speed * dir, linear_velocity.y)
+		var force = (target_velocity - linear_velocity) * mass * 5.0
+		apply_central_force(Vector2(force.x, 0))
 
 
 func _on_detection_body_entered(body):
@@ -24,7 +33,12 @@ func _on_detection_body_entered(body):
 		chasing = true
 
 func hit():
+	knocked = true
 	if player.position.x < self.position.x:
 		linear_velocity = Vector2(1300,0)
+		dir = 1
 	else:
 		linear_velocity = Vector2(-1300,0)
+		dir = -1
+	await get_tree().create_timer(0.3).timeout
+	knocked = false
