@@ -80,6 +80,13 @@ attack={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="player"
+2d_physics/layer_2="enemy"
+2d_physics/layer_3="detection"
+2d_physics/layer_4="world"
+
 [physics]
 
 2d/default_gravity=3900.0

@@ -8,6 +8,10 @@ const JUMP_VELOCITY = -1600.0
 var dashing = false
 var can_dash = true
 
+var damage = 5
+
+var slashing = false
+
 var slamming = false
 
 var flip = true # right false, left true
@@ -29,9 +33,12 @@ func _physics_process(delta):
 		velocity.y = JUMP_VELOCITY
 		jumps = 1
 	
-	if Input.is_action_just_pressed("jump") and not is_on_floor() and jumps >= 1:
+	if Input.is_action_just_pressed("jump") and not is_on_floor() and jumps >= 1 and not slamming:
 		velocity.y = JUMP_VELOCITY
 		jumps = 0
+		$land_particles.emitting = true
+		await get_tree().create_timer(0.2).timeout
+		$land_particles.emitting = false
 	
 	if Input.is_action_just_pressed("slam") and not is_on_floor():
 		self.velocity.y = 8000
@@ -40,12 +47,14 @@ func _physics_process(delta):
 	direction = Input.get_axis("left", "right")
 	if direction:
 		velocity.x = move_toward(velocity.x, direction * SPEED, 8000 * delta)
-		$sprite.play("walk")
+		if can_dash:
+			$sprite.play("walk")
 	else:
 		velocity.x = move_toward(velocity.x, 0, 8000 * delta)
-		$sprite.play("idle")
+		if can_dash:
+			$sprite.play("idle")
 	
-	if not is_on_floor():
+	if not is_on_floor() and can_dash:
 		if self.velocity.y > 500:
 			$sprite.play("falling")
 		elif self.velocity.y < -500:
@@ -64,24 +73,36 @@ func _physics_process(delta):
 		last_dir = direction
 	
 	if Input.is_action_just_pressed("attack"):
-		
 		if last_dir == 1:
 			$slash.flip_h = false
-			$slash.position.x = 55
+			$slash.position.x = 90
+			$slash.rotation_degrees = 20
 		
 		elif last_dir == -1:
 			$slash.flip_h = true
-			$slash.position.x = -55
-		
+			$slash.position.x = -90
+			$slash.rotation_degrees = -20
+		slashing = true
 		$slash.play()
-	
+		var areas = $slash/slash.get_overlapping_bodies()
+		var enemies = []
+		for area in areas:
+			if area.name == "enemy":
+				area.health -= damage
+				area.hit()
+				print("hit")
+
 	if Input.is_action_just_pressed("dash"):
-		dashing = true
-		$sprite.play("dash")
-		await get_tree().create_timer(0.08).timeout
-		dashing = false
+		if can_dash:
+			dashing = true
+			$sprite.play("dash")
+			await get_tree().create_timer(0.08).timeout
+			dashing = false
+			can_dash = false
+			$dash.start()
 	if dashing:
-		self.velocity.x = direction * 4000
+		$sprite.play("dash")
+		self.velocity.x = last_dir * 3000
 		
 	if slamming and not is_on_floor():
 		$sprite.play("slamming")
@@ -92,3 +113,6 @@ func _physics_process(delta):
 		$land_particles.emitting = false
 	
 	move_and_slide()
+
+func _on_dash_timeout():
+	can_dash = true

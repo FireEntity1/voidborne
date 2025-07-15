@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://das5p0rexu6p8"]
+[gd_scene load_steps=26 format=3 uid="uid://das5p0rexu6p8"]
 
 [ext_resource type="Texture2D" uid="uid://5gfo1dfua82j" path="res://Sprites/player_idle.png" id="1_ec02m"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_v43g5"]
@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://bod303gs2jexh" path="res://Sprites/player_slam.png" id="6_hsxsq"]
 [ext_resource type="Texture2D" uid="uid://d4c6gyi1qg5vf" path="res://Sprites/Slash.png" id="9_y2lmu"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_xuak4"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kybed"]
 size = Vector2(99, 83)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tdbd8"]
@@ -29,7 +29,7 @@ region = Rect2(0, 0, 16, 16)
 atlas = ExtResource("2_kxxys")
 region = Rect2(16, 0, 16, 16)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_gvuyv"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_je8c0"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -94,7 +94,7 @@ animations = [{
 "speed": 3.0
 }]
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_afnkc"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_cqwmd"]
 particle_flag_disable_z = true
 emission_shape_scale = Vector3(16, 4, 1)
 emission_shape = 3
@@ -108,6 +108,10 @@ linear_accel_max = 70.49
 scale_min = 5.0
 scale_max = 15.0
 color = Color(0, 0, 0, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w253d"]
+atlas = ExtResource("9_y2lmu")
+region = Rect2(120, 0, 20, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4h47y"]
 atlas = ExtResource("9_y2lmu")
@@ -133,13 +137,12 @@ region = Rect2(80, 0, 20, 16)
 atlas = ExtResource("9_y2lmu")
 region = Rect2(100, 0, 20, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_w253d"]
-atlas = ExtResource("9_y2lmu")
-region = Rect2(120, 0, 20, 16)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_nfnaq"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_uejrb"]
 animations = [{
 "frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w253d")
+}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_4h47y")
 }, {
@@ -166,33 +169,50 @@ animations = [{
 "speed": 40.0
 }]
 
-[node name="Player" type="Node2D"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tmknj"]
+radius = 8.18914
+height = 25.7387
 
-[node name="Player" type="CharacterBody2D" parent="."]
+[node name="player" type="CharacterBody2D"]
 script = ExtResource("1_v43g5")
 
-[node name="Collision" type="CollisionShape2D" parent="Player"]
+[node name="body_collision" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, 17.5)
-shape = SubResource("RectangleShape2D_xuak4")
+shape = SubResource("RectangleShape2D_kybed")
 
-[node name="sprite" type="AnimatedSprite2D" parent="Player"]
+[node name="sprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -9)
 scale = Vector2(8.5, 8.5)
-sprite_frames = SubResource("SpriteFrames_gvuyv")
+sprite_frames = SubResource("SpriteFrames_je8c0")
 animation = &"idle"
 autoplay = "idle"
 
-[node name="land_particles" type="GPUParticles2D" parent="Player"]
+[node name="land_particles" type="GPUParticles2D" parent="."]
 position = Vector2(0, 58)
 emitting = false
 amount = 32
-process_material = SubResource("ParticleProcessMaterial_afnkc")
+process_material = SubResource("ParticleProcessMaterial_cqwmd")
 lifetime = 0.8
 randomness = 0.5
 
-[node name="slash" type="AnimatedSprite2D" parent="Player"]
-position = Vector2(55, -11)
-scale = Vector2(11.0312, 11.0312)
-sprite_frames = SubResource("SpriteFrames_nfnaq")
-frame = 6
+[node name="slash" type="AnimatedSprite2D" parent="."]
+position = Vector2(63, 30)
+rotation = 0.0250715
+scale = Vector2(11.7714, 12.6888)
+sprite_frames = SubResource("SpriteFrames_uejrb")
+frame = 7
 frame_progress = 1.0
+
+[node name="slash" type="Area2D" parent="slash"]
+collision_layer = 4
+
+[node name="slash_collision" type="CollisionShape2D" parent="slash/slash"]
+position = Vector2(0.993542, -0.969126)
+rotation = 1.41249
+scale = Vector2(1.19947, 1.02001)
+shape = SubResource("CapsuleShape2D_tmknj")
+
+[node name="dash" type="Timer" parent="."]
+wait_time = 0.12
+
+[connection signal="timeout" from="dash" to="." method="_on_dash_timeout"]
