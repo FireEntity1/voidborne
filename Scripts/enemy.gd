@@ -25,7 +25,9 @@ func _physics_process(delta):
 		var target_velocity = Vector2(max_speed * dir, linear_velocity.y)
 		var force = (target_velocity - linear_velocity) * mass * 5.0
 		apply_central_force(Vector2(force.x, 0))
-
+	
+	if health <= 0:
+		queue_free()
 
 func _on_detection_body_entered(body):
 	if body is CharacterBody2D and body.name == "player":
