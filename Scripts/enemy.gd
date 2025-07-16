@@ -4,6 +4,8 @@ var player: CharacterBody2D
 
 var chasing = false
 
+var enemy = true
+
 var dir = 1
 
 var knocked = false

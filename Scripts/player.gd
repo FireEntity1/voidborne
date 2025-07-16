@@ -8,6 +8,8 @@ const JUMP_VELOCITY = -1600.0
 var dashing = false
 var can_dash = true
 
+var can_attack = true
+
 var damage = 5
 
 var slashing = false
@@ -72,26 +74,28 @@ func _physics_process(delta):
 	if direction != 0:
 		last_dir = direction
 	
-	if last_dir == 1:
+	if last_dir == 1 and can_attack:
 			$slash.flip_h = false
 			$slash.position.x = 90
 			$slash.rotation_degrees = 20
-		
-	elif last_dir == -1:
+	elif last_dir == -1 and can_attack:
 		$slash.flip_h = true
 		$slash.position.x = -90
 		$slash.rotation_degrees = -20
 	
-	if Input.is_action_just_pressed("attack"):
+	if Input.is_action_just_pressed("attack") and can_attack:
 		slashing = true
+		can_attack = false
 		$slash.play()
 		var areas = $slash/slash.get_overlapping_bodies()
 		var enemies = []
 		for area in areas:
-			if area.name == "enemy":
+			if area is RigidBody2D:
 				area.health -= damage
 				area.hit()
 				print("hit")
+		await get_tree().create_timer(0.2).timeout
+		can_attack = true
 
 	if Input.is_action_just_pressed("dash"):
 		if can_dash:

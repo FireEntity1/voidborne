@@ -10,13 +10,15 @@ size = Vector2(2124, 280)
 
 [node name="static" type="StaticBody2D" parent="."]
 position = Vector2(584, 575)
+collision_layer = 8
+collision_mask = 15
 
 [node name="collision" type="CollisionShape2D" parent="static"]
 position = Vector2(378, 494)
 shape = SubResource("RectangleShape2D_oy3it")
 
-[node name="enemy" parent="." instance=ExtResource("2_s6366")]
-position = Vector2(1435, 841)
-
 [node name="player" parent="." instance=ExtResource("1_e1us0")]
-position = Vector2(873, 760)
+position = Vector2(597, 764)
+
+[node name="flicker" parent="." instance=ExtResource("2_s6366")]
+position = Vector2(1304, 800)
