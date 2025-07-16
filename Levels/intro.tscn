@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://do2lwffpt3ckb"]
 
 [ext_resource type="PackedScene" uid="uid://das5p0rexu6p8" path="res://Components/player.tscn" id="1_e1us0"]
-[ext_resource type="PackedScene" uid="uid://kl8sy5tjjmnb" path="res://Components/enemy.tscn" id="2_s6366"]
+[ext_resource type="PackedScene" uid="uid://kl8sy5tjjmnb" path="res://Components/flicker.tscn" id="2_s6366"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oy3it"]
 size = Vector2(2124, 280)

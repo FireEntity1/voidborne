@@ -26,6 +26,16 @@ func _physics_process(delta):
 		var force = (target_velocity - linear_velocity) * mass * 5.0
 		apply_central_force(Vector2(force.x, 0))
 	
+	if dir == -1:
+		$sprite.flip_h = false
+	elif dir == 1:
+		$sprite.flip_h = true
+	
+	if not knocked:
+		$sprite.play("default")
+	elif knocked:
+		$sprite.play("hit")
+	
 	if health <= 0:
 		queue_free()
 
