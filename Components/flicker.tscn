@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://kl8sy5tjjmnb"]
+[gd_scene load_steps=15 format=3 uid="uid://kl8sy5tjjmnb"]
 
 [ext_resource type="Script" path="res://scripts/enemy.gd" id="1_3ira2"]
 [ext_resource type="Texture2D" uid="uid://dqn4di4rcgyed" path="res://Sprites/flicker.png" id="2_qlvxn"]
@@ -79,6 +79,18 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mtkkn"]
 size = Vector2(78, 134)
 
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_sk1jr"]
+particle_flag_disable_z = true
+angle_min = 1.07288e-05
+angle_max = 1.07288e-05
+direction = Vector3(0, 0, 0)
+spread = 180.0
+initial_velocity_min = 155.74
+initial_velocity_max = 155.74
+gravity = Vector3(0, 98, 0)
+scale_min = 12.0
+scale_max = 12.0
+
 [node name="flicker" type="RigidBody2D"]
 collision_layer = 2
 collision_mask = 12
@@ -103,5 +115,13 @@ autoplay = "default"
 position = Vector2(-4, 0)
 shape = SubResource("RectangleShape2D_mtkkn")
 one_way_collision_margin = 0.0
+
+[node name="death_particles" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 32
+process_material = SubResource("ParticleProcessMaterial_sk1jr")
+lifetime = 0.5
+one_shot = true
+explosiveness = 0.65
 
 [connection signal="body_entered" from="detection" to="." method="_on_detection_body_entered"]

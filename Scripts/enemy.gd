@@ -39,7 +39,8 @@ func _physics_process(delta):
 		$sprite.play("hit")
 	
 	if health <= 0:
-		queue_free()
+		$sprite.hide()
+		
 
 func _on_detection_body_entered(body):
 	if body is CharacterBody2D and body.name == "player":
