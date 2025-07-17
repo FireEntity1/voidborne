@@ -40,9 +40,10 @@ func _physics_process(delta):
 	
 	if health <= 0:
 		$sprite.hide()
-		
-
+		self.queue_free()
+	
 func _on_detection_body_entered(body):
+	print("body entered")
 	if body is CharacterBody2D and body.name == "player":
 		player = body
 		chasing = true
@@ -57,3 +58,7 @@ func hit():
 		dir = -1
 	await get_tree().create_timer(0.3).timeout
 	knocked = false
+
+func _on_hit_collision_body_entered(body):
+	if body.name == "player":
+		body.hit()

@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://3h55dsjsd7jo"]
+
+[ext_resource type="SpriteFrames" uid="uid://dc7xpysgg1yk8" path="res://Resources/heartbeat.tres" id="1_vfxvk"]
+
+[node name="Heart" type="Node2D"]
+
+[node name="heartbeat" type="AnimatedSprite2D" parent="."]
+position = Vector2(81, 78)
+scale = Vector2(9.375, 9.375)
+sprite_frames = ExtResource("1_vfxvk")
+autoplay = "default"
+frame = 1
+frame_progress = 0.0588471

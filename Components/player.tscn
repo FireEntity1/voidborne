@@ -222,4 +222,6 @@ position = Vector2(0, -118)
 position_smoothing_enabled = true
 rotation_smoothing_enabled = true
 
+[node name="ui" type="CanvasLayer" parent="."]
+
 [connection signal="timeout" from="dash" to="." method="_on_dash_timeout"]

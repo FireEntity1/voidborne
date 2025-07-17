@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://kl8sy5tjjmnb"]
+[gd_scene load_steps=16 format=3 uid="uid://kl8sy5tjjmnb"]
 
 [ext_resource type="Script" path="res://scripts/enemy.gd" id="1_3ira2"]
 [ext_resource type="Texture2D" uid="uid://dqn4di4rcgyed" path="res://Sprites/flicker.png" id="2_qlvxn"]
@@ -91,6 +91,9 @@ gravity = Vector3(0, 98, 0)
 scale_min = 12.0
 scale_max = 12.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_07c02"]
+size = Vector2(74, 178)
+
 [node name="flicker" type="RigidBody2D"]
 collision_layer = 2
 collision_mask = 12
@@ -124,4 +127,11 @@ lifetime = 0.5
 one_shot = true
 explosiveness = 0.65
 
+[node name="hit_collision" type="Area2D" parent="."]
+
+[node name="collision" type="CollisionShape2D" parent="hit_collision"]
+position = Vector2(-3, -1)
+shape = SubResource("RectangleShape2D_07c02")
+
 [connection signal="body_entered" from="detection" to="." method="_on_detection_body_entered"]
+[connection signal="body_entered" from="hit_collision" to="." method="_on_hit_collision_body_entered"]

@@ -18,12 +18,18 @@ var slamming = false
 
 var flip = true # right false, left true
 
+var can_take_damage = true
+
+var health = 5
+var heart_scene = preload("res://Components/heart.tscn")
+
 var direction = 1
 
 var last_dir = 1
 
 func _ready():
 	$land_particles.emitting = false
+	update_hearts()
 
 func _physics_process(delta):
 	if not is_on_floor():
@@ -73,7 +79,7 @@ func _physics_process(delta):
 	
 	if direction != 0:
 		last_dir = direction
-	
+
 	if last_dir == 1 and can_attack:
 			$slash.flip_h = false
 			$slash.position.x = 90
@@ -119,5 +125,24 @@ func _physics_process(delta):
 	
 	move_and_slide()
 
+func update_hearts():
+	if health > 0:
+		for node in $ui.get_children():
+			$ui.remove_child(node)
+			node.queue_free()
+		for i in range(health):
+			var heart = heart_scene.instantiate()
+			heart.position.x = i*150
+			$ui.add_child(heart)
+
 func _on_dash_timeout():
 	can_dash = true
+
+func hit():
+	if can_take_damage:
+		health -= 1
+		update_hearts()
+		can_take_damage = false
+		await get_tree().create_timer(0.5).timeout
+		can_take_damage = true
+		
