@@ -138,11 +138,18 @@ func update_hearts():
 func _on_dash_timeout():
 	can_dash = true
 
-func hit():
+func hit(enemy_pos):
 	if can_take_damage:
+		var dir = position.x - enemy_pos.x
+		if dir > 0:
+			velocity.x = 3000
+		else:
+			velocity.x = -3000
+		$hit_particles.emitting = true
 		health -= 1
+		
+		add_child(preload("res://Components/damage_flash.tscn").instantiate())
 		update_hearts()
 		can_take_damage = false
 		await get_tree().create_timer(0.5).timeout
 		can_take_damage = true
-		

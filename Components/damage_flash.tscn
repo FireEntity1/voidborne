@@ -1,0 +1,42 @@
+[gd_scene load_steps=2 format=3 uid="uid://bbmqc8ktyd3vf"]
+
+[sub_resource type="GDScript" id="GDScript_fwiaw"]
+resource_name = "damage_flash"
+script/source = "extends Control
+
+@onready var rect = $layer/rect
+
+func _ready():
+	rect.modulate.a = 1
+
+func _process(delta):
+	rect.modulate.a = 1
+	await timer(0.1)
+	rect.modulate.a = 0
+	await timer(0.3)
+	rect.modulate.a = 1
+	await timer(0.1)
+	self.queue_free()
+	
+
+func timer(sec):
+	await get_tree().create_timer(sec).timeout
+	return
+"
+
+[node name="DamageFlash" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = SubResource("GDScript_fwiaw")
+
+[node name="layer" type="CanvasLayer" parent="."]
+
+[node name="rect" type="ColorRect" parent="layer"]
+custom_minimum_size = Vector2(1920, 1080)
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(1, 0, 0, 0.0941176)

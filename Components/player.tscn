@@ -96,15 +96,14 @@ animations = [{
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_cqwmd"]
 particle_flag_disable_z = true
-emission_shape_scale = Vector3(16, 4, 1)
 emission_shape = 3
-emission_box_extents = Vector3(10, 0, 1)
+emission_box_extents = Vector3(1, 0, 1)
 direction = Vector3(0, -1, 0)
 initial_velocity_min = 360.66
 initial_velocity_max = 368.85
-gravity = Vector3(0, 98, 0)
-linear_accel_min = -29.51
-linear_accel_max = 70.49
+gravity = Vector3(0, 500, 0)
+linear_accel_min = 19.67
+linear_accel_max = 95.08
 scale_min = 5.0
 scale_max = 15.0
 color = Color(0, 0, 0, 1)
@@ -194,6 +193,16 @@ emitting = false
 amount = 32
 process_material = SubResource("ParticleProcessMaterial_cqwmd")
 lifetime = 0.8
+randomness = 0.5
+
+[node name="hit_particles" type="GPUParticles2D" parent="."]
+position = Vector2(0, 58)
+emitting = false
+amount = 32
+process_material = SubResource("ParticleProcessMaterial_cqwmd")
+lifetime = 0.8
+one_shot = true
+explosiveness = 0.63
 randomness = 0.5
 
 [node name="slash" type="AnimatedSprite2D" parent="."]

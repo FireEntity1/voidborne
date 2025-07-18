@@ -61,4 +61,4 @@ func hit():
 
 func _on_hit_collision_body_entered(body):
 	if body.name == "player":
-		body.hit()
+		body.hit(self.position)
