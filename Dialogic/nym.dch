@@ -8,12 +8,23 @@
 "sound_moods": {},
 "style": ""
 },
-"default_portrait": "",
+"default_portrait": "default",
 "description": "A resident of the outskirts",
 "display_name": "Nym",
 "mirror": false,
 "nicknames": [""],
 "offset": Vector2(0, 0),
-"portraits": {},
+"portraits": {
+"default": {
+"export_overrides": {
+"image": "\"res://Dialogic/Portraits/nym.png\""
+},
+"ignore_char_scale": false,
+"mirror": false,
+"offset": Vector2(-600, -50),
+"scale": 36.0,
+"scene": ""
+}
+},
 "scale": 1.0
 }

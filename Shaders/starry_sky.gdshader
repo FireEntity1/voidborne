@@ -24,7 +24,7 @@ float rand(vec2 st) {
 	}
 float remap(float prob, float starValue) {
 	return (starValue - prob)/(1.0-prob);
-	} 
+	}
 void fragment() {
 	float prob = 1.0 - frequencyStar;
 	float travelx = TIME*horizontalMovement;

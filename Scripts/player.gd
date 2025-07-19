@@ -37,7 +37,7 @@ func _physics_process(delta):
 	else:
 		jumps = 2
 
-	if Input.is_action_just_pressed("jump") and is_on_floor():
+	if Input.is_action_just_pressed("jump") and is_on_floor() and global.can_move:
 		velocity.y = JUMP_VELOCITY
 		jumps = 1
 	
@@ -53,7 +53,7 @@ func _physics_process(delta):
 		slamming = true
 	
 	direction = Input.get_axis("left", "right")
-	if direction:
+	if direction and global.can_move:
 		velocity.x = move_toward(velocity.x, direction * SPEED, 8000 * delta)
 		if can_dash:
 			$sprite.play("walk")
@@ -89,7 +89,7 @@ func _physics_process(delta):
 		$slash.position.x = -90
 		$slash.rotation_degrees = -20
 	
-	if Input.is_action_just_pressed("attack") and can_attack:
+	if Input.is_action_just_pressed("attack") and can_attack and global.can_move:
 		slashing = true
 		can_attack = false
 		$slash.play()
@@ -103,7 +103,7 @@ func _physics_process(delta):
 		await get_tree().create_timer(0.2).timeout
 		can_attack = true
 
-	if Input.is_action_just_pressed("dash"):
+	if Input.is_action_just_pressed("dash") and global.can_move:
 		if can_dash:
 			dashing = true
 			$sprite.play("dash")

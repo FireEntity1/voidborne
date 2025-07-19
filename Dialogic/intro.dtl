@@ -1,3 +1,20 @@
 join nym center
-nym: Welcome to the outskirts.
-nym: <Empty Text Event>
+do global.disable_input()
+Welcome, voidborn.
+nym: My name is Nym, I am but a mere resident of this land
+nym: What do you call yourself?
+[text_input text="What do you call yourself?" var="name" placeholder="voidborn" default="voidborn" allow_empty="true"]
+nym: Hello, {name}
+nym: Your appearance means something.
+nym: It means the world is cracking again.
+nym: Our land, Halcrya, dreams of something new . . .
+nym: Yet continues to follow the same routines, the same schedules.
+nym: Ignoring, being controlled.
+nym: Too afraid to speak out.
+nym: You are not bound like they are.
+nym: That frightens [speed=20]it.
+. . .
+nym: Seek freedom.
+nym: Seek liberation.
+nym: Free us from this endless chokehold.
+do global.enable_input()

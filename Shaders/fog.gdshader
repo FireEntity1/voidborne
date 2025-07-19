@@ -21,12 +21,12 @@ void vertex() {
 
 void fragment() {
 	vec2 offset = pos/textureResolution;
-	
+
 	vec4 col1 = texture(noise, UV + offset - (moveDir*TIME/100.0));
 	vec4 col2 = texture(noise2, UV + offset - (moveDir*TIME/20.0));
-	
+
 	col1.a = sin_range(col1.a/3.0, col1.a, TIME);
 	col2.a = sin_range(col2.a/1.1, col2.a, TIME*4.0);
-	
+
 	COLOR = mix(col1, col2, col2.a)*col;
 }

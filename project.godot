@@ -18,15 +18,25 @@ config/icon="res://Sprites/icon.svg"
 [autoload]
 
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
+global="*res://Scripts/global.gd"
 
 [dialogic]
 
 directories/dch_directory={
+"???": "res://Dialogic/???.dch",
 "nym": "res://Dialogic/nym.dch"
 }
 directories/dtl_directory={
-"intro": "res://Dialogic/intro.dtl"
+"intro": "res://Dialogic/intro.dtl",
+"jump_orb_intro": "res://Dialogic/jump_orb_intro.dtl"
 }
+layout/style_list=["res://Dialogic/style.tres"]
+layout/default_style="res://Dialogic/style.tres"
+variables={
+"": {},
+"name": "voidborn"
+}
+glossary/default_case_sensitive=true
 
 [display]
 
