@@ -48,7 +48,7 @@ radius = 130.817
 scale = Vector2(18.375, 18.375)
 sprite_frames = SubResource("SpriteFrames_ismb3")
 autoplay = "default"
-frame_progress = 0.972186
+frame_progress = 0.0989053
 
 [node name="area" type="Area2D" parent="."]
 script = ExtResource("2_pmu7g")

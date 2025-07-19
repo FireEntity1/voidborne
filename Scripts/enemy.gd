@@ -39,6 +39,9 @@ func _physics_process(delta):
 		$sprite.play("hit")
 	
 	if health <= 0:
+		$sprite.play("hit")
+		enemy = false
+		await get_tree().create_timer(0.2).timeout
 		$sprite.hide()
 		self.queue_free()
 	
@@ -50,6 +53,7 @@ func _on_detection_body_entered(body):
 
 func hit():
 	knocked = true
+	$hit_particles.emitting = true
 	if player.position.x < self.position.x:
 		linear_velocity = Vector2(1300,0)
 		dir = 1
