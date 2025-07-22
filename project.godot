@@ -24,13 +24,15 @@ global="*res://Scripts/global.gd"
 
 directories/dch_directory={
 "???": "res://Dialogic/???.dch",
-"nym": "res://Dialogic/nym.dch"
+"nym": "res://Dialogic/nym.dch",
+"voidwell": "res://Dialogic/voidwell.dch"
 }
 directories/dtl_directory={
 "enemy_intro": "res://Dialogic/enemy_intro.dtl",
 "intro": "res://Dialogic/intro.dtl",
 "jump_orb_intro": "res://Dialogic/jump_orb_intro.dtl",
-"prelude": "res://Dialogic/prelude.dtl"
+"prelude": "res://Dialogic/prelude.dtl",
+"voidwell": "res://Dialogic/voidwell.dtl"
 }
 layout/style_list=["res://Dialogic/style.tres"]
 layout/default_style="res://Dialogic/style.tres"

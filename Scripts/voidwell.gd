@@ -1,6 +1,7 @@
 extends Node2D
 
 @export var id: String
+@export var timeline: DialogicTimeline
 
 func _ready():
 	pass

@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://drqbowe6cwh14"]
+[gd_scene load_steps=8 format=3 uid="uid://drqbowe6cwh14"]
 
 [ext_resource type="Script" path="res://scripts/voidwell.gd" id="1_cdrt4"]
 [ext_resource type="Texture2D" uid="uid://lja3f7gt7pmy" path="res://Sprites/void-well.png" id="1_hyf8e"]
+[ext_resource type="Resource" path="res://Dialogic/voidwell.dtl" id="2_3c4lw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_r8obl"]
 atlas = ExtResource("1_hyf8e")
@@ -30,6 +31,7 @@ size = Vector2(534, 402)
 
 [node name="Voidwell" type="Node2D"]
 script = ExtResource("1_cdrt4")
+timeline = ExtResource("2_3c4lw")
 
 [node name="sprite" type="AnimatedSprite2D" parent="."]
 scale = Vector2(25.5, 25.5)
