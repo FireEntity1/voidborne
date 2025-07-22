@@ -3,6 +3,9 @@ extends Node
 var save_file = {
 	"hearts": 5,
 	"damage": 5,
+	"has_fragment": false,
+	"checkpoint": "spawn",
+	"world": "outlands"
 }
 
 const SAVE_DIRECTORY = "user://save.void"
@@ -11,8 +14,10 @@ var can_move = true
 
 var fade_scene = preload("res://Components/fade_to.tscn")
 var title_scene = preload("res://Components/title_text.tscn")
+var frag_anim_scene = preload("res://Components/void_frag_anim.tscn")
 
 func _ready():
+	save()
 	load_save()
 
 func disable_input():
@@ -49,3 +54,13 @@ func load_save():
 		save_file = JSON.parse_string(content)
 	else:
 		save()
+
+func frag_animation():
+	var scene = frag_anim_scene.instantiate()
+	add_child(scene)
+
+func get_spawn_coords():
+	match save_file.checkpoint:
+		"spawn": return Vector2(597,767)
+		"outlands_boss": return Vector2(4739,-5548)
+		

@@ -166,8 +166,15 @@ func hit(enemy_pos):
 		can_take_damage = false
 		await get_tree().create_timer(0.5).timeout
 		can_take_damage = true
+		if health <= 0:
+			respawn()
 
 func add_voidwell(value: int):
 	if not voidwell >= 100:
 		voidwell += value
 		$ui/voidwell.value = voidwell
+
+func respawn():
+	var coords = global.get_spawn_coords()
+	self.position = coords
+	health = global.save_file.hearts

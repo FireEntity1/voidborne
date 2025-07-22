@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://okrtdjwlb8ll"]
+[gd_scene load_steps=10 format=3 uid="uid://okrtdjwlb8ll"]
 
+[ext_resource type="Script" path="res://scripts/void_fragment.gd" id="1_kofea"]
 [ext_resource type="Texture2D" uid="uid://c0bs2lvbmyt6" path="res://Sprites/heart_fragment.png" id="1_sh1sv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7onsp"]
@@ -38,10 +39,43 @@ animations = [{
 "speed": 3.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_px234"]
+size = Vector2(184, 164)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_gbw1c"]
+particle_flag_disable_z = true
+direction = Vector3(1, 10, 0)
+spread = 180.0
+initial_velocity_min = 106.55
+initial_velocity_max = 253.1
+angular_velocity_min = -342.3
+angular_velocity_max = 106.23
+gravity = Vector3(0, 0, 0)
+scale_min = 9.2
+scale_max = 9.2
+color = Color(0, 0, 0, 1)
+
 [node name="void_fragment" type="Node2D"]
+script = ExtResource("1_kofea")
 
 [node name="sprite" type="AnimatedSprite2D" parent="."]
 scale = Vector2(8.375, 8.375)
 sprite_frames = SubResource("SpriteFrames_dsafu")
+autoplay = "default"
 frame = 1
 frame_progress = 0.452451
+
+[node name="area" type="Area2D" parent="."]
+
+[node name="collision" type="CollisionShape2D" parent="area"]
+shape = SubResource("RectangleShape2D_px234")
+
+[node name="particles" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 32
+process_material = SubResource("ParticleProcessMaterial_gbw1c")
+lifetime = 5.0
+one_shot = true
+explosiveness = 0.85
+
+[connection signal="body_entered" from="area" to="." method="_on_area_body_entered"]

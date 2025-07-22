@@ -1,0 +1,104 @@
+[gd_scene load_steps=15 format=3 uid="uid://rx8dl4lsnvnt"]
+
+[ext_resource type="Script" path="res://scripts/void_frag_anim.gd" id="1_aqw0i"]
+[ext_resource type="Texture2D" uid="uid://div2uar4cwld2" path="res://Sprites/fragment_combine_anim.png" id="1_g0fka"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_adgqi"]
+atlas = ExtResource("1_g0fka")
+region = Rect2(0, 0, 24, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oofkp"]
+atlas = ExtResource("1_g0fka")
+region = Rect2(24, 0, 24, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hvg40"]
+atlas = ExtResource("1_g0fka")
+region = Rect2(48, 0, 24, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5kekf"]
+atlas = ExtResource("1_g0fka")
+region = Rect2(72, 0, 24, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_okgrj"]
+atlas = ExtResource("1_g0fka")
+region = Rect2(96, 0, 24, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fao6g"]
+atlas = ExtResource("1_g0fka")
+region = Rect2(120, 0, 24, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xlxy8"]
+atlas = ExtResource("1_g0fka")
+region = Rect2(144, 0, 24, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yky0k"]
+atlas = ExtResource("1_g0fka")
+region = Rect2(168, 0, 24, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0rk53"]
+atlas = ExtResource("1_g0fka")
+region = Rect2(192, 0, 24, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0bu7o"]
+atlas = ExtResource("1_g0fka")
+region = Rect2(216, 0, 24, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_npolr"]
+atlas = ExtResource("1_g0fka")
+region = Rect2(240, 0, 24, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fd3mk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_adgqi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oofkp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hvg40")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5kekf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_okgrj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fao6g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xlxy8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yky0k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0rk53")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0bu7o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_npolr")
+}],
+"loop": false,
+"name": &"default",
+"speed": 15.0
+}]
+
+[node name="VoidFragAnim" type="Node2D"]
+script = ExtResource("1_aqw0i")
+
+[node name="layer" type="CanvasLayer" parent="."]
+
+[node name="sprite" type="AnimatedSprite2D" parent="layer"]
+position = Vector2(949, 536)
+scale = Vector2(68, 68)
+sprite_frames = SubResource("SpriteFrames_fd3mk")
+
+[node name="timer" type="Timer" parent="."]
+wait_time = 2.0
+
+[connection signal="timeout" from="timer" to="." method="_on_timer_timeout"]

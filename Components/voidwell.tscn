@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=3 uid="uid://drqbowe6cwh14"]
+
+[ext_resource type="Script" path="res://scripts/voidwell.gd" id="1_cdrt4"]
+[ext_resource type="Texture2D" uid="uid://lja3f7gt7pmy" path="res://Sprites/void-well.png" id="1_hyf8e"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r8obl"]
+atlas = ExtResource("1_hyf8e")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lwbe1"]
+atlas = ExtResource("1_hyf8e")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8o7xj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r8obl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lwbe1")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gal75"]
+size = Vector2(534, 402)
+
+[node name="Voidwell" type="Node2D"]
+script = ExtResource("1_cdrt4")
+
+[node name="sprite" type="AnimatedSprite2D" parent="."]
+scale = Vector2(25.5, 25.5)
+sprite_frames = SubResource("SpriteFrames_8o7xj")
+autoplay = "default"
+frame_progress = 0.97512
+
+[node name="area" type="Area2D" parent="."]
+collision_mask = 15
+
+[node name="collision" type="CollisionShape2D" parent="area"]
+shape = SubResource("RectangleShape2D_gal75")
+
+[connection signal="body_entered" from="area" to="." method="_on_area_body_entered"]
