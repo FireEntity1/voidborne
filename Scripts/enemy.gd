@@ -40,6 +40,8 @@ func _physics_process(delta):
 	
 	if health <= 0:
 		$sprite.play("hit")
+		if enemy:
+			player.add_voidwell(10)
 		enemy = false
 		await get_tree().create_timer(0.2).timeout
 		$sprite.hide()

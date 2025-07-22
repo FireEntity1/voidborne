@@ -13,7 +13,9 @@
 
 [sub_resource type="Resource" id="Resource_86g6x"]
 script = ExtResource("1_j2vai")
-overrides = {}
+overrides = {
+"global_font_size": "48.0"
+}
 
 [sub_resource type="Resource" id="Resource_7jswa"]
 script = ExtResource("1_j2vai")
@@ -37,9 +39,10 @@ script = ExtResource("1_j2vai")
 scene = ExtResource("5_3xygo")
 overrides = {
 "box_size": "Vector2(800, 320)",
-"name_label_custom_font_size": "32.0",
+"name_label_box_offset": "Vector2(0, -38)",
+"name_label_custom_font_size": "64.0",
 "name_label_use_global_font_size": "false",
-"text_size": "32.0",
+"text_size": "48.0",
 "text_use_global_size": "false"
 }
 
@@ -80,4 +83,4 @@ layer_info = {
 }
 base_overrides = {}
 layers = Array[ExtResource("1_j2vai")]([])
-metadata/_latest_layer = "11"
+metadata/_latest_layer = ""

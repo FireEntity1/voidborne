@@ -1,0 +1,15 @@
+[speed=24] .    .    .
+???: [speed=12] In a world of light . . .
+???: [speed=12] You . . . a being of dark . . .
+???: [speed=12] A being of void . . .
+???: [speed=12] Cannot . . . [speed=18] live
+[speed=24] .   .   .
+???: [speed=14] Do not . . . proceed . . .
+???: [speed=14] Do not . . . [speed=24] ruin . . .
+do global.fade(true, 8, false)
+[wait time="6.0"]
+do global.change_level("intro")
+[wait time="1.9"]
+do global.fade(false, 5, false)
+[wait time="2.0"]
+do global.title("The Outlands")

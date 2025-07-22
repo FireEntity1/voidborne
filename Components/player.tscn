@@ -170,7 +170,7 @@ animations = [{
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tmknj"]
 radius = 8.18914
-height = 25.7387
+height = 36.028
 
 [node name="player" type="CharacterBody2D"]
 collision_mask = 9
@@ -231,6 +231,25 @@ position = Vector2(0, -118)
 position_smoothing_enabled = true
 rotation_smoothing_enabled = true
 
+[node name="ui_health" type="CanvasLayer" parent="."]
+
 [node name="ui" type="CanvasLayer" parent="."]
+
+[node name="voidwell" type="ProgressBar" parent="ui"]
+custom_minimum_size = Vector2(150, 350)
+anchors_preset = -1
+anchor_left = 0.397
+anchor_top = -0.587
+anchor_right = 0.476
+anchor_bottom = -0.263
+offset_left = 942.76
+offset_top = 666.96
+offset_right = 941.08
+offset_bottom = 667.04
+grow_horizontal = 2
+grow_vertical = 2
+value = 20.0
+fill_mode = 3
+show_percentage = false
 
 [connection signal="timeout" from="dash" to="." method="_on_dash_timeout"]

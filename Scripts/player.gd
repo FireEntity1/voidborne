@@ -12,6 +12,8 @@ var can_attack = true
 
 var damage = 5
 
+var voidwell = 10
+
 var slashing = false
 
 var slamming = false
@@ -22,6 +24,7 @@ var can_take_damage = true
 
 var health = 5
 var heart_scene = preload("res://Components/heart.tscn")
+var heart_damaged_scene = preload("res://Components/heart_damaged.tscn")
 
 var direction = 1
 
@@ -29,6 +32,7 @@ var last_dir = 1
 
 func _ready():
 	$land_particles.emitting = false
+	add_voidwell(10)
 	update_hearts()
 
 func _physics_process(delta):
@@ -126,14 +130,23 @@ func _physics_process(delta):
 	move_and_slide()
 
 func update_hearts():
+	var i = 0
+	var extras = global.save_file.hearts - health
 	if health > 0:
-		for node in $ui.get_children():
-			$ui.remove_child(node)
-			node.queue_free()
-		for i in range(health):
+		for node in $ui_health.get_children():
+			if node is not ProgressBar:
+				$ui_health.remove_child(node)
+				node.queue_free()
+		for each_heart in range(health):
 			var heart = heart_scene.instantiate()
 			heart.position.x = i*150
-			$ui.add_child(heart)
+			i += 1
+			$ui_health.add_child(heart)
+		for extra_heart in range(extras):
+			var heart = heart_damaged_scene.instantiate()
+			heart.position.x = i*150
+			i += 1
+			$ui_health.add_child(heart)
 
 func _on_dash_timeout():
 	can_dash = true
@@ -153,3 +166,8 @@ func hit(enemy_pos):
 		can_take_damage = false
 		await get_tree().create_timer(0.5).timeout
 		can_take_damage = true
+
+func add_voidwell(value: int):
+	if not voidwell >= 100:
+		voidwell += value
+		$ui/voidwell.value = voidwell

@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://cvfw43kppakum"]
+
+[ext_resource type="Script" path="res://scripts/fade_to.gd" id="1_jgovq"]
+
+[node name="FadeTo" type="Node2D"]
+script = ExtResource("1_jgovq")
+
+[node name="layer" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="fade" type="ColorRect" parent="layer"]
+custom_minimum_size = Vector2(1920, 1080)
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0, 0, 0, 1)

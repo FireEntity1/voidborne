@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dndkorngqhcst"]
+
+[ext_resource type="Texture2D" uid="uid://26id80j3pjxt" path="res://Sprites/heart_empty.png" id="1_twnhl"]
+
+[node name="Heart" type="Node2D"]
+
+[node name="heartbeat" type="Sprite2D" parent="."]
+position = Vector2(81, 78)
+scale = Vector2(9.375, 9.375)
+texture = ExtResource("1_twnhl")

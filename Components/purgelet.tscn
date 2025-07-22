@@ -1,0 +1,144 @@
+[gd_scene load_steps=15 format=3 uid="uid://xpuulebmleiu"]
+
+[ext_resource type="Script" path="res://scripts/enemy.gd" id="1_4j3x7"]
+[ext_resource type="Texture2D" uid="uid://bg8ynye8k1ha3" path="res://Sprites/purgelet.png" id="2_6tds0"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mrict"]
+radius = 637.999
+height = 3508.01
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bfy3h"]
+atlas = ExtResource("2_6tds0")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_57oue"]
+atlas = ExtResource("2_6tds0")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q4opj"]
+atlas = ExtResource("2_6tds0")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8stig"]
+atlas = ExtResource("2_6tds0")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q1807"]
+atlas = ExtResource("2_6tds0")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0pnox"]
+atlas = ExtResource("2_6tds0")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mticx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bfy3h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_57oue")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q4opj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8stig")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q1807")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0pnox")
+}],
+"loop": true,
+"name": &"hit",
+"speed": 15.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mtkkn"]
+size = Vector2(161, 43)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_sk1jr"]
+particle_flag_disable_z = true
+angle_min = 1.07288e-05
+angle_max = 1.07288e-05
+direction = Vector3(0, 0, 0)
+spread = 180.0
+initial_velocity_min = 155.74
+initial_velocity_max = 155.74
+gravity = Vector3(0, 98, 0)
+scale_min = 12.0
+scale_max = 12.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_07c02"]
+size = Vector2(174, 72)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_q7k3w"]
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+spread = 180.0
+initial_velocity_min = 606.55
+initial_velocity_max = 778.69
+angular_velocity_min = 342.3
+angular_velocity_max = 342.3
+gravity = Vector3(0, 98, 0)
+scale_min = 13.0
+scale_max = 13.0
+
+[node name="flicker" type="RigidBody2D"]
+collision_layer = 2
+collision_mask = 12
+lock_rotation = true
+contact_monitor = true
+script = ExtResource("1_4j3x7")
+
+[node name="detection" type="Area2D" parent="."]
+
+[node name="collision" type="CollisionShape2D" parent="detection"]
+visible = false
+rotation = 1.57087
+shape = SubResource("CapsuleShape2D_mrict")
+
+[node name="sprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(2, -18)
+scale = Vector2(10.75, 10.75)
+sprite_frames = SubResource("SpriteFrames_mticx")
+autoplay = "default"
+frame_progress = 0.448733
+
+[node name="collision" type="CollisionShape2D" parent="."]
+position = Vector2(7.5, 46.5)
+shape = SubResource("RectangleShape2D_mtkkn")
+one_way_collision_margin = 0.0
+
+[node name="death_particles" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 32
+process_material = SubResource("ParticleProcessMaterial_sk1jr")
+lifetime = 0.5
+one_shot = true
+explosiveness = 0.65
+
+[node name="hit_collision" type="Area2D" parent="."]
+
+[node name="collision" type="CollisionShape2D" parent="hit_collision"]
+position = Vector2(9, 32)
+shape = SubResource("RectangleShape2D_07c02")
+
+[node name="hit_particles" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 16
+process_material = SubResource("ParticleProcessMaterial_q7k3w")
+lifetime = 0.25
+one_shot = true
+explosiveness = 0.51
+
+[connection signal="body_entered" from="detection" to="." method="_on_detection_body_entered"]
+[connection signal="body_entered" from="hit_collision" to="." method="_on_hit_collision_body_entered"]
