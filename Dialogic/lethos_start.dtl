@@ -6,3 +6,4 @@ do global.title("Lethos")
 [wait time="5.0"]
 do global.enable_input()
 do global.set_attacking("lethos", true)
+[signal arg="die"]

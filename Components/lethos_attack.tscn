@@ -1,21 +1,58 @@
-[gd_scene load_steps=4 format=3 uid="uid://bn43uev7b6lni"]
+[gd_scene load_steps=8 format=3 uid="uid://bn43uev7b6lni"]
 
 [ext_resource type="Texture2D" uid="uid://duwrs2bi3iqrg" path="res://Sprites/lethos_attack.png" id="1_3dvca"]
 [ext_resource type="Script" path="res://scripts/lethos_attack.gd" id="1_646t7"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_2814l"]
+atlas = ExtResource("1_3dvca")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4nut2"]
+atlas = ExtResource("1_3dvca")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sai36"]
+atlas = ExtResource("1_3dvca")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_praov"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2814l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4nut2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sai36")
+}],
+"loop": true,
+"name": &"default",
+"speed": 15.0
+}]
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_pvui3"]
-radius = 80.4114
+radius = 58.3095
 
 [node name="LethosAttack" type="Node2D"]
 script = ExtResource("1_646t7")
 
-[node name="sprite" type="Sprite2D" parent="."]
+[node name="sprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 1)
+rotation = 1.5708
 scale = Vector2(12.875, 12.875)
-texture = ExtResource("1_3dvca")
+sprite_frames = SubResource("SpriteFrames_praov")
+autoplay = "default"
+frame = 2
+frame_progress = 0.370096
+offset = Vector2(-0.543689, -2.87379)
 
 [node name="area" type="Area2D" parent="."]
+position = Vector2(-2, -37)
 
 [node name="collision" type="CollisionShape2D" parent="area"]
+position = Vector2(1, 38)
 shape = SubResource("CircleShape2D_pvui3")
 
 [node name="alpha_timer" type="Timer" parent="."]

@@ -1,12 +1,23 @@
-extends Node2D
+extends Area2D
 
 var health = 200
+
+var is_boss = true
+var enemy = true
+
+var dist = 0
+
+var finished = false
+
+var progress = 0
 
 @export var start_timeline: DialogicTimeline
 
 var attack = preload("res://Components/lethos_attack.tscn")
 
 var hover_up = true
+
+var move_left = true
 
 var running = false
 
@@ -16,9 +27,27 @@ func _ready():
 func _process(delta):
 	running = global.lethos_attacking
 	if hover_up:
-		$sprite.position.y -= delta*25
+		$sprite.position.y -= delta*67
 	else:
-		$sprite.position.y += delta*25
+		$sprite.position.y += delta*67
+		
+	if move_left and running:
+		self.position.x -= delta*300
+		dist -= delta*300
+	elif running:
+		self.position.x += delta*300
+		dist += delta*300
+	
+	if dist < -800:
+		move_left = false
+	elif dist > 800:
+		move_left = true
+	
+	if finished:
+		progress += delta/8
+		$sprite.material.set_shader_parameter("progress", progress)
+		if progress > 0.1:
+			progress += 0.05
 
 func _on_damage_body_entered(body):
 	if body.name == "player" and running:
@@ -37,6 +66,40 @@ func _on_start_detection_body_entered(body):
 		$start_detection.queue_free()
 
 func _on_attack_timeout():
-	if running:
+	if running and not finished:
 		var scene = attack.instantiate()
 		self.add_child(scene)
+
+func hit():
+	$particles.emitting = true
+	print("hit!")
+	flash_red()
+	if health > 150:
+		$sprite.frame = 0
+	elif health > 130:
+		$sprite.frame = 1
+	elif health > 100:
+		$sprite.frame = 2
+	elif health > 80:
+		$sprite.frame = 3
+	elif health > 60:
+		$sprite.frame = 4
+	elif health > 50:
+		$sprite.frame = 5
+	elif health > 40:
+		$sprite.frame = 6
+	elif health > 30:
+		$sprite.frame = 7
+	elif health > 20:
+		$sprite.frame = 8
+	else:
+		$sprite.frame = 9
+	
+	if health <= 0:
+		finished = true
+		running = false
+	
+func flash_red():
+	$sprite.modulate = Color(1,0.5,0.5)
+	await get_tree().create_timer(0.1).timeout
+	$sprite.modulate = Color(1,1,1)

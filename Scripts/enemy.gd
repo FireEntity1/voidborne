@@ -6,6 +6,8 @@ var chasing = false
 
 var enemy = true
 
+var is_boss = false
+
 var dir = 1
 
 var knocked = false

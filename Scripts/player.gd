@@ -10,7 +10,7 @@ var can_dash = true
 
 var can_attack = true
 
-var damage = 5
+var damage = 50
 
 var voidwell = 10
 
@@ -106,16 +106,23 @@ func _physics_process(delta):
 		slashing = true
 		can_attack = false
 		$slash.play()
-		var areas = $slash/slash.get_overlapping_bodies()
+		var bodies = $slash/slash.get_overlapping_bodies()
+		var areas = $slash/slash.get_overlapping_areas()
 		var enemies = []
+		for body in bodies:
+			print(body.name)
+			if body is RigidBody2D:
+				body.health -= damage
+				body.hit()
+				print("hit")
 		for area in areas:
-			if area is RigidBody2D:
-				area.health -= damage
+			if area.name == "boss":
 				area.hit()
 				print("hit")
+				area.health -= damage
 		await get_tree().create_timer(0.2).timeout
 		can_attack = true
-
+	
 	if Input.is_action_just_pressed("dash") and global.can_move:
 		if can_dash:
 			dashing = true

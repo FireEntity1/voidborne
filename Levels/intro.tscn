@@ -5,7 +5,6 @@
 [ext_resource type="Shader" path="res://Shaders/pixel.gdshader" id="2_uv3w6"]
 [ext_resource type="Texture2D" uid="uid://dtjcjst0wouno" path="res://Sprites/brick-1.png" id="3_4tx4r"]
 [ext_resource type="Texture2D" uid="uid://chfai38323i1q" path="res://Sprites/building-1.png" id="3_dqh4p"]
-[ext_resource type="PackedScene" uid="uid://opypnmqci606" path="res://Components/lethos.tscn" id="3_la3ib"]
 [ext_resource type="Texture2D" uid="uid://4e63e0xmnija" path="res://Sprites/starry-sky.png" id="4_nr0l7"]
 [ext_resource type="PackedScene" uid="uid://c1sp0wr04iedu" path="res://Components/nym.tscn" id="5_02xyc"]
 [ext_resource type="Shader" path="res://Shaders/starry_sky.gdshader" id="6_0yutb"]
@@ -19,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://xpuulebmleiu" path="res://Components/purgelet.tscn" id="16_5omo2"]
 [ext_resource type="PackedScene" uid="uid://okrtdjwlb8ll" path="res://Components/void_fragment.tscn" id="17_j02lb"]
 [ext_resource type="PackedScene" uid="uid://drqbowe6cwh14" path="res://Components/voidwell.tscn" id="18_pcmyh"]
+[ext_resource type="PackedScene" uid="uid://opypnmqci606" path="res://Components/lethos.tscn" id="19_r4ule"]
 
 [sub_resource type="Gradient" id="Gradient_wghrg"]
 
@@ -462,7 +462,7 @@ position = Vector2(4739, -5548)
 id = "outlands_boss"
 
 [node name="player" parent="." instance=ExtResource("1_e1us0")]
-position = Vector2(953, 180)
+position = Vector2(1827, -1293)
 
 [node name="Nym" parent="." instance=ExtResource("5_02xyc")]
 position = Vector2(5050, 826)
@@ -516,7 +516,7 @@ position = Vector2(7457, -1714)
 position = Vector2(8106, -1709)
 
 [node name="JumpOrb3" parent="." instance=ExtResource("8_itaan")]
-position = Vector2(9452, -2122)
+position = Vector2(9485, -2164)
 
 [node name="void_fragment" parent="." instance=ExtResource("17_j02lb")]
 position = Vector2(5751, -1175)
@@ -563,12 +563,6 @@ position = Vector2(8081, -2761)
 [node name="void_fragment4" parent="." instance=ExtResource("17_j02lb")]
 position = Vector2(11564, -4305)
 
-[node name="void_fragment5" parent="." instance=ExtResource("17_j02lb")]
-position = Vector2(1812, 821)
-
-[node name="void_fragment6" parent="." instance=ExtResource("17_j02lb")]
-position = Vector2(2293, 821)
-
 [node name="JumpOrb4" parent="." instance=ExtResource("8_itaan")]
 position = Vector2(9851, -3461)
 
@@ -584,26 +578,5 @@ position = Vector2(7382, -3028)
 [node name="JumpOrb8" parent="." instance=ExtResource("8_itaan")]
 position = Vector2(10349, -4592)
 
-[node name="Lethos" parent="." instance=ExtResource("3_la3ib")]
-position = Vector2(2447, -1503)
-
-[node name="JumpOrb9" parent="." instance=ExtResource("8_itaan")]
-position = Vector2(5053, 425)
-
-[node name="JumpOrb10" parent="." instance=ExtResource("8_itaan")]
-position = Vector2(5011, -292)
-
-[node name="JumpOrb11" parent="." instance=ExtResource("8_itaan")]
-position = Vector2(5051, -884)
-
-[node name="JumpOrb12" parent="." instance=ExtResource("8_itaan")]
-position = Vector2(5051, -1490)
-
-[node name="JumpOrb13" parent="." instance=ExtResource("8_itaan")]
-position = Vector2(5058, -2203)
-
-[node name="JumpOrb14" parent="." instance=ExtResource("8_itaan")]
-position = Vector2(5045, -2889)
-
-[node name="JumpOrb15" parent="." instance=ExtResource("8_itaan")]
-position = Vector2(4923, -3488)
+[node name="boss" parent="." instance=ExtResource("19_r4ule")]
+position = Vector2(2440, -1518)

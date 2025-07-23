@@ -13,10 +13,12 @@ func _ready():
 	homing = false
 	await get_tree().create_timer(5).timeout
 	queue_free()
+	
 
 func _process(delta):
 	if homing:
 		direction = (global.player_pos - global_position).normalized()
+		rotation = direction.angle() - deg_to_rad(175)
 	self.position += direction*velocity*delta
 	
 	if alpha_up:

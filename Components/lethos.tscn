@@ -1,8 +1,14 @@
-[gd_scene load_steps=17 format=3 uid="uid://opypnmqci606"]
+[gd_scene load_steps=21 format=3 uid="uid://opypnmqci606"]
 
 [ext_resource type="Script" path="res://scripts/lethos.gd" id="1_iu5mv"]
 [ext_resource type="Texture2D" uid="uid://bfut58ap0176i" path="res://Sprites/lethos.png" id="1_qjuue"]
 [ext_resource type="Resource" path="res://Dialogic/lethos_start.dtl" id="2_k4hmp"]
+[ext_resource type="Shader" path="res://Shaders/melt.gdshader" id="3_w6ksm"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5m502"]
+shader = ExtResource("3_w6ksm")
+shader_parameter/progress = 0.0
+shader_parameter/meltiness = 14.671
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tjjw0"]
 atlas = ExtResource("1_qjuue")
@@ -83,25 +89,40 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pq7io"]
-size = Vector2(508, 258)
+size = Vector2(318, 172)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sm13f"]
 size = Vector2(2946, 1294)
 
-[node name="Lethos" type="Node2D"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_be1bn"]
+particle_flag_disable_z = true
+direction = Vector3(0, 0, 0)
+spread = 180.0
+initial_velocity_min = 1000.0
+initial_velocity_max = 1000.0
+gravity = Vector3(0, 0, 0)
+scale_min = 16.0
+scale_max = 58.38
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h0e6p"]
+size = Vector2(580, 378)
+
+[node name="boss" type="Area2D"]
+collision_layer = 2
 script = ExtResource("1_iu5mv")
 start_timeline = ExtResource("2_k4hmp")
 
 [node name="sprite" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, 1)
+material = SubResource("ShaderMaterial_5m502")
+position = Vector2(0, 233)
 scale = Vector2(38.5, 38.5)
 sprite_frames = SubResource("SpriteFrames_lybw5")
 offset = Vector2(0, -4.03478)
 
-[node name="damage" type="Area2D" parent="."]
+[node name="boss_hitbox" type="Area2D" parent="."]
 collision_mask = 5
 
-[node name="collision" type="CollisionShape2D" parent="damage"]
+[node name="collision" type="CollisionShape2D" parent="boss_hitbox"]
 shape = SubResource("RectangleShape2D_pq7io")
 
 [node name="start_detection" type="Area2D" parent="."]
@@ -116,7 +137,18 @@ autostart = true
 wait_time = 2.0
 autostart = true
 
-[connection signal="body_entered" from="damage" to="." method="_on_damage_body_entered"]
+[node name="particles" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 16
+process_material = SubResource("ParticleProcessMaterial_be1bn")
+lifetime = 0.4
+one_shot = true
+explosiveness = 0.52
+
+[node name="collision" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_h0e6p")
+
+[connection signal="body_entered" from="boss_hitbox" to="." method="_on_damage_body_entered"]
 [connection signal="body_entered" from="start_detection" to="." method="_on_start_detection_body_entered"]
 [connection signal="timeout" from="hover" to="." method="_on_hover_timeout"]
 [connection signal="timeout" from="attack" to="." method="_on_attack_timeout"]
