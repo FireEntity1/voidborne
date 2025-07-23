@@ -170,7 +170,7 @@ animations = [{
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tmknj"]
 radius = 8.18914
-height = 36.028
+height = 34.214
 
 [node name="player" type="CharacterBody2D"]
 collision_mask = 9
@@ -206,9 +206,9 @@ explosiveness = 0.63
 randomness = 0.5
 
 [node name="slash" type="AnimatedSprite2D" parent="."]
-position = Vector2(63, 30)
+position = Vector2(78.7145, 25.5102)
 rotation = 0.0250715
-scale = Vector2(11.7714, 12.6888)
+scale = Vector2(15.298, 15.4193)
 sprite_frames = SubResource("SpriteFrames_uejrb")
 frame = 7
 frame_progress = 1.0

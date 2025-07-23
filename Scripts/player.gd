@@ -84,14 +84,22 @@ func _physics_process(delta):
 	
 	if direction != 0:
 		last_dir = direction
-
-	if last_dir == 1 and can_attack:
-			$slash.flip_h = false
-			$slash.position.x = 90
-			$slash.rotation_degrees = 20
+	
+	if Input.is_action_pressed("up") and can_attack:
+		$slash.flip_h = false
+		$slash.rotation_degrees = 320
+		$slash.position.y = -40
+		$slash.position.x = 0
+	
+	elif last_dir == 1 and can_attack:
+		$slash.flip_h = false
+		$slash.position.x = 90
+		$slash.position.y = 30
+		$slash.rotation_degrees = 20
 	elif last_dir == -1 and can_attack:
 		$slash.flip_h = true
 		$slash.position.x = -90
+		$slash.position.y = 30
 		$slash.rotation_degrees = -20
 	
 	if Input.is_action_just_pressed("attack") and can_attack and global.can_move:
