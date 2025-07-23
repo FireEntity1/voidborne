@@ -1,10 +1,11 @@
-[gd_scene load_steps=49 format=4 uid="uid://do2lwffpt3ckb"]
+[gd_scene load_steps=50 format=4 uid="uid://do2lwffpt3ckb"]
 
 [ext_resource type="PackedScene" uid="uid://das5p0rexu6p8" path="res://Components/player.tscn" id="1_e1us0"]
 [ext_resource type="PackedScene" uid="uid://kl8sy5tjjmnb" path="res://Components/flicker.tscn" id="2_s6366"]
 [ext_resource type="Shader" path="res://Shaders/pixel.gdshader" id="2_uv3w6"]
 [ext_resource type="Texture2D" uid="uid://dtjcjst0wouno" path="res://Sprites/brick-1.png" id="3_4tx4r"]
 [ext_resource type="Texture2D" uid="uid://chfai38323i1q" path="res://Sprites/building-1.png" id="3_dqh4p"]
+[ext_resource type="PackedScene" uid="uid://opypnmqci606" path="res://Components/lethos.tscn" id="3_la3ib"]
 [ext_resource type="Texture2D" uid="uid://4e63e0xmnija" path="res://Sprites/starry-sky.png" id="4_nr0l7"]
 [ext_resource type="PackedScene" uid="uid://c1sp0wr04iedu" path="res://Components/nym.tscn" id="5_02xyc"]
 [ext_resource type="Shader" path="res://Shaders/starry_sky.gdshader" id="6_0yutb"]
@@ -461,7 +462,7 @@ position = Vector2(4739, -5548)
 id = "outlands_boss"
 
 [node name="player" parent="." instance=ExtResource("1_e1us0")]
-position = Vector2(597, 764)
+position = Vector2(1725, -1396)
 
 [node name="Nym" parent="." instance=ExtResource("5_02xyc")]
 position = Vector2(5050, 826)
@@ -582,3 +583,27 @@ position = Vector2(7382, -3028)
 
 [node name="JumpOrb8" parent="." instance=ExtResource("8_itaan")]
 position = Vector2(10349, -4592)
+
+[node name="Lethos" parent="." instance=ExtResource("3_la3ib")]
+position = Vector2(2447, -1503)
+
+[node name="JumpOrb9" parent="." instance=ExtResource("8_itaan")]
+position = Vector2(5053, 425)
+
+[node name="JumpOrb10" parent="." instance=ExtResource("8_itaan")]
+position = Vector2(5011, -292)
+
+[node name="JumpOrb11" parent="." instance=ExtResource("8_itaan")]
+position = Vector2(5051, -884)
+
+[node name="JumpOrb12" parent="." instance=ExtResource("8_itaan")]
+position = Vector2(5051, -1490)
+
+[node name="JumpOrb13" parent="." instance=ExtResource("8_itaan")]
+position = Vector2(5058, -2203)
+
+[node name="JumpOrb14" parent="." instance=ExtResource("8_itaan")]
+position = Vector2(5045, -2889)
+
+[node name="JumpOrb15" parent="." instance=ExtResource("8_itaan")]
+position = Vector2(4923, -3488)

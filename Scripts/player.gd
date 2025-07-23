@@ -36,6 +36,7 @@ func _ready():
 	update_hearts()
 
 func _physics_process(delta):
+	global.player_pos = position
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 	else:

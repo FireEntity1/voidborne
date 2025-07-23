@@ -24,6 +24,7 @@ global="*res://Scripts/global.gd"
 
 directories/dch_directory={
 "???": "res://Dialogic/???.dch",
+"lethos": "res://Dialogic/lethos.dch",
 "nym": "res://Dialogic/nym.dch",
 "voidwell": "res://Dialogic/voidwell.dch"
 }
@@ -31,6 +32,7 @@ directories/dtl_directory={
 "enemy_intro": "res://Dialogic/enemy_intro.dtl",
 "intro": "res://Dialogic/intro.dtl",
 "jump_orb_intro": "res://Dialogic/jump_orb_intro.dtl",
+"lethos_start": "res://Dialogic/lethos_start.dtl",
 "prelude": "res://Dialogic/prelude.dtl",
 "voidwell": "res://Dialogic/voidwell.dtl"
 }

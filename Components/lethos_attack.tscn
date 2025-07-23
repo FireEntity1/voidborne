@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://bn43uev7b6lni"]
+
+[ext_resource type="Texture2D" uid="uid://duwrs2bi3iqrg" path="res://Sprites/lethos_attack.png" id="1_3dvca"]
+[ext_resource type="Script" path="res://scripts/lethos_attack.gd" id="1_646t7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pvui3"]
+radius = 80.4114
+
+[node name="LethosAttack" type="Node2D"]
+script = ExtResource("1_646t7")
+
+[node name="sprite" type="Sprite2D" parent="."]
+scale = Vector2(12.875, 12.875)
+texture = ExtResource("1_3dvca")
+
+[node name="area" type="Area2D" parent="."]
+
+[node name="collision" type="CollisionShape2D" parent="area"]
+shape = SubResource("CircleShape2D_pvui3")
+
+[node name="alpha_timer" type="Timer" parent="."]
+wait_time = 0.125
+autostart = true
+
+[connection signal="body_entered" from="area" to="." method="_on_area_body_entered"]
+[connection signal="timeout" from="alpha_timer" to="." method="_on_alpha_timer_timeout"]

@@ -10,6 +10,10 @@ var save_file = {
 
 const SAVE_DIRECTORY = "user://save.void"
 
+var player_pos = Vector2(0,0)
+
+var lethos_attacking = false
+
 var can_move = true
 
 var fade_scene = preload("res://Components/fade_to.tscn")
@@ -64,3 +68,8 @@ func get_spawn_coords():
 		"spawn": return Vector2(597,767)
 		"outlands_boss": return Vector2(4739,-5548)
 		
+
+func set_attacking(boss, value):
+	match boss:
+		"lethos":
+			lethos_attacking = value

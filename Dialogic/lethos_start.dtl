@@ -1,0 +1,8 @@
+do global.disable_input()
+lethos: [speed=20] d...destroy
+lethos: [speed=20] void... unwElcome
+lethos: [speed=20] leave . . .
+do global.title("Lethos")
+[wait time="5.0"]
+do global.enable_input()
+do global.set_attacking("lethos", true)
