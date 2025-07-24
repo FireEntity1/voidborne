@@ -1,8 +1,9 @@
-[gd_scene load_steps=21 format=3 uid="uid://opypnmqci606"]
+[gd_scene load_steps=22 format=3 uid="uid://opypnmqci606"]
 
 [ext_resource type="Script" path="res://scripts/lethos.gd" id="1_iu5mv"]
 [ext_resource type="Texture2D" uid="uid://bfut58ap0176i" path="res://Sprites/lethos.png" id="1_qjuue"]
 [ext_resource type="Resource" path="res://Dialogic/lethos_start.dtl" id="2_k4hmp"]
+[ext_resource type="Resource" path="res://Dialogic/lethos_end.dtl" id="3_f1toq"]
 [ext_resource type="Shader" path="res://Shaders/melt.gdshader" id="3_w6ksm"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5m502"]
@@ -111,6 +112,7 @@ size = Vector2(580, 378)
 collision_layer = 2
 script = ExtResource("1_iu5mv")
 start_timeline = ExtResource("2_k4hmp")
+end_timeline = ExtResource("3_f1toq")
 
 [node name="sprite" type="AnimatedSprite2D" parent="."]
 material = SubResource("ShaderMaterial_5m502")

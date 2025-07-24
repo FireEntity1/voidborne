@@ -9,7 +9,7 @@ var alpha_up = false
 
 func _ready():
 	direction = (global.player_pos - global_position).normalized()
-	await get_tree().create_timer(0.4).timeout
+	await get_tree().create_timer(0.2).timeout
 	homing = false
 	await get_tree().create_timer(5).timeout
 	queue_free()

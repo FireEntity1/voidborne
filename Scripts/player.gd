@@ -131,6 +131,11 @@ func _physics_process(delta):
 			dashing = false
 			can_dash = false
 			$dash.start()
+			var anim = preload("res://Components/dash_anim.tscn").instantiate()
+			anim.global_position = global_position
+			get_tree().current_scene.add_child(anim)
+			await get_tree().create_timer(0.6).timeout
+			anim.queue_free()
 	if dashing:
 		$sprite.play("dash")
 		self.velocity.x = last_dir * 3000

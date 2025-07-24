@@ -11,30 +11,34 @@ var finished = false
 
 var progress = 0
 
+var die = false
+
 @export var start_timeline: DialogicTimeline
+@export var end_timeline: DialogicTimeline
 
 var attack = preload("res://Components/lethos_attack.tscn")
 
 var hover_up = true
+var hover_speed = 67
 
 var move_left = true
 
 var running = false
 
 func _ready():
-	pass
+	Dialogic.signal_event.connect(_on_dialogic_signal)
 
 func _process(delta):
 	running = global.lethos_attacking
 	if hover_up:
-		$sprite.position.y -= delta*67
+		$sprite.position.y -= delta*hover_speed
 	else:
-		$sprite.position.y += delta*67
+		$sprite.position.y += delta*hover_speed
 		
-	if move_left and running:
+	if move_left and running and not finished:
 		self.position.x -= delta*300
 		dist -= delta*300
-	elif running:
+	elif running and not finished:
 		self.position.x += delta*300
 		dist += delta*300
 	
@@ -44,6 +48,10 @@ func _process(delta):
 		move_left = true
 	
 	if finished:
+		$hover.wait_time = 0.2
+		hover_speed = 200
+	
+	if die and finished:
 		progress += delta/8
 		$sprite.material.set_shader_parameter("progress", progress)
 		if progress > 0.1:
@@ -98,8 +106,13 @@ func hit():
 	if health <= 0:
 		finished = true
 		running = false
+		Dialogic.start(end_timeline)
 	
 func flash_red():
 	$sprite.modulate = Color(1,0.5,0.5)
 	await get_tree().create_timer(0.1).timeout
 	$sprite.modulate = Color(1,1,1)
+
+func _on_dialogic_signal(arg):
+	if arg == "die":
+		die = true

@@ -19,6 +19,7 @@ var speed = 200
 
 func _ready():
 	freeze_mode = RigidBody2D.FREEZE_MODE_KINEMATIC
+	
 
 func _physics_process(delta):
 	if chasing and not knocked:
@@ -48,6 +49,8 @@ func _physics_process(delta):
 		await get_tree().create_timer(0.2).timeout
 		$sprite.hide()
 		self.queue_free()
+	
+	#move_and_slide()
 	
 func _on_detection_body_entered(body):
 	print("body entered")

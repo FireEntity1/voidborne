@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dqn4di4rcgyed" path="res://Sprites/flicker.png" id="2_qlvxn"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mrict"]
-radius = 637.999
+radius = 434.999
 height = 3508.01
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xw0lw"]
@@ -117,6 +117,7 @@ script = ExtResource("1_3ira2")
 
 [node name="collision" type="CollisionShape2D" parent="detection"]
 visible = false
+position = Vector2(0, -190)
 rotation = 1.57087
 shape = SubResource("CapsuleShape2D_mrict")
 

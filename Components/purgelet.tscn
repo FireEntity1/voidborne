@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bg8ynye8k1ha3" path="res://Sprites/purgelet.png" id="2_6tds0"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mrict"]
-radius = 637.999
+radius = 482.998
 height = 3508.01
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bfy3h"]
@@ -103,6 +103,7 @@ script = ExtResource("1_4j3x7")
 
 [node name="collision" type="CollisionShape2D" parent="detection"]
 visible = false
+position = Vector2(0, -269)
 rotation = 1.57087
 shape = SubResource("CapsuleShape2D_mrict")
 
