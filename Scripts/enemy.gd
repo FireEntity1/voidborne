@@ -12,7 +12,7 @@ var dir = 1
 
 var knocked = false
 
-@export var max_speed = 1400.0
+@export var max_speed = 700.0
 
 @export var health = 15
 var speed = 200

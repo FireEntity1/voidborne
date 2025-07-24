@@ -22,7 +22,7 @@ var flip = true # right false, left true
 
 var can_take_damage = true
 
-var health = 5
+var health = global.save_file.hearts
 var heart_scene = preload("res://Components/heart.tscn")
 var heart_damaged_scene = preload("res://Components/heart_damaged.tscn")
 

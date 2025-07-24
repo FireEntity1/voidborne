@@ -1,11 +1,20 @@
 extends Node
 
 var save_file = {
-	"hearts": 5,
+	"hearts": 20,
 	"damage": 5,
 	"has_fragment": false,
 	"checkpoint": "spawn",
-	"world": "outlands"
+	"world": "outlands",
+	
+	"timelines_done": [],
+	
+	"fragments": {
+		"outlands_a": false,
+		"outlands_b": false,
+		"outlands_c": false,
+		"outlands_d": false,
+	}
 }
 
 const SAVE_DIRECTORY = "user://save.void"
@@ -21,9 +30,23 @@ var title_scene = preload("res://Components/title_text.tscn")
 var frag_anim_scene = preload("res://Components/void_frag_anim.tscn")
 
 func _ready():
-	save()
 	load_save()
 
+func add_finished_timeline(identifier: String):
+	save_file.timelines_done.append(identifier)
+	print(save_file.timelines_done)
+	save()
+
+func get_finished(identifier: String):
+	print(save_file.timelines_done)
+	print(identifier)
+	for timeline in save_file.timelines_done:
+		if timeline == identifier:
+			print("MATCH FOUND")
+			return true
+	print("NO MATCH")
+	return false
+		
 func disable_input():
 	can_move = false
 	

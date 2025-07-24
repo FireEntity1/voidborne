@@ -18,3 +18,4 @@ nym: Seek freedom.
 nym: Seek liberation.
 nym: Free us from this endless chokehold.
 do global.enable_input()
+do global.add_finished_timeline("intro")

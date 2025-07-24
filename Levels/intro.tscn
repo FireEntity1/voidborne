@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=4 uid="uid://do2lwffpt3ckb"]
+[gd_scene load_steps=53 format=4 uid="uid://do2lwffpt3ckb"]
 
 [ext_resource type="PackedScene" uid="uid://das5p0rexu6p8" path="res://Components/player.tscn" id="1_e1us0"]
 [ext_resource type="PackedScene" uid="uid://kl8sy5tjjmnb" path="res://Components/flicker.tscn" id="2_s6366"]
@@ -105,6 +105,12 @@ size = Vector2(315, 236)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_giexj"]
 size = Vector2(1279, 504.25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_53red"]
+size = Vector2(1287, 249)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8ffv7"]
+size = Vector2(259.75, 894.25)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2dnnj"]
 texture = ExtResource("3_4tx4r")
@@ -489,6 +495,18 @@ shape = SubResource("RectangleShape2D_rhwla")
 position = Vector2(1204.5, -2316.12)
 shape = SubResource("RectangleShape2D_giexj")
 
+[node name="collision19" type="CollisionShape2D" parent="static3"]
+position = Vector2(-1740, 1520)
+shape = SubResource("RectangleShape2D_53red")
+
+[node name="collision21" type="CollisionShape2D" parent="static3"]
+position = Vector2(-2134, 871)
+shape = SubResource("RectangleShape2D_53red")
+
+[node name="collision20" type="CollisionShape2D" parent="static3"]
+position = Vector2(-2252.12, 1194.88)
+shape = SubResource("RectangleShape2D_8ffv7")
+
 [node name="level" type="TileMapLayer" parent="."]
 position = Vector2(560, 544)
 scale = Vector2(8, 8)
@@ -506,7 +524,7 @@ position = Vector2(4739, -5548)
 id = "outlands_boss"
 
 [node name="player" parent="." instance=ExtResource("1_e1us0")]
-position = Vector2(1615, 717)
+position = Vector2(6086, -1165)
 
 [node name="Nym" parent="." instance=ExtResource("5_02xyc")]
 position = Vector2(5050, 826)
@@ -549,12 +567,15 @@ position = Vector2(9485, -2164)
 
 [node name="void_fragment" parent="." instance=ExtResource("17_j02lb")]
 position = Vector2(5751, -1175)
+fragment_id = "outlands_b"
 
 [node name="void_fragment2" parent="." instance=ExtResource("17_j02lb")]
 position = Vector2(14095, -1731)
+fragment_id = "outlands_a"
 
 [node name="void_fragment3" parent="." instance=ExtResource("17_j02lb")]
 position = Vector2(5977, -5497)
+fragment_id = "outlands_d"
 
 [node name="flicker6" parent="." instance=ExtResource("2_s6366")]
 position = Vector2(11409, -3022)
@@ -591,6 +612,7 @@ position = Vector2(8081, -2761)
 
 [node name="void_fragment4" parent="." instance=ExtResource("17_j02lb")]
 position = Vector2(11564, -4305)
+fragment_id = "outlands_c"
 
 [node name="JumpOrb4" parent="." instance=ExtResource("8_itaan")]
 position = Vector2(9851, -3461)
