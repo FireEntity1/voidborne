@@ -1,5 +1,7 @@
 extends Node2D
 
+@export var fragment_id: String
+
 func _on_area_body_entered(body):
 	if body.name == "player":
 		if not global.save_file.has_fragment:

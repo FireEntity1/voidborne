@@ -12,15 +12,15 @@ float psuedo_rand(float x) {
 
 void fragment() {
 	vec2 uv = UV;
-	
+
 	// Move pixels near the top faster
 	uv.y -= progress / UV.y;
-	
-	// Created jagged edges for each pixel on the x-axis 
+
+	// Created jagged edges for each pixel on the x-axis
 	uv.y -= progress * meltiness * psuedo_rand(UV.x - mod(UV.x, TEXTURE_PIXEL_SIZE.x));
-	
+
 	COLOR = texture(TEXTURE, uv);
-	
+
 	// "delete" pixels out of range
 	if (uv.y <= 0.0) {
 		COLOR.a = 0.0;

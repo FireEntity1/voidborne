@@ -506,7 +506,7 @@ position = Vector2(4739, -5548)
 id = "outlands_boss"
 
 [node name="player" parent="." instance=ExtResource("1_e1us0")]
-position = Vector2(1713, 715)
+position = Vector2(1615, 717)
 
 [node name="Nym" parent="." instance=ExtResource("5_02xyc")]
 position = Vector2(5050, 826)

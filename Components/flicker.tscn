@@ -106,11 +106,9 @@ gravity = Vector3(0, 98, 0)
 scale_min = 13.0
 scale_max = 13.0
 
-[node name="flicker" type="RigidBody2D"]
+[node name="flicker" type="CharacterBody2D"]
 collision_layer = 2
 collision_mask = 12
-lock_rotation = true
-contact_monitor = true
 script = ExtResource("1_3ira2")
 
 [node name="detection" type="Area2D" parent="."]
