@@ -21,6 +21,9 @@ func _ready():
 	pass
 
 func _physics_process(delta):
+	if not is_on_floor():
+		velocity += get_gravity() * delta
+	
 	if chasing and not knocked:
 		if player.global_position.x > global_position.x:
 			dir = 1
