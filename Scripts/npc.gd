@@ -6,9 +6,11 @@ var timeline_name: String
 
 func _on_body_entered(body):
 	timeline_name = timeline.resource_path.get_file().split(".")[0]
-	if global.get_finished(timeline_name):
+	print(timeline_name)
+	print(global.get_finished(name))
+	if global.get_finished(name):
 		$talkarea.queue_free()
 		return
-	if not global.get_finished(timeline_name) and body.name == "player":
+	if body.name == "player":
 		Dialogic.start(timeline)
 		$talkarea.queue_free()
