@@ -53,6 +53,9 @@ func _physics_process(delta):
 		await get_tree().create_timer(0.2).timeout
 		$land_particles.emitting = false
 	
+	if self.velocity.y < 0:
+		slamming = false
+	
 	if Input.is_action_just_pressed("slam") and not is_on_floor():
 		self.velocity.y = 8000
 		slamming = true
