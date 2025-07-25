@@ -3,6 +3,9 @@
 [ext_resource type="Texture2D" uid="uid://dcxjqvugj4uo7" path="res://Sprites/jump_orb.png" id="1_vufqm"]
 [ext_resource type="Script" path="res://scripts/jump_orb.gd" id="2_pmu7g"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_xiyp6"]
+radius = 130.817
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_g0n5k"]
 atlas = ExtResource("1_vufqm")
 region = Rect2(0, 0, 16, 16)
@@ -39,21 +42,18 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_xiyp6"]
-radius = 130.817
-
 [node name="JumpOrb" type="Node2D"]
-
-[node name="sprite" type="AnimatedSprite2D" parent="."]
-scale = Vector2(18.375, 18.375)
-sprite_frames = SubResource("SpriteFrames_ismb3")
-autoplay = "default"
-frame_progress = 0.0989053
 
 [node name="area" type="Area2D" parent="."]
 script = ExtResource("2_pmu7g")
 
 [node name="collision" type="CollisionShape2D" parent="area"]
 shape = SubResource("CircleShape2D_xiyp6")
+
+[node name="sprite" type="AnimatedSprite2D" parent="area"]
+scale = Vector2(18.375, 18.375)
+sprite_frames = SubResource("SpriteFrames_ismb3")
+autoplay = "default"
+frame_progress = 0.0989053
 
 [connection signal="body_entered" from="area" to="area" method="_on_body_entered"]
