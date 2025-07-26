@@ -17,6 +17,10 @@ var save_file = {
 	}
 }
 
+var glitches = []
+var shakes = []
+var vingettes = []
+
 const SAVE_DIRECTORY = "user://save.void"
 
 var player_pos = Vector2(0,0)
@@ -28,14 +32,51 @@ var can_move = true
 var fade_scene = preload("res://Components/fade_to.tscn")
 var title_scene = preload("res://Components/title_text.tscn")
 var frag_anim_scene = preload("res://Components/void_frag_anim.tscn")
+var glitch_scene = preload("res://Components/glitch.tscn")
+var shake_scene = preload("res://Components/screen_shake.tscn")
+var vingette_scene = preload("res://Components/vingette.tscn")
 
 func _ready():
 	load_save()
+
+func vingette():
+	var scene = vingette_scene.instantiate()
+	add_child(scene)
+	vingettes.append(scene)
+
+func clear_vingette():
+	for vingette in vingettes:
+		remove_child(vingette)
+		vingette.queue_free()
 
 func add_finished_timeline(identifier: String):
 	save_file.timelines_done.append(identifier)
 	print(save_file.timelines_done)
 	save()
+
+func glitch(time = -1):
+	var scene = glitch_scene.instantiate()
+	if time > 0:
+		scene.time = time
+	glitches.append(scene)
+	add_child(scene)
+
+func clear_glitch():
+	for glitch in glitches:
+		remove_child(glitch)
+		glitch.queue_free()
+
+func shake(time = -1):
+	var scene = shake_scene.instantiate()
+	if time > 0:
+		scene.time = time
+	shakes.append(scene)
+	add_child(scene)
+
+func clear_shake():
+	for shake in shakes:
+		remove_child(shake)
+		shake.queue_free()
 
 func get_finished(identifier: String):
 	print(save_file.timelines_done)

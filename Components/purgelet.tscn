@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://xpuulebmleiu"]
+[gd_scene load_steps=14 format=3 uid="uid://xpuulebmleiu"]
 
 [ext_resource type="Script" path="res://scripts/enemy.gd" id="1_4j3x7"]
 [ext_resource type="Texture2D" uid="uid://bg8ynye8k1ha3" path="res://Sprites/purgelet.png" id="2_6tds0"]
@@ -15,21 +15,17 @@ region = Rect2(0, 0, 16, 16)
 atlas = ExtResource("2_6tds0")
 region = Rect2(16, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_q4opj"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_dhphx"]
+atlas = ExtResource("2_6tds0")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0wnq1"]
 atlas = ExtResource("2_6tds0")
 region = Rect2(32, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_8stig"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_b0y7h"]
 atlas = ExtResource("2_6tds0")
-region = Rect2(48, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_q1807"]
-atlas = ExtResource("2_6tds0")
-region = Rect2(64, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_0pnox"]
-atlas = ExtResource("2_6tds0")
-region = Rect2(48, 0, 16, 16)
+region = Rect2(32, 0, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_mticx"]
 animations = [{
@@ -39,23 +35,20 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_57oue")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_q4opj")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_8stig")
 }],
 "loop": true,
 "name": &"default",
-"speed": 5.0
+"speed": 3.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_q1807")
+"texture": SubResource("AtlasTexture_dhphx")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_0pnox")
+"texture": SubResource("AtlasTexture_0wnq1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b0y7h")
 }],
 "loop": true,
 "name": &"hit",
@@ -78,7 +71,7 @@ scale_min = 12.0
 scale_max = 12.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_07c02"]
-size = Vector2(174, 72)
+size = Vector2(136, 72)
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_q7k3w"]
 particle_flag_disable_z = true
@@ -110,7 +103,6 @@ position = Vector2(2, -18)
 scale = Vector2(10.75, 10.75)
 sprite_frames = SubResource("SpriteFrames_mticx")
 autoplay = "default"
-frame_progress = 0.448733
 
 [node name="collision" type="CollisionShape2D" parent="."]
 position = Vector2(7.5, 46.5)
@@ -128,7 +120,7 @@ explosiveness = 0.65
 [node name="hit_collision" type="Area2D" parent="."]
 
 [node name="collision" type="CollisionShape2D" parent="hit_collision"]
-position = Vector2(9, 32)
+position = Vector2(7, 32)
 shape = SubResource("RectangleShape2D_07c02")
 
 [node name="hit_particles" type="GPUParticles2D" parent="."]

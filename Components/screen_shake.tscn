@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://dtuw5jcw40cl4"]
+
+[ext_resource type="Script" path="res://scripts/glitch.gd" id="1_qrmcu"]
+[ext_resource type="Shader" path="res://Shaders/screen_shake.gdshader" id="2_wfhf3"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vvgsf"]
+shader = ExtResource("2_wfhf3")
+shader_parameter/ShakeStrength = 0.2
+shader_parameter/FactorA = Vector2(100, 100)
+shader_parameter/FactorB = Vector2(1, 1)
+shader_parameter/magnitude = Vector2(0.01, 0.01)
+
+[node name="screen_shake" type="Node2D"]
+script = ExtResource("1_qrmcu")
+
+[node name="layer" type="CanvasLayer" parent="."]
+
+[node name="rect" type="ColorRect" parent="layer"]
+material = SubResource("ShaderMaterial_vvgsf")
+custom_minimum_size = Vector2(1920, 1080)
+offset_right = 1920.0
+offset_bottom = 1080.0

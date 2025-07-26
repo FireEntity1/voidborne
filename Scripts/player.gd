@@ -10,7 +10,7 @@ var can_dash = true
 
 var can_attack = true
 
-var damage = 50
+var damage = 5
 
 var voidwell = 10
 

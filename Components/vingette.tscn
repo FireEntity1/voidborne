@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://bj0of17d1shrl"]
+
+[ext_resource type="Shader" path="res://Shaders/vingette.gdshader" id="1_0a33v"]
+[ext_resource type="Script" path="res://scripts/vingette.gd" id="1_wx1c8"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fchrb"]
+shader = ExtResource("1_0a33v")
+shader_parameter/outerRadius = 0.968
+shader_parameter/MainAlpha = 0.0
+shader_parameter/vignette_color = Color(0, 0, 0, 1)
+
+[node name="Vingette" type="Node2D"]
+script = ExtResource("1_wx1c8")
+
+[node name="layer" type="CanvasLayer" parent="."]
+
+[node name="rect" type="ColorRect" parent="layer"]
+material = SubResource("ShaderMaterial_fchrb")
+custom_minimum_size = Vector2(1920, 1080)
+offset_right = 40.0
+offset_bottom = 40.0
