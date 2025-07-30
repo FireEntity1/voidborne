@@ -17,9 +17,9 @@ var save_file = {
 	}
 }
 
-var glitches = []
-var shakes = []
-var vingettes = []
+var glitching = false
+var shaking = false
+var vingetteing = false # i dont think this is a word :skull:
 
 const SAVE_DIRECTORY = "user://save.void"
 
@@ -38,45 +38,40 @@ var vingette_scene = preload("res://Components/vingette.tscn")
 
 func _ready():
 	load_save()
+	
+	vingette_scene = vingette_scene.instantiate()
+	add_child(vingette_scene)
+	glitch_scene = glitch_scene.instantiate()
+	add_child(glitch_scene)
+	shake_scene = shake_scene.instantiate()
+	add_child(shake_scene)
+	
+	vingette(false)
+	glitch(false)
+	shake(false)
 
-func vingette():
-	var scene = vingette_scene.instantiate()
-	add_child(scene)
-	vingettes.append(scene)
-
-func clear_vingette():
-	for vingette in vingettes:
-		remove_child(vingette)
-		vingette.queue_free()
+func vingette(value = false):
+	vingette_scene.is_up = value
+	vingetteing = value
 
 func add_finished_timeline(identifier: String):
 	save_file.timelines_done.append(identifier)
 	print(save_file.timelines_done)
 	save()
 
-func glitch(time = -1):
-	var scene = glitch_scene.instantiate()
+func glitch(value = false, time = -1):
+	glitch_scene.is_glitching = value
+	glitch_scene.run()
 	if time > 0:
-		scene.time = time
-	glitches.append(scene)
-	add_child(scene)
+		await get_tree().create_timer(time).timeout
+		glitch_scene.is_glitching = false
+		glitch_scene.run()
 
-func clear_glitch():
-	for glitch in glitches:
-		remove_child(glitch)
-		glitch.queue_free()
-
-func shake(time = -1):
-	var scene = shake_scene.instantiate()
+func shake(value = false, time = -1):
+	shake_scene.is_shaking = value 
+	shake_scene.run()
 	if time > 0:
-		scene.time = time
-	shakes.append(scene)
-	add_child(scene)
-
-func clear_shake():
-	for shake in shakes:
-		remove_child(shake)
-		shake.queue_free()
+		shake_scene.time = time
 
 func get_finished(identifier: String):
 	print(save_file.timelines_done)
@@ -87,7 +82,7 @@ func get_finished(identifier: String):
 			return true
 	print("NO MATCH")
 	return false
-		
+	
 func disable_input():
 	can_move = false
 	
@@ -131,7 +126,6 @@ func get_spawn_coords():
 	match save_file.checkpoint:
 		"spawn": return Vector2(597,767)
 		"outlands_boss": return Vector2(4739,-5548)
-		
 
 func set_attacking(boss, value):
 	match boss:

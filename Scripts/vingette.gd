@@ -1,7 +1,7 @@
 extends Node2D
 
 var progress = 0
-var is_up = true
+var is_up = false
 
 func _ready():
 	pass

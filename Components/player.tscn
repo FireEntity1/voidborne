@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://das5p0rexu6p8"]
+[gd_scene load_steps=27 format=3 uid="uid://das5p0rexu6p8"]
 
 [ext_resource type="Texture2D" uid="uid://5gfo1dfua82j" path="res://Sprites/player_idle.png" id="1_ec02m"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_v43g5"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://ndmbf37u2q1t" path="res://Sprites/player_falling_straight1.png" id="4_k1we7"]
 [ext_resource type="Texture2D" uid="uid://bod303gs2jexh" path="res://Sprites/player_slam.png" id="6_hsxsq"]
 [ext_resource type="Texture2D" uid="uid://d4c6gyi1qg5vf" path="res://Sprites/Slash.png" id="9_y2lmu"]
+[ext_resource type="Texture2D" uid="uid://dblu2mb07hui5" path="res://Sprites/void_meter.png" id="10_uf36n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kybed"]
 size = Vector2(99, 83)
@@ -235,21 +236,23 @@ rotation_smoothing_enabled = true
 
 [node name="ui" type="CanvasLayer" parent="."]
 
-[node name="voidwell" type="ProgressBar" parent="ui"]
-custom_minimum_size = Vector2(150, 350)
+[node name="voidwell" type="TextureProgressBar" parent="ui"]
+custom_minimum_size = Vector2(250, 250)
 anchors_preset = -1
 anchor_left = 0.397
 anchor_top = -0.587
 anchor_right = 0.476
 anchor_bottom = -0.263
-offset_left = 942.76
-offset_top = 666.96
-offset_right = 941.08
-offset_bottom = 667.04
+offset_left = 888.76
+offset_top = 652.96
+offset_right = 987.08
+offset_bottom = 553.04
 grow_horizontal = 2
 grow_vertical = 2
-value = 20.0
+max_value = 16.0
+value = 16.0
 fill_mode = 3
-show_percentage = false
+nine_patch_stretch = true
+texture_progress = ExtResource("10_uf36n")
 
 [connection signal="timeout" from="dash" to="." method="_on_dash_timeout"]

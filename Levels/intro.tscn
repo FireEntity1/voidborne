@@ -23,12 +23,12 @@
 
 [sub_resource type="Gradient" id="Gradient_wghrg"]
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_4ewkg"]
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_83xvx"]
 gradient = SubResource("Gradient_wghrg")
 
 [sub_resource type="Gradient" id="Gradient_i36j4"]
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_wtai5"]
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_bpqyn"]
 gradient = SubResource("Gradient_i36j4")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ujdmv"]
@@ -41,11 +41,11 @@ shader_parameter/brightnessStar = 3.0
 shader_parameter/shineFrequencyStar = 8.0
 shader_parameter/transparencyStar = 0.0
 shader_parameter/starIterations = 3
-shader_parameter/gradientA = SubResource("GradientTexture2D_4ewkg")
+shader_parameter/gradientA = SubResource("GradientTexture2D_83xvx")
 shader_parameter/frequencyBgStar = 1.0
 shader_parameter/shineFrequencyBgStar = 1.0
 shader_parameter/transparencyBgStar = 0.0
-shader_parameter/gradientB = SubResource("GradientTexture2D_wtai5")
+shader_parameter/gradientB = SubResource("GradientTexture2D_bpqyn")
 shader_parameter/colorBackground = Color(0.1305, 0.170375, 0.29, 1)
 shader_parameter/transparencyBackground = 0.0
 shader_parameter/seed = 1.0
@@ -157,6 +157,7 @@ offset_top = -10269.0
 offset_right = 16151.0
 offset_bottom = 927.0
 color = Color(0.212305, 0.212305, 0.212305, 1)
+metadata/_edit_use_anchors_ = true
 
 [node name="pixel" type="ColorRect" parent="parallaxBG"]
 material = SubResource("ShaderMaterial_h00tx")
@@ -165,6 +166,7 @@ offset_top = -10869.0
 offset_right = 17046.0
 offset_bottom = 1577.0
 color = Color(0.212305, 0.212305, 0.212305, 1)
+metadata/_edit_use_anchors_ = true
 
 [node name="parallax" type="Parallax2D" parent="."]
 scale = Vector2(37.375, 37.375)
@@ -630,4 +632,4 @@ position = Vector2(7382, -3028)
 position = Vector2(10349, -4592)
 
 [node name="boss" parent="." instance=ExtResource("19_r4ule")]
-position = Vector2(2440, -1518)
+position = Vector2(2440, -1257)

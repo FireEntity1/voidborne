@@ -19,3 +19,4 @@ material = SubResource("ShaderMaterial_fchrb")
 custom_minimum_size = Vector2(1920, 1080)
 offset_right = 40.0
 offset_bottom = 40.0
+mouse_filter = 2

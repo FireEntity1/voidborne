@@ -21,3 +21,4 @@ material = SubResource("ShaderMaterial_hjgta")
 custom_minimum_size = Vector2(1920, 1080)
 offset_right = 1920.0
 offset_bottom = 1080.0
+mouse_filter = 2

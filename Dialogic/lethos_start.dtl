@@ -1,10 +1,15 @@
+[signal arg="cam-zoom-in"]
 do global.disable_input()
-do global.shake()
+do global.vingette(true)
+do global.shake(true)
+do global.glitch(true, 1)
 lethos: [speed=20] d...destroy
 lethos: [speed=20] void... unwElcome
 lethos: [speed=20] leave . . .
 do global.title("Lethos")
 [wait time="5.0"]
 do global.enable_input()
-do global.set_attacking("lethos", true)
 do global.clear_shake()
+[signal arg="cam-zoom-out"]
+[wait time="2.0"]
+do global.set_attacking("lethos", true)

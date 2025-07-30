@@ -21,6 +21,8 @@ var attack = preload("res://Components/lethos_attack.tscn")
 var hover_up = true
 var hover_speed = 67
 
+var hover_lim = 100
+
 var move_left = true
 
 var running = false
@@ -31,31 +33,37 @@ func _ready():
 func _process(delta):
 	running = global.lethos_attacking
 	if hover_up:
-		$sprite.position.y -= delta*hover_speed
+		position.y -= delta*hover_speed
 	else:
-		$sprite.position.y += delta*hover_speed
+		position.y += delta*hover_speed
 		
 	if move_left and running and not finished:
 		self.position.x -= delta*300
 		dist -= delta*300
+		
 	elif running and not finished:
 		self.position.x += delta*300
 		dist += delta*300
+		
 	
-	if dist < -800:
+	if dist < -950:
 		move_left = false
-	elif dist > 800:
+	elif dist > 950:
 		move_left = true
 	
 	if finished:
-		$hover.wait_time = 0.2
-		hover_speed = 200
+		$hover.wait_time = 0.05
+		hover_speed = 400
+		$sprite.position.y = 270
 	
 	if die and finished:
 		progress += delta/8
 		$sprite.material.set_shader_parameter("progress", progress)
 		if progress > 0.1:
 			progress += 0.05
+			
+	if not running:
+		$hover.wait_time = 0.01
 
 func _on_damage_body_entered(body):
 	if body.name == "player" and running:
@@ -75,6 +83,7 @@ func _on_start_detection_body_entered(body):
 
 func _on_attack_timeout():
 	if running and not finished:
+		hover_lim = 400
 		var scene = attack.instantiate()
 		self.add_child(scene)
 

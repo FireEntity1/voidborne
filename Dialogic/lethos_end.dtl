@@ -1,8 +1,12 @@
 do global.disable_input()
-lethos: [speed=20] n... no 
+[signal arg="cam-zoom-in"]
+lethos: [speed=20] n... no
 lethos: [speed=12] it will not be pleased
 [wait time="1.0"]
 lethos: [speed=20] . . .
 [signal arg="die"]
 [wait time="1.0" hide_text="false"]
 do global.enable_input()
+[signal arg="cam-zoom-normal"]
+do global.shake()
+do global.vingette()

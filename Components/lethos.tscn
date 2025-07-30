@@ -133,6 +133,7 @@ shape = SubResource("RectangleShape2D_pq7io")
 shape = SubResource("RectangleShape2D_sm13f")
 
 [node name="hover" type="Timer" parent="."]
+wait_time = 3.0
 autostart = true
 
 [node name="attack" type="Timer" parent="."]

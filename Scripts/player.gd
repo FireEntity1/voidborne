@@ -10,7 +10,7 @@ var can_dash = true
 
 var can_attack = true
 
-var damage = 5
+var damage = 100
 
 var voidwell = 10
 
@@ -19,6 +19,8 @@ var slashing = false
 var slamming = false
 
 var flip = true # right false, left true
+
+var cam_zoom = 1.0
 
 var can_take_damage = true
 
@@ -32,8 +34,9 @@ var last_dir = 1
 
 func _ready():
 	$land_particles.emitting = false
-	add_voidwell(10)
+	add_voidwell(1)
 	update_hearts()
+	Dialogic.signal_event.connect(_on_dialogic_signal)
 
 func _physics_process(delta):
 	global.player_pos = position
@@ -135,6 +138,8 @@ func _physics_process(delta):
 			can_dash = false
 			$dash.start()
 			var anim = preload("res://Components/dash_anim.tscn").instantiate()
+			if last_dir < 0:
+				anim.get_node("dash_sprite").flip_h = true
 			anim.global_position = global_position
 			get_tree().current_scene.add_child(anim)
 			await get_tree().create_timer(0.6).timeout
@@ -150,6 +155,9 @@ func _physics_process(delta):
 		$land_particles.emitting = true
 		await get_tree().create_timer(0.2).timeout
 		$land_particles.emitting = false
+	
+	$camera.zoom = $camera.zoom.move_toward(Vector2(cam_zoom,cam_zoom), delta)
+	
 	
 	move_and_slide()
 
@@ -202,3 +210,11 @@ func respawn():
 	var coords = global.get_spawn_coords()
 	self.position = coords
 	health = global.save_file.hearts
+
+func _on_dialogic_signal(text):
+	if text == "cam-zoom-in":
+		cam_zoom = 1.7
+	if text == "cam-zoom-out":
+		cam_zoom = 0.6
+	if text == "cam-zoom-normal":
+		cam_zoom = 1.0

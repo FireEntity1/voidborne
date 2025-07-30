@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://wjqqxybjdgr4"]
+
+[ext_resource type="Texture2D" uid="uid://dcpnsmsyb0q4y" path="res://Sprites/building-2.png" id="1_rae2n"]
+
+[node name="Building-solaria" type="Node2D"]
+
+[node name="sprite" type="Sprite2D" parent="."]
+modulate = Color(0.68, 0.67592, 0.6528, 1)
+scale = Vector2(57.75, 57.75)
+texture = ExtResource("1_rae2n")
