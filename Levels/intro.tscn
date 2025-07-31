@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=4 uid="uid://do2lwffpt3ckb"]
+[gd_scene load_steps=55 format=4 uid="uid://do2lwffpt3ckb"]
 
 [ext_resource type="PackedScene" uid="uid://das5p0rexu6p8" path="res://Components/player.tscn" id="1_e1us0"]
 [ext_resource type="PackedScene" uid="uid://kl8sy5tjjmnb" path="res://Components/flicker.tscn" id="2_s6366"]
@@ -20,6 +20,8 @@
 [ext_resource type="PackedScene" uid="uid://okrtdjwlb8ll" path="res://Components/void_fragment.tscn" id="17_j02lb"]
 [ext_resource type="PackedScene" uid="uid://drqbowe6cwh14" path="res://Components/voidwell.tscn" id="18_pcmyh"]
 [ext_resource type="PackedScene" uid="uid://opypnmqci606" path="res://Components/lethos.tscn" id="19_r4ule"]
+[ext_resource type="PackedScene" uid="uid://blnb40ydbyyc" path="res://Components/orren.tscn" id="21_woumm"]
+[ext_resource type="Resource" path="res://Dialogic/orren.dtl" id="22_r63a5"]
 
 [sub_resource type="Gradient" id="Gradient_wghrg"]
 
@@ -589,10 +591,10 @@ position = Vector2(10825, -3022)
 position = Vector2(8451, -2735)
 
 [node name="flicker14" parent="." instance=ExtResource("16_5omo2")]
-position = Vector2(13674, -3102)
+position = Vector2(8067, -3792)
 
 [node name="flicker15" parent="." instance=ExtResource("16_5omo2")]
-position = Vector2(14200, -3018)
+position = Vector2(6771, -2769)
 
 [node name="flicker16" parent="." instance=ExtResource("16_5omo2")]
 position = Vector2(10712, -4149)
@@ -633,3 +635,7 @@ position = Vector2(10349, -4592)
 
 [node name="boss" parent="." instance=ExtResource("19_r4ule")]
 position = Vector2(2440, -1257)
+
+[node name="Orren" parent="." instance=ExtResource("21_woumm")]
+position = Vector2(14321, -3014)
+timeline = ExtResource("22_r63a5")

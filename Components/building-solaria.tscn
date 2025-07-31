@@ -5,6 +5,6 @@
 [node name="Building-solaria" type="Node2D"]
 
 [node name="sprite" type="Sprite2D" parent="."]
-modulate = Color(0.68, 0.67592, 0.6528, 1)
+modulate = Color(0.894922, 0.894922, 0.894922, 1)
 scale = Vector2(57.75, 57.75)
 texture = ExtResource("1_rae2n")

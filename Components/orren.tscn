@@ -1,0 +1,44 @@
+[gd_scene load_steps=7 format=3 uid="uid://blnb40ydbyyc"]
+
+[ext_resource type="Texture2D" uid="uid://dwqpp3vfnnr48" path="res://Sprites/orren.png" id="1_65x4e"]
+[ext_resource type="Script" path="res://scripts/npc.gd" id="1_jdh7v"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gdwlo"]
+atlas = ExtResource("1_65x4e")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ti3y5"]
+atlas = ExtResource("1_65x4e")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_e7ems"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gdwlo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ti3y5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g3bcq"]
+size = Vector2(1060, 498)
+
+[node name="Orren" type="Area2D"]
+script = ExtResource("1_jdh7v")
+
+[node name="sprite" type="AnimatedSprite2D" parent="."]
+scale = Vector2(12.75, 12.75)
+sprite_frames = SubResource("SpriteFrames_e7ems")
+autoplay = "default"
+frame_progress = 0.948757
+
+[node name="talkarea" type="Area2D" parent="."]
+
+[node name="collision" type="CollisionShape2D" parent="talkarea"]
+position = Vector2(8, -99)
+shape = SubResource("RectangleShape2D_g3bcq")

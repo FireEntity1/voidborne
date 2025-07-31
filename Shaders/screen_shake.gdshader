@@ -21,4 +21,3 @@ void fragment() {
 	dt.y = cos(TIME *FactorA.y+ FactorB.y) * magnitude.y;
 	COLOR = texture(SCREEN_TEXTURE,uv + (dt*ShakeStrength));
 }
-

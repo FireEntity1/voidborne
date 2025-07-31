@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 var jumps = 2
 
-const SPEED = 1200.0
+var SPEED = 1200.0
 const JUMP_VELOCITY = -1600.0
 
 var dashing = false
@@ -12,7 +12,7 @@ var can_attack = true
 
 var damage = 100
 
-var voidwell = 10
+var voidwell = 8
 
 var slashing = false
 
@@ -158,6 +158,16 @@ func _physics_process(delta):
 	
 	$camera.zoom = $camera.zoom.move_toward(Vector2(cam_zoom,cam_zoom), delta)
 	
+	if Input.is_action_pressed("heal") and voidwell > 4:
+		SPEED = 400
+		add_voidwell(-1)
+		await get_tree().create_timer(0.5).timeout
+		add_voidwell(-1)
+		await get_tree().create_timer(0.5).timeout
+		add_voidwell(-1)
+		await get_tree().create_timer(0.5).timeout
+		add_voidwell(-1)
+		SPEED = 1200
 	
 	move_and_slide()
 

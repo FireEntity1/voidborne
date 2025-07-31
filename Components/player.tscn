@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://das5p0rexu6p8"]
+[gd_scene load_steps=28 format=3 uid="uid://das5p0rexu6p8"]
 
 [ext_resource type="Texture2D" uid="uid://5gfo1dfua82j" path="res://Sprites/player_idle.png" id="1_ec02m"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_v43g5"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://ndmbf37u2q1t" path="res://Sprites/player_falling_straight1.png" id="4_k1we7"]
 [ext_resource type="Texture2D" uid="uid://bod303gs2jexh" path="res://Sprites/player_slam.png" id="6_hsxsq"]
 [ext_resource type="Texture2D" uid="uid://d4c6gyi1qg5vf" path="res://Sprites/Slash.png" id="9_y2lmu"]
+[ext_resource type="Texture2D" uid="uid://cnx7fu7k8ekmt" path="res://Sprites/void_meter_unfilled.png" id="10_iy0g0"]
 [ext_resource type="Texture2D" uid="uid://dblu2mb07hui5" path="res://Sprites/void_meter.png" id="10_uf36n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kybed"]
@@ -250,9 +251,10 @@ offset_bottom = 553.04
 grow_horizontal = 2
 grow_vertical = 2
 max_value = 16.0
-value = 16.0
+value = 5.0
 fill_mode = 3
 nine_patch_stretch = true
+texture_under = ExtResource("10_iy0g0")
 texture_progress = ExtResource("10_uf36n")
 
 [connection signal="timeout" from="dash" to="." method="_on_dash_timeout"]
