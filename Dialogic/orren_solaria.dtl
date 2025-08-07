@@ -1,0 +1,13 @@
+do global.disable_input()
+if {has_talked.orren} == true:
+	orren: So we meet again, Voidborn.
+	orren: I've moved here for some improvement in my life . . .
+	orren: . . . but nobody likes me
+	orren: It's as if they hate what they dont know.
+	orren: I'm going back, I can't take this forsaken light anymore.
+	orren: Tread carefully.
+else:
+	???: hmph. go away.
+	???: stupid void.
+	???: stupid light.
+do global.enable_input()

@@ -10,7 +10,7 @@ var can_dash = true
 
 var can_attack = true
 
-var damage = 100
+@onready var damage = 15
 
 var voidwell = 8
 
@@ -116,15 +116,12 @@ func _physics_process(delta):
 		var areas = $slash/slash.get_overlapping_areas()
 		var enemies = []
 		for body in bodies:
-			print(body.name)
 			if body is CharacterBody2D:
 				body.health -= damage
 				body.hit()
-				print("hit")
 		for area in areas:
 			if area.name == "boss":
 				area.hit()
-				print("hit")
 				area.health -= damage
 		await get_tree().create_timer(0.2).timeout
 		can_attack = true

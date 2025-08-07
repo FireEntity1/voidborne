@@ -3,6 +3,9 @@
 [ext_resource type="Texture2D" uid="uid://dwqpp3vfnnr48" path="res://Sprites/orren.png" id="1_65x4e"]
 [ext_resource type="Script" path="res://scripts/npc.gd" id="1_jdh7v"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g3bcq"]
+size = Vector2(1060, 498)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_gdwlo"]
 atlas = ExtResource("1_65x4e")
 region = Rect2(0, 0, 16, 16)
@@ -25,20 +28,18 @@ animations = [{
 "speed": 1.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_g3bcq"]
-size = Vector2(1060, 498)
-
 [node name="Orren" type="Area2D"]
 script = ExtResource("1_jdh7v")
 
+[node name="talkarea" type="CollisionShape2D" parent="."]
+position = Vector2(8, -99)
+shape = SubResource("RectangleShape2D_g3bcq")
+
 [node name="sprite" type="AnimatedSprite2D" parent="."]
-scale = Vector2(12.75, 12.75)
+position = Vector2(5, 37)
+scale = Vector2(8.1875, 8.1875)
 sprite_frames = SubResource("SpriteFrames_e7ems")
 autoplay = "default"
 frame_progress = 0.948757
 
-[node name="talkarea" type="Area2D" parent="."]
-
-[node name="collision" type="CollisionShape2D" parent="talkarea"]
-position = Vector2(8, -99)
-shape = SubResource("RectangleShape2D_g3bcq")
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

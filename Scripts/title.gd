@@ -2,6 +2,8 @@ extends Node2D
 
 @export var title: String
 
+@export var subtitle = " "
+
 @onready var label = $layer/label
 
 var appearing = true

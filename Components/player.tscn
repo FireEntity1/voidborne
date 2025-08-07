@@ -13,7 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://dblu2mb07hui5" path="res://Sprites/void_meter.png" id="10_uf36n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kybed"]
-size = Vector2(99, 83)
+size = Vector2(99, 72)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tdbd8"]
 atlas = ExtResource("1_ec02m")
@@ -179,7 +179,7 @@ collision_mask = 9
 script = ExtResource("1_v43g5")
 
 [node name="body_collision" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, 17.5)
+position = Vector2(-0.5, 23)
 shape = SubResource("RectangleShape2D_kybed")
 
 [node name="sprite" type="AnimatedSprite2D" parent="."]

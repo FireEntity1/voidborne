@@ -14,6 +14,8 @@ var save_file = {
 		"outlands_b": false,
 		"outlands_c": false,
 		"outlands_d": false,
+		"solaria_a": false,
+		"solaria_b": false,
 	}
 }
 
@@ -37,6 +39,7 @@ var shake_scene = preload("res://Components/screen_shake.tscn")
 var vingette_scene = preload("res://Components/vingette.tscn")
 
 func _ready():
+	save()
 	load_save()
 	
 	vingette_scene = vingette_scene.instantiate()
@@ -78,9 +81,9 @@ func get_finished(identifier: String):
 	print(identifier)
 	for timeline in save_file.timelines_done:
 		if timeline == identifier:
-			print("MATCH FOUND")
+			#print("MATCH FOUND")
 			return true
-	print("NO MATCH")
+	#print("NO MATCH")
 	return false
 	
 func disable_input():

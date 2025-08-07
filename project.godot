@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Voidborne"
-run/main_scene="res://Levels/intro.tscn"
+run/main_scene="res://Levels/outlands.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://Sprites/icon.svg"
 
@@ -27,6 +27,7 @@ directories/dch_directory={
 "lethos": "res://Dialogic/lethos.dch",
 "nym": "res://Dialogic/nym.dch",
 "orren": "res://Dialogic/orren.dch",
+"vexin": "res://Dialogic/vexin.dch",
 "voidwell": "res://Dialogic/voidwell.dch"
 }
 directories/dtl_directory={
@@ -36,13 +37,18 @@ directories/dtl_directory={
 "lethos_end": "res://Dialogic/lethos_end.dtl",
 "lethos_start": "res://Dialogic/lethos_start.dtl",
 "orren": "res://Dialogic/orren.dtl",
+"orren_solaria": "res://Dialogic/orren_solaria.dtl",
 "prelude": "res://Dialogic/prelude.dtl",
+"solaria_intro": "res://Dialogic/solaria_intro.dtl",
+"vexin_interaction": "res://Dialogic/vexin_interaction.dtl",
 "voidwell": "res://Dialogic/voidwell.dtl"
 }
 layout/style_list=["res://Dialogic/style.tres"]
 layout/default_style="res://Dialogic/style.tres"
 variables={
-"": {},
+"has_talked": {
+"orren": false
+},
 "name": "voidborn"
 }
 glossary/default_case_sensitive=true

@@ -1,0 +1,61 @@
+[gd_scene load_steps=10 format=3 uid="uid://c4n3n7xk67euf"]
+
+[ext_resource type="Script" path="res://scripts/npc.gd" id="1_isxbv"]
+[ext_resource type="Texture2D" uid="uid://uq85x182pj3f" path="res://Sprites/vexin.png" id="1_jj61b"]
+[ext_resource type="Resource" path="res://Dialogic/vexin_interaction.dtl" id="2_pa57b"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y5357"]
+size = Vector2(347, 395)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ej5hw"]
+atlas = ExtResource("1_jj61b")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sxt2b"]
+atlas = ExtResource("1_jj61b")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iby2m"]
+atlas = ExtResource("1_jj61b")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4fk6d"]
+atlas = ExtResource("1_jj61b")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w07ih"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ej5hw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sxt2b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iby2m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4fk6d")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="vexin" type="Area2D"]
+script = ExtResource("1_isxbv")
+timeline = ExtResource("2_pa57b")
+
+[node name="talkarea" type="CollisionShape2D" parent="."]
+position = Vector2(1.5, -140.5)
+shape = SubResource("RectangleShape2D_y5357")
+
+[node name="sprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1, -41)
+scale = Vector2(14.75, 14.75)
+sprite_frames = SubResource("SpriteFrames_w07ih")
+autoplay = "default"
+frame_progress = 0.706781
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

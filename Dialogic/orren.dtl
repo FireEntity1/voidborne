@@ -1,7 +1,10 @@
+do global.disable_input()
 ???: hmph. another flicker in the dark.
 orren: I'm Orren, just another resident of this drab kingdom.
+set {has_talked.orren} = true
 orren: You're beginning to wake things.
 orren: Things that [speed=20] it [speed=8] wants forgotten.
 orren: Don't trust the shine.
 orren: It burns what it fears.
 orren: Careful where you cast a shadow, voidchild.
+do global.enable_input()

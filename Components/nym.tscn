@@ -4,6 +4,9 @@
 [ext_resource type="Script" path="res://scripts/npc.gd" id="1_p4iwe"]
 [ext_resource type="Resource" path="res://Dialogic/intro.dtl" id="2_eacf2"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hy1qd"]
+size = Vector2(400, 740)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_ved8r"]
 atlas = ExtResource("1_acuvm")
 region = Rect2(0, 0, 16, 16)
@@ -40,12 +43,13 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_hy1qd"]
-size = Vector2(400, 360)
-
 [node name="Nym" type="Area2D"]
 script = ExtResource("1_p4iwe")
 timeline = ExtResource("2_eacf2")
+
+[node name="talkarea" type="CollisionShape2D" parent="."]
+position = Vector2(1, -249)
+shape = SubResource("RectangleShape2D_hy1qd")
 
 [node name="sprite" type="AnimatedSprite2D" parent="."]
 modulate = Color(0.874, 0.890467, 0.95, 1)
@@ -53,9 +57,5 @@ position = Vector2(0, -27)
 scale = Vector2(6.875, 6.875)
 sprite_frames = SubResource("SpriteFrames_jpu81")
 autoplay = "default"
-
-[node name="talkarea" type="CollisionShape2D" parent="."]
-position = Vector2(1, -59)
-shape = SubResource("RectangleShape2D_hy1qd")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

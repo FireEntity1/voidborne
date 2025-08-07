@@ -1,54 +1,68 @@
-[gd_scene load_steps=14 format=3 uid="uid://xpuulebmleiu"]
+[gd_scene load_steps=16 format=3 uid="uid://bdadpurs8ayal"]
 
-[ext_resource type="Script" path="res://scripts/enemy.gd" id="1_4j3x7"]
-[ext_resource type="Texture2D" uid="uid://bg8ynye8k1ha3" path="res://Sprites/purgelet.png" id="2_6tds0"]
+[ext_resource type="Script" path="res://scripts/enemy.gd" id="1_u2iyj"]
+[ext_resource type="Texture2D" uid="uid://nfh321jlt0v0" path="res://Sprites/gilded-shard.png" id="2_hwnyb"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mrict"]
-radius = 482.998
+radius = 434.999
 height = 3508.01
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_bfy3h"]
-atlas = ExtResource("2_6tds0")
+[sub_resource type="AtlasTexture" id="AtlasTexture_esb5f"]
+atlas = ExtResource("2_hwnyb")
 region = Rect2(0, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_57oue"]
-atlas = ExtResource("2_6tds0")
+[sub_resource type="AtlasTexture" id="AtlasTexture_8h3m8"]
+atlas = ExtResource("2_hwnyb")
 region = Rect2(16, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_dhphx"]
-atlas = ExtResource("2_6tds0")
-region = Rect2(0, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_0wnq1"]
-atlas = ExtResource("2_6tds0")
+[sub_resource type="AtlasTexture" id="AtlasTexture_22cob"]
+atlas = ExtResource("2_hwnyb")
 region = Rect2(32, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_b0y7h"]
-atlas = ExtResource("2_6tds0")
-region = Rect2(32, 0, 16, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_n4v3e"]
+atlas = ExtResource("2_hwnyb")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hv52p"]
+atlas = ExtResource("2_hwnyb")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7acvt"]
+atlas = ExtResource("2_hwnyb")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pjjjy"]
+atlas = ExtResource("2_hwnyb")
+region = Rect2(96, 0, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_mticx"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_bfy3h")
+"texture": SubResource("AtlasTexture_esb5f")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_57oue")
+"texture": SubResource("AtlasTexture_8h3m8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_22cob")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n4v3e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hv52p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7acvt")
 }],
 "loop": true,
 "name": &"default",
-"speed": 3.0
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_dhphx")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_0wnq1")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_b0y7h")
+"texture": SubResource("AtlasTexture_pjjjy")
 }],
 "loop": true,
 "name": &"hit",
@@ -56,7 +70,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mtkkn"]
-size = Vector2(161, 43)
+size = Vector2(78, 156)
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_sk1jr"]
 particle_flag_disable_z = true
@@ -71,7 +85,7 @@ scale_min = 12.0
 scale_max = 12.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_07c02"]
-size = Vector2(136, 72)
+size = Vector2(73, 178)
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_q7k3w"]
 particle_flag_disable_z = true
@@ -85,17 +99,17 @@ gravity = Vector3(0, 98, 0)
 scale_min = 13.0
 scale_max = 13.0
 
-[node name="flicker" type="CharacterBody2D"]
+[node name="gilded_shard" type="CharacterBody2D"]
 collision_layer = 2
 collision_mask = 12
-script = ExtResource("1_4j3x7")
-type = "purgelet"
+script = ExtResource("1_u2iyj")
+type = "gilded_shard"
 
 [node name="detection" type="Area2D" parent="."]
 
 [node name="collision" type="CollisionShape2D" parent="detection"]
 visible = false
-position = Vector2(0, -269)
+position = Vector2(0, -190)
 rotation = 1.57087
 shape = SubResource("CapsuleShape2D_mrict")
 
@@ -106,7 +120,7 @@ sprite_frames = SubResource("SpriteFrames_mticx")
 autoplay = "default"
 
 [node name="collision" type="CollisionShape2D" parent="."]
-position = Vector2(7.5, 46.5)
+position = Vector2(-4, 11)
 shape = SubResource("RectangleShape2D_mtkkn")
 one_way_collision_margin = 0.0
 
@@ -121,7 +135,7 @@ explosiveness = 0.65
 [node name="hit_collision" type="Area2D" parent="."]
 
 [node name="collision" type="CollisionShape2D" parent="hit_collision"]
-position = Vector2(7, 32)
+position = Vector2(-3.5, -1)
 shape = SubResource("RectangleShape2D_07c02")
 
 [node name="hit_particles" type="GPUParticles2D" parent="."]
