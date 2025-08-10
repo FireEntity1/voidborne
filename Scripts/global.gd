@@ -102,9 +102,10 @@ func fade(to: bool, time: int, black: bool):
 func change_level(level: String):
 	get_tree().change_scene_to_file("res://Levels/" + level + ".tscn")
 
-func title(text: String):
+func title(text: String, sub = " "):
 	var scene = title_scene.instantiate()
 	scene.title = text
+	scene.subtitle = sub
 	get_tree().current_scene.add_child(scene)
 
 func save():

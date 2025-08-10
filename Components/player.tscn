@@ -230,6 +230,7 @@ wait_time = 0.12
 
 [node name="camera" type="Camera2D" parent="."]
 position = Vector2(0, -118)
+zoom = Vector2(0.8, 0.8)
 position_smoothing_enabled = true
 rotation_smoothing_enabled = true
 

@@ -24,6 +24,7 @@ global="*res://Scripts/global.gd"
 
 directories/dch_directory={
 "???": "res://Dialogic/???.dch",
+"helis": "res://Dialogic/helis.dch",
 "lethos": "res://Dialogic/lethos.dch",
 "nym": "res://Dialogic/nym.dch",
 "orren": "res://Dialogic/orren.dch",

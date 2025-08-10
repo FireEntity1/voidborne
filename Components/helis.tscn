@@ -1,0 +1,115 @@
+[gd_scene load_steps=14 format=3 uid="uid://cw28m6j76d1x6"]
+
+[ext_resource type="Script" path="res://scripts/helis.gd" id="1_y5c6d"]
+[ext_resource type="Shader" path="res://Shaders/melt.gdshader" id="4_x3xms"]
+[ext_resource type="Texture2D" uid="uid://b4hvnoqhuwuni" path="res://Sprites/helis.png" id="5_oqw15"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5m502"]
+shader = ExtResource("4_x3xms")
+shader_parameter/progress = 0.0
+shader_parameter/meltiness = 14.671
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ilypf"]
+atlas = ExtResource("5_oqw15")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rj3ck"]
+atlas = ExtResource("5_oqw15")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ojaly"]
+atlas = ExtResource("5_oqw15")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fb2yl"]
+atlas = ExtResource("5_oqw15")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lybw5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ilypf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rj3ck")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ojaly")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fb2yl")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pq7io"]
+size = Vector2(358, 346)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sm13f"]
+size = Vector2(2946, 1294)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_be1bn"]
+particle_flag_disable_z = true
+direction = Vector3(0, 0, 0)
+spread = 180.0
+initial_velocity_min = 1000.0
+initial_velocity_max = 1000.0
+gravity = Vector3(0, 0, 0)
+scale_min = 16.0
+scale_max = 58.38
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h0e6p"]
+size = Vector2(613.659, 327.107)
+
+[node name="boss" type="Area2D"]
+collision_layer = 2
+script = ExtResource("1_y5c6d")
+
+[node name="sprite" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_5m502")
+position = Vector2(0, 71.6319)
+scale = Vector2(16.75, 16.75)
+sprite_frames = SubResource("SpriteFrames_lybw5")
+autoplay = "default"
+frame_progress = 0.130339
+offset = Vector2(0, -4.03478)
+
+[node name="boss_hitbox" type="Area2D" parent="."]
+collision_mask = 5
+
+[node name="collision" type="CollisionShape2D" parent="boss_hitbox"]
+shape = SubResource("RectangleShape2D_pq7io")
+
+[node name="start_detection" type="Area2D" parent="."]
+
+[node name="trigger" type="CollisionShape2D" parent="start_detection"]
+shape = SubResource("RectangleShape2D_sm13f")
+
+[node name="hover" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[node name="attack" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[node name="particles" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 16
+process_material = SubResource("ParticleProcessMaterial_be1bn")
+lifetime = 0.4
+one_shot = true
+explosiveness = 0.52
+
+[node name="collision" type="CollisionShape2D" parent="."]
+position = Vector2(5.38694, 7.11437)
+rotation = 0.922709
+shape = SubResource("RectangleShape2D_h0e6p")
+
+[connection signal="body_entered" from="boss_hitbox" to="." method="_on_damage_body_entered"]
+[connection signal="body_entered" from="start_detection" to="." method="_on_start_detection_body_entered"]
+[connection signal="timeout" from="hover" to="." method="_on_hover_timeout"]
+[connection signal="timeout" from="attack" to="." method="_on_attack_timeout"]

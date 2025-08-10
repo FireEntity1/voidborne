@@ -6,7 +6,7 @@ do global.glitch(true, 1)
 lethos: [speed=20] d...destroy
 lethos: [speed=20] void... unwElcome
 lethos: [speed=20] leave . . .
-do global.title("Lethos")
+do global.title("Lethos", "The All Seeing")
 [wait time="5.0"]
 do global.enable_input()
 do global.clear_shake()

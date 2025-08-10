@@ -1,7 +1,6 @@
 extends Node2D
 
 @export var title: String
-
 @export var subtitle = " "
 
 @onready var label = $layer/label
@@ -11,6 +10,7 @@ var disappearing = false
 
 func _ready():
 	label.text = title
+	subtitle.text = subtitle
 	label.modulate.a = 0
 
 func _process(delta):

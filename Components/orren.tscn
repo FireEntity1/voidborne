@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://scripts/npc.gd" id="1_jdh7v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g3bcq"]
-size = Vector2(1060, 498)
+size = Vector2(688, 498)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gdwlo"]
 atlas = ExtResource("1_65x4e")
@@ -32,7 +32,7 @@ animations = [{
 script = ExtResource("1_jdh7v")
 
 [node name="talkarea" type="CollisionShape2D" parent="."]
-position = Vector2(8, -99)
+position = Vector2(194, -99)
 shape = SubResource("RectangleShape2D_g3bcq")
 
 [node name="sprite" type="AnimatedSprite2D" parent="."]

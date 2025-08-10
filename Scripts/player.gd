@@ -20,7 +20,7 @@ var slamming = false
 
 var flip = true # right false, left true
 
-var cam_zoom = 1.0
+var cam_zoom = 0.8
 
 var can_take_damage = true
 
@@ -220,8 +220,8 @@ func respawn():
 
 func _on_dialogic_signal(text):
 	if text == "cam-zoom-in":
-		cam_zoom = 1.7
+		cam_zoom = 1.5
 	if text == "cam-zoom-out":
 		cam_zoom = 0.6
 	if text == "cam-zoom-normal":
-		cam_zoom = 1.0
+		cam_zoom = 0.8
