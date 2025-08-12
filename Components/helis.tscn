@@ -48,8 +48,8 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pq7io"]
 size = Vector2(358, 346)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_sm13f"]
-size = Vector2(2946, 1294)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nha7f"]
+size = Vector2(278, 1294)
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_be1bn"]
 particle_flag_disable_z = true
@@ -86,7 +86,7 @@ shape = SubResource("RectangleShape2D_pq7io")
 [node name="start_detection" type="Area2D" parent="."]
 
 [node name="trigger" type="CollisionShape2D" parent="start_detection"]
-shape = SubResource("RectangleShape2D_sm13f")
+shape = SubResource("RectangleShape2D_nha7f")
 
 [node name="hover" type="Timer" parent="."]
 wait_time = 3.0

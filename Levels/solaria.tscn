@@ -1,4 +1,4 @@
-[gd_scene load_steps=75 format=4 uid="uid://jj3ipjt05xrm"]
+[gd_scene load_steps=76 format=4 uid="uid://jj3ipjt05xrm"]
 
 [ext_resource type="Texture2D" uid="uid://be6ulmoumegj4" path="res://Sprites/marble.png" id="1_4v87s"]
 [ext_resource type="Shader" path="res://Shaders/starry_sky.gdshader" id="1_p8dec"]
@@ -21,6 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://bdadpurs8ayal" path="res://Components/gilded_shard.tscn" id="16_vammh"]
 [ext_resource type="PackedScene" uid="uid://drqbowe6cwh14" path="res://Components/voidwell.tscn" id="20_kidpa"]
 [ext_resource type="PackedScene" uid="uid://cw28m6j76d1x6" path="res://Components/helis.tscn" id="21_gspko"]
+[ext_resource type="Resource" path="res://Dialogic/helis_intro.dtl" id="22_h8w4n"]
 
 [sub_resource type="Gradient" id="Gradient_s5dcj"]
 
@@ -570,7 +571,7 @@ position = Vector2(14682, -3531)
 id = "solaria_orren"
 
 [node name="Orren" parent="." instance=ExtResource("10_4njob")]
-position = Vector2(15196, -3426)
+position = Vector2(15230, -3428)
 timeline = ExtResource("11_jlysu")
 
 [node name="JumpOrb6" parent="." instance=ExtResource("14_nt2ne")]
@@ -593,7 +594,7 @@ position = Vector2(15370, -3409)
 fragment_id = "solaria_b"
 
 [node name="player" parent="." instance=ExtResource("7_07i6p")]
-position = Vector2(9418, -9250)
+position = Vector2(6954, -7946)
 
 [node name="timeline_trigger" parent="." instance=ExtResource("11_wogwb")]
 position = Vector2(-1, -305)
@@ -683,4 +684,5 @@ position = Vector2(9502, -3002)
 position = Vector2(10093, -3005)
 
 [node name="boss" parent="." instance=ExtResource("21_gspko")]
-position = Vector2(6412, -8371)
+position = Vector2(6403, -8189)
+start_timeline = ExtResource("22_h8w4n")

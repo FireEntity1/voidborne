@@ -6,6 +6,7 @@ func _ready():
 	direction = (global.player_pos - global_position).normalized()
 	await get_tree().create_timer(0.2).timeout
 	await get_tree().create_timer(5).timeout
+	print("spawned attack")
 	queue_free()
 	
 
@@ -16,7 +17,6 @@ func _process(delta):
 		var check = is_player()
 		if check[0]:
 			check[1].hit()
-			
 
 func is_player():
 	for body in $area.get_overlapping_bodies():

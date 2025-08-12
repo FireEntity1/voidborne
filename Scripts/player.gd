@@ -225,3 +225,5 @@ func _on_dialogic_signal(text):
 		cam_zoom = 0.6
 	if text == "cam-zoom-normal":
 		cam_zoom = 0.8
+	if text == "reset-health":
+		health = global.save_file.hearts

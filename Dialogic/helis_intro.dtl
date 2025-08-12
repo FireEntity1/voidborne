@@ -1,0 +1,9 @@
+do global.shake(true)
+do global.disable_input()
+do global.set_attacking(true)
+???: placeholder type shii\
+
+???: . . .
+do global.shake(false)
+do global.enable_input()
+[signal arg="helis-attack"]

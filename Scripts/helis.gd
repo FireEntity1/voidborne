@@ -1,6 +1,6 @@
 extends Area2D
 
-var health = 200
+var health = 400
 
 var is_boss = true
 var enemy = true
@@ -82,6 +82,8 @@ func _on_start_detection_body_entered(body):
 		$start_detection.queue_free()
 
 func _on_attack_timeout():
+	print(running)
+	print(finished)
 	if running and not finished:
 		hover_lim = 400
 		var scene = attack.instantiate()
@@ -91,27 +93,7 @@ func hit():
 	$particles.emitting = true
 	print("hit!")
 	flash_red()
-	if health > 150:
-		$sprite.frame = 0
-	elif health > 130:
-		$sprite.frame = 1
-	elif health > 100:
-		$sprite.frame = 2
-	elif health > 80:
-		$sprite.frame = 3
-	elif health > 60:
-		$sprite.frame = 4
-	elif health > 50:
-		$sprite.frame = 5
-	elif health > 40:
-		$sprite.frame = 6
-	elif health > 30:
-		$sprite.frame = 7
-	elif health > 20:
-		$sprite.frame = 8
-	else:
-		$sprite.frame = 9
-	
+
 	if health <= 0:
 		finished = true
 		running = false
@@ -125,3 +107,7 @@ func flash_red():
 func _on_dialogic_signal(arg):
 	if arg == "die":
 		die = true
+	if arg == "helis-attack":
+		print("helis attack")
+		running = true
+		finished = false

@@ -1,2 +1,2 @@
 voidwell: You feel rested . . .
-voidwell: (checkpoint activated)
+[signal arg="reset-health"]
