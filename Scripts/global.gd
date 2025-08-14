@@ -16,6 +16,7 @@ var save_file = {
 		"outlands_d": false,
 		"solaria_a": false,
 		"solaria_b": false,
+		"solaria_c": false,
 	}
 }
 
@@ -28,6 +29,7 @@ const SAVE_DIRECTORY = "user://save.void"
 var player_pos = Vector2(0,0)
 
 var lethos_attacking = false
+var helis_attacking = false
 
 var can_move = true
 
@@ -135,3 +137,6 @@ func set_attacking(boss, value):
 	match boss:
 		"lethos":
 			lethos_attacking = value
+		"helis":
+			helis_attacking = value
+			print("GLOBAL: helis attacking: " + str(value))

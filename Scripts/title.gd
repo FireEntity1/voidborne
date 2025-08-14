@@ -3,26 +3,33 @@ extends Node2D
 @export var title: String
 @export var subtitle = " "
 
-@onready var label = $layer/label
+@onready var layer = $layer
+
+@onready var title_node = $layer/label
+@onready var sub = $layer/subtitle
 
 var appearing = true
 var disappearing = false
 
 func _ready():
-	label.text = title
-	subtitle.text = subtitle
-	label.modulate.a = 0
+	$layer/label.text = title
+	$layer/subtitle.text = subtitle
+	title_node.modulate.a = 0
+	sub.modulate.a = 0
 
 func _process(delta):
 	if appearing:
-		label.modulate.a += delta
-		if label.modulate.a >= 1:
+		title_node.modulate.a += delta
+		sub.modulate.a += delta
+		if title_node.modulate.a >= 1:
 			appearing = false
 			$timer.start()
 		pass
+	
 	if disappearing:
-		label.modulate.a -= delta
-		if label.modulate.a <= 0:
+		title_node.modulate.a -= delta
+		sub.modulate.a -= delta
+		if title_node.modulate.a <= 0:
 			queue_free()
 
 func _on_timer_timeout():

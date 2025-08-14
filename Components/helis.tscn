@@ -4,6 +4,12 @@
 [ext_resource type="Shader" path="res://Shaders/melt.gdshader" id="4_x3xms"]
 [ext_resource type="Texture2D" uid="uid://b4hvnoqhuwuni" path="res://Sprites/helis.png" id="5_oqw15"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pq7io"]
+size = Vector2(358, 346)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nha7f"]
+size = Vector2(278, 1294)
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5m502"]
 shader = ExtResource("4_x3xms")
 shader_parameter/progress = 0.0
@@ -45,12 +51,6 @@ animations = [{
 "speed": 2.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_pq7io"]
-size = Vector2(358, 346)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_nha7f"]
-size = Vector2(278, 1294)
-
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_be1bn"]
 particle_flag_disable_z = true
 direction = Vector3(0, 0, 0)
@@ -68,15 +68,6 @@ size = Vector2(613.659, 327.107)
 collision_layer = 2
 script = ExtResource("1_y5c6d")
 
-[node name="sprite" type="AnimatedSprite2D" parent="."]
-material = SubResource("ShaderMaterial_5m502")
-position = Vector2(0, 71.6319)
-scale = Vector2(16.75, 16.75)
-sprite_frames = SubResource("SpriteFrames_lybw5")
-autoplay = "default"
-frame_progress = 0.130339
-offset = Vector2(0, -4.03478)
-
 [node name="boss_hitbox" type="Area2D" parent="."]
 collision_mask = 5
 
@@ -87,6 +78,15 @@ shape = SubResource("RectangleShape2D_pq7io")
 
 [node name="trigger" type="CollisionShape2D" parent="start_detection"]
 shape = SubResource("RectangleShape2D_nha7f")
+
+[node name="sprite" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_5m502")
+position = Vector2(0, 71.6319)
+scale = Vector2(16.75, 16.75)
+sprite_frames = SubResource("SpriteFrames_lybw5")
+autoplay = "default"
+frame_progress = 0.130339
+offset = Vector2(0, -4.03478)
 
 [node name="hover" type="Timer" parent="."]
 wait_time = 3.0

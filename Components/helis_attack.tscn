@@ -173,21 +173,22 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bq6st"]
-size = Vector2(1937, 85)
+size = Vector2(4838.68, 139.216)
 
 [node name="HelisAttack" type="Node2D"]
 script = ExtResource("1_152i2")
 
 [node name="sprite" type="AnimatedSprite2D" parent="."]
-position = Vector2(1168, 1)
-scale = Vector2(72.9375, 10.125)
+position = Vector2(-0.939166, 0.158799)
+rotation = -3.2279
+scale = Vector2(151.556, 16.7869)
 sprite_frames = SubResource("SpriteFrames_aifcn")
 autoplay = "default"
-frame = 22
-frame_progress = 1.0
+offset = Vector2(15.9608, -0.203215)
 
 [node name="area" type="Area2D" parent="."]
+rotation = -3.2279
 
 [node name="collision" type="CollisionShape2D" parent="area"]
-position = Vector2(968, -3)
+position = Vector2(2418.84, -2.99998)
 shape = SubResource("RectangleShape2D_bq6st")

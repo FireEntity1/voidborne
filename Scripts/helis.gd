@@ -31,7 +31,7 @@ func _ready():
 	Dialogic.signal_event.connect(_on_dialogic_signal)
 
 func _process(delta):
-	running = global.lethos_attacking
+	running = global.helis_attacking
 	if hover_up:
 		position.y -= delta*hover_speed
 	else:
@@ -44,7 +44,6 @@ func _process(delta):
 	elif running and not finished:
 		self.position.x += delta*300
 		dist += delta*300
-		
 	
 	if dist < -950:
 		move_left = false
@@ -61,7 +60,6 @@ func _process(delta):
 		$sprite.material.set_shader_parameter("progress", progress)
 		if progress > 0.1:
 			progress += 0.05
-			
 	if not running:
 		$hover.wait_time = 0.01
 
@@ -83,11 +81,11 @@ func _on_start_detection_body_entered(body):
 
 func _on_attack_timeout():
 	print(running)
-	print(finished)
 	if running and not finished:
+		print("condition met")
 		hover_lim = 400
 		var scene = attack.instantiate()
-		self.add_child(scene)
+		$boss_hitbox.add_child(scene)
 
 func hit():
 	$particles.emitting = true

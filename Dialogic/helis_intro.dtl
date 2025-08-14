@@ -1,9 +1,14 @@
 do global.shake(true)
+[signal arg="cam-zoom-in"]
 do global.disable_input()
-do global.set_attacking(true)
-???: placeholder type shii\
-
-???: . . .
+do global.vingette(true)
+???: The light chose me . . .
+???: And I obey the light's every command.
+???: You dare try and dim[speed=20] it?
+???: I will not let your kind stain our golden streets.
 do global.shake(false)
 do global.enable_input()
 [signal arg="helis-attack"]
+do global.set_attacking("helis", true)
+[signal arg="cam-zoom-out"]
+do global.vingette(false)
