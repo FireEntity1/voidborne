@@ -151,6 +151,9 @@ explosiveness = 0.52
 [node name="collision" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_h0e6p")
 
+[node name="bosscam" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)
+
 [connection signal="body_entered" from="boss_hitbox" to="." method="_on_damage_body_entered"]
 [connection signal="body_entered" from="start_detection" to="." method="_on_start_detection_body_entered"]
 [connection signal="timeout" from="hover" to="." method="_on_hover_timeout"]

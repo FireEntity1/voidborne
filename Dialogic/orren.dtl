@@ -8,3 +8,4 @@ orren: Don't trust the shine.
 orren: It burns what it fears.
 orren: Careful where you cast a shadow, voidchild.
 do global.enable_input()
+do global.add_finished_timeline("orren")

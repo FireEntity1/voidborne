@@ -39,6 +39,7 @@ var frag_anim_scene = preload("res://Components/void_frag_anim.tscn")
 var glitch_scene = preload("res://Components/glitch.tscn")
 var shake_scene = preload("res://Components/screen_shake.tscn")
 var vingette_scene = preload("res://Components/vingette.tscn")
+var portal_scene = preload("res://Components/portal.tscn")
 
 func _ready():
 	save()
@@ -140,3 +141,9 @@ func set_attacking(boss, value):
 		"helis":
 			helis_attacking = value
 			print("GLOBAL: helis attacking: " + str(value))
+
+func spawn_portal(coords: Vector2, scene: String):
+	var portal = portal_scene.instantiate()
+	portal.global_position = coords
+	portal.dest = scene
+	get_tree().current_scene.add_child(portal)

@@ -10,7 +10,7 @@ var can_dash = true
 
 var can_attack = true
 
-@onready var damage = 15
+@onready var damage = 201
 
 var voidwell = 8
 
@@ -220,10 +220,13 @@ func respawn():
 
 func _on_dialogic_signal(text):
 	if text == "cam-zoom-in":
+		$camera.make_current()
 		cam_zoom = 1.5
 	if text == "cam-zoom-out":
+		$camera.make_current()
 		cam_zoom = 0.6
 	if text == "cam-zoom-normal":
+		$camera.make_current()
 		cam_zoom = 0.8
 	if text == "reset-health":
 		health = global.save_file.hearts

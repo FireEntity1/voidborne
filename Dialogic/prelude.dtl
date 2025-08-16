@@ -8,8 +8,14 @@
 ???: [speed=14] Do not . . . [speed=24] ruin . . .
 do global.fade(true, 8, false)
 [wait time="6.0"]
-do global.change_level("intro")
+do global.change_level("outlands")
 [wait time="1.9"]
 do global.fade(false, 5, false)
+do global.disable_input()
 [wait time="2.0"]
 do global.title("The Outlands")
+[wait time="4.0"]
+do global.enable_input()
+Use WASD or your arrow keys to move around.
+Press space to jump and S/DOWN to ground slam
+You can also dash with SHIFT

@@ -1,6 +1,6 @@
 do global.disable_input()
 if {has_talked.orren} == true:
-	orren: So we meet again, Voidborn.
+	orren: So we meet again, {name}
 	orren: I've moved here for some improvement in my life . . .
 	orren: . . . but nobody likes me
 	orren: It's as if they hate what they dont know.

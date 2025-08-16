@@ -80,6 +80,8 @@ func _on_start_detection_body_entered(body):
 		global.lethos_attacking = false
 		Dialogic.start(start_timeline)
 		$start_detection.queue_free()
+		await get_tree().create_timer(0.1).timeout
+		$bosscam.make_current()
 
 func _on_attack_timeout():
 	if running and not finished:
@@ -115,7 +117,10 @@ func hit():
 	if health <= 0:
 		finished = true
 		running = false
+		Dialogic.end_timeline()
 		Dialogic.start(end_timeline)
+		await get_tree().create_timer(0.1).timeout
+		$bosscam.make_current()
 	
 func flash_red():
 	$sprite.modulate = Color(1,0.5,0.5)
@@ -125,3 +130,4 @@ func flash_red():
 func _on_dialogic_signal(arg):
 	if arg == "die":
 		die = true
+		global.spawn_portal(global_position+Vector2(0,-200),"solaria")
