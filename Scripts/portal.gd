@@ -7,7 +7,8 @@ func _ready():
 	dest = level_path
 
 func _process(delta):
-	pass
+	if $area/sprite.modulate.a < 1:
+		$area/sprite.modulate.a += delta
 
 func _on_area_body_entered(body):
 	if body.name == "player":

@@ -11,11 +11,16 @@ extends Node2D
 var appearing = true
 var disappearing = false
 
+var black = false
+
 func _ready():
 	$layer/label.text = title
 	$layer/subtitle.text = subtitle
 	title_node.modulate.a = 0
 	sub.modulate.a = 0
+	if black:
+		$layer/label.modulate.v = 0
+		$layer/subtitle.modulate.v = 0
 
 func _process(delta):
 	if appearing:

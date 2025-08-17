@@ -85,7 +85,7 @@ size = Vector2(503, 386)
 size = Vector2(379, 1280)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mt4lu"]
-size = Vector2(2675, 377)
+size = Vector2(2675, 392.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xggqr"]
 size = Vector2(374, 3303)
@@ -455,7 +455,7 @@ position = Vector2(3316.5, -326.5)
 shape = SubResource("RectangleShape2D_mt4lu")
 
 [node name="collision4" type="CollisionShape2D" parent="static3"]
-position = Vector2(6393, -326)
+position = Vector2(6393, -333.75)
 shape = SubResource("RectangleShape2D_mt4lu")
 
 [node name="collision5" type="CollisionShape2D" parent="static3"]
@@ -528,7 +528,7 @@ position = Vector2(4739, -5548)
 id = "outlands_boss"
 
 [node name="player" parent="." instance=ExtResource("11_2xe5y")]
-position = Vector2(5992, 740)
+position = Vector2(2700, -5784)
 
 [node name="Nym" parent="." instance=ExtResource("12_xhufl")]
 position = Vector2(5050, 826)

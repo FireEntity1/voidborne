@@ -1,0 +1,9 @@
+do global.vingette(true)
+do global.fade(false, 8, false)
+do global.shake(true)
+[wait time="3.0"]
+???: introducing myself... big final boss [placeholder]
+???: ERYTHIS!
+do global.fade(true, 8, false)
+do global.fade(true, 8, false)
+do global.title("ERYTHIS", "", true)

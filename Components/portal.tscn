@@ -51,6 +51,7 @@ script = ExtResource("1_dbi7g")
 shape = SubResource("RectangleShape2D_e1bs3")
 
 [node name="sprite" type="AnimatedSprite2D" parent="area"]
+modulate = Color(1, 1, 1, 0)
 scale = Vector2(16.375, 16.375)
 sprite_frames = SubResource("SpriteFrames_lejnv")
 autoplay = "default"
