@@ -29,6 +29,7 @@ var running = false
 
 func _ready():
 	Dialogic.signal_event.connect(_on_dialogic_signal)
+	$sprite.hide()
 
 func _process(delta):
 	running = global.helis_attacking
@@ -78,7 +79,9 @@ func _on_start_detection_body_entered(body):
 		global.lethos_attacking = false
 		Dialogic.start(start_timeline)
 		$start_detection.queue_free()
-
+		await get_tree().create_timer(5.2).timeout
+		$bosscam.make_current()
+		$sprite.show()
 func _on_attack_timeout():
 	print(running)
 	if running and not finished:

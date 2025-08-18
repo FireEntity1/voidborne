@@ -7,3 +7,4 @@ do global.shake(true)
 do global.fade(true, 8, false)
 do global.fade(true, 8, false)
 do global.title("ERYTHIS", "", true)
+[signal arg="cam-zoom-out"]
