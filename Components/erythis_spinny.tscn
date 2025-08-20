@@ -1,0 +1,52 @@
+[gd_scene load_steps=8 format=3 uid="uid://dx3pbwid1ibbn"]
+
+[ext_resource type="Script" path="res://scripts/erythis_spinny.gd" id="1_4tuym"]
+[ext_resource type="Texture2D" uid="uid://bduawfblyioxy" path="res://Sprites/erythis_spinny.png" id="1_7ufn7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nf21a"]
+atlas = ExtResource("1_7ufn7")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wh1nv"]
+atlas = ExtResource("1_7ufn7")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p1igv"]
+atlas = ExtResource("1_7ufn7")
+region = Rect2(512, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oo47t"]
+atlas = ExtResource("1_7ufn7")
+region = Rect2(768, 0, 256, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xr2mn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nf21a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wh1nv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p1igv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oo47t")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="ErythisSpinny" type="Node2D"]
+script = ExtResource("1_4tuym")
+
+[node name="sprite" type="AnimatedSprite2D" parent="."]
+scale = Vector2(27.0234, 27.0234)
+sprite_frames = SubResource("SpriteFrames_xr2mn")
+
+[node name="spin" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="spin" to="." method="_on_spin_timeout"]

@@ -527,8 +527,12 @@ tile_set = SubResource("TileSet_xqb7h")
 position = Vector2(4739, -5548)
 id = "outlands_boss"
 
+[node name="Voidwell2" parent="." instance=ExtResource("10_yp0br")]
+position = Vector2(13472, -3116)
+id = "outlands_orren"
+
 [node name="player" parent="." instance=ExtResource("11_2xe5y")]
-position = Vector2(3885, 744)
+position = Vector2(2909, -5699)
 
 [node name="Nym" parent="." instance=ExtResource("12_xhufl")]
 position = Vector2(5050, 826)

@@ -9,4 +9,5 @@ func _ready():
 func _on_area_body_entered(body):
 	if body.name == "player":
 		global.save_file.checkpoint = id
+		global.save()
 		Dialogic.start(timeline)

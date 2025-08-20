@@ -132,3 +132,5 @@ func _on_dialogic_signal(arg):
 		die = true
 		await get_tree().create_timer(2).timeout
 		global.spawn_portal(global_position+Vector2(0,-200),"solaria")
+		global.save_file.checkpoint = "solaria_spawn"
+		global.save()

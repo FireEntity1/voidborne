@@ -601,6 +601,10 @@ shape = SubResource("RectangleShape2D_57d7u")
 position = Vector2(14682, -3531)
 id = "solaria_orren"
 
+[node name="Voidwell2" parent="." instance=ExtResource("20_kidpa")]
+position = Vector2(9771, -6597)
+id = "solaria_boss"
+
 [node name="Orren" parent="." instance=ExtResource("10_4njob")]
 position = Vector2(15230, -3428)
 timeline = ExtResource("11_jlysu")
@@ -625,7 +629,7 @@ position = Vector2(15370, -3409)
 fragment_id = "solaria_b"
 
 [node name="player" parent="." instance=ExtResource("7_07i6p")]
-position = Vector2(7249, -7929)
+position = Vector2(-1, -213)
 
 [node name="timeline_trigger" parent="." instance=ExtResource("11_wogwb")]
 position = Vector2(-1, -305)

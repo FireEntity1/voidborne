@@ -16,7 +16,8 @@ var die = false
 @export var start_timeline: DialogicTimeline
 @export var end_timeline: DialogicTimeline
 
-var attack = preload("res://Components/helis_attack.tscn")
+var ball = preload("res://Components/lethos_attack.tscn")
+var beam = preload("res://Components/helis_attack.tscn")
 
 var hover_up = true
 var hover_speed = 67
@@ -25,14 +26,16 @@ var hover_lim = 100
 
 var move_left = true
 
+var attacks = ['ball', 'beam']
+
+var attack_spawns = [Vector2(0, -3000), Vector2(8500,-3000), Vector2(-8500,-3000)]
+
 var running = false
 
 func _ready():
 	Dialogic.signal_event.connect(_on_dialogic_signal)
-	$sprite.hide()
 
 func _process(delta):
-	running = global.helis_attacking
 	if hover_up:
 		position.y -= delta*hover_speed
 	else:
@@ -63,6 +66,7 @@ func _process(delta):
 			progress += 0.05
 	if not running:
 		$hover.wait_time = 0.01
+	
 
 func _on_damage_body_entered(body):
 	if body.name == "player" and running:
@@ -74,20 +78,18 @@ func _on_hover_timeout():
 	else:
 		hover_up = true
 
-func _on_start_detection_body_entered(body):
-	if body.name == "player":
-		global.lethos_attacking = false
-		Dialogic.start(start_timeline)
-		$start_detection.queue_free()
-		await get_tree().create_timer(5).timeout
-		$bosscam.make_current()
-		$sprite.show()
 func _on_attack_timeout():
 	print(running)
 	if running and not finished:
 		print("condition met")
 		hover_lim = 400
-		var scene = attack.instantiate()
+		var attack = attacks.pick_random()
+		var scene
+		if attack == "ball":
+			scene = ball.instantiate()
+		elif attack == "beam":
+			scene = beam.instantiate()
+		scene.position = position
 		$boss_hitbox.add_child(scene)
 
 func hit():
@@ -108,7 +110,9 @@ func flash_red():
 func _on_dialogic_signal(arg):
 	if arg == "die":
 		die = true
-	if arg == "helis-attack":
-		print("helis attack")
+	if arg == "erythis-attack":
 		running = true
 		finished = false
+		print("attackig")
+	if arg == "cam-erythis-intro":
+		$bosscam.make_current()

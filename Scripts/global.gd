@@ -4,7 +4,7 @@ var save_file = {
 	"hearts": 20,
 	"damage": 5,
 	"has_fragment": false,
-	"checkpoint": "spawn",
+	"checkpoint": "prelude",
 	"world": "outlands",
 	
 	"timelines_done": [],
@@ -42,7 +42,6 @@ var vingette_scene = preload("res://Components/vingette.tscn")
 var portal_scene = preload("res://Components/portal.tscn")
 
 func _ready():
-	save()
 	load_save()
 	
 	vingette_scene = vingette_scene.instantiate()
