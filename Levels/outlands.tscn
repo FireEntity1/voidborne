@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=4 uid="uid://do2lwffpt3ckb"]
+[gd_scene load_steps=56 format=4 uid="uid://do2lwffpt3ckb"]
 
 [ext_resource type="Shader" path="res://Shaders/starry_sky.gdshader" id="1_m0wac"]
 [ext_resource type="Shader" path="res://Shaders/pixel.gdshader" id="2_17hqe"]
@@ -22,6 +22,20 @@
 [ext_resource type="PackedScene" uid="uid://opypnmqci606" path="res://Components/lethos.tscn" id="20_wuu64"]
 [ext_resource type="PackedScene" uid="uid://blnb40ydbyyc" path="res://Components/orren.tscn" id="21_krx8b"]
 [ext_resource type="Resource" path="res://Dialogic/orren.dtl" id="22_7lkpg"]
+
+[sub_resource type="GDScript" id="GDScript_0or6p"]
+resource_name = "outlands"
+script/source = "extends Node2D
+
+func _ready():
+	match global.save_file.checkpoint:
+		\"spawn\":
+			$player.position = Vector2(677, 844)
+		\"outlands_orren\":
+			$player.position = Vector2(13257,-2972)
+		\"outlands_boss\":
+			$player.position = Vector2(5077,-5407)
+"
 
 [sub_resource type="Gradient" id="Gradient_wghrg"]
 
@@ -148,6 +162,7 @@ sources/1 = SubResource("TileSetAtlasSource_tpt6c")
 sources/2 = SubResource("TileSetAtlasSource_74kgm")
 
 [node name="Intro" type="Node2D"]
+script = SubResource("GDScript_0or6p")
 
 [node name="parallaxBG" type="Parallax2D" parent="."]
 scroll_scale = Vector2(0.2, 0.2)
@@ -532,7 +547,7 @@ position = Vector2(13472, -3116)
 id = "outlands_orren"
 
 [node name="player" parent="." instance=ExtResource("11_2xe5y")]
-position = Vector2(2909, -5699)
+position = Vector2(632, 855)
 
 [node name="Nym" parent="." instance=ExtResource("12_xhufl")]
 position = Vector2(5050, 826)

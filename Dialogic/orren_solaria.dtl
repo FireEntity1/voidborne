@@ -2,9 +2,12 @@ do global.disable_input()
 if {has_talked.orren} == true:
 	orren: So we meet again, {name}
 	orren: I've moved here for some improvement in my life . . .
-	orren: . . . but nobody likes me
+	orren: . . . but this place is forsaken
 	orren: It's as if they hate what they dont know.
-	orren: I'm going back, I can't take this forsaken light anymore.
+	orren: I'm going back, I can't take this light anymore.
+	orren: Take this, I trust you with it.
+	[ Received a sharpened sword! ]
+	do global.upgradesword(15)
 	orren: Tread carefully.
 else:
 	???: hmph. go away.

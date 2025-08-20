@@ -1,4 +1,4 @@
-[gd_scene load_steps=81 format=4 uid="uid://jj3ipjt05xrm"]
+[gd_scene load_steps=82 format=4 uid="uid://jj3ipjt05xrm"]
 
 [ext_resource type="Texture2D" uid="uid://be6ulmoumegj4" path="res://Sprites/marble.png" id="1_4v87s"]
 [ext_resource type="Shader" path="res://Shaders/starry_sky.gdshader" id="1_p8dec"]
@@ -22,6 +22,20 @@
 [ext_resource type="PackedScene" uid="uid://drqbowe6cwh14" path="res://Components/voidwell.tscn" id="20_kidpa"]
 [ext_resource type="PackedScene" uid="uid://cw28m6j76d1x6" path="res://Components/helis.tscn" id="21_gspko"]
 [ext_resource type="Resource" path="res://Dialogic/helis_intro.dtl" id="22_h8w4n"]
+
+[sub_resource type="GDScript" id="GDScript_npxex"]
+resource_name = "solaria"
+script/source = "extends Node2D
+
+func _ready():
+	match global.save_file.checkpoint:
+		\"solaria_spawn\":
+			$player.position = Vector2(0, -213)
+		\"solaria_orren\":
+			$player.position = Vector2(14719,-3391)
+		\"solaria_boss\":
+			$player.position = Vector2(9456,-6460)
+"
 
 [sub_resource type="Gradient" id="Gradient_s5dcj"]
 
@@ -232,6 +246,7 @@ size = Vector2(1160.12, 3691)
 size = Vector2(6853, 887)
 
 [node name="Solaria" type="Node2D"]
+script = SubResource("GDScript_npxex")
 
 [node name="parallaxBG" type="Parallax2D" parent="."]
 scroll_scale = Vector2(0.2, 0.2)
@@ -629,7 +644,7 @@ position = Vector2(15370, -3409)
 fragment_id = "solaria_b"
 
 [node name="player" parent="." instance=ExtResource("7_07i6p")]
-position = Vector2(-1, -213)
+position = Vector2(0, -222)
 
 [node name="timeline_trigger" parent="." instance=ExtResource("11_wogwb")]
 position = Vector2(-1, -305)

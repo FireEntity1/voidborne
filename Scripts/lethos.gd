@@ -121,7 +121,7 @@ func hit():
 		Dialogic.start(end_timeline)
 		await get_tree().create_timer(0.1).timeout
 		$bosscam.make_current()
-	
+
 func flash_red():
 	$sprite.modulate = Color(1,0.5,0.5)
 	await get_tree().create_timer(0.1).timeout
@@ -134,3 +134,5 @@ func _on_dialogic_signal(arg):
 		global.spawn_portal(global_position+Vector2(0,-200),"solaria")
 		global.save_file.checkpoint = "solaria_spawn"
 		global.save()
+		await get_tree().create_timer(0.5).timeout
+		queue_free()

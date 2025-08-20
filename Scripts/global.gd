@@ -1,7 +1,7 @@
 extends Node
 
 var save_file = {
-	"hearts": 20,
+	"hearts": 5,
 	"damage": 5,
 	"has_fragment": false,
 	"checkpoint": "prelude",
@@ -100,6 +100,10 @@ func fade(to: bool, time: int, black: bool):
 	scene.timer = time
 	scene.black = black
 	add_child(scene)
+
+func upgradesword(value):
+	save_file.damage = value
+	save()
 
 func change_level(level: String):
 	get_tree().change_scene_to_file("res://Levels/" + level + ".tscn")
