@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://scripts/jump_orb.gd" id="2_pmu7g"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xiyp6"]
-radius = 130.817
+radius = 61.4003
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g0n5k"]
 atlas = ExtResource("1_vufqm")
@@ -48,10 +48,11 @@ animations = [{
 script = ExtResource("2_pmu7g")
 
 [node name="collision" type="CollisionShape2D" parent="area"]
+position = Vector2(-2, 14)
 shape = SubResource("CircleShape2D_xiyp6")
 
 [node name="sprite" type="AnimatedSprite2D" parent="area"]
-scale = Vector2(18.375, 18.375)
+scale = Vector2(12.25, 12.25)
 sprite_frames = SubResource("SpriteFrames_ismb3")
 autoplay = "default"
 frame_progress = 0.0989053

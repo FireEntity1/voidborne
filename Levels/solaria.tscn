@@ -644,7 +644,7 @@ position = Vector2(15370, -3409)
 fragment_id = "solaria_b"
 
 [node name="player" parent="." instance=ExtResource("7_07i6p")]
-position = Vector2(0, -222)
+position = Vector2(5115, -1639)
 
 [node name="timeline_trigger" parent="." instance=ExtResource("11_wogwb")]
 position = Vector2(-1, -305)
@@ -749,3 +749,9 @@ start_timeline = ExtResource("22_h8w4n")
 [node name="void_fragment3" parent="." instance=ExtResource("10_oahrx")]
 position = Vector2(12419, -7496)
 fragment_id = "solaria_c"
+
+[node name="JumpOrb18" parent="." instance=ExtResource("14_nt2ne")]
+position = Vector2(9910, -7467)
+
+[node name="JumpOrb19" parent="." instance=ExtResource("14_nt2ne")]
+position = Vector2(9887, -8513)

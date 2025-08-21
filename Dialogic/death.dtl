@@ -1,0 +1,5 @@
+do global.disable_input()
+do global.fade(true, 5, true)
+[wait time="5.0"]
+do global.change_level("death")
+do global.fade(false, 5, true)

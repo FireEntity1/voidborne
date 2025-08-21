@@ -1,0 +1,30 @@
+[gd_scene load_steps=2 format=3 uid="uid://drgenrw0ljy78"]
+
+[ext_resource type="Script" path="res://scripts/title_screen.gd" id="1_ol44d"]
+
+[node name="Death" type="Node2D"]
+script = ExtResource("1_ol44d")
+
+[node name="bg" type="ColorRect" parent="."]
+offset_right = 1932.0
+offset_bottom = 1091.0
+color = Color(0, 0, 0, 1)
+
+[node name="message" type="Label" parent="."]
+offset_left = 4.0
+offset_top = 389.0
+offset_right = 1930.0
+offset_bottom = 593.0
+theme_override_font_sizes/font_size = 150
+text = "the light overtook."
+horizontal_alignment = 1
+
+[node name="try_again" type="Button" parent="."]
+offset_left = 669.0
+offset_top = 595.0
+offset_right = 1266.0
+offset_bottom = 840.0
+theme_override_font_sizes/font_size = 75
+text = "try again"
+
+[connection signal="button_up" from="try_again" to="." method="_on_start_button_up"]

@@ -30,6 +30,8 @@ var heart_damaged_scene = preload("res://Components/heart_damaged.tscn")
 
 var direction = 1
 
+var dead = false
+
 var last_dir = 1
 
 func _ready():
@@ -191,7 +193,7 @@ func _on_dash_timeout():
 	can_dash = true
 
 func hit(enemy_pos):
-	if can_take_damage:
+	if can_take_damage and not dead:
 		var dir = position.x - enemy_pos.x
 		if dir > 0:
 			velocity.x = 3000
@@ -206,17 +208,12 @@ func hit(enemy_pos):
 		await get_tree().create_timer(0.5).timeout
 		can_take_damage = true
 		if health <= 0:
-			respawn()
+			player_death()
 
 func add_voidwell(value: int):
 	if not voidwell >= 100:
 		voidwell += value
 		$ui/voidwell.value = voidwell
-
-func respawn():
-	var coords = global.get_spawn_coords()
-	self.position = coords
-	health = global.save_file.hearts
 
 func _on_dialogic_signal(text):
 	if text == "cam-zoom-in":
@@ -230,3 +227,9 @@ func _on_dialogic_signal(text):
 		cam_zoom = 0.8
 	if text == "reset-health":
 		health = global.save_file.hearts
+
+func player_death():
+	dead = true
+	print("player died")
+	Dialogic.end_timeline()
+	Dialogic.start(preload("res://Dialogic/death.dtl"))
