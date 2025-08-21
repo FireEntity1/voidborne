@@ -108,6 +108,10 @@ func upgradesword(value):
 func change_level(level: String):
 	get_tree().change_scene_to_file("res://Levels/" + level + ".tscn")
 
+func white_transition():
+	var transition = preload("res://Components/white_transition.tscn").instantiate()
+	add_child(transition)
+
 func title(text: String, sub = " ", black = false):
 	var scene = title_scene.instantiate()
 	scene.title = text

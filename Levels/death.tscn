@@ -20,11 +20,11 @@ text = "the light overtook."
 horizontal_alignment = 1
 
 [node name="try_again" type="Button" parent="."]
-offset_left = 669.0
-offset_top = 595.0
-offset_right = 1266.0
-offset_bottom = 840.0
+offset_left = 710.0
+offset_top = 637.0
+offset_right = 1225.0
+offset_bottom = 798.0
 theme_override_font_sizes/font_size = 75
-text = "try again"
+text = "Try Again"
 
 [connection signal="button_up" from="try_again" to="." method="_on_start_button_up"]

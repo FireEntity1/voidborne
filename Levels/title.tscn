@@ -1,21 +1,46 @@
-[gd_scene load_steps=2 format=3 uid="uid://dwh1a8shy0ndj"]
+[gd_scene load_steps=5 format=3 uid="uid://dwh1a8shy0ndj"]
 
 [ext_resource type="Script" path="res://scripts/title_screen.gd" id="1_1kxbb"]
+[ext_resource type="Texture2D" uid="uid://r0dl0u0jeqkb" path="res://Sprites/logo.png" id="2_g4iy5"]
+[ext_resource type="Shader" path="res://Shaders/balala.gdshader" id="2_pg3vh"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dyolf"]
+shader = ExtResource("2_pg3vh")
+shader_parameter/polar_coordinates = false
+shader_parameter/polar_center = Vector2(0.5, 0.5)
+shader_parameter/polar_zoom = 0.0
+shader_parameter/polar_repeat = 1.0
+shader_parameter/spin_rotation = 0.0
+shader_parameter/spin_speed = 5.0
+shader_parameter/offset = Vector2(0, 0)
+shader_parameter/colour_1 = Color(0, 0, 0, 1)
+shader_parameter/colour_2 = Color(0.188969, 0.188969, 0.188969, 1)
+shader_parameter/colour_3 = Color(0, 0, 0, 1)
+shader_parameter/contrast = 1.0
+shader_parameter/spin_amount = 0.0
+shader_parameter/pixel_filter = 700.0
 
 [node name="Title" type="Node2D"]
 script = ExtResource("1_1kxbb")
 
 [node name="bg" type="ColorRect" parent="."]
-offset_right = 1932.0
-offset_bottom = 1091.0
-color = Color(0, 0, 0, 1)
+material = SubResource("ShaderMaterial_dyolf")
+offset_left = -5.0
+offset_top = -4.0
+offset_right = 1945.0
+offset_bottom = 1096.0
+metadata/_edit_use_anchors_ = true
+
+[node name="logo" type="Sprite2D" parent="."]
+position = Vector2(974, 520)
+texture = ExtResource("2_g4iy5")
 
 [node name="start" type="Button" parent="."]
-offset_left = 817.0
-offset_top = 512.0
-offset_right = 1100.0
-offset_bottom = 641.0
-theme_override_font_sizes/font_size = 100
+offset_left = 788.0
+offset_top = 731.0
+offset_right = 1150.0
+offset_bottom = 896.0
+theme_override_font_sizes/font_size = 120
 text = "start"
 
 [connection signal="button_up" from="start" to="." method="_on_start_button_up"]

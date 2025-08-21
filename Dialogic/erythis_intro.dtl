@@ -13,7 +13,7 @@ do global.shake(true)
 do global.fade(false, 5, false)
 do global.fade(true, 5, false)
 do global.title("ERYTHIS", "", true)
-[wait time="6.0"]
+[wait time="4.0"]
 [signal arg="cam-zoom-out"]
 [signal arg="erythis-attack"]
 [signal arg="cam-zoom-out"]

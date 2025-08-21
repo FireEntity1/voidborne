@@ -550,7 +550,7 @@ position = Vector2(13472, -3116)
 id = "outlands_orren"
 
 [node name="player" parent="." instance=ExtResource("11_2xe5y")]
-position = Vector2(13114, -674)
+position = Vector2(659, 781)
 
 [node name="Nym" parent="." instance=ExtResource("12_xhufl")]
 position = Vector2(5050, 826)

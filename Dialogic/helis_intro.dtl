@@ -14,4 +14,4 @@ do global.enable_input()
 [signal arg="helis-attack"]
 do global.set_attacking("helis", true)
 [signal arg="cam-zoom-out"]
-do global.vingette(false)
+do global.vingette(true)

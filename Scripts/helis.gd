@@ -98,8 +98,9 @@ func hit():
 	if health <= 0:
 		finished = true
 		running = false
+		$bosscam.make_current()
 		Dialogic.start(end_timeline)
-	
+
 func flash_red():
 	$sprite.modulate = Color(1,0.5,0.5)
 	await get_tree().create_timer(0.1).timeout

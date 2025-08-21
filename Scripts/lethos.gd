@@ -135,4 +135,4 @@ func _on_dialogic_signal(arg):
 		global.save_file.checkpoint = "solaria_spawn"
 		global.save()
 		await get_tree().create_timer(0.5).timeout
-		queue_free()
+		self.queue_free()

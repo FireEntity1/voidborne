@@ -1,0 +1,110 @@
+[gd_scene load_steps=13 format=3 uid="uid://bl3a0ytkpoltf"]
+
+[ext_resource type="Texture2D" uid="uid://dfhyp8uq5eflk" path="res://Sprites/screen_transition.png" id="1_my235"]
+
+[sub_resource type="GDScript" id="GDScript_3wnq3"]
+resource_name = "transition"
+script/source = "extends Node2D
+
+var is_fading = false
+
+func _ready():
+	$CanvasLayer/sprite.play(\"default\")
+
+func _process(delta):
+	if is_fading:
+		$CanvasLayer/sprite.modulate.a -= delta/2
+	if $CanvasLayer/sprite.modulate.a <= 0:
+		queue_free()
+
+func _on_sprite_animation_finished():
+	await get_tree().create_timer(3).timeout
+	is_fading = true
+"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nl0nm"]
+atlas = ExtResource("1_my235")
+region = Rect2(0, 0, 160, 90)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gderb"]
+atlas = ExtResource("1_my235")
+region = Rect2(160, 0, 160, 90)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gukee"]
+atlas = ExtResource("1_my235")
+region = Rect2(320, 0, 160, 90)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8c0c0"]
+atlas = ExtResource("1_my235")
+region = Rect2(480, 0, 160, 90)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h6g8c"]
+atlas = ExtResource("1_my235")
+region = Rect2(640, 0, 160, 90)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ka2h"]
+atlas = ExtResource("1_my235")
+region = Rect2(800, 0, 160, 90)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3maay"]
+atlas = ExtResource("1_my235")
+region = Rect2(960, 0, 160, 90)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vkggo"]
+atlas = ExtResource("1_my235")
+region = Rect2(1120, 0, 160, 90)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7kcb6"]
+atlas = ExtResource("1_my235")
+region = Rect2(1280, 0, 160, 90)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8cn37"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nl0nm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gderb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gukee")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8c0c0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h6g8c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ka2h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3maay")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vkggo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7kcb6")
+}],
+"loop": false,
+"name": &"default",
+"speed": 15.0
+}]
+
+[node name="WhiteTransition" type="Node2D"]
+script = SubResource("GDScript_3wnq3")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 4
+
+[node name="sprite" type="AnimatedSprite2D" parent="CanvasLayer"]
+position = Vector2(964, 558)
+scale = Vector2(12.2, 12.6444)
+sprite_frames = SubResource("SpriteFrames_8cn37")
+autoplay = "default"
+frame = 8
+frame_progress = 1.0
+
+[connection signal="animation_finished" from="CanvasLayer/sprite" to="." method="_on_sprite_animation_finished"]

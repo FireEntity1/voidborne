@@ -1,0 +1,12 @@
+do global.disable_input()
+do global.vingette(true)
+do global.shake(true)
+[wait time="2.0"]
+helis: STOP
+helis: I cannot let you destroy our perfect world .  .  .
+helis: COME FORTH, ARCHITECT!
+helis: PROVE YOUR POWER IN THE CROWN!
+do global.white_transition()
+[wait time="3.0"]
+do global.change_level("crown")
+do global.enable_input()

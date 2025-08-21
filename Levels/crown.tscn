@@ -21,8 +21,8 @@ shader_parameter/spin_rotation = 0.0
 shader_parameter/spin_speed = 4.0
 shader_parameter/offset = Vector2(0, 0)
 shader_parameter/colour_1 = Color(0.323584, 0.323584, 0.323584, 1)
-shader_parameter/colour_2 = Color(1, 1, 1, 1)
-shader_parameter/colour_3 = Color(0, 0, 0, 1)
+shader_parameter/colour_2 = Color(0.479834, 0.479834, 0.479834, 1)
+shader_parameter/colour_3 = Color(0.0497766, 0.0497766, 0.0497766, 1)
 shader_parameter/contrast = 2.0
 shader_parameter/spin_amount = 0.2
 shader_parameter/pixel_filter = 700.0
@@ -105,7 +105,7 @@ tile_map_data = PackedByteArray("AAAAAAAAAgAAAAAAAAABAAAAAgAAAAAAAAACAAAAAgAAAAA
 tile_set = SubResource("TileSet_a8m42")
 
 [node name="player" parent="." instance=ExtResource("3_841ry")]
-position = Vector2(-5, -1284)
+position = Vector2(0, -113)
 
 [node name="world_collision" type="StaticBody2D" parent="."]
 position = Vector2(-3904, -42)
@@ -169,5 +169,6 @@ position = Vector2(2559, -560)
 position = Vector2(0, -1666)
 
 [node name="timeline_trigger" parent="." instance=ExtResource("6_sg371")]
-position = Vector2(0, -1064)
+position = Vector2(0, -1322)
+scale = Vector2(3.88, 1)
 timeline = ExtResource("7_bh7kh")
