@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://das5p0rexu6p8"]
+[gd_scene load_steps=29 format=3 uid="uid://das5p0rexu6p8"]
 
 [ext_resource type="Texture2D" uid="uid://5gfo1dfua82j" path="res://Sprites/player_idle.png" id="1_ec02m"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_v43g5"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://d4c6gyi1qg5vf" path="res://Sprites/Slash.png" id="9_y2lmu"]
 [ext_resource type="Texture2D" uid="uid://cnx7fu7k8ekmt" path="res://Sprites/void_meter_unfilled.png" id="10_iy0g0"]
 [ext_resource type="Texture2D" uid="uid://dblu2mb07hui5" path="res://Sprites/void_meter.png" id="10_uf36n"]
+[ext_resource type="AudioStream" uid="uid://smhxwt147s7o" path="res://Audio/SFX/swish.mp3" id="12_lkwfx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kybed"]
 size = Vector2(99, 72)
@@ -257,5 +258,10 @@ fill_mode = 3
 nine_patch_stretch = true
 texture_under = ExtResource("10_iy0g0")
 texture_progress = ExtResource("10_uf36n")
+
+[node name="Swish" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(-1, 3)
+stream = ExtResource("12_lkwfx")
+attenuation = 1e-05
 
 [connection signal="timeout" from="dash" to="." method="_on_dash_timeout"]

@@ -88,6 +88,11 @@ autoplay = "default"
 frame_progress = 0.130339
 offset = Vector2(0, -4.03478)
 
+[node name="bosscam" type="Camera2D" parent="sprite"]
+position = Vector2(0, -4.27653)
+scale = Vector2(0.0597015, 0.0597015)
+zoom = Vector2(2, 2)
+
 [node name="hover" type="Timer" parent="."]
 wait_time = 3.0
 autostart = true
@@ -108,9 +113,6 @@ explosiveness = 0.52
 position = Vector2(5.38694, 7.11437)
 rotation = 0.922709
 shape = SubResource("RectangleShape2D_h0e6p")
-
-[node name="bosscam" type="Camera2D" parent="."]
-zoom = Vector2(2, 2)
 
 [connection signal="body_entered" from="boss_hitbox" to="." method="_on_damage_body_entered"]
 [connection signal="body_entered" from="start_detection" to="." method="_on_start_detection_body_entered"]

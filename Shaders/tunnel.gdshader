@@ -1,80 +1,77 @@
 shader_type canvas_item;
 
-uniform bool hasNeonEffect = true;
-uniform bool hasDot = false;
-uniform bool haszExpend = false;
+uniform vec4 color :source_color = vec4(1.,1.,1.,1.);
+uniform float scale : hint_range(0.1, 10000.0, 0.1) = 7500;
+uniform float circle_ratio: hint_range(0.0, 100.0, 0.1) = 0.;
+uniform float cut_radius: hint_range(0.0, 1.0, 0.01) = 0.5;
+uniform float rotate_speed: hint_range(-1000, 1000, 0.01) = 1;
+uniform float time_speed: hint_range(-1000, 1000, 0.01) = 1;
 
-uniform float theta: hint_range(0.0, 80.0, 0.1) = 80.;
-uniform float addH: hint_range(0.0, 90.0, 0.1) = 30;
-uniform float scale: hint_range(0.001, 0.01, 0.001) = 0.01;
+uniform float frequency_base: hint_range(0.0, 10.0, 0.01) = 1.;
+uniform float frequency_disturbance_scale: hint_range(0.0, 10.0, 0.01) = 0.;
 
-uniform float light_disperse: hint_range(0.1, 10, 0.1) = 2;
-uniform float stertch: hint_range(1, 1000, 0.1) = 30;
-uniform float speed: hint_range(-50, 50, 0.1) = 10;
-uniform float modTime: hint_range(1, 50, 0.1) = 20;
+uniform bool stop_shine = false;
 
-uniform float rotate_speed: hint_range(-50, 50, 0.1) = 0;
-uniform float rotate_plane_speed: hint_range(-50, 50, 0.1) = 0;
-uniform float theta_sine_change_speed: hint_range(-50, 50, 0.1) = 0;
+float onedx(float x) {
 
-uniform bool iswhite;
-uniform bool isdarktotransparent;
-uniform bool bemask;
+	if (x + 1. - 1. == 0.) {
 
-uniform int m = 8;
-uniform int n = 30;
+		return 1.;
+	} else {
 
-float random (vec2 uv) {
-	return fract(sin(dot(uv.xy,
-		vec2(12.9898,78.233))) * 43758.5453123);
+		return 1./x;
+	}
 }
 
-bool vec3lower (vec3 A, float v) {
+float onedx2(float x) {
 
-	return A.r <= v && A.b <= v && A.g <= v;
+	return  onedx(x)*onedx(x);
+}
+
+float getBetaW(float x, float f, float size) {
+
+	return size*x*3.1415926/f;
+}
+
+float getBetaH(float y, float f, float size) {
+
+	return size*y*3.1415926/f;
+}
+
+float getI(vec2 uv, float f, vec2 SIZE) {
+
+	return onedx2(getBetaW(uv.x, f, SIZE.x))*onedx2(getBetaH(uv.y, f, SIZE.y));
+}
+
+vec2 rotate(vec2 uv, float addtheta) {
+
+    //float theta = atan(uv.y/uv.x) + addtheta;
+    //vec2 ruv;
+    //ruv.x = cos(theta)*uv.x - sin(theta)*uv.y;
+    //ruv.y = sin(theta)*uv.x + cos(theta)*uv.y;
+
+    float theta = atan(uv.y/uv.x) + addtheta;
+    float r = sqrt(uv.x*uv.x + uv.y*uv.y);
+    vec2 ruv;
+	ruv.x = r*cos(theta);
+    ruv.y = r*sin(theta);
+
+    return ruv;
 }
 
 void fragment() {
 
-	COLOR = vec4(0.);
+    vec2 st = rotate((UV - 0.5)*scale, TIME*rotate_speed);
+	float r = sqrt(st.x*st.x + st.y*st.y);
+    st = st*pow(r, circle_ratio);
 
-	vec2 suv = (UV - 0.5)*2.;
+    float time = TIME*time_speed;
 
-	for (int j = 0; j < n && (hasDot || hasNeonEffect); j++) {
+    float f = frequency_base + frequency_disturbance_scale*(3.*sin(time) + 2.*cos(time*4.) + 6.*sin(time*2.) + 1.*sin(time*3.));
+    float L = (r < cut_radius*scale) ? min(1.*sin(time*2.) + 5.*sin(time*3.) + 1.*sin(time*4.) + 2.*cos(time*2.), 1.) : 0.;
 
-		float seed = random(vec2(2.-float(j),float(j)*37.));
+	f = stop_shine ? frequency_base : f;
+	L = stop_shine ? ((r < cut_radius*scale) ? 1. : 0.) : L;
 
-		for (int i = 0; i < m; i++) {
-
-			float z = mod(5. + float(n)/float(j)*10. + TIME*speed + 8. + float(i)*scale*stertch, modTime)*scale;//seed*2.3
-
-			float aphla = seed*TAU + TIME*rotate_speed;
-			float H = addH*scale + z*tan((theta + TIME*theta_sine_change_speed)/180.*PI);
-
-			float zscale = haszExpend ? min(z + 0.06,modTime)*scale*modTime*0.5 : scale;
-
-			vec2 nuv = vec2(H*cos(aphla + TIME*rotate_plane_speed), H*sin(aphla));
-
-			if (hasNeonEffect) {
-
-				float l = max(exp(-(distance(suv/zscale, nuv/zscale)/light_disperse)), 0.);
-				vec4 L = iswhite ? vec4(l) : vec4(random(vec2(seed,float(j)*37.))*l, random(vec2(7.+float(j),seed))*l, random(vec2(seed,3.-float(j)))*l, 1.);
-
-				COLOR = min(COLOR + L, vec4(1.));
-			}
-
-			if (distance(suv, nuv) < 1.*zscale && hasDot) {
-
-				COLOR = vec4(1.);
-			}
-		}
-	}
-
-	if (isdarktotransparent) {
-
-		COLOR = (vec3lower(COLOR.rgb,0.16)) ? vec4(0.) : COLOR;
-	} else {
-
-		COLOR = bemask ? ((!vec3lower(COLOR.rgb,0.16)) ? vec4(0.) : COLOR ) : COLOR;
-	}
+	COLOR = vec4(min(vec3(getI(st, f, SCREEN_PIXEL_SIZE))*L, 1.),1.0)*color;
 }

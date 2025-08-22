@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=4 uid="uid://do2lwffpt3ckb"]
+[gd_scene load_steps=58 format=4 uid="uid://do2lwffpt3ckb"]
 
 [ext_resource type="Shader" path="res://Shaders/starry_sky.gdshader" id="1_m0wac"]
 [ext_resource type="Shader" path="res://Shaders/pixel.gdshader" id="2_17hqe"]
@@ -22,6 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://opypnmqci606" path="res://Components/lethos.tscn" id="20_wuu64"]
 [ext_resource type="PackedScene" uid="uid://blnb40ydbyyc" path="res://Components/orren.tscn" id="21_krx8b"]
 [ext_resource type="Resource" path="res://Dialogic/orren.dtl" id="22_7lkpg"]
+[ext_resource type="AudioStream" uid="uid://dhn5k5gvic25o" path="res://Audio/Ambient/melancholy-pad.wav" id="23_syabd"]
 
 [sub_resource type="GDScript" id="GDScript_0or6p"]
 resource_name = "outlands"
@@ -661,3 +662,12 @@ position = Vector2(2440, -1257)
 [node name="Orren" parent="." instance=ExtResource("21_krx8b")]
 position = Vector2(14321, -3014)
 timeline = ExtResource("22_7lkpg")
+
+[node name="ambience" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(8175, -2997)
+stream = ExtResource("23_syabd")
+volume_db = -5.474
+autoplay = true
+max_distance = 20000.0
+attenuation = 1.75277e-05
+panning_strength = 0.0

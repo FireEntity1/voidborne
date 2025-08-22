@@ -22,6 +22,8 @@ var flip = true # right false, left true
 
 var cam_zoom = 0.8
 
+var can_heal = true
+
 var can_take_damage = true
 
 var health = global.save_file.hearts
@@ -114,6 +116,7 @@ func _physics_process(delta):
 		slashing = true
 		can_attack = false
 		$slash.play()
+		$Swish.play()
 		var bodies = $slash/slash.get_overlapping_bodies()
 		var areas = $slash/slash.get_overlapping_areas()
 		var enemies = []
@@ -157,16 +160,19 @@ func _physics_process(delta):
 	
 	$camera.zoom = $camera.zoom.move_toward(Vector2(cam_zoom,cam_zoom), delta)
 	
-	if Input.is_action_pressed("heal") and voidwell > 4:
+	print(voidwell)
+	print(health, " ", global.save_file.hearts)
+	print(can_heal)
+	
+	if Input.is_action_just_pressed("heal") and voidwell > 4 and health < global.save_file.hearts and can_heal:
+		can_heal = false
 		SPEED = 400
-		add_voidwell(-1)
-		await get_tree().create_timer(0.5).timeout
-		add_voidwell(-1)
-		await get_tree().create_timer(0.5).timeout
-		add_voidwell(-1)
-		await get_tree().create_timer(0.5).timeout
-		add_voidwell(-1)
+		add_voidwell(-4)
+		await get_tree().create_timer(1).timeout
 		SPEED = 1200
+		can_heal = true
+		health += 1
+		update_hearts()
 	
 	move_and_slide()
 
@@ -211,7 +217,7 @@ func hit(enemy_pos):
 			player_death()
 
 func add_voidwell(value: int):
-	if not voidwell >= 100:
+	if not voidwell >= 12:
 		voidwell += value
 		$ui/voidwell.value = voidwell
 

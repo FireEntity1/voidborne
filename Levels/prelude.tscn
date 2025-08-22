@@ -4,28 +4,19 @@
 [ext_resource type="Shader" path="res://Shaders/tunnel.gdshader" id="1_u6xfj"]
 [ext_resource type="Shader" path="res://Shaders/pixel.gdshader" id="2_mhcqe"]
 [ext_resource type="Resource" path="res://Dialogic/prelude.dtl" id="2_pwi77"]
-[ext_resource type="AudioStream" uid="uid://bnqonfxbc0ino" path="res://Audio/SFX/bass-pulse.mp3" id="5_frvb1"]
+[ext_resource type="AudioStream" uid="uid://bnqonfxbc0ino" path="res://Audio/Ambient/bass-pulse.mp3" id="5_frvb1"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wcmbm"]
 shader = ExtResource("1_u6xfj")
-shader_parameter/hasNeonEffect = true
-shader_parameter/hasDot = false
-shader_parameter/haszExpend = true
-shader_parameter/theta = 40.0
-shader_parameter/addH = 0.0
-shader_parameter/scale = 0.003
-shader_parameter/light_disperse = 6.2
-shader_parameter/stertch = 719.1
-shader_parameter/speed = 3.9
-shader_parameter/modTime = 35.8
-shader_parameter/rotate_speed = 0.0
-shader_parameter/rotate_plane_speed = 0.0
-shader_parameter/theta_sine_change_speed = 0.0
-shader_parameter/iswhite = false
-shader_parameter/isdarktotransparent = false
-shader_parameter/bemask = false
-shader_parameter/m = 8
-shader_parameter/n = 30
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/scale = 10000.0
+shader_parameter/circle_ratio = 0.0
+shader_parameter/cut_radius = 0.5
+shader_parameter/rotate_speed = 0.199978
+shader_parameter/time_speed = 1.0
+shader_parameter/frequency_base = 1.57
+shader_parameter/frequency_disturbance_scale = 0.0
+shader_parameter/stop_shine = true
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_v02c0"]
 shader = ExtResource("2_mhcqe")
@@ -38,18 +29,19 @@ timeline = ExtResource("2_pwi77")
 
 [node name="shader" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_wcmbm")
-custom_minimum_size = Vector2(1920, 1080)
-offset_top = -465.0
-offset_right = 1920.0
-offset_bottom = 1545.0
+custom_minimum_size = Vector2(512, 512)
+offset_left = -160.0
+offset_top = -646.0
+offset_right = 2080.0
+offset_bottom = 1726.0
 color = Color(0, 0, 0, 1)
 
 [node name="pixel" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_v02c0")
 custom_minimum_size = Vector2(1920, 1080)
-offset_top = -465.0
+offset_top = -520.0
 offset_right = 1920.0
-offset_bottom = 1545.0
+offset_bottom = 1600.0
 color = Color(0, 0, 0, 1)
 
 [node name="Bass-pulse" type="AudioStreamPlayer2D" parent="."]

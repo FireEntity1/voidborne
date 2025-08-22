@@ -80,7 +80,7 @@ func _on_start_detection_body_entered(body):
 		Dialogic.start(start_timeline)
 		$start_detection.queue_free()
 		await get_tree().create_timer(5).timeout
-		$bosscam.make_current()
+		$sprite/bosscam.make_current()
 		$sprite.show()
 func _on_attack_timeout():
 	print(running)
@@ -98,7 +98,7 @@ func hit():
 	if health <= 0:
 		finished = true
 		running = false
-		$bosscam.make_current()
+		$sprite/bosscam.make_current()
 		Dialogic.start(end_timeline)
 
 func flash_red():
