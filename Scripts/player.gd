@@ -12,6 +12,8 @@ var can_attack = true
 
 @onready var damage = 201
 
+var is_ground = true
+
 var voidwell = 8
 
 var slashing = false
@@ -59,6 +61,10 @@ func _physics_process(delta):
 		$land_particles.emitting = true
 		await get_tree().create_timer(0.2).timeout
 		$land_particles.emitting = false
+	
+	if is_on_floor() and not is_ground and not slamming:
+		$land.play()
+	is_ground = is_on_floor()
 	
 	if self.velocity.y < 0:
 		slamming = false
@@ -157,6 +163,7 @@ func _physics_process(delta):
 		$land_particles.emitting = true
 		await get_tree().create_timer(0.2).timeout
 		$land_particles.emitting = false
+		$slam_land.play()
 	
 	$camera.zoom = $camera.zoom.move_toward(Vector2(cam_zoom,cam_zoom), delta)
 	
