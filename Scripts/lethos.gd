@@ -52,6 +52,7 @@ func _process(delta):
 		move_left = true
 	
 	if finished:
+		$Lethos.stop()
 		$hover.wait_time = 0.05
 		hover_speed = 400
 		$sprite.position.y = 270
@@ -128,6 +129,10 @@ func flash_red():
 	$sprite.modulate = Color(1,1,1)
 
 func _on_dialogic_signal(arg):
+	if arg == "start-music":
+		print("start music was called")
+		$Lethos.play()
+	
 	if arg == "die":
 		die = true
 		await get_tree().create_timer(2).timeout

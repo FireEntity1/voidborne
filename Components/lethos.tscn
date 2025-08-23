@@ -1,10 +1,11 @@
-[gd_scene load_steps=22 format=3 uid="uid://opypnmqci606"]
+[gd_scene load_steps=23 format=3 uid="uid://opypnmqci606"]
 
 [ext_resource type="Script" path="res://scripts/lethos.gd" id="1_iu5mv"]
 [ext_resource type="Texture2D" uid="uid://bfut58ap0176i" path="res://Sprites/lethos.png" id="1_qjuue"]
 [ext_resource type="Resource" path="res://Dialogic/lethos_start.dtl" id="2_k4hmp"]
 [ext_resource type="Resource" path="res://Dialogic/lethos_end.dtl" id="3_f1toq"]
 [ext_resource type="Shader" path="res://Shaders/melt.gdshader" id="3_w6ksm"]
+[ext_resource type="AudioStream" uid="uid://5dee1pi5ybrt" path="res://Audio/Ambient/lethos.wav" id="6_bu6dc"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5m502"]
 shader = ExtResource("3_w6ksm")
@@ -153,6 +154,14 @@ shape = SubResource("RectangleShape2D_h0e6p")
 
 [node name="bosscam" type="Camera2D" parent="."]
 zoom = Vector2(2, 2)
+
+[node name="Lethos" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(-101, 10)
+stream = ExtResource("6_bu6dc")
+volume_db = -1.095
+max_distance = 15000.0
+attenuation = 1e-05
+panning_strength = 0.0
 
 [connection signal="body_entered" from="boss_hitbox" to="." method="_on_damage_body_entered"]
 [connection signal="body_entered" from="start_detection" to="." method="_on_start_detection_body_entered"]

@@ -161,15 +161,13 @@ func _physics_process(delta):
 	elif slamming and is_on_floor():
 		slamming = false
 		$land_particles.emitting = true
+		$slam_land.play()
 		await get_tree().create_timer(0.2).timeout
 		$land_particles.emitting = false
-		$slam_land.play()
+		
 	
 	$camera.zoom = $camera.zoom.move_toward(Vector2(cam_zoom,cam_zoom), delta)
-	
-	print(voidwell)
-	print(health, " ", global.save_file.hearts)
-	print(can_heal)
+
 	
 	if Input.is_action_just_pressed("heal") and voidwell > 4 and health < global.save_file.hearts and can_heal:
 		can_heal = false

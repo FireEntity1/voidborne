@@ -8,6 +8,7 @@ lethos: [speed=20] void... unwElcome
 lethos: [speed=20] leave . . .
 do global.title("Lethos", "The All Seeing")
 [wait time="5.0"]
+[signal arg="start-music"]
 do global.enable_input()
 [signal arg="cam-zoom-out"]
 [wait time="2.0"]
