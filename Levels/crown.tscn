@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=4 uid="uid://bysptplhcgylx"]
+[gd_scene load_steps=24 format=4 uid="uid://bysptplhcgylx"]
 
 [ext_resource type="Shader" path="res://Shaders/balala.gdshader" id="1_ghvut"]
 [ext_resource type="Texture2D" uid="uid://dmw7xjc2eb843" path="res://Sprites/crown-rock.png" id="2_dvpui"]
@@ -9,6 +9,22 @@
 [ext_resource type="Texture2D" uid="uid://crc5wpkmacn2o" path="res://Sprites/outline-brick-3.png" id="5_xvg3i"]
 [ext_resource type="PackedScene" uid="uid://c8ef3shw486j6" path="res://Components/dialogue_trigger.tscn" id="6_sg371"]
 [ext_resource type="Resource" path="res://Dialogic/erythis_intro.dtl" id="7_bh7kh"]
+[ext_resource type="AudioStream" uid="uid://dkesipjdts4tc" path="res://Audio/Ambient/erythis.wav" id="10_e4m1y"]
+
+[sub_resource type="GDScript" id="GDScript_3q0mq"]
+resource_name = "crown"
+script/source = "extends Node2D
+
+func _ready():
+	Dialogic.connect(\"signal_event\", _on_dialogic_signal)
+
+func _process(delta):
+	pass
+
+func _on_dialogic_signal(arg):
+	if arg == \"start-music\":
+		$erythis.play()
+"
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hqill"]
 shader = ExtResource("1_ghvut")
@@ -81,6 +97,7 @@ size = Vector2(1917, 260.5)
 size = Vector2(2818, 134)
 
 [node name="crown" type="Node2D"]
+script = SubResource("GDScript_3q0mq")
 
 [node name="bg_parallax" type="Parallax2D" parent="."]
 scroll_scale = Vector2(0.7, 1)
@@ -172,10 +189,18 @@ shape = SubResource("RectangleShape2D_65kvb")
 position = Vector2(6661, -57)
 shape = SubResource("RectangleShape2D_65kvb")
 
-[node name="boss" parent="." instance=ExtResource("5_nhygp")]
-position = Vector2(0, -1666)
-
 [node name="timeline_trigger" parent="." instance=ExtResource("6_sg371")]
 position = Vector2(0, -1322)
 scale = Vector2(3.88, 1)
 timeline = ExtResource("7_bh7kh")
+
+[node name="boss" parent="." instance=ExtResource("5_nhygp")]
+position = Vector2(0, -1666)
+
+[node name="erythis" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(1, -1666)
+stream = ExtResource("10_e4m1y")
+volume_db = -2.737
+max_distance = 10000.0
+attenuation = 3.27079e-05
+panning_strength = 0.0

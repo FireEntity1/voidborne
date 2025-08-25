@@ -6,12 +6,14 @@ do global.shake(true)
 do global.vingette(true)
 [wait time="2.0"]
 ???: The light chose me . . .
-???: And I obey the light's every command.
+???: To protect this sacred land . . .
+???: I obey the light's every command.
 ???: You dare try and dim[speed=20] it?
 ???: I will not let your kind stain our golden streets.
 do global.shake(false)
 do global.enable_input()
 [signal arg="helis-attack"]
+[signal arg="start-music"]
 do global.set_attacking("helis", true)
 [signal arg="cam-zoom-out"]
 do global.vingette(true)

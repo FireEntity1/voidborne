@@ -17,3 +17,5 @@ do global.title("ERYTHIS", "", true)
 [signal arg="cam-zoom-out"]
 [signal arg="erythis-attack"]
 [signal arg="cam-zoom-out"]
+[wait time="1.0"]
+[signal arg="start-music"]

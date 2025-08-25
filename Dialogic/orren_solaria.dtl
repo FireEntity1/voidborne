@@ -14,3 +14,4 @@ else:
 	???: stupid void.
 	???: stupid light.
 do global.enable_input()
+do global.add_finished_timeline("orren_solaria")

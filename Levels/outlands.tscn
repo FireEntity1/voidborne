@@ -32,6 +32,7 @@ script/source = "extends Node2D
 var playing = true
 
 func _ready():
+	Dialogic.signal_event.connect(_on_dialogic_signal)
 	match global.save_file.checkpoint:
 		\"spawn\":
 			$player.position = Vector2(677, 844)
@@ -52,6 +53,11 @@ func _on_ambience_play_body_entered(body):
 	if not playing:
 		$ambience.play()
 		playing = true
+
+func _on_dialogic_signal(arg):
+	if arg == \"play-music\":
+		$SomethingLooms.stop()
+		$SomethingLooms2.stop()
 "
 
 [sub_resource type="Gradient" id="Gradient_wghrg"]

@@ -32,6 +32,7 @@ script/source = "extends Node2D
 var playing = true
 
 func _ready():
+	Dialogic.signal_event.connect(_on_dialogic_signal)
 	match global.save_file.checkpoint:
 		\"solaria_spawn\":
 			$player.position = Vector2(0, -213)
@@ -49,6 +50,10 @@ func _on_play_ambience_body_entered(body):
 	if not playing:
 		$ambience.play()
 		playing = true
+
+func _on_dialogic_signal(arg):
+	if arg == \"play-music\":
+		pass
 "
 
 [sub_resource type="Gradient" id="Gradient_s5dcj"]
@@ -267,6 +272,7 @@ size = Vector2(294, 752)
 
 [node name="Solaria" type="Node2D"]
 script = SubResource("GDScript_npxex")
+metadata/_edit_horizontal_guides_ = [-5416.0]
 
 [node name="parallaxBG" type="Parallax2D" parent="."]
 scroll_scale = Vector2(0.2, 0.2)
@@ -664,7 +670,7 @@ position = Vector2(15370, -3409)
 fragment_id = "solaria_b"
 
 [node name="player" parent="." instance=ExtResource("7_07i6p")]
-position = Vector2(7620, -7906)
+position = Vector2(-6, -188)
 
 [node name="timeline_trigger" parent="." instance=ExtResource("11_wogwb")]
 position = Vector2(-1, -305)
@@ -746,6 +752,36 @@ position = Vector2(9731, -213)
 
 [node name="gilded_shard4" parent="." instance=ExtResource("16_vammh")]
 position = Vector2(10805, -247)
+
+[node name="gilded_shard7" parent="." instance=ExtResource("16_vammh")]
+position = Vector2(11305, -1931)
+
+[node name="gilded_shard8" parent="." instance=ExtResource("16_vammh")]
+position = Vector2(10641, -1907)
+
+[node name="gilded_shard9" parent="." instance=ExtResource("16_vammh")]
+position = Vector2(5120, -5367)
+
+[node name="gilded_shard10" parent="." instance=ExtResource("16_vammh")]
+position = Vector2(5488, -5378)
+
+[node name="gilded_shard11" parent="." instance=ExtResource("16_vammh")]
+position = Vector2(1975, -5955)
+
+[node name="gilded_shard12" parent="." instance=ExtResource("16_vammh")]
+position = Vector2(2429, -5939)
+
+[node name="gilded_shard13" parent="." instance=ExtResource("16_vammh")]
+position = Vector2(2429, -5939)
+
+[node name="gilded_shard14" parent="." instance=ExtResource("16_vammh")]
+position = Vector2(2840, -5905)
+
+[node name="gilded_shard15" parent="." instance=ExtResource("16_vammh")]
+position = Vector2(8531, -6303)
+
+[node name="gilded_shard16" parent="." instance=ExtResource("16_vammh")]
+position = Vector2(10658, -8956)
 
 [node name="gilded_shard5" parent="." instance=ExtResource("16_vammh")]
 position = Vector2(11318, -247)

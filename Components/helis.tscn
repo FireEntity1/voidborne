@@ -1,7 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://cw28m6j76d1x6"]
+[gd_scene load_steps=16 format=3 uid="uid://cw28m6j76d1x6"]
 
 [ext_resource type="Script" path="res://scripts/helis.gd" id="1_y5c6d"]
+[ext_resource type="AudioStream" uid="uid://buact0aq2j4s6" path="res://Audio/Ambient/helis.wav" id="4_v62qg"]
 [ext_resource type="Shader" path="res://Shaders/melt.gdshader" id="4_x3xms"]
+[ext_resource type="AudioStream" uid="uid://cc1v6g5ckl7j" path="res://Audio/Ambient/something_looms.mp3" id="5_n5h2c"]
 [ext_resource type="Texture2D" uid="uid://b4hvnoqhuwuni" path="res://Sprites/helis.png" id="5_oqw15"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pq7io"]
@@ -113,6 +115,21 @@ explosiveness = 0.52
 position = Vector2(5.38694, 7.11437)
 rotation = 0.922709
 shape = SubResource("RectangleShape2D_h0e6p")
+
+[node name="Helis" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(1, 20)
+stream = ExtResource("4_v62qg")
+volume_db = -8.211
+max_distance = 7500.0
+attenuation = 1e-05
+panning_strength = 0.0
+
+[node name="SomethingLooms" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(-3, 6)
+stream = ExtResource("5_n5h2c")
+volume_db = -9.853
+autoplay = true
+attenuation = 0.615572
 
 [connection signal="body_entered" from="boss_hitbox" to="." method="_on_damage_body_entered"]
 [connection signal="body_entered" from="start_detection" to="." method="_on_start_detection_body_entered"]

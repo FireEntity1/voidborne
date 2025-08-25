@@ -33,6 +33,7 @@ directories/dch_directory={
 }
 directories/dtl_directory={
 "death": "res://Dialogic/death.dtl",
+"ending": "res://Dialogic/ending.dtl",
 "enemy_intro": "res://Dialogic/enemy_intro.dtl",
 "erythis_intro": "res://Dialogic/erythis_intro.dtl",
 "helis_death": "res://Dialogic/helis_death.dtl",

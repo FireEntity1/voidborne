@@ -94,7 +94,7 @@ func hit():
 	$particles.emitting = true
 	print("hit!")
 	flash_red()
-
+	
 	if health <= 0:
 		finished = true
 		running = false
@@ -107,9 +107,8 @@ func flash_red():
 	$sprite.modulate = Color(1,1,1)
 
 func _on_dialogic_signal(arg):
-	if arg == "die":
-		die = true
-	if arg == "helis-attack":
-		print("helis attack")
-		running = true
-		finished = false
+	if arg == "start-music":
+		print("start music was called")
+		$Helis.play()
+		$SomethingLooms.stop()
+	 

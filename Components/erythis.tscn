@@ -1,7 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://feex0f35c6p7"]
+[gd_scene load_steps=15 format=3 uid="uid://feex0f35c6p7"]
 
 [ext_resource type="Script" path="res://scripts/erythis.gd" id="1_qbj2e"]
 [ext_resource type="Texture2D" uid="uid://dqgybp4jcdts0" path="res://Sprites/erythis.png" id="3_o7wrd"]
+[ext_resource type="AudioStream" uid="uid://cc1v6g5ckl7j" path="res://Audio/Ambient/something_looms.mp3" id="4_83dw4"]
 [ext_resource type="Shader" path="res://Shaders/melt.gdshader" id="4_bp0no"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pq7io"]
@@ -109,6 +110,14 @@ shape = SubResource("RectangleShape2D_h0e6p")
 
 [node name="bosscam" type="Camera2D" parent="."]
 zoom = Vector2(1.6, 1.6)
+
+[node name="SomethingLooms" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(-8, 14)
+stream = ExtResource("4_83dw4")
+volume_db = -15.327
+autoplay = true
+max_distance = 5000.0
+attenuation = 0.378929
 
 [connection signal="body_entered" from="boss_hitbox" to="." method="_on_damage_body_entered"]
 [connection signal="body_entered" from="start_detection" to="." method="_on_start_detection_body_entered"]
