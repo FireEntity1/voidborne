@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=4 uid="uid://bysptplhcgylx"]
+[gd_scene load_steps=25 format=4 uid="uid://bysptplhcgylx"]
 
 [ext_resource type="Shader" path="res://Shaders/balala.gdshader" id="1_ghvut"]
 [ext_resource type="Texture2D" uid="uid://dmw7xjc2eb843" path="res://Sprites/crown-rock.png" id="2_dvpui"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://c8ef3shw486j6" path="res://Components/dialogue_trigger.tscn" id="6_sg371"]
 [ext_resource type="Resource" path="res://Dialogic/erythis_intro.dtl" id="7_bh7kh"]
 [ext_resource type="AudioStream" uid="uid://dkesipjdts4tc" path="res://Audio/Ambient/erythis.wav" id="10_e4m1y"]
+[ext_resource type="Resource" path="res://Dialogic/ending.dtl" id="10_khvqd"]
 
 [sub_resource type="GDScript" id="GDScript_3q0mq"]
 resource_name = "crown"
@@ -91,7 +92,7 @@ size = Vector2(896, 260.5)
 size = Vector2(1026, 260.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yh4ig"]
-size = Vector2(1917, 260.5)
+size = Vector2(1917, 257.25)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_65kvb"]
 size = Vector2(2818, 134)
@@ -164,7 +165,7 @@ position = Vector2(2051, -762)
 shape = SubResource("RectangleShape2D_bwxfc")
 
 [node name="col12" type="CollisionShape2D" parent="world_collision"]
-position = Vector2(3903.5, -1022)
+position = Vector2(3903.5, -1020.38)
 shape = SubResource("RectangleShape2D_yh4ig")
 
 [node name="col7" type="CollisionShape2D" parent="world_collision"]
@@ -196,11 +197,12 @@ timeline = ExtResource("7_bh7kh")
 
 [node name="boss" parent="." instance=ExtResource("5_nhygp")]
 position = Vector2(0, -1666)
+end_timeline = ExtResource("10_khvqd")
 
 [node name="erythis" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(1, -1666)
 stream = ExtResource("10_e4m1y")
-volume_db = -2.737
+volume_db = 1.095
 max_distance = 10000.0
 attenuation = 3.27079e-05
 panning_strength = 0.0

@@ -14,6 +14,7 @@ var save_file = {
 		"outlands_b": false,
 		"outlands_c": false,
 		"outlands_d": false,
+		"outlands_e": false,
 		"solaria_a": false,
 		"solaria_b": false,
 		"solaria_c": false,
@@ -42,6 +43,7 @@ var vingette_scene = preload("res://Components/vingette.tscn")
 var portal_scene = preload("res://Components/portal.tscn")
 
 func _ready():
+	save()
 	load_save()
 	
 	vingette_scene = vingette_scene.instantiate()

@@ -90,7 +90,7 @@ func _on_attack_timeout():
 		elif attack == "beam":
 			scene = beam.instantiate()
 		scene.position = position
-		$boss_hitbox.add_child(scene)
+		get_tree().root.add_child(scene)
 
 func hit():
 	$particles.emitting = true

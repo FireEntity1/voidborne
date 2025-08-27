@@ -763,7 +763,7 @@ position = Vector2(10641, -1907)
 position = Vector2(5120, -5367)
 
 [node name="gilded_shard10" parent="." instance=ExtResource("16_vammh")]
-position = Vector2(5488, -5378)
+position = Vector2(4395, -5365)
 
 [node name="gilded_shard11" parent="." instance=ExtResource("16_vammh")]
 position = Vector2(1975, -5955)

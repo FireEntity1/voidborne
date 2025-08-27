@@ -10,7 +10,7 @@ var can_dash = true
 
 var can_attack = true
 
-@onready var damage = 10
+@onready var damage = 5
 
 var is_ground = true
 
@@ -134,7 +134,7 @@ func _physics_process(delta):
 			if area.name == "boss":
 				area.hit()
 				area.health -= damage
-		await get_tree().create_timer(0.2).timeout
+		await get_tree().create_timer(0.33).timeout
 		can_attack = true
 	
 	if Input.is_action_just_pressed("dash") and global.can_move:

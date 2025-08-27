@@ -3,6 +3,9 @@
 do global.vingette(true)
 do global.fade(false, 8, false)
 do global.shake(true)
+do global.disable_input()
+[music path="res://Audio/Ambient/something_looms.mp3" fade="0.6" volume="-4.0"]
+[sound path="res://Audio/SFX/BOOM.mp3" volume="-2.0"]
 [wait time="3.0"]
 ???: You've climbed so far.
 ???: An insignificant stain in the light.
@@ -14,6 +17,7 @@ do global.fade(false, 5, false)
 do global.fade(true, 5, false)
 do global.title("ERYTHIS", "", true)
 [wait time="4.0"]
+do global.enable_input()
 [signal arg="cam-zoom-out"]
 [signal arg="erythis-attack"]
 [signal arg="cam-zoom-out"]

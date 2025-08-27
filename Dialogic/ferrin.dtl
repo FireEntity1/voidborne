@@ -1,0 +1,20 @@
+do global.disable_input()
+???: The outlands . . .
+???: A forsaken place . . .
+???: The light abandoned us and the void crept . . .
+???: While they enjoyed their luxuries in Solaria . . .
+???: We struggled to fend for ourselves . . .
+???: But we have something that they dont . . .
+???: A will.
+ferrin: I'm Ferrin. One of few that escaped the light's grasp.
+ferrin: You, void, have a chance to save this place.
+ferrin: The light is afraid of you, yet it refuses to admit.
+ferrin: Go, make your way to Solaria.
+ferrin: However, be wary, the only way to access it is either through the gates . . .
+ferrin: Which you'll never get through as a voidborn . . .
+ferrin: Or by defeating the brainwashed guardian who lay near the top of the Outlands.
+ferrin: Good luck, void.
+ferrin: By the way, take the void fragment behind me!
+ferrin: You need it more than I do, it'll help you survive.
+do global.add_finished_timeline("ferrin")
+do global.enable_input()

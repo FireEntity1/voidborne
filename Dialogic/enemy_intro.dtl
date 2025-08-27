@@ -1,2 +1,3 @@
 ???: Press X or Click to attack the flicker.
 ???: Don't get hit!
+do global.add_finished_timeline("enemy_intro")

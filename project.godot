@@ -24,6 +24,8 @@ global="*res://Scripts/global.gd"
 
 directories/dch_directory={
 "???": "res://Dialogic/???.dch",
+"erythis": "res://Dialogic/erythis.dch",
+"ferrin": "res://Dialogic/ferrin.dch",
 "helis": "res://Dialogic/helis.dch",
 "lethos": "res://Dialogic/lethos.dch",
 "nym": "res://Dialogic/nym.dch",
@@ -36,6 +38,7 @@ directories/dtl_directory={
 "ending": "res://Dialogic/ending.dtl",
 "enemy_intro": "res://Dialogic/enemy_intro.dtl",
 "erythis_intro": "res://Dialogic/erythis_intro.dtl",
+"ferrin": "res://Dialogic/ferrin.dtl",
 "helis_death": "res://Dialogic/helis_death.dtl",
 "helis_end": "res://Dialogic/helis_end.dtl",
 "helis_intro": "res://Dialogic/helis_intro.dtl",

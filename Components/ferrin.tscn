@@ -1,0 +1,48 @@
+[gd_scene load_steps=8 format=3 uid="uid://d1h5vnwj7rrqo"]
+
+[ext_resource type="Script" path="res://scripts/npc.gd" id="1_tdl3j"]
+[ext_resource type="Resource" path="res://Dialogic/vexin_interaction.dtl" id="2_j8nt6"]
+[ext_resource type="Texture2D" uid="uid://b6lsvs6siofck" path="res://Sprites/ferrin.png" id="3_mhqqn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y5357"]
+size = Vector2(347, 395)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_alix5"]
+atlas = ExtResource("3_mhqqn")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p3l5b"]
+atlas = ExtResource("3_mhqqn")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w07ih"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_alix5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p3l5b")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.4
+}]
+
+[node name="ferrin" type="Area2D"]
+script = ExtResource("1_tdl3j")
+timeline = ExtResource("2_j8nt6")
+
+[node name="talkarea" type="CollisionShape2D" parent="."]
+position = Vector2(1.5, -140.5)
+shape = SubResource("RectangleShape2D_y5357")
+
+[node name="sprite" type="AnimatedSprite2D" parent="."]
+modulate = Color(0.83, 0.83, 0.83, 1)
+position = Vector2(1, -23)
+scale = Vector2(10, 10)
+sprite_frames = SubResource("SpriteFrames_w07ih")
+autoplay = "default"
+frame_progress = 0.488393
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
