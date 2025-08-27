@@ -16,8 +16,8 @@ var die = false
 @export var start_timeline: DialogicTimeline
 @export var end_timeline: DialogicTimeline
 
-var ball = preload("res://Components/lethos_attack.tscn")
-var beam = preload("res://Components/helis_attack.tscn")
+var ball = preload("res://Components/erythis_ball.tscn")
+var beam = preload("res://Components/erythis_beam.tscn")
 
 var hover_up = true
 var hover_speed = 67
@@ -84,13 +84,21 @@ func _on_attack_timeout():
 		print("condition met")
 		hover_lim = 400
 		var attack = attacks.pick_random()
-		var scene
+		var scenes = []
 		if attack == "ball":
-			scene = ball.instantiate()
+			scenes.append(ball.instantiate())
+			scenes.append(ball.instantiate())
+			scenes.append(ball.instantiate())
+			for scene in scenes:
+				scene.position.x = randi_range(-2000,2000)
+				scene.velocity = 1800
+				get_tree().root.add_child(scene)
 		elif attack == "beam":
-			scene = beam.instantiate()
-		scene.position = position
-		get_tree().root.add_child(scene)
+			for scene in scenes:
+				scene = beam.instantiate()
+				scene.position = position - Vector2(0,500)
+				get_tree().root.add_child(scene)
+		
 
 func hit():
 	$particles.emitting = true

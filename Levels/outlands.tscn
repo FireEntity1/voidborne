@@ -35,6 +35,7 @@ script/source = "extends Node2D
 var playing = true
 
 func _ready():
+	global.lethos_attacking = false
 	Dialogic.signal_event.connect(_on_dialogic_signal)
 	match global.save_file.checkpoint:
 		\"spawn\":
@@ -815,7 +816,7 @@ position = Vector2(7382, -3028)
 position = Vector2(10349, -4592)
 
 [node name="boss" parent="." instance=ExtResource("20_wuu64")]
-position = Vector2(2440, -1257)
+position = Vector2(2438, -1502)
 
 [node name="Orren" parent="." instance=ExtResource("21_krx8b")]
 position = Vector2(17724, -2499)

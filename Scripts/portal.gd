@@ -12,9 +12,8 @@ func _process(delta):
 
 func _on_area_body_entered(body):
 	if body.name == "player":
-		global.fade(true,7,false)
+		global.white_transition()
 		global.disable_input()
-		await get_tree().create_timer(6.9).timeout
-		global.fade(false,7,false)
+		await get_tree().create_timer(2).timeout
 		global.enable_input()
 		get_tree().change_scene_to_file(dest)

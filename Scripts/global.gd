@@ -43,7 +43,6 @@ var vingette_scene = preload("res://Components/vingette.tscn")
 var portal_scene = preload("res://Components/portal.tscn")
 
 func _ready():
-	save()
 	load_save()
 	
 	vingette_scene = vingette_scene.instantiate()
@@ -143,6 +142,9 @@ func get_spawn_coords():
 	match save_file.checkpoint:
 		"spawn": return Vector2(597,767)
 		"outlands_boss": return Vector2(4739,-5548)
+
+func set_checkpoint(arg):
+	save_file.checkpoint = arg
 
 func set_attacking(boss, value):
 	match boss:

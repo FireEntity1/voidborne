@@ -9,8 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://crc5wpkmacn2o" path="res://Sprites/outline-brick-3.png" id="5_xvg3i"]
 [ext_resource type="PackedScene" uid="uid://c8ef3shw486j6" path="res://Components/dialogue_trigger.tscn" id="6_sg371"]
 [ext_resource type="Resource" path="res://Dialogic/erythis_intro.dtl" id="7_bh7kh"]
-[ext_resource type="AudioStream" uid="uid://dkesipjdts4tc" path="res://Audio/Ambient/erythis.wav" id="10_e4m1y"]
 [ext_resource type="Resource" path="res://Dialogic/ending.dtl" id="10_khvqd"]
+[ext_resource type="AudioStream" uid="uid://bj46xptk0raqm" path="res://Audio/Ambient/erythis.mp3" id="11_f23yb"]
 
 [sub_resource type="GDScript" id="GDScript_3q0mq"]
 resource_name = "crown"
@@ -18,6 +18,8 @@ script/source = "extends Node2D
 
 func _ready():
 	Dialogic.connect(\"signal_event\", _on_dialogic_signal)
+	global.shake(true)
+	global.vingette(true)
 
 func _process(delta):
 	pass
@@ -178,7 +180,7 @@ rotation = 1.5708
 shape = SubResource("RectangleShape2D_j4bl5")
 
 [node name="col3" type="CollisionShape2D" parent="world_collision"]
-position = Vector2(8438, -2953)
+position = Vector2(8455, -2996)
 rotation = 1.5708
 shape = SubResource("RectangleShape2D_j4bl5")
 
@@ -196,13 +198,13 @@ scale = Vector2(3.88, 1)
 timeline = ExtResource("7_bh7kh")
 
 [node name="boss" parent="." instance=ExtResource("5_nhygp")]
-position = Vector2(0, -1666)
+position = Vector2(1, -1925)
 end_timeline = ExtResource("10_khvqd")
 
 [node name="erythis" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(1, -1666)
-stream = ExtResource("10_e4m1y")
-volume_db = 1.095
+stream = ExtResource("11_f23yb")
+volume_db = -2.189
 max_distance = 10000.0
 attenuation = 3.27079e-05
 panning_strength = 0.0

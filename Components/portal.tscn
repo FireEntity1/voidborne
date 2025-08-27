@@ -46,6 +46,7 @@ animations = [{
 script = ExtResource("1_dbi7g")
 
 [node name="area" type="Area2D" parent="."]
+position = Vector2(0, 156)
 
 [node name="collision" type="CollisionShape2D" parent="area"]
 shape = SubResource("RectangleShape2D_e1bs3")

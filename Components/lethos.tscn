@@ -138,7 +138,7 @@ wait_time = 3.0
 autostart = true
 
 [node name="attack" type="Timer" parent="."]
-wait_time = 2.0
+wait_time = 2.5
 autostart = true
 
 [node name="particles" type="GPUParticles2D" parent="."]
