@@ -1,6 +1,6 @@
 extends Area2D
 
-var health = 400
+var health = 300
 
 var is_boss = true
 var enemy = true
@@ -49,15 +49,14 @@ func _process(delta):
 		self.position.x += delta*300
 		dist += delta*300
 	
-	if dist < -950:
+	if dist < -1750:
 		move_left = false
-	elif dist > 950:
+	elif dist > 1750:
 		move_left = true
 	
 	if finished:
 		$hover.wait_time = 0.05
 		hover_speed = 400
-		$sprite.position.y = 270
 	
 	if die and finished:
 		progress += delta/8
@@ -90,15 +89,18 @@ func _on_attack_timeout():
 			scenes.append(ball.instantiate())
 			scenes.append(ball.instantiate())
 			for scene in scenes:
-				scene.position.x = randi_range(-2000,2000)
-				scene.velocity = 1800
+				scene.global_position = global.player_pos
+				scene.global_position.x += randi_range(-2,2)*1000
+				scene.global_position.y = randi_range(-1000,1000)
+				scene.velocity = 1000
 				get_tree().root.add_child(scene)
+				await get_tree().create_timer(0.2).timeout
 		elif attack == "beam":
+			scenes.append(beam.instantiate())
 			for scene in scenes:
-				scene = beam.instantiate()
-				scene.position = position - Vector2(0,500)
+				scene.global_position = global.player_pos
+				scene.global_position = Vector2(randi_range(-1,1)*2000 - 3000,randi_range(-1,1)*1000)
 				get_tree().root.add_child(scene)
-		
 
 func hit():
 	$particles.emitting = true
@@ -109,6 +111,7 @@ func hit():
 		finished = true
 		running = false
 		Dialogic.start(end_timeline)
+		$death_particles.emitting = true
 	
 func flash_red():
 	$sprite.modulate = Color(1,0.5,0.5)
@@ -124,3 +127,6 @@ func _on_dialogic_signal(arg):
 		print("attackig")
 	if arg == "cam-erythis-intro":
 		$bosscam.make_current()
+	if arg == "erythis-destroy":
+		$SomethingLooms.stop()
+	

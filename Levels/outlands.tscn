@@ -66,12 +66,12 @@ func _on_dialogic_signal(arg):
 
 [sub_resource type="Gradient" id="Gradient_wghrg"]
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_83xvx"]
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_whio4"]
 gradient = SubResource("Gradient_wghrg")
 
 [sub_resource type="Gradient" id="Gradient_i36j4"]
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_bpqyn"]
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_0d705"]
 gradient = SubResource("Gradient_i36j4")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ujdmv"]
@@ -84,11 +84,11 @@ shader_parameter/brightnessStar = 3.0
 shader_parameter/shineFrequencyStar = 8.0
 shader_parameter/transparencyStar = 0.0
 shader_parameter/starIterations = 3
-shader_parameter/gradientA = SubResource("GradientTexture2D_83xvx")
+shader_parameter/gradientA = SubResource("GradientTexture2D_whio4")
 shader_parameter/frequencyBgStar = 1.0
 shader_parameter/shineFrequencyBgStar = 1.0
 shader_parameter/transparencyBgStar = 0.0
-shader_parameter/gradientB = SubResource("GradientTexture2D_bpqyn")
+shader_parameter/gradientB = SubResource("GradientTexture2D_0d705")
 shader_parameter/colorBackground = Color(0.1305, 0.170375, 0.29, 1)
 shader_parameter/transparencyBackground = 0.0
 shader_parameter/seed = 1.0
@@ -188,19 +188,19 @@ size = Vector2(1287, 249)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8ffv7"]
 size = Vector2(259.75, 894.25)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2dnnj"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hwcre"]
 texture = ExtResource("5_xsnoc")
 0:0/0 = 0
 1:0/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ttb4i"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hu0wd"]
 texture = ExtResource("6_a03tk")
 0:0/0 = 0
 1:0/0 = 0
 0:1/0 = 0
 1:1/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0wxye"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wumkn"]
 texture = ExtResource("7_v02ob")
 0:0/0 = 0
 1:0/0 = 0
@@ -208,9 +208,9 @@ texture = ExtResource("7_v02ob")
 3:0/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_rxhlw"]
-sources/0 = SubResource("TileSetAtlasSource_2dnnj")
-sources/1 = SubResource("TileSetAtlasSource_ttb4i")
-sources/2 = SubResource("TileSetAtlasSource_0wxye")
+sources/0 = SubResource("TileSetAtlasSource_hwcre")
+sources/1 = SubResource("TileSetAtlasSource_hu0wd")
+sources/2 = SubResource("TileSetAtlasSource_wumkn")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_g62yd"]
 texture = ExtResource("7_ppewa")
@@ -256,23 +256,96 @@ offset_bottom = 1714.0
 color = Color(0.212305, 0.212305, 0.212305, 1)
 metadata/_edit_use_anchors_ = true
 
+[node name="buildings" type="Parallax2D" parent="."]
+scale = Vector2(34.3781, 34.3781)
+scroll_scale = Vector2(0.35, 0.2)
+scroll_offset = Vector2(676, 724)
+
+[node name="Building-14" type="Sprite2D" parent="buildings"]
+position = Vector2(38.3144, 2.19398)
+scale = Vector2(0.856187, 0.856187)
+texture = ExtResource("3_8e30n")
+
+[node name="Building-15" type="Sprite2D" parent="buildings"]
+position = Vector2(105.532, -5.61403)
+scale = Vector2(0.856187, 0.856187)
+texture = ExtResource("3_8e30n")
+
+[node name="Building-17" type="Sprite2D" parent="buildings"]
+position = Vector2(123.218, -4.82865)
+scale = Vector2(0.856187, 0.856187)
+texture = ExtResource("3_8e30n")
+
+[node name="Building-18" type="Sprite2D" parent="buildings"]
+position = Vector2(137.82, 1.2217)
+scale = Vector2(0.856187, 0.856187)
+texture = ExtResource("3_8e30n")
+
+[node name="Building-21" type="Sprite2D" parent="buildings"]
+position = Vector2(72.5752, 3.51968)
+scale = Vector2(0.856187, 0.856187)
+texture = ExtResource("3_8e30n")
+
+[node name="Building-22" type="Sprite2D" parent="buildings"]
+position = Vector2(-24.7832, -1.91983)
+scale = Vector2(0.856187, 0.856187)
+texture = ExtResource("3_8e30n")
+
+[node name="Building-24" type="Sprite2D" parent="buildings"]
+position = Vector2(9.59912, 1.86165)
+scale = Vector2(0.856187, 0.856187)
+texture = ExtResource("3_8e30n")
+
+[node name="Building-25" type="Sprite2D" parent="buildings"]
+position = Vector2(164.61, 3.66512)
+scale = Vector2(0.856187, 0.856187)
+texture = ExtResource("3_8e30n")
+
+[node name="Building-26" type="Sprite2D" parent="buildings"]
+position = Vector2(180.725, 0.698116)
+scale = Vector2(0.856187, 0.856187)
+texture = ExtResource("3_8e30n")
+
+[node name="Building-27" type="Sprite2D" parent="buildings"]
+position = Vector2(199.313, 2.50159)
+scale = Vector2(0.856187, 0.856187)
+texture = ExtResource("3_8e30n")
+
+[node name="Building-28" type="Sprite2D" parent="buildings"]
+position = Vector2(162.458, -1.45441)
+scale = Vector2(0.856187, 0.856187)
+texture = ExtResource("3_8e30n")
+
+[node name="Building-16" type="Sprite2D" parent="buildings"]
+position = Vector2(58.8094, -1.36455)
+scale = Vector2(0.856187, 0.856187)
+texture = ExtResource("3_8e30n")
+
+[node name="Building-19" type="Sprite2D" parent="buildings"]
+position = Vector2(20.388, -4.17391)
+scale = Vector2(0.856187, 0.856187)
+texture = ExtResource("3_8e30n")
+
+[node name="Building-20" type="Sprite2D" parent="buildings"]
+position = Vector2(-3.42475, -5.83278)
+scale = Vector2(0.856187, 0.856187)
+texture = ExtResource("3_8e30n")
+
+[node name="Building-4" type="Sprite2D" parent="buildings"]
+position = Vector2(89.1505, 1.12375)
+texture = ExtResource("3_8e30n")
+
+[node name="Building-23" type="Sprite2D" parent="buildings"]
+position = Vector2(148.736, 1.57859)
+texture = ExtResource("3_8e30n")
+
 [node name="parallax" type="Parallax2D" parent="."]
 scale = Vector2(37.375, 37.375)
 scroll_scale = Vector2(0.5, 0.3)
 scroll_offset = Vector2(595, 769)
 
-[node name="Building-14" type="Sprite2D" parent="parallax"]
-position = Vector2(38.3144, 2.19398)
-scale = Vector2(0.856187, 0.856187)
-texture = ExtResource("3_8e30n")
-
 [node name="Building-15" type="Sprite2D" parent="parallax"]
 position = Vector2(50.6488, -2.62207)
-scale = Vector2(0.856187, 0.856187)
-texture = ExtResource("3_8e30n")
-
-[node name="Building-16" type="Sprite2D" parent="parallax"]
-position = Vector2(58.8094, -1.36455)
 scale = Vector2(0.856187, 0.856187)
 texture = ExtResource("3_8e30n")
 
@@ -286,11 +359,6 @@ position = Vector2(26.5686, 2.16722)
 scale = Vector2(0.856187, 0.856187)
 texture = ExtResource("3_8e30n")
 
-[node name="Building-19" type="Sprite2D" parent="parallax"]
-position = Vector2(20.388, -4.17391)
-scale = Vector2(0.856187, 0.856187)
-texture = ExtResource("3_8e30n")
-
 [node name="Building-7" type="Sprite2D" parent="parallax"]
 position = Vector2(11.0234, -5.51171)
 scale = Vector2(0.856187, 0.856187)
@@ -298,11 +366,6 @@ texture = ExtResource("3_8e30n")
 
 [node name="Building-8" type="Sprite2D" parent="parallax"]
 position = Vector2(3.42475, -3.53177)
-scale = Vector2(0.856187, 0.856187)
-texture = ExtResource("3_8e30n")
-
-[node name="Building-20" type="Sprite2D" parent="parallax"]
-position = Vector2(-3.42475, -5.83278)
 scale = Vector2(0.856187, 0.856187)
 texture = ExtResource("3_8e30n")
 
@@ -343,10 +406,6 @@ texture = ExtResource("3_8e30n")
 position = Vector2(73.5251, -6.63545)
 texture = ExtResource("3_8e30n")
 
-[node name="Building-4" type="Sprite2D" parent="parallax"]
-position = Vector2(89.1505, 1.12375)
-texture = ExtResource("3_8e30n")
-
 [node name="Building-5" type="Sprite2D" parent="parallax"]
 position = Vector2(97.6321, -6.15385)
 texture = ExtResource("3_8e30n")
@@ -361,10 +420,6 @@ texture = ExtResource("3_8e30n")
 
 [node name="Building-22" type="Sprite2D" parent="parallax"]
 position = Vector2(137.926, 9.1505)
-texture = ExtResource("3_8e30n")
-
-[node name="Building-23" type="Sprite2D" parent="parallax"]
-position = Vector2(148.736, 1.57859)
 texture = ExtResource("3_8e30n")
 
 [node name="Building-24" type="Sprite2D" parent="parallax"]

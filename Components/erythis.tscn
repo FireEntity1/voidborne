@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://feex0f35c6p7"]
+[gd_scene load_steps=16 format=3 uid="uid://feex0f35c6p7"]
 
 [ext_resource type="Script" path="res://scripts/erythis.gd" id="1_qbj2e"]
 [ext_resource type="Texture2D" uid="uid://dqgybp4jcdts0" path="res://Sprites/erythis.png" id="3_o7wrd"]
@@ -10,6 +10,22 @@ size = Vector2(358, 346)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nha7f"]
 size = Vector2(278, 1294)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_uluh2"]
+particle_flag_disable_z = true
+angular_velocity_min = -720.0
+angular_velocity_max = 720.0
+orbit_velocity_min = -0.295
+orbit_velocity_max = 0.262
+radial_velocity_min = 245.9
+radial_velocity_max = 1000.0
+gravity = Vector3(0, 0, 0)
+linear_accel_min = -100.0
+linear_accel_max = 100.0
+radial_accel_min = -100.0
+radial_accel_max = 100.0
+scale_min = 9.19
+scale_max = 50.18
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5m502"]
 shader = ExtResource("4_bp0no")
@@ -80,6 +96,11 @@ shape = SubResource("RectangleShape2D_pq7io")
 [node name="trigger" type="CollisionShape2D" parent="start_detection"]
 shape = SubResource("RectangleShape2D_nha7f")
 
+[node name="death_particles" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 64
+process_material = SubResource("ParticleProcessMaterial_uluh2")
+
 [node name="sprite" type="AnimatedSprite2D" parent="."]
 material = SubResource("ShaderMaterial_5m502")
 position = Vector2(0, 60.0319)
@@ -93,7 +114,7 @@ wait_time = 3.0
 autostart = true
 
 [node name="attack" type="Timer" parent="."]
-wait_time = 1.5
+wait_time = 3.0
 autostart = true
 
 [node name="particles" type="GPUParticles2D" parent="."]

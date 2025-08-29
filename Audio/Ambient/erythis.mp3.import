@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/erythis.mp3-2cb84d27cefad53a88a25f3ac4bd4dbb.
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0

@@ -2,7 +2,7 @@ extends Node2D
 
 var direction: Vector2
 
-var velocity = 1400
+var velocity = 1200
 var homing = true
 
 var alpha_up = false

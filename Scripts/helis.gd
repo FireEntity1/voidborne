@@ -1,6 +1,6 @@
 extends Area2D
 
-var health = 400
+var health = 225
 
 var is_boss = true
 var enemy = true

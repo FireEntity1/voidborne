@@ -1,8 +1,27 @@
-erythis: So . . . this is it . . .
-erythis: My reign undone . . .
-erythis: No . . .
-erythis: You creature of nothing . . .
-erythis: You will not overcome me . . .
-erythis: You . . . Can't overcome me . . .
-erythis: No . . .
+[signal arg="cam-zoom-in"]
+[signal arg="cam-erythis-intro"]
+[signal arg="stop-music"]
+[music path="res://Audio/Ambient/something_looms.mp3" fade="0.0" volume="-8.0"]
+do global.glitch(true)
+erythis: You've damaged it too much . . .
+erythis: The prism I inhabit is everything . . . I am the light
+erythis: Strike me down and the light disappears.
+erythis: The void isn't held back.
+erythis: The innocents suffer without control.
+erythis: I fought you to prevent pain.
+erythis: Pain that nobody deserves.
+erythis: I did what I had to do for my followers' safety.
 erythis: .   .   .
+erythis: Shatter me, and this world collapses . . .
+erythis: Nothing will turn out as you hoped it would.
+erythis: Make your choice, voidborn.
+erythis: I can't stop you now.
+erythis: .   .   .
+- destroy the light
+	[music fade="0.0" volume="0.0"]
+	[signal arg="erythis-destroy"]
+	do global.change_level("end_destroy")
+	[wait time="3.0"]
+	do global.glitch(false)
+	do global.fade(false, 6, true)
+- embrace the light

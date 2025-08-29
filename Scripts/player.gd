@@ -10,7 +10,7 @@ var can_dash = true
 
 var can_attack = true
 
-@onready var damage = 5
+@onready var damage = 30
 
 var is_ground = true
 

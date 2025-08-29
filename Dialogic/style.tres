@@ -54,7 +54,9 @@ overrides = {}
 [sub_resource type="Resource" id="Resource_axwcn"]
 script = ExtResource("1_j2vai")
 scene = ExtResource("7_xhlfh")
-overrides = {}
+overrides = {
+"font_size_custom": "32.0"
+}
 
 [sub_resource type="Resource" id="Resource_jhlyj"]
 script = ExtResource("1_j2vai")
@@ -83,4 +85,4 @@ layer_info = {
 }
 base_overrides = {}
 layers = Array[ExtResource("1_j2vai")]([])
-metadata/_latest_layer = ""
+metadata/_latest_layer = "10"

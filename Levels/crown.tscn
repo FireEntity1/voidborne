@@ -27,6 +27,10 @@ func _process(delta):
 func _on_dialogic_signal(arg):
 	if arg == \"start-music\":
 		$erythis.play()
+	if arg == \"stop-music\":
+		$erythis.stop()
+	if arg == \"erythis-destroy\":
+		$erythis.stop()
 "
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hqill"]
