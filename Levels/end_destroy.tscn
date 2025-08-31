@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=4 uid="uid://c57dmefgxtxed"]
+[gd_scene load_steps=54 format=4 uid="uid://c57dmefgxtxed"]
 
 [ext_resource type="Shader" path="res://Shaders/starry_sky.gdshader" id="1_sxko4"]
 [ext_resource type="Texture2D" uid="uid://4mpltehn0bgv" path="res://Sprites/slice.png" id="1_wyyh8"]
@@ -11,6 +11,9 @@
 [ext_resource type="Texture2D" uid="uid://dwqpp3vfnnr48" path="res://Sprites/orren.png" id="9_jindc"]
 [ext_resource type="Texture2D" uid="uid://x5ifev2pn2kk" path="res://Sprites/void_takeover.png" id="10_takyk"]
 [ext_resource type="AudioStream" uid="uid://cc1v6g5ckl7j" path="res://Audio/Ambient/something_looms.mp3" id="11_nqnbl"]
+[ext_resource type="AudioStream" uid="uid://dba35rg4d6v5u" path="res://Audio/Ambient/more-bass-ambience.mp3" id="12_40hma"]
+[ext_resource type="Texture2D" uid="uid://b0f6rj3c0evsn" path="res://Sprites/void_remains.png" id="13_1jit5"]
+[ext_resource type="AudioStream" uid="uid://cjkst2jjmdj4t" path="res://Audio/SFX/riser.mp3" id="14_t0enq"]
 
 [sub_resource type="GDScript" id="GDScript_woac6"]
 resource_name = "end_destroy"
@@ -18,10 +21,12 @@ script/source = "extends Node2D
 
 var moving = false
 
+var ended = false
+
 func _ready():
 	global.shake(false)
 	await get_tree().create_timer(3.1).timeout
-	$rect.queue_free()
+	$rect.hide()
 	moving = true
 	await get_tree().create_timer(2).timeout
 	global.vingette(true)
@@ -35,9 +40,26 @@ func _process(delta):
 	if moving:
 		$orren.position.x += delta*200
 		$roar.position.x += delta*1250
+	
+	if ended and $VoidRemains.modulate.a < 1:
+		$VoidRemains.modulate.a += delta
 
 func _on_void_takeover_animation_finished():
+	
 	$roar.stop()
+	$roar/roar2.stop()
+	await get_tree().create_timer(3).timeout
+	ended = true
+	$Riser.play()
+	await get_tree().create_timer(6).timeout
+	global.glitch(true)
+
+func _on_riser_finished():
+	$VoidRemains.modulate.a = 0
+	ended = false
+	global.glitch(false)
+	$rect.show()
+	get_tree().quit()
 "
 
 [sub_resource type="Gradient" id="Gradient_ibsrg"]
@@ -304,7 +326,6 @@ scroll_offset = Vector2(430, 756)
 
 [node name="bg" type="ColorRect" parent="parallaxBG"]
 material = SubResource("ShaderMaterial_5cajg")
-anchors_preset = -1
 offset_left = -464.0
 offset_top = -777.0
 offset_right = 1536.0
@@ -321,55 +342,54 @@ offset_bottom = 625.0
 color = Color(0.212305, 0.212305, 0.212305, 1)
 metadata/_edit_use_anchors_ = true
 
-[node name="Node2D" type="Node2D" parent="."]
+[node name="buildings" type="Node2D" parent="."]
 position = Vector2(9584, 4005)
 scale = Vector2(27.3896, 27.3896)
 
-[node name="Building-14" type="Sprite2D" parent="Node2D"]
+[node name="Building-14" type="Sprite2D" parent="buildings"]
 position = Vector2(-343.305, -122.09)
 scale = Vector2(0.856187, 0.856187)
 texture = ExtResource("4_xaaf7")
 
-[node name="Building-4" type="Sprite2D" parent="Node2D"]
+[node name="Building-4" type="Sprite2D" parent="buildings"]
 position = Vector2(-306.831, -124.171)
 texture = ExtResource("4_xaaf7")
 
-[node name="Building-6" type="Sprite2D" parent="Node2D"]
+[node name="Building-6" type="Sprite2D" parent="buildings"]
 position = Vector2(-330.161, -124.281)
-scale = Vector2(1, 1)
 texture = ExtResource("4_xaaf7")
 
-[node name="Building-12" type="Sprite2D" parent="Node2D"]
+[node name="Building-12" type="Sprite2D" parent="buildings"]
 position = Vector2(-323.699, -117.891)
 scale = Vector2(0.856187, 0.856187)
 texture = ExtResource("4_xaaf7")
 
-[node name="Building-2" type="Sprite2D" parent="Node2D"]
+[node name="Building-2" type="Sprite2D" parent="buildings"]
 position = Vector2(-337.5, -112.415)
 texture = ExtResource("4_xaaf7")
 
-[node name="Building-3" type="Sprite2D" parent="Node2D"]
+[node name="Building-3" type="Sprite2D" parent="buildings"]
 position = Vector2(-315.411, -118.731)
 texture = ExtResource("4_xaaf7")
 
-[node name="Building-5" type="Sprite2D" parent="Node2D"]
+[node name="Building-5" type="Sprite2D" parent="buildings"]
 position = Vector2(-298.325, -115.847)
 texture = ExtResource("4_xaaf7")
 
-[node name="Building-7" type="Sprite2D" parent="Node2D"]
+[node name="Building-7" type="Sprite2D" parent="buildings"]
 position = Vector2(-273.439, -128.726)
 texture = ExtResource("4_xaaf7")
 
-[node name="Building-13" type="Sprite2D" parent="Node2D"]
+[node name="Building-13" type="Sprite2D" parent="buildings"]
 position = Vector2(-290.307, -122.447)
 scale = Vector2(0.856187, 0.856187)
 texture = ExtResource("4_xaaf7")
 
-[node name="Building-8" type="Sprite2D" parent="Node2D"]
+[node name="Building-8" type="Sprite2D" parent="buildings"]
 position = Vector2(-282.019, -123.286)
 texture = ExtResource("4_xaaf7")
 
-[node name="Building-9" type="Sprite2D" parent="Node2D"]
+[node name="Building-9" type="Sprite2D" parent="buildings"]
 position = Vector2(-351.447, -114.642)
 texture = ExtResource("4_xaaf7")
 
@@ -379,14 +399,13 @@ scale = Vector2(5.0433, 5.0433)
 tile_map_data = PackedByteArray("AAAAAPz/AAAAAAAAAAAAAP3/AAABAAAAAAAAAP7/AAAAAAAAAAAAAP//AAABAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAABAAAAAAAAAAIAAAABAAAAAAABAPz/AAAAAAAAAAABAP3/AAAAAAAAAAABAP7/AAABAAAAAAABAP//AAAAAAAAAAABAAAAAAAAAAAAAAABAAEAAAAAAAAAAAABAAIAAAABAAAAAAACAPz/AAABAAAAAAACAP3/AAAAAAAAAAACAP7/AAAAAAAAAAACAP//AAABAAAAAAACAAAAAAAAAAAAAAACAAEAAAABAAAAAAACAAIAAAABAAAAAAADAPz/AAAAAAAAAAADAP3/AAAAAAAAAAADAP7/AAAAAAAAAAADAP//AAABAAAAAAADAAAAAAABAAAAAAADAAEAAAABAAAAAAADAAIAAAABAAAAAAAEAPz/AAAAAAAAAAAEAP3/AAAAAAAAAAAEAP7/AAAAAAAAAAAEAP//AAABAAAAAAAEAAAAAAAAAAAAAAAEAAEAAAABAAAAAAAEAAIAAAABAAAAAAAFAPz/AAAAAAAAAAAFAP3/AAAAAAAAAAAFAP7/AAABAAAAAAAFAP//AAABAAAAAAAFAAAAAAABAAAAAAAFAAEAAAAAAAAAAAAFAAIAAAAAAAAAAAAGAPz/AAABAAAAAAAGAP3/AAABAAAAAAAGAP7/AAABAAAAAAAGAP//AAAAAAAAAAAGAAAAAAABAAAAAAAGAAEAAAABAAAAAAAGAAIAAAAAAAAAAAAHAPz/AAABAAAAAAAHAP3/AAABAAAAAAAHAP7/AAABAAAAAAAHAP//AAAAAAAAAAAHAAAAAAABAAAAAAAHAAEAAAABAAAAAAAHAAIAAAAAAAAAAAAIAPz/AAAAAAAAAAAIAP3/AAABAAAAAAAIAP7/AAABAAAAAAAIAP//AAABAAAAAAAIAAAAAAAAAAAAAAAIAAEAAAABAAAAAAAIAAIAAAABAAAAAAAJAPz/AAABAAAAAAAJAP3/AAABAAAAAAAJAP7/AAAAAAAAAAAJAP//AAABAAAAAAAJAAAAAAAAAAAAAAAJAAEAAAAAAAAAAAAJAAIAAAAAAAAAAAAKAPz/AAAAAAAAAAAKAP3/AAABAAAAAAAKAP7/AAABAAAAAAAKAP//AAAAAAAAAAAKAAAAAAAAAAAAAAAKAAEAAAABAAAAAAAKAAIAAAAAAAAAAAALAPz/AAABAAAAAAALAP3/AAAAAAAAAAALAP7/AAABAAAAAAALAP//AAABAAAAAAALAAAAAAABAAAAAAALAAEAAAAAAAAAAAALAAIAAAABAAAAAAAMAPz/AAAAAAAAAAAMAP3/AAAAAAAAAAAMAP7/AAABAAAAAAAMAP//AAAAAAAAAAAMAAAAAAAAAAAAAAAMAAEAAAAAAAAAAAAMAAIAAAABAAAAAAANAPz/AAAAAAAAAAANAP3/AAABAAAAAAANAP7/AAABAAAAAAANAP//AAAAAAAAAAANAAAAAAABAAAAAAANAAEAAAAAAAAAAAANAAIAAAAAAAAAAAAOAPz/AAAAAAAAAAAOAP3/AAAAAAAAAAAOAP7/AAABAAAAAAAOAP//AAAAAAAAAAAOAAAAAAABAAAAAAAOAAEAAAAAAAAAAAAOAAIAAAAAAAAAAAAPAPz/AAABAAAAAAAPAP3/AAAAAAAAAAAPAP7/AAAAAAAAAAAPAP//AAABAAAAAAAPAAAAAAABAAAAAAAPAAEAAAAAAAAAAAAPAAIAAAAAAAAAAAAQAPz/AAAAAAAAAAAQAP3/AAAAAAAAAAAQAP7/AAAAAAAAAAAQAP//AAABAAAAAAAQAAAAAAABAAAAAAAQAAEAAAAAAAAAAAAQAAIAAAABAAAAAAARAPz/AAABAAAAAAARAP3/AAABAAAAAAARAP7/AAABAAAAAAARAP//AAAAAAAAAAARAAAAAAAAAAAAAAARAAEAAAAAAAAAAAARAAIAAAABAAAAAAASAPz/AAABAAAAAAASAP3/AAAAAAAAAAASAP7/AAABAAAAAAASAP//AAAAAAAAAAASAAAAAAABAAAAAAASAAEAAAABAAAAAAASAAIAAAAAAAAAAAATAPz/AAAAAAAAAAATAP3/AAABAAAAAAATAP7/AAAAAAAAAAATAP//AAABAAAAAAATAAAAAAAAAAAAAAATAAEAAAABAAAAAAATAAIAAAABAAAAAAAUAPz/AAABAAAAAAAUAP3/AAAAAAAAAAAUAP7/AAABAAAAAAAUAP//AAAAAAAAAAAUAAAAAAABAAAAAAAUAAEAAAAAAAAAAAAUAAIAAAAAAAAAAAAVAPz/AAABAAAAAAAVAP3/AAAAAAAAAAAVAP7/AAABAAAAAAAVAP//AAAAAAAAAAAVAAAAAAAAAAAAAAAVAAEAAAABAAAAAAAVAAIAAAAAAAAAAAAWAPz/AAAAAAAAAAAWAP3/AAABAAAAAAAWAP7/AAAAAAAAAAAWAP//AAABAAAAAAAWAAAAAAABAAAAAAAWAAEAAAABAAAAAAAWAAIAAAAAAAAAAAAXAPz/AAAAAAAAAAAXAP3/AAAAAAAAAAAXAP7/AAABAAAAAAAXAP//AAAAAAAAAAAXAAAAAAABAAAAAAAXAAEAAAAAAAAAAAAXAAIAAAAAAAAAAAAYAPz/AAAAAAAAAAAYAP3/AAAAAAAAAAAYAP7/AAAAAAAAAAAYAP//AAAAAAAAAAAYAAAAAAABAAAAAAAYAAEAAAAAAAAAAAAYAAIAAAAAAAAAAAAZAPz/AAABAAAAAAAZAP3/AAABAAAAAAAZAP7/AAAAAAAAAAAZAP//AAABAAAAAAAZAAAAAAABAAAAAAAZAAEAAAABAAAAAAAZAAIAAAAAAAAAAAAaAPz/AAAAAAAAAAAaAP3/AAABAAAAAAAaAP7/AAAAAAAAAAAaAP//AAAAAAAAAAAaAAAAAAABAAAAAAAaAAEAAAABAAAAAAAaAAIAAAABAAAAAAA=")
 tile_set = SubResource("TileSet_lbvd3")
 
-[node name="level2" type="TileMapLayer" parent="."]
+[node name="outline" type="TileMapLayer" parent="."]
 position = Vector2(-149, 1186)
 scale = Vector2(5.0433, 5.0433)
 tile_map_data = PackedByteArray("AAAAAPz/AwAAAAAAAAABAPz/AwAAAAAAAAACAPz/AwAAAAAAAAADAPz/AwAAAAAAAAAEAPz/AwAAAAAAAAAFAPz/AwAAAAAAAAAGAPz/AwAAAAAAAAAHAPz/AwAAAAAAAAAIAPz/AwAAAAAAAAAJAPz/AwAAAAAAAAAKAPz/AwAAAAAAAAALAPz/AwAAAAAAAAAMAPz/AwAAAAAAAAANAPz/AwAAAAAAAAAOAPz/AwAAAAAAAAAPAPz/AwAAAAAAAAAQAPz/AwAAAAAAAAARAPz/AwAAAAAAAAASAPz/AwAAAAAAAAATAPz/AwAAAAAAAAAUAPz/AwAAAAAAAAAVAPz/AwAAAAAAAAAWAPz/AwAAAAAAAAAXAPz/AwAAAAAAAAAYAPz/AwAAAAAAAAAZAPz/AwAAAAAAAAAaAPz/AwAAAAAAAAA=")
 tile_set = SubResource("TileSet_lbvd3")
 
 [node name="rect" type="ColorRect" parent="."]
-visible = false
 offset_left = 6.10352e-05
 offset_top = 3.05176e-05
 offset_right = 1934.0
@@ -419,9 +438,29 @@ position = Vector2(-5402, 522)
 stream = ExtResource("11_nqnbl")
 volume_db = 4.379
 autoplay = true
-stream_paused = true
 max_distance = 5000.0
 attenuation = 4.0
 panning_strength = 1.38
 
+[node name="roar2" type="AudioStreamPlayer2D" parent="roar"]
+stream = ExtResource("12_40hma")
+volume_db = 11.495
+autoplay = true
+max_distance = 5000.0
+attenuation = 4.0
+panning_strength = 1.38
+
+[node name="VoidRemains" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(966, 538)
+scale = Vector2(2.29583, 2.29583)
+texture = ExtResource("13_1jit5")
+
+[node name="Riser" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(960, 669)
+stream = ExtResource("14_t0enq")
+volume_db = -1.095
+attenuation = 1e-05
+
 [connection signal="animation_finished" from="void_takeover" to="." method="_on_void_takeover_animation_finished"]
+[connection signal="finished" from="Riser" to="." method="_on_riser_finished"]

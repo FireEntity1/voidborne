@@ -31,6 +31,10 @@ func _on_dialogic_signal(arg):
 		$erythis.stop()
 	if arg == \"erythis-destroy\":
 		$erythis.stop()
+	if arg == \"erythis-embrace\":
+		$erythis.stop
+	if arg == \"start-cutscene\":
+		global.fade(false,7,true)
 "
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hqill"]

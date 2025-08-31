@@ -1,0 +1,41 @@
+[gd_scene load_steps=3 format=3 uid="uid://kdyr4tii2vfa"]
+
+[ext_resource type="Texture2D" uid="uid://vpn08dp6ruj6" path="res://Sprites/volume.png" id="1_rmoos"]
+
+[sub_resource type="GDScript" id="GDScript_m8epg"]
+resource_name = "volume"
+script/source = "extends Node2D
+
+var fading = false
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	await get_tree().create_timer(1).timeout
+	fading = true
+	await get_tree().create_timer(2).timeout
+	queue_free()
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	$layer/volume.value = global.volume
+	if fading:
+		$layer/volume.modulate.a -= delta
+"
+
+[node name="Volume" type="Node2D"]
+script = SubResource("GDScript_m8epg")
+
+[node name="layer" type="CanvasLayer" parent="."]
+layer = 10
+
+[node name="volume" type="TextureProgressBar" parent="layer"]
+offset_left = 1026.0
+offset_top = 844.0
+offset_right = 1869.0
+offset_bottom = 1051.0
+mouse_filter = 2
+max_value = 10.0
+value = 5.0
+nine_patch_stretch = true
+texture_progress = ExtResource("1_rmoos")

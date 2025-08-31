@@ -21,6 +21,8 @@ var save_file = {
 	}
 }
 
+var volume = 5
+
 var glitching = false
 var shaking = false
 var vingetteing = false # i dont think this is a word :skull:
@@ -41,6 +43,7 @@ var glitch_scene = preload("res://Components/glitch.tscn")
 var shake_scene = preload("res://Components/screen_shake.tscn")
 var vingette_scene = preload("res://Components/vingette.tscn")
 var portal_scene = preload("res://Components/portal.tscn")
+var vol_scene = preload("res://Components/volume.tscn")
 
 func _ready():
 	load_save()
@@ -55,6 +58,22 @@ func _ready():
 	vingette(false)
 	glitch(false)
 	shake(false)
+
+func _process(delta):
+	var normalized = 0.5
+	if Input.is_action_just_pressed("vol_up"):
+		volume += 1
+		show_vol()
+	elif Input.is_action_just_pressed("vol_down"):
+		volume -= 1
+		show_vol()
+	volume = clamp(volume,0,10)
+	normalized = volume/10.0
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), linear_to_db(normalized))
+
+func show_vol():
+	var scene = vol_scene.instantiate()
+	add_child(scene)
 
 func vingette(value = false):
 	vingette_scene.is_up = value

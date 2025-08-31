@@ -10,7 +10,7 @@ var can_dash = true
 
 var can_attack = true
 
-@onready var damage = 30
+@onready var damage = 8
 
 var is_ground = true
 
@@ -222,9 +222,8 @@ func hit(enemy_pos):
 			player_death()
 
 func add_voidwell(value: int):
-	if not voidwell >= 12:
-		voidwell += value
-		$ui/voidwell.value = voidwell
+	voidwell = clamp(voidwell + value, 0, 12)
+	$ui/voidwell.value = voidwell
 
 func _on_dialogic_signal(text):
 	if text == "cam-zoom-in":

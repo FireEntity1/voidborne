@@ -1,0 +1,297 @@
+[gd_scene load_steps=28 format=3 uid="uid://dbsqdc33o54mq"]
+
+[ext_resource type="Shader" path="res://Shaders/pixel.gdshader" id="2_bkgqx"]
+[ext_resource type="Texture2D" uid="uid://6rioqdi1bf0k" path="res://Sprites/player-floating.png" id="5_3pbqx"]
+[ext_resource type="Shader" path="res://Shaders/tunnel.gdshader" id="5_tcbrf"]
+[ext_resource type="AudioStream" uid="uid://dba35rg4d6v5u" path="res://Audio/Ambient/more-bass-ambience.mp3" id="5_ynard"]
+[ext_resource type="Texture2D" uid="uid://dljv5wh6r8onx" path="res://Sprites/light_endures.png" id="6_kptxf"]
+[ext_resource type="AudioStream" uid="uid://cjkst2jjmdj4t" path="res://Audio/SFX/riser.mp3" id="7_7djcn"]
+[ext_resource type="Texture2D" uid="uid://4mpltehn0bgv" path="res://Sprites/slice.png" id="8_1nuox"]
+
+[sub_resource type="GDScript" id="GDScript_jlshq"]
+resource_name = "end_embrace"
+script/source = "extends Node2D
+
+var moving = false
+
+var speed = 0
+const MAX = 100
+var up = true
+
+var growing = false
+var fading = false
+
+var textfading = false
+
+func _ready():
+	global.shake(true)
+	global.vingette(true)
+	await get_tree().create_timer(3.1).timeout
+	global.fade(false,7,true)
+	$rect.hide()
+	await get_tree().create_timer(2).timeout
+	growing = true
+	await get_tree().create_timer(2).timeout
+	fading = true
+	global.vingette(false)
+	await get_tree().create_timer(6).timeout
+	textfading = true
+	$Riser.play()
+	await get_tree().create_timer(6).timeout
+	global.glitch(true)
+
+func _physics_process(delta):
+	if up:
+		$everything.position.y += delta * speed
+		if speed < MAX:
+			speed += 3
+	else:
+		$everything.position.y += delta * speed
+		if speed > MAX*-1:
+			speed -= 3
+	
+	if growing:
+		$everything/shader.scale += Vector2(delta*3,delta*3)
+		$ambient.pitch_scale += delta/5
+	
+	if fading:
+		$everything/player.modulate.a -= delta/5
+		if $everything/player.modulate.a <= 0.2:
+			$ambient.volume_db -= delta*6
+	
+	if textfading:
+		$LightEndures.modulate.a += delta
+
+func _on_move_timeout():
+	print(\"timeout\")
+	if up:
+		up = false
+	else:
+		up = true
+
+func _on_riser_finished():
+	$LightEndures.modulate.a = 0
+	global.glitch(false)
+	$rect.show()
+	get_tree().quit()
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rql2d"]
+shader = ExtResource("5_tcbrf")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/scale = 10000.0
+shader_parameter/circle_ratio = 0.0
+shader_parameter/cut_radius = 1.0
+shader_parameter/rotate_speed = 0.399978
+shader_parameter/time_speed = 1.0
+shader_parameter/frequency_base = 0.95
+shader_parameter/frequency_disturbance_scale = 0.0
+shader_parameter/stop_shine = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1l5f7"]
+shader = ExtResource("2_bkgqx")
+shader_parameter/pixel_size = 16
+shader_parameter/screen_size = Vector2(1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6oyid"]
+atlas = ExtResource("5_3pbqx")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e42af"]
+atlas = ExtResource("5_3pbqx")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_f4x0t"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6oyid")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e42af")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ld8mn"]
+atlas = ExtResource("8_1nuox")
+region = Rect2(0, 0, 64, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cjou5"]
+atlas = ExtResource("8_1nuox")
+region = Rect2(64, 0, 64, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mpv5y"]
+atlas = ExtResource("8_1nuox")
+region = Rect2(128, 0, 64, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0by6o"]
+atlas = ExtResource("8_1nuox")
+region = Rect2(192, 0, 64, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hrjp0"]
+atlas = ExtResource("8_1nuox")
+region = Rect2(256, 0, 64, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_omumc"]
+atlas = ExtResource("8_1nuox")
+region = Rect2(320, 0, 64, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k42aa"]
+atlas = ExtResource("8_1nuox")
+region = Rect2(384, 0, 64, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jkb2j"]
+atlas = ExtResource("8_1nuox")
+region = Rect2(448, 0, 64, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hp2cs"]
+atlas = ExtResource("8_1nuox")
+region = Rect2(512, 0, 64, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2t00m"]
+atlas = ExtResource("8_1nuox")
+region = Rect2(576, 0, 64, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pl16p"]
+atlas = ExtResource("8_1nuox")
+region = Rect2(640, 0, 64, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ujht0"]
+atlas = ExtResource("8_1nuox")
+region = Rect2(704, 0, 64, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fbhu5"]
+atlas = ExtResource("8_1nuox")
+region = Rect2(768, 0, 64, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ik3u5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ld8mn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cjou5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mpv5y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0by6o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hrjp0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_omumc")
+}, {
+"duration": 0.8,
+"texture": SubResource("AtlasTexture_k42aa")
+}, {
+"duration": 0.8,
+"texture": SubResource("AtlasTexture_jkb2j")
+}, {
+"duration": 0.8,
+"texture": SubResource("AtlasTexture_hp2cs")
+}, {
+"duration": 0.7,
+"texture": SubResource("AtlasTexture_2t00m")
+}, {
+"duration": 0.7,
+"texture": SubResource("AtlasTexture_pl16p")
+}, {
+"duration": 0.7,
+"texture": SubResource("AtlasTexture_ujht0")
+}, {
+"duration": 0.6,
+"texture": SubResource("AtlasTexture_fbhu5")
+}],
+"loop": false,
+"name": &"default",
+"speed": 30.0
+}]
+
+[node name="EndEmbrace" type="Node2D"]
+script = SubResource("GDScript_jlshq")
+
+[node name="everything" type="Node2D" parent="."]
+position = Vector2(444, 693)
+
+[node name="bg" type="ColorRect" parent="everything"]
+offset_left = -464.0
+offset_top = -1015.0
+offset_right = 1536.0
+offset_bottom = 785.0
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="shader" type="ColorRect" parent="everything"]
+material = SubResource("ShaderMaterial_rql2d")
+custom_minimum_size = Vector2(512, 512)
+offset_left = 138.0
+offset_top = -630.0
+offset_right = 922.0
+offset_bottom = 200.0
+pivot_offset = Vector2(395, 416)
+color = Color(0, 0, 0, 1)
+
+[node name="pixel" type="ColorRect" parent="everything"]
+material = SubResource("ShaderMaterial_1l5f7")
+offset_left = -807.0
+offset_top = -875.0
+offset_right = 2193.0
+offset_bottom = 625.0
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="player" type="AnimatedSprite2D" parent="everything"]
+position = Vector2(532, -208)
+scale = Vector2(11.25, 11.25)
+sprite_frames = SubResource("SpriteFrames_f4x0t")
+frame_progress = 0.865681
+
+[node name="rect" type="ColorRect" parent="."]
+visible = false
+offset_left = 6.10352e-05
+offset_top = 3.05176e-05
+offset_right = 1934.0
+offset_bottom = 1081.0
+color = Color(0, 0, 0, 1)
+
+[node name="slice" type="AnimatedSprite2D" parent="."]
+position = Vector2(902, 546)
+scale = Vector2(32.25, 21.75)
+sprite_frames = SubResource("SpriteFrames_ik3u5")
+autoplay = "default"
+frame = 12
+frame_progress = 1.0
+
+[node name="move" type="Timer" parent="."]
+wait_time = 1.5
+autostart = true
+
+[node name="ambient" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(976, 481)
+stream = ExtResource("5_ynard")
+volume_db = 2.7
+autoplay = true
+max_distance = 5000.0
+attenuation = 1e-05
+
+[node name="LightEndures" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(948, 565)
+scale = Vector2(2.35417, 2.35417)
+texture = ExtResource("6_kptxf")
+
+[node name="Riser" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(960, 669)
+stream = ExtResource("7_7djcn")
+volume_db = -1.095
+attenuation = 1e-05
+
+[connection signal="timeout" from="move" to="." method="_on_move_timeout"]
+[connection signal="finished" from="Riser" to="." method="_on_riser_finished"]

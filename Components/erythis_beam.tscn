@@ -95,7 +95,7 @@ region = Rect2(672, 0, 32, 16)
 atlas = ExtResource("2_kci8j")
 region = Rect2(704, 0, 32, 16)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_aifcn"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_mipyq"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -131,16 +131,16 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_pj8p0")
 }, {
-"duration": 1.0,
+"duration": 0.8,
 "texture": SubResource("AtlasTexture_3c4si")
 }, {
-"duration": 1.0,
+"duration": 0.6,
 "texture": SubResource("AtlasTexture_vgcu6")
 }, {
-"duration": 1.0,
+"duration": 0.4,
 "texture": SubResource("AtlasTexture_awlhf")
 }, {
-"duration": 1.0,
+"duration": 0.2,
 "texture": SubResource("AtlasTexture_wplew")
 }, {
 "duration": 1.0,
@@ -182,7 +182,7 @@ script = ExtResource("1_hrs1k")
 position = Vector2(-7.17028, 0.69793)
 rotation = -3.2279
 scale = Vector2(311.108, 16.7869)
-sprite_frames = SubResource("SpriteFrames_aifcn")
+sprite_frames = SubResource("SpriteFrames_mipyq")
 autoplay = "default"
 frame = 22
 frame_progress = 1.0
