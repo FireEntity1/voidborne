@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://das5p0rexu6p8"]
+[gd_scene load_steps=35 format=3 uid="uid://das5p0rexu6p8"]
 
 [ext_resource type="Texture2D" uid="uid://5gfo1dfua82j" path="res://Sprites/player_idle.png" id="1_ec02m"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_v43g5"]
@@ -11,10 +11,12 @@
 [ext_resource type="Texture2D" uid="uid://d4c6gyi1qg5vf" path="res://Sprites/Slash.png" id="9_y2lmu"]
 [ext_resource type="Texture2D" uid="uid://cnx7fu7k8ekmt" path="res://Sprites/void_meter_unfilled.png" id="10_iy0g0"]
 [ext_resource type="Texture2D" uid="uid://dblu2mb07hui5" path="res://Sprites/void_meter.png" id="10_uf36n"]
+[ext_resource type="AudioStream" uid="uid://cc1v6g5ckl7j" path="res://Audio/Ambient/something_looms.mp3" id="12_5qm45"]
 [ext_resource type="AudioStream" uid="uid://cm2utyqfnu3px" path="res://Audio/SFX/swish.mp3" id="12_lkwfx"]
 [ext_resource type="AudioStream" uid="uid://dq6olrsy68v2p" path="res://Audio/SFX/slam-land.mp3" id="13_bw2d2"]
 [ext_resource type="AudioStream" uid="uid://cskd0otmfclyg" path="res://Audio/SFX/standard-land.mp3" id="14_yuvtd"]
 [ext_resource type="AudioStream" uid="uid://dcle633iyo8s5" path="res://Audio/SFX/hit.mp3" id="15_dm3sk"]
+[ext_resource type="AudioStream" uid="uid://drfntggdmurk1" path="res://Audio/SFX/dash.mp3" id="17_is54o"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kybed"]
 size = Vector2(99, 72)
@@ -306,13 +308,27 @@ attenuation = 1e-05
 [node name="land" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(0, 45)
 stream = ExtResource("14_yuvtd")
-volume_db = -6.022
+volume_db = -3.5
 
 [node name="hit" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(-8, 18)
 stream = ExtResource("15_dm3sk")
 volume_db = 3.832
 attenuation = 1e-05
+panning_strength = 0.0
+
+[node name="deathsfx" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(-8, 120)
+stream = ExtResource("12_5qm45")
+volume_db = -4.379
+attenuation = 1e-05
+panning_strength = 0.0
+
+[node name="dashsfx" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(28, 69)
+stream = ExtResource("17_is54o")
+volume_db = -18.61
+attenuation = 2.15792e-05
 panning_strength = 0.0
 
 [connection signal="timeout" from="dash" to="." method="_on_dash_timeout"]

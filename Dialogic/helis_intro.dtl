@@ -10,7 +10,6 @@ do global.vingette(true)
 ???: I obey the light's every command.
 ???: You dare try and dim[speed=20] it?
 ???: I will not let your kind stain our golden streets.
-do global.shake(false)
 do global.enable_input()
 [signal arg="helis-attack"]
 [signal arg="start-music"]

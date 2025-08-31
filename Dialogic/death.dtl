@@ -1,12 +1,9 @@
-[music path="res://Audio/Ambient/something_looms.mp3" fade="0.0" volume="-4.0"]
-[music path="res://Audio/SFX/riser.mp3" channel="1" fade="0.0" volume="0.0"]
 [signal arg="cam-zoom-in"]
 do global.vingette(true)
 do global.disable_input()
 do global.shake(true)
 do global.glitch(false)
 [wait time="3.0"]
-[music channel="1" fade="0.0" volume="0.0"]
 do global.fade(false, 7, true)
 do global.shake(false)
 do global.vingette(false)

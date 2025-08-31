@@ -107,7 +107,7 @@ scale_min = 16.0
 scale_max = 58.38
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h0e6p"]
-size = Vector2(580, 378)
+size = Vector2(580, 232)
 
 [node name="boss" type="Area2D"]
 collision_layer = 2

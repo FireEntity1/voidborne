@@ -1,7 +1,9 @@
 join vexin center
 do global.disable_input()
-???: Greetings.
-vexin: I am Vexin, a resident of this great city.
-vexin: The light will embrace all.
-vexin: Even you, voidborn.
+vexin: [speed=8]Greetings.
+vexin: [speed=8]After the arrival of[speed=20] your kind . . .
+vexin: [speed=8]More and more guards appeared.
+vexin: [speed=8]Some of them much more powerful than before.
+vexin: [speed=8]Your kind is not welcome here.
+vexin: [speed=12]This is the light's glorious land.
 do global.enable_input()

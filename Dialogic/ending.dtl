@@ -6,21 +6,21 @@ do global.fade(false, 7, false)
 do global.glitch(true)
 do global.disable_input()
 [wait time="1.0"]
-erythis: HALT.
-erythis: You've damaged it too much . . .
-erythis: The prism I inhabit is everything . . . I am the light
-erythis: Strike me down and the light disappears.
-erythis: The void isn't held back.
-erythis: The innocents suffer without control.
-erythis: .   .   .
-erythis: I fought you to prevent pain.
-erythis: Pain that nobody deserves.
-erythis: I did what I had to do for my followers' safety.
-erythis: .   .   .
-erythis: Shatter me, and this world collapses . . .
-erythis: Nothing will turn out as you hoped it would.
-erythis: Make your choice, voidborn.
-erythis: I cannot stop you now.
+erythis: [speed=12]HALT.
+erythis: [speed=12]You've damaged it too much . . .
+erythis: [speed=12]The prism I inhabit is everything . . . [speed=18]I am the light.
+erythis: [speed=12]Strike me down and the light disappears.
+erythis: [speed=12]The void isn't held back.
+erythis: [speed=12]The innocents suffer without control.
+erythis: [speed=12].   .   .
+erythis: [speed=12]I fought you to prevent pain.
+erythis: [speed=12]Pain that nobody deserves.
+erythis: [speed=12]I did what I had to do for my followers' safety.
+erythis: [speed=12].   .   .
+erythis: [speed=12]Shatter me, and this world collapses . . .
+erythis: [speed=12]Nothing will turn out as you hoped it would.
+erythis: [speed=12]Make your choice, voidborn.
+erythis: [speed=22]I [speed=12]cannot stop you now.
 erythis: .   .   .
 - destroy the light
 	[music fade="0.0" volume="0.0"]

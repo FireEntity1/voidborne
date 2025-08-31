@@ -1,5 +1,7 @@
 do global.disable_input()
 [signal arg="cam-zoom-in"]
+[signal arg="stop-sfx"]
+[music path="res://Audio/Ambient/something_looms.mp3" fade="0.0" volume="-6.7"]
 lethos: [speed=20] n... no
 lethos: [speed=12] it will not be pleased
 [wait time="1.0"]

@@ -1,3 +1,3 @@
-???: This is a jump orb.
-???: If you touch it, it will launch you!
+This is a jump orb.
+If you touch it, it will launch you!
 do global.add_finished_timeline("jump_orb_intro")

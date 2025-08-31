@@ -35,7 +35,7 @@ func _ready():
 		hover = true
 		hover_max_dist = 24
 		speed = 100
-		max_speed = 200
+		max_speed = 400
 	if type == "purgelet":
 		hover = false
 		hover_max_dist = 0

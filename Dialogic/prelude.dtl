@@ -15,7 +15,21 @@ do global.disable_input()
 [wait time="2.0"]
 do global.title("The Outlands")
 [wait time="4.0"]
-do global.enable_input()
 Use WASD or your arrow keys to move around.
-Press space to jump and S/DOWN to ground slam
+do global.enable_input()
+[wait time="5.0"]
+do global.disable_input()
+Press space to jump and S/DOWN to ground slam, you can double jump!
+do global.enable_input()
+[wait time="3.0"]
+do global.disable_input()
 You can also dash with SHIFT
+do global.enable_input()
+[wait time="2.0"]
+do global.disable_input()
+Your void meter fills upon hitting enemies.
+Right click to deplete your meter in exchange for health.
+You can hit enemies with left click.
+.     .     .
+Good luck on your journey, voidborn.
+do global.enable_input()

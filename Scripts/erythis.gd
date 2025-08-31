@@ -49,9 +49,9 @@ func _process(delta):
 		self.position.x += delta*300
 		dist += delta*300
 	
-	if dist < -2000:
+	if dist < -2400:
 		move_left = false
-	elif dist > 2000:
+	elif dist > 2400:
 		move_left = true
 	
 	if finished:

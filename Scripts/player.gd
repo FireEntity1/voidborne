@@ -10,7 +10,7 @@ var can_dash = true
 
 var can_attack = true
 
-@onready var damage = 8
+@onready var damage = 5
 
 var is_ground = true
 
@@ -90,9 +90,9 @@ func _physics_process(delta):
 		else:
 			$sprite.play("float")
 	
-	if Input.is_action_just_pressed("left"):
+	if Input.is_action_pressed("left"):
 		flip = true
-	if Input.is_action_just_pressed("right"):
+	if Input.is_action_pressed("right"):
 		flip = false
 	
 	$sprite.flip_h = flip
@@ -148,6 +148,7 @@ func _physics_process(delta):
 			dashing = false
 			can_dash = false
 			$dash.start()
+			$dashsfx.play()
 			var anim = preload("res://Components/dash_anim.tscn").instantiate()
 			if last_dir < 0:
 				anim.get_node("dash_sprite").flip_h = true
@@ -224,6 +225,9 @@ func hit(enemy_pos):
 		can_take_damage = true
 		if health <= 0:
 			player_death()
+			$deathsfx.play()
+			await get_tree().create_timer(3).timeout
+			$deathsfx.stop()
 
 func add_voidwell(value: int):
 	voidwell = clamp(voidwell + value, 0, 12)
@@ -242,6 +246,7 @@ func _on_dialogic_signal(text):
 		cam_zoom = 0.8
 	if text == "reset-health":
 		health = global.save_file.hearts
+		update_hearts()
 
 func player_death():
 	dead = true

@@ -10,7 +10,7 @@
 size = Vector2(358, 346)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nha7f"]
-size = Vector2(278, 1294)
+size = Vector2(278, 1832)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5m502"]
 shader = ExtResource("4_x3xms")
@@ -64,7 +64,7 @@ scale_min = 16.0
 scale_max = 58.38
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h0e6p"]
-size = Vector2(613.659, 327.107)
+size = Vector2(355.995, 316.068)
 
 [node name="boss" type="Area2D"]
 collision_layer = 2
@@ -79,6 +79,7 @@ shape = SubResource("RectangleShape2D_pq7io")
 [node name="start_detection" type="Area2D" parent="."]
 
 [node name="trigger" type="CollisionShape2D" parent="start_detection"]
+position = Vector2(0, 269)
 shape = SubResource("RectangleShape2D_nha7f")
 
 [node name="sprite" type="AnimatedSprite2D" parent="."]
@@ -112,8 +113,8 @@ one_shot = true
 explosiveness = 0.52
 
 [node name="collision" type="CollisionShape2D" parent="."]
-position = Vector2(5.38694, 7.11437)
-rotation = 0.922709
+position = Vector2(14, 14)
+rotation = 0.325767
 shape = SubResource("RectangleShape2D_h0e6p")
 
 [node name="Helis" type="AudioStreamPlayer2D" parent="."]

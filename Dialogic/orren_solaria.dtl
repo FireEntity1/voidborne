@@ -1,17 +1,17 @@
 do global.disable_input()
 if {has_talked.orren} == true:
-	orren: So we meet again, {name}
-	orren: I've moved here for some improvement in my life . . .
-	orren: . . . but this place is forsaken
-	orren: It's as if they hate what they dont know.
-	orren: I'm going back, I can't take this light anymore.
-	orren: Take this, I trust you with it.
-	[ Received a sharpened sword! ]
-	do global.upgradesword(15)
-	orren: Tread carefully.
+	orren: [speed=8]So we meet again, {name}
+	orren: [speed=8]I've moved here for some improvement in my life . . .
+	orren: [speed=8]. . . but this place is forsaken
+	orren: [speed=8]It's as if they hate what they dont know.
+	orren: [speed=8]I'm going back, I can't take this light anymore.
+	orren: [speed=8]Take this, I trust you with it.
+	[speed=4][ Received a sharpened sword! ]
+	do global.upgradesword(8)
+	orren: [speed=8]Tread carefully.
 else:
-	???: hmph. go away.
-	???: stupid void.
-	???: stupid light.
+	???: [speed=8]hmph. go away.
+	???: [speed=8]stupid void.
+	???: [speed=8]stupid light.
 do global.enable_input()
 do global.add_finished_timeline("orren_solaria")

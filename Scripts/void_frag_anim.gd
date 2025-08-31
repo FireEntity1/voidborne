@@ -9,6 +9,8 @@ func _ready():
 	sprite.modulate.a = 0
 
 func _process(delta):
+	if $layer/sprite.frame == 3:
+		$layer/audio.play()
 	if appearing:
 		sprite.modulate.a += delta
 		if sprite.modulate.a >= 1:

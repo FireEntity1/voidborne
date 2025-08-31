@@ -1,7 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://rx8dl4lsnvnt"]
+[gd_scene load_steps=16 format=3 uid="uid://rx8dl4lsnvnt"]
 
 [ext_resource type="Script" path="res://scripts/void_frag_anim.gd" id="1_aqw0i"]
 [ext_resource type="Texture2D" uid="uid://div2uar4cwld2" path="res://Sprites/fragment_combine_anim.png" id="1_g0fka"]
+[ext_resource type="AudioStream" uid="uid://psh44p86f4lf" path="res://Audio/SFX/heavy_woosh.mp3" id="3_mn7mk"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_adgqi"]
 atlas = ExtResource("1_g0fka")
@@ -97,6 +98,13 @@ script = ExtResource("1_aqw0i")
 position = Vector2(949, 536)
 scale = Vector2(68, 68)
 sprite_frames = SubResource("SpriteFrames_fd3mk")
+
+[node name="audio" type="AudioStreamPlayer2D" parent="layer"]
+position = Vector2(944, 574)
+stream = ExtResource("3_mn7mk")
+volume_db = -1.094
+max_distance = 50000.0
+attenuation = 1e-05
 
 [node name="timer" type="Timer" parent="."]
 wait_time = 2.0

@@ -14,7 +14,7 @@ ferrin: However, be wary, the only way to access it is either through the gates 
 ferrin: Which you'll never get through as a voidborn . . .
 ferrin: Or by defeating the brainwashed guardian who lay near the top of the Outlands.
 ferrin: Good luck, void.
-ferrin: By the way, take the void fragment behind me!
+ferrin: By the way, take the void fragment behind me.
 ferrin: You need it more than I do, it'll help you survive.
 do global.add_finished_timeline("ferrin")
 do global.enable_input()

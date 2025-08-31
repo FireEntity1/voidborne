@@ -1,12 +1,16 @@
 do global.disable_input()
 do global.vingette(true)
 do global.shake(true)
+[music path="res://Audio/Ambient/something_looms.mp3" fade="0.0" volume="-8.0"]
 [wait time="1.0"]
 helis: STOP
 helis: I cannot let you destroy our perfect world .  .  .
 helis: COME FORTH, ARCHITECT!
 helis: PROVE YOUR POWER IN THE CROWN!
 do global.white_transition()
+[music fade="0.0" volume="0.0"]
+[sound path="res://Audio/SFX/portal.mp3" volume="-3.0"]
 [wait time="3.0"]
 do global.change_level("crown")
+do global.set_checkpoint("crown")
 do global.enable_input()
