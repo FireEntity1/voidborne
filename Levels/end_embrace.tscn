@@ -254,7 +254,6 @@ sprite_frames = SubResource("SpriteFrames_f4x0t")
 frame_progress = 0.865681
 
 [node name="rect" type="ColorRect" parent="."]
-visible = false
 offset_left = 6.10352e-05
 offset_top = 3.05176e-05
 offset_right = 1934.0

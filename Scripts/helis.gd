@@ -99,6 +99,7 @@ func hit():
 		finished = true
 		running = false
 		$sprite/bosscam.make_current()
+		$Helis.stop()
 		Dialogic.start(end_timeline)
 
 func flash_red():

@@ -1,35 +1,69 @@
-[gd_scene load_steps=5 format=3 uid="uid://dwh1a8shy0ndj"]
+[gd_scene load_steps=11 format=3 uid="uid://dwh1a8shy0ndj"]
 
 [ext_resource type="Script" path="res://scripts/title_screen.gd" id="1_1kxbb"]
+[ext_resource type="Shader" path="res://Shaders/cool_space.gdshader" id="2_1rahb"]
 [ext_resource type="Texture2D" uid="uid://r0dl0u0jeqkb" path="res://Sprites/logo.png" id="2_g4iy5"]
-[ext_resource type="Shader" path="res://Shaders/balala.gdshader" id="2_pg3vh"]
+[ext_resource type="Shader" path="res://Shaders/pixel.gdshader" id="3_w5ub6"]
+[ext_resource type="AudioStream" uid="uid://dba35rg4d6v5u" path="res://Audio/Ambient/more-bass-ambience.mp3" id="4_jhpe1"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_dyolf"]
-shader = ExtResource("2_pg3vh")
-shader_parameter/polar_coordinates = false
-shader_parameter/polar_center = Vector2(0.5, 0.5)
-shader_parameter/polar_zoom = 0.0
-shader_parameter/polar_repeat = 1.0
-shader_parameter/spin_rotation = 0.0
-shader_parameter/spin_speed = 5.0
-shader_parameter/offset = Vector2(0, 0)
-shader_parameter/colour_1 = Color(0, 0, 0, 1)
-shader_parameter/colour_2 = Color(0.188969, 0.188969, 0.188969, 1)
-shader_parameter/colour_3 = Color(0, 0, 0, 1)
-shader_parameter/contrast = 1.0
-shader_parameter/spin_amount = 0.0
-shader_parameter/pixel_filter = 700.0
+[sub_resource type="Gradient" id="Gradient_u6obd"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_raer1"]
+noise_type = 3
+fractal_type = 0
+domain_warp_enabled = true
+domain_warp_fractal_gain = 50.0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_2jm8h"]
+color_ramp = SubResource("Gradient_u6obd")
+noise = SubResource("FastNoiseLite_raer1")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_g37e7"]
+shader = ExtResource("2_1rahb")
+shader_parameter/stars_on = false
+shader_parameter/stars_flicker = false
+shader_parameter/timeScaleFactor = 0.04
+shader_parameter/colour_muiltiplier = Color(0.0565022, 0.0568932, 0.0513521, 1)
+shader_parameter/colour_muiltiplier2 = Color(7.21961e-07, 0.287402, 0.438347, 1)
+shader_parameter/brightness = 0.896
+shader_parameter/clouds_resolution = 14.684
+shader_parameter/clouds_intesity = -0.06
+shader_parameter/waveyness = 0.0
+shader_parameter/fragmentation = 7.0
+shader_parameter/distortion = 0.487
+shader_parameter/clouds_alpha = 0.461
+shader_parameter/movement = 1.473
+shader_parameter/blur = 1.4
+shader_parameter/blur2 = 0.01
+shader_parameter/bg_speed = 0.1
+shader_parameter/mid_speed = 0.5
+shader_parameter/fg_speed = 1.0
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_2jm8h")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4aedo"]
+shader = ExtResource("3_w5ub6")
+shader_parameter/pixel_size = 8
+shader_parameter/screen_size = Vector2(1920, 1080)
 
 [node name="Title" type="Node2D"]
 script = ExtResource("1_1kxbb")
 
 [node name="bg" type="ColorRect" parent="."]
-material = SubResource("ShaderMaterial_dyolf")
+material = SubResource("ShaderMaterial_g37e7")
 offset_left = -5.0
 offset_top = -4.0
 offset_right = 1945.0
 offset_bottom = 1096.0
 metadata/_edit_use_anchors_ = true
+
+[node name="pixel" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_4aedo")
+custom_minimum_size = Vector2(1920, 1080)
+offset_left = -60.0
+offset_top = -520.0
+offset_right = 2214.0
+offset_bottom = 1600.0
+color = Color(0, 0, 0, 1)
 
 [node name="logo" type="Sprite2D" parent="."]
 position = Vector2(974, 520)
@@ -42,5 +76,21 @@ offset_right = 1150.0
 offset_bottom = 896.0
 theme_override_font_sizes/font_size = 120
 text = "start"
+
+[node name="More-bass-ambience" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(968, 584)
+stream = ExtResource("4_jhpe1")
+volume_db = -3.284
+autoplay = true
+attenuation = 1e-05
+panning_strength = 0.0
+
+[node name="Label" type="Label" parent="."]
+offset_left = 1293.0
+offset_top = 976.0
+offset_right = 1909.0
+offset_bottom = 1072.0
+theme_override_font_sizes/font_size = 80
+text = "-/+ FOR VOLUME"
 
 [connection signal="button_up" from="start" to="." method="_on_start_button_up"]

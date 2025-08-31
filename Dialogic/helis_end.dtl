@@ -1,7 +1,7 @@
 do global.disable_input()
 do global.vingette(true)
 do global.shake(true)
-[wait time="2.0"]
+[wait time="1.0"]
 helis: STOP
 helis: I cannot let you destroy our perfect world .  .  .
 helis: COME FORTH, ARCHITECT!

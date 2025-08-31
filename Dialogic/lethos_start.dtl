@@ -1,4 +1,4 @@
-[signal arg="cam-zoom-in"]
+do global.fade(false, 7, true)
 do global.disable_input()
 do global.vingette(true)
 do global.shake(true)

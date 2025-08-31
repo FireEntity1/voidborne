@@ -40,7 +40,6 @@ var last_dir = 1
 
 func _ready():
 	$land_particles.emitting = false
-	add_voidwell(1)
 	update_hearts()
 	Dialogic.signal_event.connect(_on_dialogic_signal)
 
@@ -128,12 +127,16 @@ func _physics_process(delta):
 		var enemies = []
 		for body in bodies:
 			if body is CharacterBody2D:
+				$hit.play()
+				add_voidwell(1)
 				body.health -= damage
 				body.hit()
 		for area in areas:
 			if area.name == "boss":
 				area.hit()
 				area.health -= damage
+				$hit.play()
+				add_voidwell(1)
 		await get_tree().create_timer(0.33).timeout
 		can_attack = true
 	
@@ -205,6 +208,7 @@ func _on_dash_timeout():
 
 func hit(enemy_pos):
 	if can_take_damage and not dead:
+		$hit.play()
 		var dir = position.x - enemy_pos.x
 		if dir > 0:
 			velocity.x = 3000
@@ -223,6 +227,7 @@ func hit(enemy_pos):
 
 func add_voidwell(value: int):
 	voidwell = clamp(voidwell + value, 0, 12)
+	print(voidwell)
 	$ui/voidwell.value = voidwell
 
 func _on_dialogic_signal(text):
@@ -240,6 +245,6 @@ func _on_dialogic_signal(text):
 
 func player_death():
 	dead = true
-	print("player died")
+	$death.emitting = true
 	Dialogic.end_timeline()
 	Dialogic.start(preload("res://Dialogic/death.dtl"))

@@ -1,9 +1,11 @@
 [signal arg="cam-zoom-in"]
 [signal arg="cam-erythis-intro"]
 [signal arg="stop-music"]
+do global.fade(false, 7, false)
 [music path="res://Audio/Ambient/something_looms.mp3" fade="0.0" volume="-8.0"]
 do global.glitch(true)
 do global.disable_input()
+[wait time="1.0"]
 erythis: HALT.
 erythis: You've damaged it too much . . .
 erythis: The prism I inhabit is everything . . . I am the light

@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://das5p0rexu6p8"]
+[gd_scene load_steps=33 format=3 uid="uid://das5p0rexu6p8"]
 
 [ext_resource type="Texture2D" uid="uid://5gfo1dfua82j" path="res://Sprites/player_idle.png" id="1_ec02m"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_v43g5"]
@@ -14,6 +14,7 @@
 [ext_resource type="AudioStream" uid="uid://cm2utyqfnu3px" path="res://Audio/SFX/swish.mp3" id="12_lkwfx"]
 [ext_resource type="AudioStream" uid="uid://dq6olrsy68v2p" path="res://Audio/SFX/slam-land.mp3" id="13_bw2d2"]
 [ext_resource type="AudioStream" uid="uid://cskd0otmfclyg" path="res://Audio/SFX/standard-land.mp3" id="14_yuvtd"]
+[ext_resource type="AudioStream" uid="uid://dcle633iyo8s5" path="res://Audio/SFX/hit.mp3" id="15_dm3sk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kybed"]
 size = Vector2(99, 72)
@@ -104,13 +105,33 @@ particle_flag_disable_z = true
 emission_shape = 3
 emission_box_extents = Vector3(1, 0, 1)
 direction = Vector3(0, -1, 0)
-initial_velocity_min = 360.66
-initial_velocity_max = 368.85
+spread = 180.0
+initial_velocity_min = 631.15
+initial_velocity_max = 778.69
 gravity = Vector3(0, 500, 0)
-linear_accel_min = 19.67
-linear_accel_max = 95.08
-scale_min = 5.0
+linear_accel_min = -100.0
+linear_accel_max = 100.0
+radial_accel_min = -31.15
+radial_accel_max = 65.57
+scale_min = 10.0
 scale_max = 15.0
+color = Color(0, 0, 0, 1)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_r7qa4"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(1, 0, 1)
+direction = Vector3(0, -1, 0)
+spread = 180.0
+initial_velocity_min = 631.15
+initial_velocity_max = 778.69
+gravity = Vector3(0, 500, 0)
+linear_accel_min = -100.0
+linear_accel_max = 100.0
+radial_accel_min = -31.15
+radial_accel_max = 65.57
+scale_min = 29.59
+scale_max = 35.0
 color = Color(0, 0, 0, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_w253d"]
@@ -200,6 +221,14 @@ process_material = SubResource("ParticleProcessMaterial_cqwmd")
 lifetime = 0.8
 randomness = 0.5
 
+[node name="death" type="GPUParticles2D" parent="."]
+position = Vector2(0, 58)
+emitting = false
+amount = 256
+process_material = SubResource("ParticleProcessMaterial_r7qa4")
+lifetime = 0.8
+randomness = 0.5
+
 [node name="hit_particles" type="GPUParticles2D" parent="."]
 position = Vector2(0, 58)
 emitting = false
@@ -254,8 +283,8 @@ offset_right = 987.08
 offset_bottom = 553.04
 grow_horizontal = 2
 grow_vertical = 2
-max_value = 16.0
-value = 5.0
+max_value = 12.0
+value = 6.0
 fill_mode = 3
 nine_patch_stretch = true
 texture_under = ExtResource("10_iy0g0")
@@ -278,5 +307,12 @@ attenuation = 1e-05
 position = Vector2(0, 45)
 stream = ExtResource("14_yuvtd")
 volume_db = -6.022
+
+[node name="hit" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(-8, 18)
+stream = ExtResource("15_dm3sk")
+volume_db = 3.832
+attenuation = 1e-05
+panning_strength = 0.0
 
 [connection signal="timeout" from="dash" to="." method="_on_dash_timeout"]
