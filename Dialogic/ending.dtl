@@ -31,6 +31,7 @@ erythis: .   .   .
 	do global.fade(false, 6, true)
 - embrace the light
 	[music fade="0.0" volume="0.0"]
+	[sound path="res://Audio/SFX/BOOM.mp3" volume="0.0"]
 	do global.glitch(false)
 	[signal arg="erythis-embrace"]
 	do global.change_level("end_embrace")

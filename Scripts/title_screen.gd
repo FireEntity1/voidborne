@@ -1,6 +1,7 @@
 extends Node2D
 
 func _on_start_button_up():
+	$startsfx.play()
 	global.enable_input()
 	global.fade(true,6,true)
 	await get_tree().create_timer(6).timeout

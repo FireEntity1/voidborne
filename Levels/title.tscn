@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://dwh1a8shy0ndj"]
+[gd_scene load_steps=12 format=3 uid="uid://dwh1a8shy0ndj"]
 
 [ext_resource type="Script" path="res://scripts/title_screen.gd" id="1_1kxbb"]
 [ext_resource type="Shader" path="res://Shaders/cool_space.gdshader" id="2_1rahb"]
 [ext_resource type="Texture2D" uid="uid://r0dl0u0jeqkb" path="res://Sprites/logo.png" id="2_g4iy5"]
 [ext_resource type="Shader" path="res://Shaders/pixel.gdshader" id="3_w5ub6"]
 [ext_resource type="AudioStream" uid="uid://dba35rg4d6v5u" path="res://Audio/Ambient/more-bass-ambience.mp3" id="4_jhpe1"]
+[ext_resource type="AudioStream" uid="uid://cj6wi0qvrcuvj" path="res://Audio/SFX/start.mp3" id="6_obvqe"]
 
 [sub_resource type="Gradient" id="Gradient_u6obd"]
 
@@ -92,5 +93,13 @@ offset_right = 1909.0
 offset_bottom = 1072.0
 theme_override_font_sizes/font_size = 80
 text = "-/+ FOR VOLUME"
+
+[node name="startsfx" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(960, 673)
+stream = ExtResource("6_obvqe")
+volume_db = 4.909
+pitch_scale = 0.7
+max_distance = 10000.0
+attenuation = 1e-05
 
 [connection signal="button_up" from="start" to="." method="_on_start_button_up"]

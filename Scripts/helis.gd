@@ -45,6 +45,7 @@ func _process(delta):
 	elif running and not finished:
 		self.position.x += delta*300
 		dist += delta*300
+		$hover.wait_time = 2
 	
 	if dist < -950:
 		move_left = false
@@ -91,6 +92,7 @@ func _on_attack_timeout():
 		$boss_hitbox.add_child(scene)
 
 func hit():
+	$particles.emitting = false
 	$particles.emitting = true
 	print("hit!")
 	flash_red()

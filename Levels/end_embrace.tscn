@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://dbsqdc33o54mq"]
+[gd_scene load_steps=13 format=3 uid="uid://dbsqdc33o54mq"]
 
 [ext_resource type="Shader" path="res://Shaders/pixel.gdshader" id="2_bkgqx"]
 [ext_resource type="Texture2D" uid="uid://6rioqdi1bf0k" path="res://Sprites/player-floating.png" id="5_3pbqx"]
@@ -6,7 +6,6 @@
 [ext_resource type="AudioStream" uid="uid://dba35rg4d6v5u" path="res://Audio/Ambient/more-bass-ambience.mp3" id="5_ynard"]
 [ext_resource type="Texture2D" uid="uid://dljv5wh6r8onx" path="res://Sprites/light_endures.png" id="6_kptxf"]
 [ext_resource type="AudioStream" uid="uid://cjkst2jjmdj4t" path="res://Audio/SFX/riser.mp3" id="7_7djcn"]
-[ext_resource type="Texture2D" uid="uid://4mpltehn0bgv" path="res://Sprites/slice.png" id="8_1nuox"]
 
 [sub_resource type="GDScript" id="GDScript_jlshq"]
 resource_name = "end_embrace"
@@ -115,105 +114,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ld8mn"]
-atlas = ExtResource("8_1nuox")
-region = Rect2(0, 0, 64, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_cjou5"]
-atlas = ExtResource("8_1nuox")
-region = Rect2(64, 0, 64, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_mpv5y"]
-atlas = ExtResource("8_1nuox")
-region = Rect2(128, 0, 64, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_0by6o"]
-atlas = ExtResource("8_1nuox")
-region = Rect2(192, 0, 64, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_hrjp0"]
-atlas = ExtResource("8_1nuox")
-region = Rect2(256, 0, 64, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_omumc"]
-atlas = ExtResource("8_1nuox")
-region = Rect2(320, 0, 64, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_k42aa"]
-atlas = ExtResource("8_1nuox")
-region = Rect2(384, 0, 64, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_jkb2j"]
-atlas = ExtResource("8_1nuox")
-region = Rect2(448, 0, 64, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_hp2cs"]
-atlas = ExtResource("8_1nuox")
-region = Rect2(512, 0, 64, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_2t00m"]
-atlas = ExtResource("8_1nuox")
-region = Rect2(576, 0, 64, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_pl16p"]
-atlas = ExtResource("8_1nuox")
-region = Rect2(640, 0, 64, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ujht0"]
-atlas = ExtResource("8_1nuox")
-region = Rect2(704, 0, 64, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_fbhu5"]
-atlas = ExtResource("8_1nuox")
-region = Rect2(768, 0, 64, 16)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_ik3u5"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ld8mn")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_cjou5")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_mpv5y")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_0by6o")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_hrjp0")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_omumc")
-}, {
-"duration": 0.8,
-"texture": SubResource("AtlasTexture_k42aa")
-}, {
-"duration": 0.8,
-"texture": SubResource("AtlasTexture_jkb2j")
-}, {
-"duration": 0.8,
-"texture": SubResource("AtlasTexture_hp2cs")
-}, {
-"duration": 0.7,
-"texture": SubResource("AtlasTexture_2t00m")
-}, {
-"duration": 0.7,
-"texture": SubResource("AtlasTexture_pl16p")
-}, {
-"duration": 0.7,
-"texture": SubResource("AtlasTexture_ujht0")
-}, {
-"duration": 0.6,
-"texture": SubResource("AtlasTexture_fbhu5")
-}],
-"loop": false,
-"name": &"default",
-"speed": 30.0
-}]
-
 [node name="EndEmbrace" type="Node2D"]
 script = SubResource("GDScript_jlshq")
 
@@ -259,14 +159,6 @@ offset_top = 3.05176e-05
 offset_right = 1934.0
 offset_bottom = 1081.0
 color = Color(0, 0, 0, 1)
-
-[node name="slice" type="AnimatedSprite2D" parent="."]
-position = Vector2(902, 546)
-scale = Vector2(32.25, 21.75)
-sprite_frames = SubResource("SpriteFrames_ik3u5")
-autoplay = "default"
-frame = 12
-frame_progress = 1.0
 
 [node name="move" type="Timer" parent="."]
 wait_time = 1.5

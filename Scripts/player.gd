@@ -50,11 +50,15 @@ func _physics_process(delta):
 	else:
 		jumps = 2
 
-	if Input.is_action_just_pressed("jump") and is_on_floor() and global.can_move:
+	if Input.is_action_just_pressed("jump") and is_on_floor() and global.can_move and can_heal:
+		$dashsfx.pitch_scale = 0.6
+		$dashsfx.play()
 		velocity.y = JUMP_VELOCITY
 		jumps = 1
 	
-	if Input.is_action_just_pressed("jump") and not is_on_floor() and jumps >= 1 and not slamming:
+	if Input.is_action_just_pressed("jump") and not is_on_floor() and jumps >= 1 and not slamming and can_heal:
+		$dashsfx.pitch_scale = 0.6
+		$dashsfx.play()
 		velocity.y = JUMP_VELOCITY
 		jumps = 0
 		$land_particles.emitting = true
@@ -140,7 +144,7 @@ func _physics_process(delta):
 		await get_tree().create_timer(0.33).timeout
 		can_attack = true
 	
-	if Input.is_action_just_pressed("dash") and global.can_move:
+	if Input.is_action_just_pressed("dash") and global.can_move and can_heal:
 		if can_dash:
 			dashing = true
 			$sprite.play("dash")
@@ -148,6 +152,7 @@ func _physics_process(delta):
 			dashing = false
 			can_dash = false
 			$dash.start()
+			$dashsfx.pitch_scale = 1.0
 			$dashsfx.play()
 			var anim = preload("res://Components/dash_anim.tscn").instantiate()
 			if last_dir < 0:

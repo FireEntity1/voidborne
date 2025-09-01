@@ -308,7 +308,7 @@ attenuation = 1e-05
 [node name="land" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(0, 45)
 stream = ExtResource("14_yuvtd")
-volume_db = -3.5
+volume_db = 0.879
 
 [node name="hit" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(-8, 18)
@@ -327,7 +327,8 @@ panning_strength = 0.0
 [node name="dashsfx" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(28, 69)
 stream = ExtResource("17_is54o")
-volume_db = -18.61
+volume_db = -10.946
+pitch_scale = 1.06
 attenuation = 2.15792e-05
 panning_strength = 0.0
 

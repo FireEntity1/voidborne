@@ -44,12 +44,6 @@ func _ready():
 			$player.position = Vector2(13257,-2972)
 		\"outlands_boss\":
 			$player.position = Vector2(5077,-5407)
-	if global.get_finished(name):
-		if has_node(\"tutorial_zone\"):
-			$tutorial_zone.queue_free()
-	await get_tree().create_timer(30).timeout
-	if has_node(\"tutorial_zone\"):
-			$tutorial_zone.queue_free()
 
 func _physics_process(delta):
 	pass
@@ -72,9 +66,6 @@ func _on_dialogic_signal(arg):
 		$SomethingLooms.stop()
 		$SomethingLooms2.stop()
 		$ambience.play()
-	if arg == \"tutorial-finish\":
-		if get_node(\"tutorial_zone\"):
-			$tutorial_zone.queue_free()
 "
 
 [sub_resource type="Gradient" id="Gradient_wghrg"]
@@ -706,11 +697,11 @@ position = Vector2(-6230, -3023)
 shape = SubResource("RectangleShape2D_rhwla")
 
 [node name="collision14" type="CollisionShape2D" parent="static3"]
-position = Vector2(-5643.5, -1736)
+position = Vector2(-5665, -1739)
 shape = SubResource("RectangleShape2D_nh2ld")
 
 [node name="collision15" type="CollisionShape2D" parent="static3"]
-position = Vector2(-4873, -1766)
+position = Vector2(-4858, -1759)
 shape = SubResource("RectangleShape2D_nh2ld")
 
 [node name="collision16" type="CollisionShape2D" parent="static3"]
@@ -769,7 +760,7 @@ position = Vector2(13472, -3116)
 id = "outlands_orren"
 
 [node name="Nym" parent="." instance=ExtResource("12_xhufl")]
-position = Vector2(5289, 832)
+position = Vector2(5525, 819)
 
 [node name="JumpOrb" parent="." instance=ExtResource("13_dtw6x")]
 position = Vector2(8364, 8)

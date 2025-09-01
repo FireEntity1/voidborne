@@ -103,6 +103,7 @@ func _on_attack_timeout():
 				get_tree().root.add_child(scene)
 
 func hit():
+	$particles.emitting = false
 	$particles.emitting = true
 	print("hit!")
 	flash_red()
