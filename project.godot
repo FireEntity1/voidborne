@@ -28,6 +28,7 @@ directories/dch_directory={
 "ferrin": "res://Dialogic/ferrin.dch",
 "helis": "res://Dialogic/helis.dch",
 "lethos": "res://Dialogic/lethos.dch",
+"nosfx": "res://Dialogic/nosfx.dch",
 "nym": "res://Dialogic/nym.dch",
 "orren": "res://Dialogic/orren.dch",
 "vexin": "res://Dialogic/vexin.dch",

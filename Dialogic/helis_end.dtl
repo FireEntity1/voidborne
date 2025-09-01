@@ -3,10 +3,10 @@ do global.vingette(true)
 do global.shake(true)
 [music path="res://Audio/Ambient/something_looms.mp3" fade="0.0" volume="-8.0"]
 [wait time="1.0"]
-helis: STOP
-helis: I cannot let you destroy our perfect world .  .  .
-helis: COME FORTH, ARCHITECT!
-helis: PROVE YOUR POWER IN THE CROWN!
+helis: [speed=18]STOP
+helis: [speed=12]I cannot let you destroy our perfect world .  .  .
+helis: [speed=12]COME FORTH, ARCHITECT!
+helis: [speed=14]PROVE YOUR POWER IN THE CROWN!
 do global.white_transition()
 [music fade="0.0" volume="0.0"]
 [sound path="res://Audio/SFX/portal.mp3" volume="-3.0"]

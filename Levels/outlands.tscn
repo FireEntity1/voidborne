@@ -1,4 +1,4 @@
-[gd_scene load_steps=75 format=4 uid="uid://do2lwffpt3ckb"]
+[gd_scene load_steps=74 format=4 uid="uid://do2lwffpt3ckb"]
 
 [ext_resource type="Shader" path="res://Shaders/starry_sky.gdshader" id="1_m0wac"]
 [ext_resource type="Shader" path="res://Shaders/pixel.gdshader" id="2_17hqe"]
@@ -44,7 +44,10 @@ func _ready():
 			$player.position = Vector2(13257,-2972)
 		\"outlands_boss\":
 			$player.position = Vector2(5077,-5407)
-	await get_tree().create_timer(24).timeout
+	if global.get_finished(name):
+		if has_node(\"tutorial_zone\"):
+			$tutorial_zone.queue_free()
+	await get_tree().create_timer(30).timeout
 	if has_node(\"tutorial_zone\"):
 			$tutorial_zone.queue_free()
 
@@ -241,9 +244,6 @@ sources/2 = SubResource("TileSetAtlasSource_74kgm")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dj7bo"]
 size = Vector2(568, 1988)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_67d3e"]
-size = Vector2(278, 1584)
 
 [node name="Intro" type="Node2D"]
 script = SubResource("GDScript_0or6p")
@@ -769,7 +769,7 @@ position = Vector2(13472, -3116)
 id = "outlands_orren"
 
 [node name="Nym" parent="." instance=ExtResource("12_xhufl")]
-position = Vector2(5050, 826)
+position = Vector2(5289, 832)
 
 [node name="JumpOrb" parent="." instance=ExtResource("13_dtw6x")]
 position = Vector2(8364, 8)
@@ -932,14 +932,6 @@ fragment_id = "outlands_e"
 [node name="ferrin" parent="." instance=ExtResource("26_p0mwn")]
 position = Vector2(11462, 2279)
 timeline = ExtResource("27_sc320")
-
-[node name="tutorial_zone" type="StaticBody2D" parent="."]
-position = Vector2(3270, 222)
-collision_layer = 8
-collision_mask = 15
-
-[node name="collision" type="CollisionShape2D" parent="tutorial_zone"]
-shape = SubResource("RectangleShape2D_67d3e")
 
 [connection signal="body_entered" from="ambience_stop" to="." method="_on_ambience_stop_body_entered"]
 [connection signal="body_entered" from="ambience_play" to="." method="_on_ambience_play_body_entered"]

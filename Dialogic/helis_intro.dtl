@@ -5,11 +5,10 @@ do global.fade(false, 10, true)
 do global.shake(true)
 do global.vingette(true)
 [wait time="2.0"]
-???: The light chose me . . .
-???: To protect this sacred land . . .
-???: I obey the light's every command.
-???: You dare try and dim[speed=20] it?
-???: I will not let your kind stain our golden streets.
+???: [speed=12]The light chose me . . .
+???: [speed=12]To protect this sacred land . . .
+???: [speed=12]You dare try and dim[speed=20] it?
+???: [speed=12]I will not let your kind stain our golden streets.
 do global.enable_input()
 [signal arg="helis-attack"]
 [signal arg="start-music"]

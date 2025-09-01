@@ -9,11 +9,11 @@
 "Mood 1": {
 "mode": 0,
 "name": "Mood 1",
-"pitch_base": 0.8,
-"pitch_variance": 0.7,
+"pitch_base": 1.0,
+"pitch_variance": 0.0,
 "skip_characters": 0.0,
 "sound_path": "res://Audio/SFX/blip.mp3",
-"volume_base": -7.0,
+"volume_base": -60.0,
 "volume_variance": 0.0
 }
 },
@@ -21,7 +21,7 @@
 },
 "default_portrait": "",
 "description": "",
-"display_name": "Erythis",
+"display_name": "",
 "mirror": false,
 "nicknames": [""],
 "offset": Vector2(0, 0),

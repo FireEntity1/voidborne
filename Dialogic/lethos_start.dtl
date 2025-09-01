@@ -1,10 +1,11 @@
+[sound path="res://Audio/SFX/BOOM.mp3" volume="0.0"]
 do global.fade(false, 7, true)
 do global.disable_input()
 do global.vingette(true)
 do global.shake(true)
 do global.glitch(true, 1)
 lethos: [speed=20] d...destroy
-lethos: [speed=20] void... unwElcome
+lethos: [speed=20] void... unwelcome
 lethos: [speed=20] leave . . .
 do global.title("Lethos", "The All Seeing")
 [wait time="5.0"]

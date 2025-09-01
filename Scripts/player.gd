@@ -152,7 +152,7 @@ func _physics_process(delta):
 			var anim = preload("res://Components/dash_anim.tscn").instantiate()
 			if last_dir < 0:
 				anim.get_node("dash_sprite").flip_h = true
-			anim.global_position = global_position
+			anim.global_position = global_position + Vector2(100,0)
 			get_tree().current_scene.add_child(anim)
 			await get_tree().create_timer(0.6).timeout
 			anim.queue_free()

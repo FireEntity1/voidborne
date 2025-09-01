@@ -15,21 +15,26 @@ do global.disable_input()
 [wait time="2.0"]
 do global.title("The Outlands")
 [wait time="4.0"]
-Use WASD or your arrow keys to move around.
+nosfx: Will you let the void tell you how to control your vessel?
+- Let it teach.
+	nosfx: Use WASD or your arrow keys to move around.
+	do global.enable_input()
+	[wait time="5.0"]
+	do global.disable_input()
+	nosfx: Press space to jump and S/DOWN to ground slam, you can double jump!
+	do global.enable_input()
+	[wait time="3.0"]
+	do global.disable_input()
+	nosfx: You can also dash with SHIFT
+	do global.enable_input()
+	[wait time="2.0"]
+	do global.disable_input()
+	nosfx: Your void meter fills upon hitting enemies.
+	nosfx: Right click to deplete your meter in exchange for health.
+	nosfx: You can hit enemies with left click.
+	nosfx: .     .     .
+- Go off instinct.
+nosfx: Good luck on your journey, voidborn.
 do global.enable_input()
-[wait time="5.0"]
-do global.disable_input()
-Press space to jump and S/DOWN to ground slam, you can double jump!
-do global.enable_input()
-[wait time="3.0"]
-do global.disable_input()
-You can also dash with SHIFT
-do global.enable_input()
-[wait time="2.0"]
-do global.disable_input()
-Your void meter fills upon hitting enemies.
-Right click to deplete your meter in exchange for health.
-You can hit enemies with left click.
-.     .     .
-Good luck on your journey, voidborn.
-do global.enable_input()
+do global.add_finished_timeline("prelude")
+do global.set_checkpoint("spawn")

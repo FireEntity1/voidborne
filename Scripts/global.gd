@@ -36,6 +36,8 @@ var helis_attacking = false
 
 var can_move = true
 
+var has_nym = false
+
 var fade_scene = preload("res://Components/fade_to.tscn")
 var title_scene = preload("res://Components/title_text.tscn")
 var frag_anim_scene = preload("res://Components/void_frag_anim.tscn")

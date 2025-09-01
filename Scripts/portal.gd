@@ -15,6 +15,6 @@ func _on_area_body_entered(body):
 		global.white_transition()
 		global.disable_input()
 		$sfx.play()
-		await get_tree().create_timer(2).timeout
+		await get_tree().create_timer(3).timeout
 		global.enable_input()
 		get_tree().change_scene_to_file(dest)
