@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://dwh1a8shy0ndj"]
 
-[ext_resource type="Script" path="res://scripts/title_screen.gd" id="1_1kxbb"]
+[ext_resource type="Script" path="res://Scripts/title.gd" id="1_2k2am"]
 [ext_resource type="Shader" path="res://Shaders/cool_space.gdshader" id="2_1rahb"]
 [ext_resource type="Texture2D" uid="uid://r0dl0u0jeqkb" path="res://Sprites/logo.png" id="2_g4iy5"]
 [ext_resource type="Shader" path="res://Shaders/pixel.gdshader" id="3_w5ub6"]
@@ -47,7 +47,7 @@ shader_parameter/pixel_size = 8
 shader_parameter/screen_size = Vector2(1920, 1080)
 
 [node name="Title" type="Node2D"]
-script = ExtResource("1_1kxbb")
+script = ExtResource("1_2k2am")
 
 [node name="bg" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_g37e7")

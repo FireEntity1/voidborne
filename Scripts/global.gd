@@ -38,14 +38,14 @@ var can_move = true
 
 var has_nym = false
 
-var fade_scene = preload("res://Components/fade_to.tscn")
-var title_scene = preload("res://Components/title_text.tscn")
-var frag_anim_scene = preload("res://Components/void_frag_anim.tscn")
-var glitch_scene = preload("res://Components/glitch.tscn")
-var shake_scene = preload("res://Components/screen_shake.tscn")
-var vingette_scene = preload("res://Components/vingette.tscn")
-var portal_scene = preload("res://Components/portal.tscn")
-var vol_scene = preload("res://Components/volume.tscn")
+@onready var fade_scene = load("res://Components/fade_to.tscn")
+@onready var title_scene = load("res://Components/title_text.tscn")
+@onready var frag_anim_scene = load("res://Components/void_frag_anim.tscn")
+@onready var glitch_scene = load("res://Components/glitch.tscn")
+@onready var shake_scene = load("res://Components/screen_shake.tscn")
+@onready var vingette_scene = load("res://Components/vingette.tscn")
+@onready var portal_scene = load("res://Components/portal.tscn")
+@onready var vol_scene = load("res://Components/volume.tscn")
 
 func _ready():
 	load_save()

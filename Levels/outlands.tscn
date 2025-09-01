@@ -1,6 +1,7 @@
 [gd_scene load_steps=75 format=4 uid="uid://do2lwffpt3ckb"]
 
 [ext_resource type="Shader" path="res://Shaders/starry_sky.gdshader" id="1_m0wac"]
+[ext_resource type="Script" path="res://Scripts/outlands.gd" id="1_mixuc"]
 [ext_resource type="Shader" path="res://Shaders/pixel.gdshader" id="2_17hqe"]
 [ext_resource type="Texture2D" uid="uid://chfai38323i1q" path="res://Sprites/building-1.png" id="3_8e30n"]
 [ext_resource type="PackedScene" uid="uid://bs2y0w3kpst0w" path="res://Components/lamppost.tscn" id="4_hni88"]
@@ -27,46 +28,6 @@
 [ext_resource type="AudioStream" uid="uid://cc1v6g5ckl7j" path="res://Audio/Ambient/something_looms.mp3" id="24_2s0t6"]
 [ext_resource type="PackedScene" uid="uid://d1h5vnwj7rrqo" path="res://Components/ferrin.tscn" id="26_p0mwn"]
 [ext_resource type="Resource" path="res://Dialogic/ferrin.dtl" id="27_sc320"]
-
-[sub_resource type="GDScript" id="GDScript_0or6p"]
-resource_name = "outlands"
-script/source = "extends Node2D
-
-var playing = true
-
-func _ready():
-	global.lethos_attacking = false
-	Dialogic.signal_event.connect(_on_dialogic_signal)
-	match global.save_file.checkpoint:
-		\"spawn\":
-			$player.position = Vector2(677, 844)
-		\"outlands_orren\":
-			$player.position = Vector2(13257,-2972)
-		\"outlands_boss\":
-			$player.position = Vector2(5077,-5407)
-
-func _physics_process(delta):
-	pass
-
-func _on_ambience_stop_body_entered(body):
-	if body.name == \"player\":
-		$ambience.stop()
-		playing = false
-
-func _on_ambience_play_body_entered(body):
-	if not playing:
-		$ambience.play()
-		playing = true
-
-func _on_dialogic_signal(arg):
-	if arg == \"play-music\":
-		$SomethingLooms.stop()
-		$SomethingLooms2.stop()
-	if arg == \"stop-sfx\":
-		$SomethingLooms.stop()
-		$SomethingLooms2.stop()
-		$ambience.play()
-"
 
 [sub_resource type="Gradient" id="Gradient_wghrg"]
 
@@ -240,7 +201,7 @@ sources/2 = SubResource("TileSetAtlasSource_74kgm")
 size = Vector2(568, 1988)
 
 [node name="Intro" type="Node2D"]
-script = SubResource("GDScript_0or6p")
+script = ExtResource("1_mixuc")
 
 [node name="parallaxBG" type="Parallax2D" parent="."]
 scroll_scale = Vector2(0.2, 0.2)
@@ -589,7 +550,6 @@ shape = SubResource("RectangleShape2D_rn2it")
 [node name="collision7" type="CollisionShape2D" parent="static"]
 position = Vector2(14758.2, -3930.37)
 rotation = 1.56939
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_te5tp")
 
 [node name="collision22" type="CollisionShape2D" parent="static"]

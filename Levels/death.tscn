@@ -27,8 +27,8 @@ script = ExtResource("1_ol44d")
 [node name="bg2" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_ljhdy")
 anchors_preset = -1
-anchor_left = 0.139752
-anchor_top = 2.57837
+anchor_left = -3.16977
+anchor_top = 0.373052
 anchor_right = -3.16977
 anchor_bottom = 0.373052
 offset_left = -70.0
