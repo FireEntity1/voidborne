@@ -201,3 +201,5 @@ position = Vector2(-8, 3)
 stream = ExtResource("3_o68ot")
 volume_db = -0.547
 pitch_scale = 0.97
+max_distance = 12000.0
+attenuation = 0.233258

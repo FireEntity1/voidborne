@@ -18,16 +18,10 @@ do global.title("The Outlands")
 nosfx: Will you let the void tell you how to control your vessel?
 - Let it teach.
 	nosfx: Use WASD or your arrow keys to move around.
-	do global.enable_input()
-	[wait time="5.0"]
-	do global.disable_input()
 	nosfx: Press space to jump and S/DOWN to ground slam, you can double jump!
-	do global.enable_input()
-	[wait time="3.0"]
-	do global.disable_input()
 	nosfx: You can also dash with SHIFT
 	do global.enable_input()
-	[wait time="2.0"]
+	[wait time="3.0"]
 	do global.disable_input()
 	nosfx: Your void meter fills upon hitting enemies.
 	nosfx: Right click or press E to deplete your meter in exchange for health.

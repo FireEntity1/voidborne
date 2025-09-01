@@ -71,5 +71,11 @@ pitch_scale = 0.7
 max_distance = 10000.0
 attenuation = 1e-05
 
+[node name="cover" type="ColorRect" parent="."]
+offset_right = 1930.0
+offset_bottom = 1091.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
 [connection signal="button_up" from="try_again" to="." method="_on_start_button_up"]
 [connection signal="button_up" from="try_again" to="." method="_on_try_again_button_up"]

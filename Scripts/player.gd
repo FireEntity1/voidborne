@@ -257,6 +257,8 @@ func _on_dialogic_signal(text):
 		update_hearts()
 
 func player_death():
+	global.lethos_attacking = false
+	global.helis_attacking = false
 	dead = true
 	$death.emitting = true
 	$sprite.play("dead")

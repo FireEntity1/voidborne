@@ -1,2 +1,2 @@
 [signal arg="reset-health"]
-voidwell: [speed=8]You feel rested . . .
+voidwell: [speed=1]You feel rested . . .

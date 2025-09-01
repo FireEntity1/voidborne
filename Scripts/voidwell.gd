@@ -8,6 +8,9 @@ func _ready():
 
 func _on_area_body_entered(body):
 	if body.name == "player":
-		global.save_file.checkpoint = id
+		global.set_checkpoint(id)
 		global.save()
 		Dialogic.start(timeline)
+		await get_tree().create_timer(1.4).timeout
+		if Dialogic.current_timeline != null:
+			Dialogic.end_timeline()
