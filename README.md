@@ -1,7 +1,7 @@
 # Voidborne
 
 A 2D pixel-style game set in the world of Halcrya, a kingdom infested with perfection and light.
-You, the void, must try and find an end to the endless cyle of brainwashing and repetetion.
+You, the void, must try and find an end to the endless cycle of brainwashing and repetition.
 
 Play at [https://fire-entity.itch.io/voidborne](https://fire-entity.itch.io/voidborne)!!
 
