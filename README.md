@@ -8,11 +8,17 @@ Play at [https://fire-entity.itch.io/voidborne](https://fire-entity.itch.io/void
 ### Controls
 
 AD/Left Right – Move 
+
 W/Up Arrow – Look up (for attack)
+
 S/Down Arrow – Ground slam
+
 Shift – Dash
+
 Space – Jump / Double Jump
+
 E/Right Click – Heal
+
 X/Left Click – Attack
 
 <img width="1920" height="1080" alt="voidborne" src="https://github.com/user-attachments/assets/ac604474-8b19-4060-8516-3b495ecb9073" />
