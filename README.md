@@ -5,6 +5,8 @@ You, the void, must try and find an end to the endless cycle of brainwashing and
 
 Play at [https://fire-entity.itch.io/voidborne](https://fire-entity.itch.io/voidborne)!!
 
+All sprites and boss OST were made by me ❤️
+
 ### Controls
 
 AD/Left Right – Move 
