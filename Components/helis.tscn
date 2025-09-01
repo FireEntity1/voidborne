@@ -120,7 +120,7 @@ shape = SubResource("RectangleShape2D_h0e6p")
 [node name="Helis" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(1, 20)
 stream = ExtResource("4_d6hyw")
-volume_db = -2.19
+volume_db = -0.001
 max_distance = 7500.0
 attenuation = 1e-05
 panning_strength = 0.0

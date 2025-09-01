@@ -51,13 +51,13 @@ func _physics_process(delta):
 		jumps = 2
 
 	if Input.is_action_just_pressed("jump") and is_on_floor() and global.can_move and can_heal:
-		$dashsfx.pitch_scale = 0.6
+		$dashsfx.volume_db = -16
 		$dashsfx.play()
 		velocity.y = JUMP_VELOCITY
 		jumps = 1
 	
 	if Input.is_action_just_pressed("jump") and not is_on_floor() and jumps >= 1 and not slamming and can_heal:
-		$dashsfx.pitch_scale = 0.6
+		$dashsfx.volume_db = -16
 		$dashsfx.play()
 		velocity.y = JUMP_VELOCITY
 		jumps = 0
@@ -152,7 +152,7 @@ func _physics_process(delta):
 			dashing = false
 			can_dash = false
 			$dash.start()
-			$dashsfx.pitch_scale = 1.0
+			$dashsfx.volume_db = -11.0
 			$dashsfx.play()
 			var anim = preload("res://Components/dash_anim.tscn").instantiate()
 			if last_dir < 0:
@@ -187,6 +187,10 @@ func _physics_process(delta):
 		can_heal = true
 		health += 1
 		update_hearts()
+	
+	if dead:
+		position.y -= 15
+		$sprite.play("dead")
 	
 	move_and_slide()
 
@@ -231,8 +235,6 @@ func hit(enemy_pos):
 		if health <= 0:
 			player_death()
 			$deathsfx.play()
-			await get_tree().create_timer(3).timeout
-			$deathsfx.stop()
 
 func add_voidwell(value: int):
 	voidwell = clamp(voidwell + value, 0, 12)
@@ -256,5 +258,6 @@ func _on_dialogic_signal(text):
 func player_death():
 	dead = true
 	$death.emitting = true
+	$sprite.play("dead")
 	Dialogic.end_timeline()
 	Dialogic.start(preload("res://Dialogic/death.dtl"))

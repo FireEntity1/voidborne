@@ -1,25 +1,34 @@
-[gd_scene load_steps=35 format=3 uid="uid://das5p0rexu6p8"]
+[gd_scene load_steps=38 format=3 uid="uid://das5p0rexu6p8"]
 
 [ext_resource type="Texture2D" uid="uid://5gfo1dfua82j" path="res://Sprites/player_idle.png" id="1_ec02m"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_v43g5"]
 [ext_resource type="Texture2D" uid="uid://c7hiy8djdj05e" path="res://Sprites/player_dash.png" id="2_6lqat"]
 [ext_resource type="Texture2D" uid="uid://benaogp87db6m" path="res://Sprites/player_walk.png" id="2_kxxys"]
 [ext_resource type="Texture2D" uid="uid://dh0kptrnjsvsj" path="res://Sprites/player_falling_straight2.png" id="2_uctpk"]
+[ext_resource type="Texture2D" uid="uid://6rioqdi1bf0k" path="res://Sprites/player-floating.png" id="3_d7bo4"]
 [ext_resource type="Texture2D" uid="uid://s37s1o0ht5eg" path="res://Sprites/player_falling_straight.png" id="3_u21tt"]
 [ext_resource type="Texture2D" uid="uid://ndmbf37u2q1t" path="res://Sprites/player_falling_straight1.png" id="4_k1we7"]
 [ext_resource type="Texture2D" uid="uid://bod303gs2jexh" path="res://Sprites/player_slam.png" id="6_hsxsq"]
 [ext_resource type="Texture2D" uid="uid://d4c6gyi1qg5vf" path="res://Sprites/Slash.png" id="9_y2lmu"]
 [ext_resource type="Texture2D" uid="uid://cnx7fu7k8ekmt" path="res://Sprites/void_meter_unfilled.png" id="10_iy0g0"]
 [ext_resource type="Texture2D" uid="uid://dblu2mb07hui5" path="res://Sprites/void_meter.png" id="10_uf36n"]
-[ext_resource type="AudioStream" uid="uid://cc1v6g5ckl7j" path="res://Audio/Ambient/something_looms.mp3" id="12_5qm45"]
 [ext_resource type="AudioStream" uid="uid://cm2utyqfnu3px" path="res://Audio/SFX/swish.mp3" id="12_lkwfx"]
 [ext_resource type="AudioStream" uid="uid://dq6olrsy68v2p" path="res://Audio/SFX/slam-land.mp3" id="13_bw2d2"]
 [ext_resource type="AudioStream" uid="uid://cskd0otmfclyg" path="res://Audio/SFX/standard-land.mp3" id="14_yuvtd"]
 [ext_resource type="AudioStream" uid="uid://dcle633iyo8s5" path="res://Audio/SFX/hit.mp3" id="15_dm3sk"]
+[ext_resource type="AudioStream" uid="uid://bgjibkodd2eev" path="res://Audio/SFX/riser_short.mp3" id="17_30m2y"]
 [ext_resource type="AudioStream" uid="uid://drfntggdmurk1" path="res://Audio/SFX/dash.mp3" id="17_is54o"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kybed"]
 size = Vector2(99, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_20yq6"]
+atlas = ExtResource("3_d7bo4")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i0ni6"]
+atlas = ExtResource("3_d7bo4")
+region = Rect2(16, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tdbd8"]
 atlas = ExtResource("1_ec02m")
@@ -46,6 +55,17 @@ animations = [{
 "loop": true,
 "name": &"dash",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_20yq6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i0ni6")
+}],
+"loop": true,
+"name": &"dead",
+"speed": 1.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -224,7 +244,7 @@ lifetime = 0.8
 randomness = 0.5
 
 [node name="death" type="GPUParticles2D" parent="."]
-position = Vector2(0, 58)
+position = Vector2(-1, -1)
 emitting = false
 amount = 256
 process_material = SubResource("ParticleProcessMaterial_r7qa4")
@@ -319,8 +339,9 @@ panning_strength = 0.0
 
 [node name="deathsfx" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(-8, 120)
-stream = ExtResource("12_5qm45")
-volume_db = -4.379
+stream = ExtResource("17_30m2y")
+volume_db = -0.547
+max_distance = 10000.0
 attenuation = 1e-05
 panning_strength = 0.0
 

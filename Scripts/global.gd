@@ -166,6 +166,7 @@ func get_spawn_coords():
 
 func set_checkpoint(arg):
 	save_file.checkpoint = arg
+	save()
 
 func set_attacking(boss, value):
 	match boss:

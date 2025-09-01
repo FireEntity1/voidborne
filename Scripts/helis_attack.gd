@@ -26,6 +26,7 @@ func _process(delta):
 	
 	if $sprite.frame == 15:
 		var check = is_player()
+		$Boom.play()
 		if check[0]:
 			check[1].hit(global_position)
 

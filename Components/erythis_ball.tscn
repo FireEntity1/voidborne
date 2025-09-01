@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://6qu82wpu5rw"]
+[gd_scene load_steps=9 format=3 uid="uid://6qu82wpu5rw"]
 
 [ext_resource type="Script" path="res://scripts/lethos_attack.gd" id="1_ir0td"]
 [ext_resource type="Texture2D" uid="uid://duwrs2bi3iqrg" path="res://Sprites/lethos_attack.png" id="2_yqc0f"]
+[ext_resource type="AudioStream" uid="uid://dba35rg4d6v5u" path="res://Audio/Ambient/more-bass-ambience.mp3" id="3_cyv54"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2814l"]
 atlas = ExtResource("2_yqc0f")
@@ -58,6 +59,13 @@ shape = SubResource("CircleShape2D_pvui3")
 [node name="alpha_timer" type="Timer" parent="."]
 wait_time = 0.125
 autostart = true
+
+[node name="More-bass-ambience" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(0, 4)
+stream = ExtResource("3_cyv54")
+volume_db = -4.927
+autoplay = true
+attenuation = 5.65685
 
 [connection signal="body_entered" from="area" to="." method="_on_area_body_entered"]
 [connection signal="timeout" from="alpha_timer" to="." method="_on_alpha_timer_timeout"]

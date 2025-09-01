@@ -33,9 +33,9 @@ func _ready():
 
 func _process(delta):
 	running = global.helis_attacking
-	if hover_up:
+	if hover_up and running:
 		position.y -= delta*hover_speed
-	else:
+	elif running:
 		position.y += delta*hover_speed
 		
 	if move_left and running and not finished:
@@ -54,10 +54,10 @@ func _process(delta):
 	
 	if finished:
 		$hover.wait_time = 0.05
-		hover_speed = 400
-		$sprite.position.y = 270
+		hover_speed = 0
 	
 	if die and finished:
+		$hover.wait_time = 0.01
 		progress += delta/8
 		$sprite.material.set_shader_parameter("progress", progress)
 		if progress > 0.1:

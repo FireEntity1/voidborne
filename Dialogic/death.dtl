@@ -2,8 +2,7 @@
 do global.vingette(true)
 do global.disable_input()
 do global.shake(true)
-do global.glitch(false)
-[wait time="3.0"]
+do global.glitch(true, 2.1)
 do global.fade(false, 7, true)
 do global.shake(false)
 do global.vingette(false)

@@ -30,7 +30,7 @@ nosfx: Will you let the void tell you how to control your vessel?
 	[wait time="2.0"]
 	do global.disable_input()
 	nosfx: Your void meter fills upon hitting enemies.
-	nosfx: Right click to deplete your meter in exchange for health.
+	nosfx: Right click or press E to deplete your meter in exchange for health.
 	nosfx: You can hit enemies with left click.
 	nosfx: .     .     .
 - Go off instinct.

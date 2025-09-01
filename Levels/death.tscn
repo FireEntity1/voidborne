@@ -1,14 +1,41 @@
-[gd_scene load_steps=2 format=3 uid="uid://drgenrw0ljy78"]
+[gd_scene load_steps=6 format=3 uid="uid://drgenrw0ljy78"]
 
 [ext_resource type="Script" path="res://scripts/title_screen.gd" id="1_ol44d"]
+[ext_resource type="Shader" path="res://Shaders/balala.gdshader" id="2_33j43"]
+[ext_resource type="AudioStream" uid="uid://dba35rg4d6v5u" path="res://Audio/Ambient/more-bass-ambience.mp3" id="3_7lijo"]
+[ext_resource type="AudioStream" uid="uid://cj6wi0qvrcuvj" path="res://Audio/SFX/start.mp3" id="4_147s0"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ljhdy"]
+shader = ExtResource("2_33j43")
+shader_parameter/polar_coordinates = false
+shader_parameter/polar_center = Vector2(0.5, 0.5)
+shader_parameter/polar_zoom = 1.0
+shader_parameter/polar_repeat = 1.0
+shader_parameter/spin_rotation = 0.0
+shader_parameter/spin_speed = 4.0
+shader_parameter/offset = Vector2(0, 0)
+shader_parameter/colour_1 = Color(0, 0, 0, 1)
+shader_parameter/colour_2 = Color(0, 0, 0, 1)
+shader_parameter/colour_3 = Color(0.0497766, 0.0497766, 0.0497766, 1)
+shader_parameter/contrast = 2.0
+shader_parameter/spin_amount = 0.2
+shader_parameter/pixel_filter = 700.0
 
 [node name="Death" type="Node2D"]
 script = ExtResource("1_ol44d")
 
-[node name="bg" type="ColorRect" parent="."]
-offset_right = 1932.0
-offset_bottom = 1091.0
-color = Color(0, 0, 0, 1)
+[node name="bg2" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_ljhdy")
+anchors_preset = -1
+anchor_left = 0.139752
+anchor_top = 2.57837
+anchor_right = -3.16977
+anchor_bottom = 0.373052
+offset_left = -70.0
+offset_top = -48.0
+offset_right = 2030.0
+offset_bottom = 1152.0
+metadata/_edit_use_anchors_ = true
 
 [node name="message" type="Label" parent="."]
 offset_left = 4.0
@@ -20,11 +47,29 @@ text = "the light overtook."
 horizontal_alignment = 1
 
 [node name="try_again" type="Button" parent="."]
-offset_left = 710.0
-offset_top = 637.0
-offset_right = 1225.0
-offset_bottom = 798.0
+offset_left = 631.0
+offset_top = 656.0
+offset_right = 1299.0
+offset_bottom = 817.0
+pivot_offset = Vector2(262, 57)
 theme_override_font_sizes/font_size = 75
-text = "Try Again"
+text = "rise once more"
+
+[node name="More-bass-ambience" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(964, 596)
+stream = ExtResource("3_7lijo")
+volume_db = -8.758
+autoplay = true
+max_distance = 10000.0
+attenuation = 0.000185024
+
+[node name="startsfx" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(964, 596)
+stream = ExtResource("4_147s0")
+volume_db = 4.909
+pitch_scale = 0.7
+max_distance = 10000.0
+attenuation = 1e-05
 
 [connection signal="button_up" from="try_again" to="." method="_on_start_button_up"]
+[connection signal="button_up" from="try_again" to="." method="_on_try_again_button_up"]
