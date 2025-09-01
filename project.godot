@@ -13,6 +13,8 @@ config_version=5
 config/name="Voidborne"
 run/main_scene="res://Levels/title.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
+boot_splash/bg_color=Color(0, 0, 0, 1)
+boot_splash/image="res://Sprites/logo.png"
 config/icon="res://Sprites/icon.svg"
 
 [autoload]
