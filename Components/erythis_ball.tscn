@@ -63,7 +63,7 @@ autostart = true
 [node name="More-bass-ambience" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(0, 4)
 stream = ExtResource("3_cyv54")
-volume_db = -4.927
+volume_db = -0.548
 autoplay = true
 attenuation = 5.65685
 

@@ -183,6 +183,7 @@ func _physics_process(delta):
 		SPEED = 400
 		add_voidwell(-4)
 		await get_tree().create_timer(1).timeout
+		$heal.play()
 		SPEED = 1200
 		can_heal = true
 		health += 1

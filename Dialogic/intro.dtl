@@ -1,20 +1,20 @@
 do global.disable_input()
-Welcome, voidborn.
-nym: My name is Nym, I am but a mere resident of this land
-nym: What do you call yourself?
+???: [speed=7]Welcome, voidborn.
+nym: [speed=7]My name is Nym, I am but a mere resident of this land
+nym: [speed=7]What do you call yourself?
 [text_input text="What do you call yourself?" var="name" placeholder="voidborn" default="voidborn" allow_empty="true"]
-nym: Hello, {name}
-nym: Your appearance means something.
-nym: It means the world is cracking again.
-nym: Our land, Halcrya, dreams of something new . . .
-nym: Yet continues to follow the same routines, the same schedules.
-nym: Ignoring, being controlled.
-nym: Too afraid to speak out.
-nym: You are not bound like they are.
-nym: That frightens [speed=20]it.
+nym: [speed=7]Hello, {name}
+nym: [speed=7]Your appearance means something.
+nym: [speed=7]It means the world is cracking again.
+nym: [speed=7]Our land, Halcrya, dreams of something new . . .
+nym: [speed=7]Yet continues to follow the same routines, the same schedules.
+nym: [speed=7]Ignoring, being controlled.
+nym: [speed=7]Too afraid to speak out.
+nym: [speed=7]You are not bound like they are.
+nym: [speed=7]That frightens [speed=20]it.
 . . .
-nym: Seek freedom.
-nym: Seek liberation.
-nym: Free us from this endless chokehold.
+nym: [speed=7]Seek freedom.
+nym: [speed=7]Seek liberation.
+nym: [speed=7]Free us from this endless chokehold.
 do global.enable_input()
 do global.add_finished_timeline("intro")

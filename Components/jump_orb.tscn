@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://5jitvoyd6xcc"]
+[gd_scene load_steps=10 format=3 uid="uid://5jitvoyd6xcc"]
 
 [ext_resource type="Texture2D" uid="uid://dcxjqvugj4uo7" path="res://Sprites/jump_orb.png" id="1_vufqm"]
 [ext_resource type="Script" path="res://scripts/jump_orb.gd" id="2_pmu7g"]
+[ext_resource type="AudioStream" uid="uid://drfntggdmurk1" path="res://Audio/SFX/dash.mp3" id="3_fojjq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xiyp6"]
 radius = 61.4003
@@ -56,5 +57,13 @@ scale = Vector2(12.25, 12.25)
 sprite_frames = SubResource("SpriteFrames_ismb3")
 autoplay = "default"
 frame_progress = 0.0989053
+
+[node name="dashsfx" type="AudioStreamPlayer2D" parent="area"]
+position = Vector2(28, 69)
+stream = ExtResource("3_fojjq")
+volume_db = -10.946
+pitch_scale = 1.06
+attenuation = 2.15792e-05
+panning_strength = 0.0
 
 [connection signal="body_entered" from="area" to="area" method="_on_body_entered"]

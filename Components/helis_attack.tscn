@@ -1,7 +1,8 @@
-[gd_scene load_steps=28 format=3 uid="uid://cxf0ut4li61kh"]
+[gd_scene load_steps=29 format=3 uid="uid://cxf0ut4li61kh"]
 
 [ext_resource type="Script" path="res://scripts/helis_attack.gd" id="1_152i2"]
 [ext_resource type="Texture2D" uid="uid://bgg0x00rb5813" path="res://Sprites/helis_attack.png" id="1_ethj5"]
+[ext_resource type="AudioStream" uid="uid://b4tcelxj1jg5x" path="res://Audio/SFX/BOOM.mp3" id="3_077mt"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ff4me"]
 atlas = ExtResource("1_ethj5")
@@ -192,3 +193,10 @@ rotation = -3.2279
 [node name="collision" type="CollisionShape2D" parent="area"]
 position = Vector2(2418.84, -2.99998)
 shape = SubResource("RectangleShape2D_bq6st")
+
+[node name="Boom" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(-8, 3)
+stream = ExtResource("3_077mt")
+volume_db = 0.548
+pitch_scale = 0.97
+max_distance = 7500.0

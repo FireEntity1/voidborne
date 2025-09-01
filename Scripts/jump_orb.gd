@@ -25,3 +25,4 @@ func _process(delta):
 func _on_body_entered(body):
 	if body.name == "player":
 		body.velocity.y = -3000
+		$dashsfx.play()

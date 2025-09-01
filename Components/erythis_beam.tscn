@@ -199,5 +199,5 @@ shape = SubResource("RectangleShape2D_bq6st")
 [node name="Boom" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(-8, 3)
 stream = ExtResource("3_o68ot")
-volume_db = -6.568
+volume_db = -0.547
 pitch_scale = 0.97

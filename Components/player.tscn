@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://das5p0rexu6p8"]
+[gd_scene load_steps=39 format=3 uid="uid://das5p0rexu6p8"]
 
 [ext_resource type="Texture2D" uid="uid://5gfo1dfua82j" path="res://Sprites/player_idle.png" id="1_ec02m"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_v43g5"]
@@ -17,6 +17,7 @@
 [ext_resource type="AudioStream" uid="uid://cskd0otmfclyg" path="res://Audio/SFX/standard-land.mp3" id="14_yuvtd"]
 [ext_resource type="AudioStream" uid="uid://dcle633iyo8s5" path="res://Audio/SFX/hit.mp3" id="15_dm3sk"]
 [ext_resource type="AudioStream" uid="uid://bgjibkodd2eev" path="res://Audio/SFX/riser_short.mp3" id="17_30m2y"]
+[ext_resource type="AudioStream" uid="uid://psh44p86f4lf" path="res://Audio/SFX/heavy_woosh.mp3" id="17_i5k10"]
 [ext_resource type="AudioStream" uid="uid://drfntggdmurk1" path="res://Audio/SFX/dash.mp3" id="17_is54o"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kybed"]
@@ -352,5 +353,12 @@ volume_db = -10.946
 pitch_scale = 1.06
 attenuation = 2.15792e-05
 panning_strength = 0.0
+
+[node name="heal" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(-29, -13)
+stream = ExtResource("17_i5k10")
+volume_db = -11.495
+pitch_scale = 4.28
+attenuation = 0.000280444
 
 [connection signal="timeout" from="dash" to="." method="_on_dash_timeout"]
