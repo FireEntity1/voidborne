@@ -4,7 +4,6 @@
 
 [node name="title" type="Node2D"]
 script = ExtResource("1_4c5xd")
-title = "Title"
 
 [node name="layer" type="CanvasLayer" parent="."]
 layer = 3

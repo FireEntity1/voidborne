@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://drgenrw0ljy78"]
 
-[ext_resource type="Script" path="res://scripts/title_screen.gd" id="1_ol44d"]
+[ext_resource type="Script" path="res://Scripts/title_screen.gd" id="1_ol44d"]
 [ext_resource type="Shader" path="res://Shaders/balala.gdshader" id="2_33j43"]
 [ext_resource type="AudioStream" uid="uid://dba35rg4d6v5u" path="res://Audio/Ambient/more-bass-ambience.mp3" id="3_7lijo"]
 [ext_resource type="AudioStream" uid="uid://cj6wi0qvrcuvj" path="res://Audio/SFX/start.mp3" id="4_147s0"]

@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://jhdikysyh10u"]
+[gd_scene load_steps=8 format=3 uid="uid://jhdikysyh10u"]
 
 [ext_resource type="Shader" path="res://Shaders/tunnel.gdshader" id="1_u6xfj"]
 [ext_resource type="Script" path="res://Scripts/prelude.gd" id="1_vablh"]
 [ext_resource type="Shader" path="res://Shaders/pixel.gdshader" id="2_mhcqe"]
+[ext_resource type="Resource" path="res://Dialogic/prelude.dtl" id="2_w8y5a"]
 [ext_resource type="AudioStream" uid="uid://bnqonfxbc0ino" path="res://Audio/Ambient/bass-pulse.mp3" id="5_frvb1"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wcmbm"]
@@ -24,6 +25,7 @@ shader_parameter/screen_size = Vector2(1920, 1080)
 
 [node name="Prelude" type="Node2D"]
 script = ExtResource("1_vablh")
+timeline = ExtResource("2_w8y5a")
 
 [node name="shader" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_wcmbm")

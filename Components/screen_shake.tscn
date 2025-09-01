@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://dtuw5jcw40cl4"]
 
-[ext_resource type="Script" path="res://scripts/screen_shake.gd" id="1_202rg"]
+[ext_resource type="Script" path="res://Scripts/screen_shake.gd" id="1_202rg"]
 [ext_resource type="Shader" path="res://Shaders/screen_shake.gdshader" id="2_wfhf3"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vvgsf"]

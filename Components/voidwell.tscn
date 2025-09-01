@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://drqbowe6cwh14"]
 
-[ext_resource type="Script" path="res://scripts/voidwell.gd" id="1_cdrt4"]
+[ext_resource type="Script" path="res://Scripts/voidwell.gd" id="1_cdrt4"]
 [ext_resource type="Texture2D" uid="uid://lja3f7gt7pmy" path="res://Sprites/void-well.png" id="1_hyf8e"]
 [ext_resource type="Resource" path="res://Dialogic/voidwell.dtl" id="2_3c4lw"]
 

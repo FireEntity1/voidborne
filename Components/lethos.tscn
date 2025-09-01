@@ -1,6 +1,6 @@
 [gd_scene load_steps=23 format=3 uid="uid://opypnmqci606"]
 
-[ext_resource type="Script" path="res://scripts/lethos.gd" id="1_iu5mv"]
+[ext_resource type="Script" path="res://Scripts/lethos.gd" id="1_iu5mv"]
 [ext_resource type="Texture2D" uid="uid://bfut58ap0176i" path="res://Sprites/lethos.png" id="1_qjuue"]
 [ext_resource type="Resource" path="res://Dialogic/lethos_start.dtl" id="2_k4hmp"]
 [ext_resource type="Resource" path="res://Dialogic/lethos_end.dtl" id="3_f1toq"]

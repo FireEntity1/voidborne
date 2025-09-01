@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://bttb0eqgcy6if"]
 
-[ext_resource type="Script" path="res://scripts/portal.gd" id="1_dbi7g"]
+[ext_resource type="Script" path="res://Scripts/portal.gd" id="1_dbi7g"]
 [ext_resource type="Texture2D" uid="uid://b8cslk7are8cu" path="res://Sprites/portal.png" id="2_83d41"]
 [ext_resource type="AudioStream" uid="uid://bf1aajc1yv6pm" path="res://Audio/SFX/portal.mp3" id="3_py7js"]
 

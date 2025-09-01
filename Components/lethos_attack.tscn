@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://bn43uev7b6lni"]
 
 [ext_resource type="Texture2D" uid="uid://duwrs2bi3iqrg" path="res://Sprites/lethos_attack.png" id="1_3dvca"]
-[ext_resource type="Script" path="res://scripts/lethos_attack.gd" id="1_646t7"]
+[ext_resource type="Script" path="res://Scripts/lethos_attack.gd" id="1_646t7"]
 [ext_resource type="AudioStream" uid="uid://dba35rg4d6v5u" path="res://Audio/Ambient/more-bass-ambience.mp3" id="3_ilmkw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2814l"]

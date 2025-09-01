@@ -1,6 +1,6 @@
 [gd_scene load_steps=16 format=3 uid="uid://bvq7w2xi60kky"]
 
-[ext_resource type="Script" path="res://scripts/enemy.gd" id="1_4v1j0"]
+[ext_resource type="Script" path="res://Scripts/enemy.gd" id="1_4v1j0"]
 [ext_resource type="Texture2D" uid="uid://bergvp021rh1i" path="res://Sprites/lightsplitter.png" id="2_s1kxn"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mrict"]

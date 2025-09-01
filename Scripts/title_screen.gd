@@ -18,7 +18,6 @@ func _on_start_button_up():
 		"crown":
 			tree.change_scene_to_file("res://Levels/crown.tscn")
 
-
 func _on_try_again_button_up():
 	$startsfx.play()
 	global.enable_input()

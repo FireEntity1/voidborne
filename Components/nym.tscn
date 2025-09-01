@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://c1sp0wr04iedu"]
 
 [ext_resource type="Texture2D" uid="uid://bibx6d1r4l7u0" path="res://Sprites/nym.png" id="1_acuvm"]
-[ext_resource type="Script" path="res://scripts/npc.gd" id="1_p4iwe"]
+[ext_resource type="Script" path="res://Scripts/npc.gd" id="1_p4iwe"]
 [ext_resource type="Resource" path="res://Dialogic/intro.dtl" id="2_eacf2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hy1qd"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://xpuulebmleiu"]
 
-[ext_resource type="Script" path="res://scripts/enemy.gd" id="1_4j3x7"]
+[ext_resource type="Script" path="res://Scripts/enemy.gd" id="1_4j3x7"]
 [ext_resource type="Texture2D" uid="uid://bg8ynye8k1ha3" path="res://Sprites/purgelet.png" id="2_6tds0"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mrict"]

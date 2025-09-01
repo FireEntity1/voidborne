@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bj0of17d1shrl"]
 
 [ext_resource type="Shader" path="res://Shaders/vingette.gdshader" id="1_0a33v"]
-[ext_resource type="Script" path="res://scripts/vingette.gd" id="1_wx1c8"]
+[ext_resource type="Script" path="res://Scripts/vingette.gd" id="1_wx1c8"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fchrb"]
 shader = ExtResource("1_0a33v")

@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://d1h5vnwj7rrqo"]
 
-[ext_resource type="Script" path="res://scripts/npc.gd" id="1_tdl3j"]
+[ext_resource type="Script" path="res://Scripts/npc.gd" id="1_tdl3j"]
 [ext_resource type="Resource" path="res://Dialogic/vexin_interaction.dtl" id="2_j8nt6"]
 [ext_resource type="Texture2D" uid="uid://b6lsvs6siofck" path="res://Sprites/ferrin.png" id="3_mhqqn"]
 

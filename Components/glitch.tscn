@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://b2a6kcue2ay7h"]
 
-[ext_resource type="Script" path="res://scripts/glitch.gd" id="1_j00dg"]
+[ext_resource type="Script" path="res://Scripts/glitch.gd" id="1_j00dg"]
 [ext_resource type="Shader" path="res://Shaders/glitch.gdshader" id="1_mptg4"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hjgta"]

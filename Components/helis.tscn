@@ -1,6 +1,6 @@
 [gd_scene load_steps=16 format=3 uid="uid://cw28m6j76d1x6"]
 
-[ext_resource type="Script" path="res://scripts/helis.gd" id="1_y5c6d"]
+[ext_resource type="Script" path="res://Scripts/helis.gd" id="1_y5c6d"]
 [ext_resource type="AudioStream" uid="uid://bg4xcx22xxag5" path="res://Audio/Ambient/helis.mp3" id="4_d6hyw"]
 [ext_resource type="Shader" path="res://Shaders/melt.gdshader" id="4_x3xms"]
 [ext_resource type="AudioStream" uid="uid://cc1v6g5ckl7j" path="res://Audio/Ambient/something_looms.mp3" id="5_n5h2c"]

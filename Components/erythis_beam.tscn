@@ -1,6 +1,6 @@
 [gd_scene load_steps=29 format=3 uid="uid://cxbcho852q5si"]
 
-[ext_resource type="Script" path="res://scripts/helis_attack.gd" id="1_hrs1k"]
+[ext_resource type="Script" path="res://Scripts/helis_attack.gd" id="1_hrs1k"]
 [ext_resource type="Texture2D" uid="uid://bgg0x00rb5813" path="res://Sprites/helis_attack.png" id="2_kci8j"]
 [ext_resource type="AudioStream" uid="uid://b4tcelxj1jg5x" path="res://Audio/SFX/BOOM.mp3" id="3_o68ot"]
 

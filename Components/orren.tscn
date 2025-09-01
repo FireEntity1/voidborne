@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://blnb40ydbyyc"]
 
 [ext_resource type="Texture2D" uid="uid://dwqpp3vfnnr48" path="res://Sprites/orren.png" id="1_65x4e"]
-[ext_resource type="Script" path="res://scripts/npc.gd" id="1_jdh7v"]
+[ext_resource type="Script" path="res://Scripts/npc.gd" id="1_jdh7v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g3bcq"]
 size = Vector2(309, 498)

@@ -1,6 +1,6 @@
 [gd_scene load_steps=17 format=3 uid="uid://kl8sy5tjjmnb"]
 
-[ext_resource type="Script" path="res://scripts/enemy.gd" id="1_3ira2"]
+[ext_resource type="Script" path="res://Scripts/enemy.gd" id="1_3ira2"]
 [ext_resource type="Texture2D" uid="uid://dqn4di4rcgyed" path="res://Sprites/flicker.png" id="2_qlvxn"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mrict"]
