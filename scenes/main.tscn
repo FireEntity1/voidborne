@@ -1,0 +1,29 @@
+[gd_scene load_steps=2 format=3 uid="uid://uno1klrruv6"]
+
+[ext_resource type="PackedScene" uid="uid://dq7ng5vi3rwcu" path="res://components/core/player.tscn" id="1_o5qli"]
+
+[node name="main" type="Node2D"]
+
+[node name="game" type="SubViewportContainer" parent="."]
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+stretch = true
+
+[node name="viewport" type="SubViewport" parent="game"]
+handle_input_locally = false
+size = Vector2i(1920, 1080)
+render_target_update_mode = 4
+
+[node name="player" parent="game/viewport" instance=ExtResource("1_o5qli")]
+position = Vector2(963, 545)
+
+[node name="loaded_scene" type="Node2D" parent="game/viewport"]
+
+[node name="ui" type="CanvasLayer" parent="."]
