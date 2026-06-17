@@ -3,24 +3,18 @@
 [ext_resource type="PackedScene" uid="uid://dq7ng5vi3rwcu" path="res://components/core/player.tscn" id="1_o5qli"]
 [ext_resource type="PackedScene" uid="uid://dx4rxr3ahpfkh" path="res://areas/outlands.tscn" id="2_0wfyh"]
 
-[node name="main" type="Control"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="main" type="Node2D"]
 
 [node name="game" type="Node2D" parent="."]
 position = Vector2(930, 260)
-
-[node name="player" parent="game" instance=ExtResource("1_o5qli")]
-position = Vector2(34, 39)
 
 [node name="loaded_scene" type="Node2D" parent="game"]
 position = Vector2(-34, -85)
 
 [node name="outlands" parent="game/loaded_scene" instance=ExtResource("2_0wfyh")]
 position = Vector2(-593, 293)
+
+[node name="player" parent="." instance=ExtResource("1_o5qli")]
+position = Vector2(964, 299)
 
 [node name="ui" type="CanvasLayer" parent="."]
