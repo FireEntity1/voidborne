@@ -71,15 +71,18 @@ animations = [{
 size = Vector2(8, 18)
 
 [node name="player" type="CharacterBody2D"]
+scale = Vector2(8, 8)
 script = ExtResource("1_hpv3a")
 
 [node name="camera" type="Camera2D" parent="."]
 ignore_rotation = false
+position_smoothing_enabled = true
+rotation_smoothing_enabled = true
 
 [node name="sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_gfmea")
 autoplay = "default"
-frame_progress = 0.747656
+frame_progress = 0.414316
 
 [node name="collision" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_hpv3a")
