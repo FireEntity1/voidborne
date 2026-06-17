@@ -1,7 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://dq7ng5vi3rwcu"]
+[gd_scene load_steps=14 format=3 uid="uid://dq7ng5vi3rwcu"]
 
 [ext_resource type="Script" uid="uid://brq7vdr3t803u" path="res://scripts/core/player.gd" id="1_hpv3a"]
 [ext_resource type="Texture2D" uid="uid://c582x5ti7j4no" path="res://sprites/voidborn.png" id="2_hpv3a"]
+
+[sub_resource type="Gradient" id="Gradient_hpv3a"]
+colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 0)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xb54t"]
 atlas = ExtResource("2_hpv3a")
@@ -79,10 +82,29 @@ ignore_rotation = false
 position_smoothing_enabled = true
 rotation_smoothing_enabled = true
 
+[node name="ambient" type="CPUParticles2D" parent="."]
+position = Vector2(0.25, 2.125)
+amount = 32
+lifetime = 0.67
+randomness = 0.31
+emission_shape = 3
+emission_rect_extents = Vector2(7, 5)
+gravity = Vector2(0, 0)
+angular_velocity_min = -43.64
+angular_velocity_max = 7.27
+radial_accel_min = -4.04
+radial_accel_max = 2.02
+scale_amount_min = 4.0
+scale_amount_max = 7.0
+color = Color(0.14, 0.14, 0.14, 1)
+color_ramp = SubResource("Gradient_hpv3a")
+hue_variation_min = -1.0
+hue_variation_max = 0.82
+
 [node name="sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_gfmea")
 autoplay = "default"
-frame_progress = 0.414316
+frame_progress = 0.970861
 
 [node name="collision" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_hpv3a")
