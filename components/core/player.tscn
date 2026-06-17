@@ -1,10 +1,11 @@
-[gd_scene load_steps=28 format=3 uid="uid://dq7ng5vi3rwcu"]
+[gd_scene load_steps=37 format=3 uid="uid://dq7ng5vi3rwcu"]
 
 [ext_resource type="Script" uid="uid://brq7vdr3t803u" path="res://scripts/core/player.gd" id="1_hpv3a"]
 [ext_resource type="Texture2D" uid="uid://c582x5ti7j4no" path="res://sprites/voidborn.png" id="2_hpv3a"]
 [ext_resource type="Texture2D" uid="uid://bi4gmu2pe5bun" path="res://sprites/voidborne-fall.png" id="3_3mx24"]
 [ext_resource type="Texture2D" uid="uid://fmqqcwl7clrr" path="res://sprites/voidborn-jump.png" id="3_xb54t"]
 [ext_resource type="Texture2D" uid="uid://bpx0jrmjudect" path="res://sprites/voidborn-jump-move.png" id="5_km066"]
+[ext_resource type="Texture2D" uid="uid://b81vbncrinxqu" path="res://sprites/voidborn-move.png" id="6_lkhqe"]
 
 [sub_resource type="Gradient" id="Gradient_hpv3a"]
 colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 0)
@@ -84,6 +85,38 @@ region = Rect2(16, 0, 16, 16)
 [sub_resource type="AtlasTexture" id="AtlasTexture_4p7e8"]
 atlas = ExtResource("5_km066")
 region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e4p4d"]
+atlas = ExtResource("6_lkhqe")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_re6ja"]
+atlas = ExtResource("6_lkhqe")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pnmp6"]
+atlas = ExtResource("6_lkhqe")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a2cc2"]
+atlas = ExtResource("6_lkhqe")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j8mdf"]
+atlas = ExtResource("6_lkhqe")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fqbue"]
+atlas = ExtResource("6_lkhqe")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x3484"]
+atlas = ExtResource("6_lkhqe")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f6emy"]
+atlas = ExtResource("6_lkhqe")
+region = Rect2(112, 0, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_gfmea"]
 animations = [{
@@ -168,6 +201,35 @@ animations = [{
 "loop": true,
 "name": &"jump_move",
 "speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e4p4d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_re6ja")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pnmp6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a2cc2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j8mdf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fqbue")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x3484")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f6emy")
+}],
+"loop": true,
+"name": &"move",
+"speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hpv3a"]
@@ -203,8 +265,9 @@ hue_variation_max = 0.82
 
 [node name="sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_gfmea")
-animation = &"fall_move"
+animation = &"move"
 autoplay = "default"
+frame_progress = 0.71065
 
 [node name="collision" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_hpv3a")
