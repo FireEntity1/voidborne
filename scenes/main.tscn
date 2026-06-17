@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://uno1klrruv6"]
+[gd_scene load_steps=3 format=3 uid="uid://uno1klrruv6"]
 
 [ext_resource type="PackedScene" uid="uid://dq7ng5vi3rwcu" path="res://components/core/player.tscn" id="1_o5qli"]
+[ext_resource type="PackedScene" uid="uid://bt0oekf57igys" path="res://levels/intro.tscn" id="2_0wfyh"]
 
 [node name="main" type="Control"]
 layout_mode = 3
@@ -29,8 +30,11 @@ size = Vector2i(320, 180)
 render_target_update_mode = 4
 
 [node name="player" parent="game/viewport" instance=ExtResource("1_o5qli")]
-position = Vector2(112.833, 91.5)
+position = Vector2(37, 120)
 
 [node name="loaded_scene" type="Node2D" parent="game/viewport"]
+
+[node name="intro" parent="game/viewport/loaded_scene" instance=ExtResource("2_0wfyh")]
+position = Vector2(-87.3333, 129.167)
 
 [node name="ui" type="CanvasLayer" parent="."]

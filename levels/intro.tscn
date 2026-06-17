@@ -1,3 +1,82 @@
-[gd_scene format=3 uid="uid://bt0oekf57igys"]
+[gd_scene load_steps=4 format=3 uid="uid://bt0oekf57igys"]
+
+[ext_resource type="Texture2D" uid="uid://7v7q1xr8csco" path="res://sprites/icon.svg" id="1_8o7kg"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q3mgg"]
+texture = ExtResource("1_8o7kg")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-61.3636, -60.9091, 62.2727, -61.8182, 63.1818, 64.5455, -65, 65)
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+6:5/0 = 0
+7:5/0 = 0
+0:6/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+3:6/0 = 0
+4:6/0 = 0
+5:6/0 = 0
+6:6/0 = 0
+7:6/0 = 0
+0:7/0 = 0
+1:7/0 = 0
+2:7/0 = 0
+3:7/0 = 0
+4:7/0 = 0
+5:7/0 = 0
+6:7/0 = 0
+7:7/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_7ba2f"]
+physics_layer_0/collision_layer = 1
+sources/1 = SubResource("TileSetAtlasSource_q3mgg")
 
 [node name="intro" type="Node2D"]
+
+[node name="world" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray(0, 0, 4, 0, 4, 0, 1, 0, 0, 0, 0, 0, 0, 0, 12, 0, 4, 0, 1, 0, 0, 0, 0, 0, 0, 0, 20, 0, 4, 0, 1, 0, 0, 0, 0, 0, 0, 0, 28, 0, 4, 0, 1, 0, 0, 0, 0, 0, 0, 0, 36, 0, 4, 0, 1, 0, 0, 0, 0, 0, 0, 0)
+tile_set = SubResource("TileSet_7ba2f")
