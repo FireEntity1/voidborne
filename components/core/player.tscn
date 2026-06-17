@@ -9,6 +9,9 @@
 [ext_resource type="Texture2D" uid="uid://b81vbncrinxqu" path="res://sprites/voidborn-move.png" id="6_lkhqe"]
 [ext_resource type="PackedScene" uid="uid://ci8p4a1304id" path="res://components/decoration/lightpost.tscn" id="8_5a7ls"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hpv3a"]
+size = Vector2(8, 17.25)
+
 [sub_resource type="Gradient" id="Gradient_hpv3a"]
 colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 0)
 
@@ -234,18 +237,20 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_hpv3a"]
-size = Vector2(8, 18)
-
 [node name="player" type="CharacterBody2D"]
 scale = Vector2(8, 8)
 script = ExtResource("1_hpv3a")
 
 [node name="White" type="Sprite2D" parent="."]
+visible = false
 modulate = Color(0, 0, 0, 0.329412)
 position = Vector2(0.0624989, -2.375)
 scale = Vector2(0.0130191, 0.019567)
 texture = ExtResource("2_ovj3t")
+
+[node name="collision" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.375)
+shape = SubResource("RectangleShape2D_hpv3a")
 
 [node name="camera" type="Camera2D" parent="."]
 ignore_rotation = false
@@ -272,13 +277,11 @@ hue_variation_min = -1.0
 hue_variation_max = 0.82
 
 [node name="sprite" type="AnimatedSprite2D" parent="."]
+modulate = Color(1.4, 1.4, 1.4, 1)
 sprite_frames = SubResource("SpriteFrames_gfmea")
 animation = &"move"
 autoplay = "default"
 frame_progress = 0.792943
-
-[node name="collision" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_hpv3a")
 
 [node name="lightpost" parent="." instance=ExtResource("8_5a7ls")]
 position = Vector2(1519, -192)
