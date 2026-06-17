@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://uno1klrruv6"]
 
 [ext_resource type="PackedScene" uid="uid://dq7ng5vi3rwcu" path="res://components/core/player.tscn" id="1_o5qli"]
-[ext_resource type="PackedScene" uid="uid://bt0oekf57igys" path="res://levels/intro.tscn" id="2_0wfyh"]
+[ext_resource type="PackedScene" uid="uid://dx4rxr3ahpfkh" path="res://areas/outlands.tscn" id="2_0wfyh"]
 
 [node name="main" type="Control"]
 layout_mode = 3
@@ -20,7 +20,7 @@ position = Vector2(34, 39)
 [node name="loaded_scene" type="Node2D" parent="game"]
 position = Vector2(-34, -85)
 
-[node name="intro" parent="game/loaded_scene" instance=ExtResource("2_0wfyh")]
-position = Vector2(-258, 193)
+[node name="outlands" parent="game/loaded_scene" instance=ExtResource("2_0wfyh")]
+position = Vector2(-593, 293)
 
 [node name="ui" type="CanvasLayer" parent="."]

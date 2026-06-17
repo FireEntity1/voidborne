@@ -267,7 +267,7 @@ hue_variation_max = 0.82
 sprite_frames = SubResource("SpriteFrames_gfmea")
 animation = &"move"
 autoplay = "default"
-frame_progress = 0.71065
+frame_progress = 0.852411
 
 [node name="collision" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_hpv3a")
