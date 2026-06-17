@@ -21,16 +21,31 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_released("jump") and velocity.y < 0:
 		velocity.y = 5
 		jumped = JUMP_VELOCITY
-
+	
 	var direction := Input.get_axis("left", "right")
 	if direction:
 		velocity.x = direction * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
+	
 	if Input.is_action_just_pressed("left"):
 		$sprite.scale.x = 1
 	elif Input.is_action_just_pressed("right"):
 		$sprite.scale.x = -1
+	
+	if not is_on_floor():
+		if velocity.y < 100.0:
+			if direction:
+				$sprite.play("jump_move")
+			else:
+				$sprite.play("jump")
+		elif velocity.y > 100.0:
+			if direction:
+				$sprite.play("fall_move")
+			else:
+				$sprite.play("fall")
+	else:
+		$sprite.play("default")
 	
 	#camera_smooth(delta)
 	move_and_slide()

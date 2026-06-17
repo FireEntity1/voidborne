@@ -15,12 +15,12 @@ grow_vertical = 2
 position = Vector2(930, 260)
 
 [node name="player" parent="game" instance=ExtResource("1_o5qli")]
-position = Vector2(3, 35)
+position = Vector2(34, 39)
 
 [node name="loaded_scene" type="Node2D" parent="game"]
 position = Vector2(-34, -85)
 
 [node name="intro" parent="game/loaded_scene" instance=ExtResource("2_0wfyh")]
-position = Vector2(-87.3333, 129.167)
+position = Vector2(-258, 193)
 
 [node name="ui" type="CanvasLayer" parent="."]
