@@ -5,6 +5,10 @@ const JUMP_VELOCITY = 1000.0
 
 var jumped = JUMP_VELOCITY
 
+var can_attack = true
+
+var attack_cooldown = 0.4
+
 func _ready() -> void:
 	pass
 
@@ -29,8 +33,12 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 	
-	if Input.is_action_just_pressed("attack"):
+	if Input.is_action_just_pressed("attack") and can_attack:
 		$sprite/slash.play()
+		can_attack = false
+		await get_tree().create_timer(attack_cooldown).timeout
+		can_attack = true
+	
 	if not $sprite/slash.is_playing():
 		if Input.is_action_pressed("left"):
 			$sprite.scale.x = 1

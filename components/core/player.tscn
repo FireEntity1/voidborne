@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://dq7ng5vi3rwcu"]
+[gd_scene load_steps=50 format=3 uid="uid://dq7ng5vi3rwcu"]
 
 [ext_resource type="Script" uid="uid://brq7vdr3t803u" path="res://scripts/core/player.gd" id="1_hpv3a"]
 [ext_resource type="Texture2D" uid="uid://c582x5ti7j4no" path="res://sprites/voidborn.png" id="2_hpv3a"]
@@ -302,6 +302,10 @@ animations = [{
 "speed": 30.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5a7ls"]
+radius = 7.95282
+height = 15.9056
+
 [node name="player" type="CharacterBody2D"]
 scale = Vector2(8, 8)
 script = ExtResource("1_hpv3a")
@@ -355,6 +359,12 @@ scale = Vector2(-1.2, 1)
 sprite_frames = SubResource("SpriteFrames_ovj3t")
 frame = 7
 frame_progress = 1.0
+
+[node name="area" type="Area2D" parent="sprite/slash"]
+scale = Vector2(1, 1)
+
+[node name="collision" type="CollisionShape2D" parent="sprite/slash/area"]
+shape = SubResource("CapsuleShape2D_5a7ls")
 
 [node name="lightpost" parent="." instance=ExtResource("8_5a7ls")]
 position = Vector2(1519, -192)
