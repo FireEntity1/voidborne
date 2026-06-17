@@ -29,10 +29,13 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 	
-	if Input.is_action_just_pressed("left"):
-		$sprite.scale.x = 1
-	elif Input.is_action_just_pressed("right"):
-		$sprite.scale.x = -1
+	if Input.is_action_just_pressed("attack"):
+		$sprite/slash.play()
+	if not $sprite/slash.is_playing():
+		if Input.is_action_pressed("left"):
+			$sprite.scale.x = 1
+		elif Input.is_action_pressed("right"):
+			$sprite.scale.x = -1
 	
 	if not is_on_floor():
 		if velocity.y < 100.0:
@@ -47,7 +50,6 @@ func _physics_process(delta: float) -> void:
 				$sprite.play("fall")
 	elif not direction:
 		$sprite.play("default")
-	
 	#camera_smooth(delta)
 	move_and_slide()
 	#position = position.round()
