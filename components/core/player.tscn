@@ -353,14 +353,16 @@ autoplay = "default"
 frame_progress = 0.792943
 
 [node name="slash" type="AnimatedSprite2D" parent="sprite"]
-position = Vector2(-6.875, 0.875)
-rotation = 0.497944
+position = Vector2(-0.012938, -0.212394)
+rotation = 0.523599
 scale = Vector2(-1.2, 1)
 sprite_frames = SubResource("SpriteFrames_ovj3t")
 frame = 7
 frame_progress = 1.0
+offset = Vector2(4.59118, 4.23281)
 
 [node name="area" type="Area2D" parent="sprite/slash"]
+position = Vector2(3.65021, 2.90757)
 scale = Vector2(1, 1)
 
 [node name="collision" type="CollisionShape2D" parent="sprite/slash/area"]

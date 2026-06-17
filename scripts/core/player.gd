@@ -34,6 +34,12 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 	
 	if Input.is_action_just_pressed("attack") and can_attack:
+		if Input.is_action_pressed("up"):
+			$sprite/slash.rotation_degrees = 120
+		elif Input.is_action_pressed("down") and not is_on_floor():
+			$sprite/slash.rotation_degrees = -60
+		else:
+			$sprite/slash.rotation_degrees = 30
 		$sprite/slash.play()
 		can_attack = false
 		await get_tree().create_timer(attack_cooldown).timeout
