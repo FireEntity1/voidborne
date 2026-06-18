@@ -1,0 +1,114 @@
+[gd_scene load_steps=17 format=3 uid="uid://bpyd565dr731o"]
+
+[ext_resource type="Script" uid="uid://yya8xmoadvrd" path="res://scripts/enemy/basic_ground.gd" id="1_0q4nn"]
+[ext_resource type="Texture2D" uid="uid://b3qbrxt1yihal" path="res://sprites/void_wisp.png" id="2_jbaus"]
+[ext_resource type="Shader" uid="uid://b0edm3wthahe0" path="res://resources/shaders/trail.gdshader" id="2_kw6kx"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_aaqo0"]
+shader = ExtResource("2_kw6kx")
+shader_parameter/length = 4.0
+shader_parameter/velocity = Vector2(1, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kw6kx"]
+atlas = ExtResource("2_jbaus")
+region = Rect2(0, 0, 24, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aaqo0"]
+atlas = ExtResource("2_jbaus")
+region = Rect2(24, 0, 24, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d4ec1"]
+atlas = ExtResource("2_jbaus")
+region = Rect2(48, 0, 24, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yejpo"]
+atlas = ExtResource("2_jbaus")
+region = Rect2(72, 0, 24, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h1fsy"]
+atlas = ExtResource("2_jbaus")
+region = Rect2(96, 0, 24, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fwonu"]
+atlas = ExtResource("2_jbaus")
+region = Rect2(120, 0, 24, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_orfk1"]
+atlas = ExtResource("2_jbaus")
+region = Rect2(144, 0, 24, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vlb3y"]
+atlas = ExtResource("2_jbaus")
+region = Rect2(168, 0, 24, 20)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0q4nn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kw6kx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aaqo0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d4ec1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yejpo")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h1fsy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fwonu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_orfk1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vlb3y")
+}],
+"loop": true,
+"name": &"move",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jbaus"]
+radius = 6.0208
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kw6kx"]
+size = Vector2(0.5, 15.875)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jbaus"]
+size = Vector2(228.75, 33.875)
+
+[node name="void_wisp" type="CharacterBody2D"]
+scale = Vector2(8, 8)
+script = ExtResource("1_0q4nn")
+
+[node name="sprite" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_aaqo0")
+position = Vector2(0.25, 0)
+sprite_frames = SubResource("SpriteFrames_0q4nn")
+animation = &"move"
+autoplay = "idle"
+
+[node name="collision" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_jbaus")
+
+[node name="legs" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2.0625)
+shape = SubResource("RectangleShape2D_kw6kx")
+
+[node name="detection" type="Area2D" parent="."]
+
+[node name="collision" type="CollisionShape2D" parent="detection"]
+position = Vector2(0, -6.4375)
+shape = SubResource("RectangleShape2D_jbaus")
+
+[connection signal="body_entered" from="detection" to="." method="_on_detection_body_entered"]
