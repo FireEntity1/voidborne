@@ -29,7 +29,8 @@ func _physics_process(delta: float) -> void:
 	var direction := Input.get_axis("left", "right")
 	if direction:
 		velocity.x = direction * SPEED
-		$sprite.play("move")
+		if is_on_floor():
+			$sprite.play("move")
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 	
