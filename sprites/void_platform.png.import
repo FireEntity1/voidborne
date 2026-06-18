@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dvajdhxvj0u8y"
-path="res://.godot/imported/lightpost.png-b74382c37b2ecff7e68669a2937c8da1.ctex"
+uid="uid://cbu0evfs7aeex"
+path="res://.godot/imported/void_platform.png-e1afe413972508e28b323af62c26bda7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/lightpost.png"
-dest_files=["res://.godot/imported/lightpost.png-b74382c37b2ecff7e68669a2937c8da1.ctex"]
+source_file="res://sprites/void_platform.png"
+dest_files=["res://.godot/imported/void_platform.png-e1afe413972508e28b323af62c26bda7.ctex"]
 
 [params]
 
@@ -25,7 +25,7 @@ mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
-process/fix_alpha_border=false
+process/fix_alpha_border=true
 process/premult_alpha=false
 process/normal_map_invert_y=false
 process/hdr_as_srgb=false

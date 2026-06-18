@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://ci8p4a1304id"]
+[gd_scene load_steps=13 format=3 uid="uid://ci8p4a1304id"]
 
 [ext_resource type="Texture2D" uid="uid://dvajdhxvj0u8y" path="res://sprites/lightpost.png" id="1_6efcu"]
 [ext_resource type="Script" uid="uid://bdbvdcj5j8o3w" path="res://scripts/decoration/lightpost.gd" id="2_jkaec"]
@@ -39,14 +39,6 @@ region = Rect2(112, 0, 16, 48)
 atlas = ExtResource("1_6efcu")
 region = Rect2(128, 0, 16, 48)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_vm157"]
-atlas = ExtResource("1_6efcu")
-region = Rect2(160, 0, 16, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_qqx5h"]
-atlas = ExtResource("1_6efcu")
-region = Rect2(176, 0, 16, 48)
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_hmfpb"]
 animations = [{
 "frames": [{
@@ -76,16 +68,10 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_yngyh")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_vm157")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_qqx5h")
 }],
 "loop": true,
 "name": &"default",
-"speed": 2.0
+"speed": 5.0
 }]
 
 [node name="lightpost" type="AnimatedSprite2D"]

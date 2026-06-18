@@ -178,7 +178,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"fall_move",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -303,7 +303,7 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5a7ls"]
-radius = 7.95282
+radius = 7.9528
 height = 15.9056
 
 [node name="player" type="CharacterBody2D"]
@@ -322,6 +322,7 @@ position = Vector2(0, 0.375)
 shape = SubResource("RectangleShape2D_hpv3a")
 
 [node name="camera" type="Camera2D" parent="."]
+position = Vector2(0, -8.125)
 ignore_rotation = false
 position_smoothing_enabled = true
 rotation_smoothing_enabled = true
@@ -348,9 +349,9 @@ hue_variation_max = 0.82
 [node name="sprite" type="AnimatedSprite2D" parent="."]
 modulate = Color(1.4, 1.4, 1.4, 1)
 sprite_frames = SubResource("SpriteFrames_gfmea")
-animation = &"move"
+animation = &"fall_move"
 autoplay = "default"
-frame_progress = 0.792943
+frame_progress = 0.0810952
 
 [node name="slash" type="AnimatedSprite2D" parent="sprite"]
 position = Vector2(-0.012938, -0.212394)
@@ -363,7 +364,6 @@ offset = Vector2(4.59118, 4.23281)
 
 [node name="area" type="Area2D" parent="sprite/slash"]
 position = Vector2(3.65021, 2.90757)
-scale = Vector2(1, 1)
 
 [node name="collision" type="CollisionShape2D" parent="sprite/slash/area"]
 shape = SubResource("CapsuleShape2D_5a7ls")

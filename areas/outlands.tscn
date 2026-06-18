@@ -1,9 +1,10 @@
-[gd_scene load_steps=17 format=4 uid="uid://dx4rxr3ahpfkh"]
+[gd_scene load_steps=22 format=4 uid="uid://dx4rxr3ahpfkh"]
 
 [ext_resource type="Shader" uid="uid://bbsxfqbwg6r80" path="res://resources/shaders/sky.gdshader" id="1_gd34r"]
 [ext_resource type="Texture2D" uid="uid://bk7s8n45qeelk" path="res://sprites/cracked_concrete.png" id="1_lu7pw"]
 [ext_resource type="Texture2D" uid="uid://cl5v8q7pkhafd" path="res://sprites/building.png" id="2_exe43"]
 [ext_resource type="PackedScene" uid="uid://ci8p4a1304id" path="res://components/decoration/lightpost.tscn" id="3_aal6u"]
+[ext_resource type="Shader" uid="uid://vju4x68rih5k" path="res://resources/shaders/fog_spots.gdshader" id="5_i1kom"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_i1kom"]
 
@@ -33,6 +34,53 @@ shader_parameter/scroll_speed2 = Vector2(-0.015, -0.004)
 shader_parameter/center_pos = Vector2(0, 0)
 shader_parameter/position_impact = 0.75
 shader_parameter/color_gardient = SubResource("GradientTexture1D_sefu1")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_exe43"]
+texture = ExtResource("2_exe43")
+texture_region_size = Vector2i(16, 20)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+0:6/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+3:6/0 = 0
+4:6/0 = 0
+0:7/0 = 0
+1:7/0 = 0
+2:7/0 = 0
+3:7/0 = 0
+4:7/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_gd34r"]
+sources/0 = SubResource("TileSetAtlasSource_exe43")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lu7pw"]
 texture = ExtResource("1_lu7pw")
@@ -96,65 +144,47 @@ physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_lu7pw")
 sources/2 = SubResource("TileSetAtlasSource_aal6u")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_exe43"]
-texture = ExtResource("2_exe43")
-texture_region_size = Vector2i(16, 20)
-0:0/0 = 0
-1:0/0 = 0
-2:0/0 = 0
-3:0/0 = 0
-4:0/0 = 0
-0:1/0 = 0
-1:1/0 = 0
-2:1/0 = 0
-3:1/0 = 0
-4:1/0 = 0
-0:2/0 = 0
-1:2/0 = 0
-2:2/0 = 0
-3:2/0 = 0
-4:2/0 = 0
-0:3/0 = 0
-1:3/0 = 0
-2:3/0 = 0
-3:3/0 = 0
-4:3/0 = 0
-0:4/0 = 0
-1:4/0 = 0
-2:4/0 = 0
-3:4/0 = 0
-4:4/0 = 0
-0:5/0 = 0
-1:5/0 = 0
-2:5/0 = 0
-3:5/0 = 0
-4:5/0 = 0
-0:6/0 = 0
-1:6/0 = 0
-2:6/0 = 0
-3:6/0 = 0
-4:6/0 = 0
-0:7/0 = 0
-1:7/0 = 0
-2:7/0 = 0
-3:7/0 = 0
-4:7/0 = 0
+[sub_resource type="Gradient" id="Gradient_b5whv"]
+offsets = PackedFloat32Array(0, 0.717213)
 
-[sub_resource type="TileSet" id="TileSet_gd34r"]
-sources/0 = SubResource("TileSetAtlasSource_exe43")
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_vwex7"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_vdein"]
+width = 2048
+height = 1024
+seamless = true
+color_ramp = SubResource("Gradient_b5whv")
+noise = SubResource("FastNoiseLite_vwex7")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_e5fia"]
+shader = ExtResource("5_i1kom")
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_vdein")
+shader_parameter/density = 0.012
+shader_parameter/speed = Vector2(3, 0)
 
 [node name="outlands" type="Node2D"]
 
-[node name="parallax" type="Parallax2D" parent="."]
+[node name="sky" type="Parallax2D" parent="."]
 scroll_scale = Vector2(0.7, 0.1)
 scroll_offset = Vector2(-103, 384)
 
-[node name="sky" type="ColorRect" parent="parallax"]
+[node name="sky" type="ColorRect" parent="sky"]
 material = SubResource("ShaderMaterial_yjpmo")
 offset_left = -229.0
 offset_top = -1845.0
 offset_right = 6286.0
 offset_bottom = 82.0
+
+[node name="bg_buildings_2" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.8, 1)
+scroll_offset = Vector2(52, 24)
+
+[node name="bg_buildings" type="TileMapLayer" parent="bg_buildings_2"]
+modulate = Color(0.7, 0.7, 0.7, 1)
+position = Vector2(382, -16)
+scale = Vector2(4, 4)
+tile_map_data = PackedByteArray("AAD///n/AAAAAAAAAAD///r/AAAAAAEAAAD///v/AAAAAAIAAAD///z/AAAAAAMAAAD///3/AAAAAAQAAAD///7/AAAAAAUAAAD/////AAAAAAYAAAAAAPn/AAABAAAAAAAAAPr/AAABAAEAAAAAAPv/AAABAAIAAAAAAPz/AAABAAMAAAAAAP3/AAABAAQAAAAAAP7/AAABAAUAAAAAAP//AAABAAYAAAABAPn/AAACAAAAAAABAPr/AAACAAEAAAABAPv/AAACAAIAAAABAPz/AAACAAMAAAABAP3/AAACAAQAAAABAP7/AAACAAUAAAABAP//AAACAAYAAAACAPn/AAADAAAAAAACAPr/AAADAAEAAAACAPv/AAADAAIAAAACAPz/AAADAAMAAAACAP3/AAADAAQAAAACAP7/AAADAAUAAAACAP//AAADAAYAAAADAPn/AAAEAAAAAAADAPr/AAAEAAEAAAADAPv/AAAEAAIAAAADAPz/AAAEAAMAAAADAP3/AAAEAAQAAAADAP7/AAAEAAUAAAADAP//AAAEAAYAAAAEAPv/AAAAAAAAAAAEAPz/AAAAAAEAAAAEAP3/AAAAAAIAAAAEAP7/AAAAAAMAAAAEAP//AAAAAAQAAAAEAAAAAAAAAAUAAAAEAAEAAAAAAAYAAAAFAPv/AAABAAAAAAAFAPz/AAABAAEAAAAFAP3/AAABAAIAAAAFAP7/AAABAAMAAAAFAP//AAABAAQAAAAFAAAAAAABAAUAAAAFAAEAAAABAAYAAAAGAPv/AAACAAAAAAAGAPz/AAACAAEAAAAGAP3/AAACAAIAAAAGAP7/AAACAAMAAAAGAP//AAACAAQAAAAGAAAAAAACAAUAAAAGAAEAAAACAAYAAAAHAPv/AAADAAAAAAAHAPz/AAADAAEAAAAHAP3/AAADAAIAAAAHAP7/AAADAAMAAAAHAP//AAADAAQAAAAHAAAAAAADAAUAAAAHAAEAAAADAAYAAAAIAPv/AAAEAAAAAAAIAPz/AAAEAAEAAAAIAP3/AAAEAAIAAAAIAP7/AAAEAAMAAAAIAP//AAAEAAQAAAAIAAAAAAAEAAUAAAAIAAEAAAAEAAYAAAAJAPn/AAAAAAAAAAAJAPr/AAAAAAEAAAAJAPv/AAAAAAIAAAAJAPz/AAAAAAMAAAAJAP3/AAAAAAQAAAAJAP7/AAAAAAUAAAAJAP//AAAAAAYAAAAKAPn/AAABAAAAAAAKAPr/AAABAAEAAAAKAPv/AAABAAIAAAAKAPz/AAABAAMAAAAKAP3/AAABAAQAAAAKAP7/AAABAAUAAAAKAP//AAABAAYAAAALAPn/AAACAAAAAAALAPr/AAACAAEAAAALAPv/AAACAAIAAAALAPz/AAACAAMAAAALAP3/AAACAAQAAAALAP7/AAACAAUAAAALAP//AAACAAYAAAAMAPn/AAADAAAAAAAMAPr/AAADAAEAAAAMAPv/AAADAAIAAAAMAPz/AAADAAMAAAAMAP3/AAADAAQAAAAMAP7/AAADAAUAAAAMAP//AAADAAYAAAANAPn/AAAEAAAAAAANAPr/AAAEAAEAAAANAPv/AAAEAAIAAAANAPz/AAAEAAMAAAANAP3/AAAEAAQAAAANAP7/AAAEAAUAAAANAP//AAAEAAYAAAAPAP7/AAAAAAUAAAAPAP//AAAAAAYAAAAQAP7/AAABAAUAAAAQAP//AAABAAYAAAARAP7/AAACAAUAAAARAP//AAACAAYAAAASAP7/AAADAAUAAAASAP//AAADAAYAAAATAP7/AAAEAAUAAAATAP//AAAEAAYAAAAVAP7/AAAAAAUAAAAVAP//AAAAAAYAAAAWAP7/AAABAAUAAAAWAP//AAABAAYAAAAXAP7/AAACAAUAAAAXAP//AAACAAYAAAAYAP7/AAADAAUAAAAYAP//AAADAAYAAAAZAP7/AAAEAAUAAAAZAP//AAAEAAYAAAAcAP7/AAAAAAUAAAAcAP//AAAAAAYAAAAdAP7/AAABAAUAAAAdAP//AAABAAYAAAAeAP7/AAACAAUAAAAeAP//AAACAAYAAAAfAP7/AAADAAUAAAAfAP//AAADAAYAAAAgAP7/AAAEAAUAAAAgAP//AAAEAAYAAAAPAPv/AAAAAAAAAAAPAPz/AAAAAAEAAAAPAP3/AAAAAAIAAAAQAPv/AAABAAAAAAAQAPz/AAABAAEAAAAQAP3/AAABAAIAAAARAPv/AAACAAAAAAARAPz/AAACAAEAAAARAP3/AAACAAIAAAASAPv/AAADAAAAAAASAPz/AAADAAEAAAASAP3/AAADAAIAAAATAPv/AAAEAAAAAAATAPz/AAAEAAEAAAATAP3/AAAEAAIAAAAcAPv/AAAAAAAAAAAcAPz/AAAAAAEAAAAcAP3/AAAAAAIAAAAdAPv/AAABAAAAAAAdAPz/AAABAAEAAAAdAP3/AAABAAIAAAAeAPv/AAACAAAAAAAeAPz/AAACAAEAAAAeAP3/AAACAAIAAAAfAPv/AAADAAAAAAAfAPz/AAADAAEAAAAfAP3/AAADAAIAAAAgAPv/AAAEAAAAAAAgAPz/AAAEAAEAAAAgAP3/AAAEAAIAAAAVAPn/AAAAAAAAAAAVAPr/AAAAAAEAAAAVAPv/AAAAAAIAAAAVAPz/AAAAAAMAAAAVAP3/AAAAAAQAAAAWAPn/AAABAAAAAAAWAPr/AAABAAEAAAAWAPv/AAABAAIAAAAWAPz/AAABAAMAAAAWAP3/AAABAAQAAAAXAPn/AAACAAAAAAAXAPr/AAACAAEAAAAXAPv/AAACAAIAAAAXAPz/AAACAAMAAAAXAP3/AAACAAQAAAAYAPn/AAADAAAAAAAYAPr/AAADAAEAAAAYAPv/AAADAAIAAAAYAPz/AAADAAMAAAAYAP3/AAADAAQAAAAZAPn/AAAEAAAAAAAZAPr/AAAEAAEAAAAZAPv/AAAEAAIAAAAZAPz/AAAEAAMAAAAZAP3/AAAEAAQAAAA=")
+tile_set = SubResource("TileSet_gd34r")
 
 [node name="world" type="TileMapLayer" parent="."]
 scale = Vector2(8, 8)
@@ -171,10 +201,21 @@ tile_set = SubResource("TileSet_gd34r")
 position = Vector2(1519, -192)
 
 [node name="lightpost2" parent="." instance=ExtResource("3_aal6u")]
-position = Vector2(1776, -192)
+position = Vector2(2315, -192)
 
 [node name="lightpost3" parent="." instance=ExtResource("3_aal6u")]
-position = Vector2(1999, -192)
+position = Vector2(3108, -192)
 
 [node name="lightpost4" parent="." instance=ExtResource("3_aal6u")]
-position = Vector2(2223, -192)
+position = Vector2(3904, -192)
+
+[node name="fog" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.1, 0.1)
+scroll_offset = Vector2(52, 24)
+
+[node name="fog" type="ColorRect" parent="fog"]
+material = SubResource("ShaderMaterial_e5fia")
+offset_left = -213.0
+offset_top = -1864.0
+offset_right = 3386.0
+offset_bottom = 273.0
