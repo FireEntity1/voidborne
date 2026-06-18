@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=4 uid="uid://dx4rxr3ahpfkh"]
+[gd_scene load_steps=19 format=4 uid="uid://dx4rxr3ahpfkh"]
 
 [ext_resource type="Shader" uid="uid://bbsxfqbwg6r80" path="res://resources/shaders/sky.gdshader" id="1_gd34r"]
 [ext_resource type="Texture2D" uid="uid://bk7s8n45qeelk" path="res://sprites/cracked_concrete.png" id="1_lu7pw"]
@@ -9,12 +9,16 @@
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_i1kom"]
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_b5whv"]
+width = 256
+height = 256
 seamless = true
 noise = SubResource("FastNoiseLite_i1kom")
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_3jvra"]
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_vwex7"]
+width = 256
+height = 256
 seamless = true
 noise = SubResource("FastNoiseLite_3jvra")
 
@@ -73,11 +77,6 @@ texture_region_size = Vector2i(16, 20)
 2:6/0 = 0
 3:6/0 = 0
 4:6/0 = 0
-0:7/0 = 0
-1:7/0 = 0
-2:7/0 = 0
-3:7/0 = 0
-4:7/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_gd34r"]
 sources/0 = SubResource("TileSetAtlasSource_exe43")
@@ -133,34 +132,24 @@ texture_region_size = Vector2i(16, 20)
 2:6/0 = 0
 3:6/0 = 0
 4:6/0 = 0
-0:7/0 = 0
-1:7/0 = 0
-2:7/0 = 0
-3:7/0 = 0
-4:7/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_aal6u"]
 physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_lu7pw")
 sources/2 = SubResource("TileSetAtlasSource_aal6u")
 
-[sub_resource type="Gradient" id="Gradient_b5whv"]
-offsets = PackedFloat32Array(0, 0.717213)
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_vwex7"]
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_vdein"]
-width = 2048
-height = 1024
-seamless = true
-color_ramp = SubResource("Gradient_b5whv")
-noise = SubResource("FastNoiseLite_vwex7")
-
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_e5fia"]
 shader = ExtResource("5_i1kom")
-shader_parameter/noise_texture = SubResource("NoiseTexture2D_vdein")
-shader_parameter/density = 0.012
-shader_parameter/speed = Vector2(3, 0)
+shader_parameter/fog_colour = Color(0.55, 0.62, 0.7, 0.22)
+shader_parameter/scale = 4.0
+shader_parameter/density = 0.45
+shader_parameter/softness = 0.35
+shader_parameter/alpha_strength = 0.35
+shader_parameter/x_speed = 0.08
+shader_parameter/y_speed = 0.02
+shader_parameter/horizontal_stretch = 3.0
+shader_parameter/vertical_detail = 1.4
+shader_parameter/seed = 12.0
 
 [node name="outlands" type="Node2D"]
 
@@ -215,7 +204,7 @@ scroll_offset = Vector2(52, 24)
 
 [node name="fog" type="ColorRect" parent="fog"]
 material = SubResource("ShaderMaterial_e5fia")
-offset_left = -213.0
-offset_top = -1864.0
-offset_right = 3386.0
-offset_bottom = 273.0
+offset_left = 361.0
+offset_top = -704.0
+offset_right = 1984.0
+offset_bottom = 156.0
