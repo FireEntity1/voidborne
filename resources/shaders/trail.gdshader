@@ -9,6 +9,9 @@ const float ALPHA_START = 0.75;
 const float ALPHA_END = 0.03;
 const float MIN_SOURCE_ALPHA = 0.05;
 
+// Stores AnimatedSprite2D modulate / self_modulate before texture sampling messes with it.
+varying vec4 sprite_modulate;
+
 float hash(vec2 p) {
 	p = fract(p * vec2(123.34, 456.21));
 	p += dot(p, p + 45.32);
@@ -19,10 +22,14 @@ vec2 pixel_snap_uv(vec2 uv, vec2 pixel_size) {
 	return (floor(uv / pixel_size) + 0.5) * pixel_size;
 }
 
+void vertex() {
+	sprite_modulate = COLOR;
+}
+
 void fragment() {
 	vec2 pixel_uv = pixel_snap_uv(UV, TEXTURE_PIXEL_SIZE);
 
-	vec4 base_col = texture(TEXTURE, pixel_uv);
+	vec4 base_col = texture(TEXTURE, pixel_uv) * sprite_modulate;
 	COLOR = base_col;
 
 	float vel_len_sq = velocity.x * velocity.x + velocity.y * velocity.y;
@@ -47,7 +54,7 @@ void fragment() {
 				sample_uv.x >= 0.0 && sample_uv.x <= 1.0 &&
 				sample_uv.y >= 0.0 && sample_uv.y <= 1.0
 			) {
-				vec4 src_col = texture(TEXTURE, sample_uv);
+				vec4 src_col = texture(TEXTURE, sample_uv) * sprite_modulate;
 
 				if (src_col.a > MIN_SOURCE_ALPHA) {
 					vec2 pixel_id = floor(pixel_uv / TEXTURE_PIXEL_SIZE);

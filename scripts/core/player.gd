@@ -44,6 +44,10 @@ func _physics_process(delta: float) -> void:
 		else:
 			$sprite/slash.rotation_degrees = 30
 		$sprite/slash.play()
+		var enemies: Array = $sprite/slash/area.get_overlapping_bodies()
+		for enemy in enemies:
+			if "enemy" in enemy:
+				enemy.damage()
 		can_attack = false
 		await get_tree().create_timer(attack_cooldown).timeout
 		can_attack = true

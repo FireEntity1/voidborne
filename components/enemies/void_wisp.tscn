@@ -6,7 +6,7 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_aaqo0"]
 shader = ExtResource("2_kw6kx")
-shader_parameter/length = 4.0
+shader_parameter/length = 6.0
 shader_parameter/velocity = Vector2(1, 0)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kw6kx"]
@@ -92,6 +92,8 @@ scale = Vector2(8, 8)
 script = ExtResource("1_0q4nn")
 
 [node name="sprite" type="AnimatedSprite2D" parent="."]
+modulate = Color(1.2, 1.2, 1.2, 1)
+self_modulate = Color(1.4, 1.4, 1.4, 1)
 material = SubResource("ShaderMaterial_aaqo0")
 position = Vector2(0.25, 0)
 sprite_frames = SubResource("SpriteFrames_0q4nn")
@@ -99,6 +101,7 @@ animation = &"move"
 autoplay = "idle"
 
 [node name="collision" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource("CircleShape2D_jbaus")
 
 [node name="legs" type="CollisionShape2D" parent="."]
@@ -106,6 +109,7 @@ position = Vector2(0, 2.0625)
 shape = SubResource("RectangleShape2D_kw6kx")
 
 [node name="detection" type="Area2D" parent="."]
+visible = false
 
 [node name="collision" type="CollisionShape2D" parent="detection"]
 position = Vector2(0, -6.4375)

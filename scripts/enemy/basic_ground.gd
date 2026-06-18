@@ -5,37 +5,56 @@ var speed = 600.0
 var acceleration = 4500.0
 var turn_acceleration = 600.0
 
+var health = 10.0
 var player: CharacterBody2D
 
-var x_vel = 0.0
+@onready var sprite: AnimatedSprite2D = $sprite
+@onready var shader_mat: ShaderMaterial = sprite.material as ShaderMaterial
 
 func _ready() -> void:
-	pass
+	if shader_mat:
+		shader_mat = shader_mat.duplicate()
+		sprite.material = shader_mat
 
 func _on_detection_body_entered(body: Node2D) -> void:
-	if "player" in body:
+	if body.is_in_group("player"):
 		player = body
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
-		velocity.y += gravity*delta
-	
-	if $detection.get_overlapping_bodies().has(player):
-		$sprite.material.set_shader_parameter("velocity", velocity)
-		$sprite.play("move")
+		velocity.y += gravity * delta
+
+	var chasing_player := false
+
+	if is_instance_valid(player):
+		chasing_player = $detection.get_overlapping_bodies().has(player)
+
+	if chasing_player:
+		sprite.play("move")
+
 		var distance = player.global_position.x - global_position.x
 		var direction = sign(distance)
+
 		if direction != 0:
-			$sprite.flip_h = direction > 0
+			sprite.flip_h = direction > 0
+
 			var target_x = direction * speed
 			var accel = acceleration
-			if sign(velocity.x) != direction and abs(velocity.x) > 10:
+
+			if sign(velocity.x) != direction and abs(velocity.x) > 10.0:
 				accel = turn_acceleration
-			velocity.x = speed*direction
-		await get_tree().create_timer(0.2).timeout
-		x_vel += clamp(x_vel*acceleration*sign(distance),-1,1)
-		global_position.x += sign(distance)*delta*speed*x_vel
+
+			velocity.x = move_toward(velocity.x, target_x, accel * delta)
 	else:
-		$sprite.material.set_shader_parameter("velocity",Vector2(0,3))
-		$sprite.play("idle")
+		sprite.play("idle")
+		velocity.x = move_toward(velocity.x, 0.0, acceleration * delta)
+
 	move_and_slide()
+
+	if shader_mat:
+		var shader_velocity = Vector2(velocity.x, 0.0)
+
+		if sprite.flip_h:
+			shader_velocity.x *= -1.0
+
+		shader_mat.set_shader_parameter("velocity", shader_velocity)

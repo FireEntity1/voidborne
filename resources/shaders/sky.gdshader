@@ -31,4 +31,3 @@ void fragment() {
 	//applies the color from the gradient
 	COLOR = texture(color_gardient, vec2(final, final));
 }
-
