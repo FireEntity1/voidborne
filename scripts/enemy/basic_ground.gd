@@ -58,3 +58,11 @@ func _physics_process(delta: float) -> void:
 			shader_velocity.x *= -1.0
 
 		shader_mat.set_shader_parameter("velocity", shader_velocity)
+
+func damage(damage):
+	print("DAMAGE")
+	health -= float(damage)
+	modulate.r = 1.8
+	await get_tree().create_timer(0.1).timeout
+	modulate.r = 1.2
+	await get_tree().create_timer(0.1).timeout
