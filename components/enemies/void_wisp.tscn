@@ -87,7 +87,7 @@ size = Vector2(0.5, 15.875)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jbaus"]
 size = Vector2(228.75, 33.875)
 
-[node name="void_wisp" type="CharacterBody2D"]
+[node name="void_wisp" type="CharacterBody2D" groups=["enemy"]]
 scale = Vector2(8, 8)
 script = ExtResource("1_0q4nn")
 

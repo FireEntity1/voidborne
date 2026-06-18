@@ -11,6 +11,8 @@ var can_attack = true
 
 var attack_cooldown = 0.4
 
+@onready var slash = $sprite/slash
+
 func _ready() -> void:
 	pass
 
@@ -37,22 +39,9 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 	
 	if Input.is_action_just_pressed("attack") and can_attack:
-		if Input.is_action_pressed("up"):
-			$sprite/slash.rotation_degrees = 120
-		elif Input.is_action_pressed("down") and not is_on_floor():
-			$sprite/slash.rotation_degrees = -60
-		else:
-			$sprite/slash.rotation_degrees = 30
-		$sprite/slash.play()
-		var enemies: Array = $sprite/slash/area.get_overlapping_bodies()
-		for enemy in enemies:
-			if "enemy" in enemy:
-				enemy.damage()
-		can_attack = false
-		await get_tree().create_timer(attack_cooldown).timeout
-		can_attack = true
+		attack()
 	
-	if not $sprite/slash.is_playing():
+	if not slash.is_playing():
 		if Input.is_action_pressed("left"):
 			$sprite.scale.x = 1
 		elif Input.is_action_pressed("right"):
@@ -74,6 +63,40 @@ func _physics_process(delta: float) -> void:
 	#camera_smooth(delta)
 	move_and_slide()
 	#position = position.round()
+
+func attack() -> void:
+	can_attack = false
+	slash.stop()
+	slash.visible = false
+	slash.set_frame_and_progress(0,0.0)
+	
+	if Input.is_action_pressed("up"):
+		slash.rotation_degrees = 120
+	elif Input.is_action_pressed("down") and not is_on_floor():
+		slash.rotation_degrees = -60
+	else:
+		slash.rotation_degrees = 30
+	
+	slash.force_update_transform()
+	$sprite/slash/area.force_update_transform()
+	
+	await get_tree().physics_frame
+	
+	slash.visible = true
+	slash.play()
+	
+	await get_tree().physics_frame
+	
+	var enemies: Array = $sprite/slash/area.get_overlapping_bodies()
+	for enemy in enemies:
+		if enemy.is_in_group("enemy"):
+			enemy.damage(2.0)
+	
+	await slash.animation_finished
+	slash.visible = false
+	
+	await get_tree().create_timer(attack_cooldown).timeout
+	can_attack = true
 
 #func camera_smooth(delta: float):
 	#var smooth_speed = 12.0

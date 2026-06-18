@@ -6,6 +6,8 @@
 
 [node name="main" type="Node2D"]
 
+[node name="ui" type="CanvasLayer" parent="."]
+
 [node name="game" type="Node2D" parent="."]
 position = Vector2(930, 260)
 
@@ -15,10 +17,8 @@ position = Vector2(-34, -85)
 [node name="void_nexus" parent="game/loaded_scene" instance=ExtResource("1_0wfyh")]
 position = Vector2(-894, -171)
 
-[node name="player" parent="." instance=ExtResource("1_o5qli")]
-position = Vector2(964, 299)
+[node name="void_wisp" parent="game" instance=ExtResource("3_sugp2")]
+position = Vector2(1487, 52)
 
-[node name="ui" type="CanvasLayer" parent="."]
-
-[node name="void_wisp" parent="." instance=ExtResource("3_sugp2")]
-position = Vector2(2417, 312)
+[node name="player" parent="game" instance=ExtResource("1_o5qli")]
+position = Vector2(34, 39)

@@ -281,16 +281,16 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_aufj2")
 }, {
-"duration": 1.0,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_poj24")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ivt8o")
 }, {
-"duration": 1.0,
+"duration": 2.0,
 "texture": SubResource("AtlasTexture_f2oxh")
 }, {
-"duration": 1.0,
+"duration": 3.0,
 "texture": SubResource("AtlasTexture_hdd18")
 }, {
 "duration": 1.0,
@@ -298,7 +298,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"default",
-"speed": 30.0
+"speed": 45.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5a7ls"]
