@@ -61,6 +61,10 @@ func _physics_process(delta: float) -> void:
 
 func damage(damage):
 	print("DAMAGE")
+	var direction = sign(player.global_position.x - global_position.x)
+	if abs(player.global_position.x - global_position.x) < 80:
+		direction = 0
+	velocity.x -= direction*300
 	health -= float(damage)
 	modulate.r = 1.8
 	await get_tree().create_timer(0.1).timeout

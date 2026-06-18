@@ -353,9 +353,9 @@ autoplay = "default"
 frame_progress = 0.0810952
 
 [node name="slash" type="AnimatedSprite2D" parent="sprite"]
-position = Vector2(-0.0474987, 1.17116)
+position = Vector2(0.920442, -0.732409)
 rotation = 0.523599
-scale = Vector2(-1.2, 1)
+scale = Vector2(-1.31698, 1.30033)
 sprite_frames = SubResource("SpriteFrames_ovj3t")
 frame = 7
 frame_progress = 1.0

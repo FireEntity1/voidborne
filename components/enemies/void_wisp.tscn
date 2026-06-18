@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bpyd565dr731o"]
+[gd_scene load_steps=18 format=3 uid="uid://bpyd565dr731o"]
 
 [ext_resource type="Script" uid="uid://yya8xmoadvrd" path="res://scripts/enemy/basic_ground.gd" id="1_0q4nn"]
 [ext_resource type="Texture2D" uid="uid://b3qbrxt1yihal" path="res://sprites/void_wisp.png" id="2_jbaus"]
@@ -85,7 +85,10 @@ radius = 6.0208
 size = Vector2(0.5, 15.875)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jbaus"]
-size = Vector2(228.75, 33.875)
+size = Vector2(228.75, 48.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aaqo0"]
+size = Vector2(103.703, 93.9242)
 
 [node name="void_wisp" type="CharacterBody2D" groups=["enemy"]]
 scale = Vector2(8, 8)
@@ -109,10 +112,15 @@ position = Vector2(0, 2.0625)
 shape = SubResource("RectangleShape2D_kw6kx")
 
 [node name="detection" type="Area2D" parent="."]
-visible = false
 
 [node name="collision" type="CollisionShape2D" parent="detection"]
-position = Vector2(0, -6.4375)
+position = Vector2(0, -4.5)
 shape = SubResource("RectangleShape2D_jbaus")
+
+[node name="collision2" type="CollisionShape2D" parent="detection"]
+position = Vector2(0.369996, -34.8873)
+rotation = -1.55862
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_aaqo0")
 
 [connection signal="body_entered" from="detection" to="." method="_on_detection_body_entered"]

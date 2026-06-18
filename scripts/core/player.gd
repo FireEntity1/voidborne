@@ -9,7 +9,7 @@ var jumped = JUMP_VELOCITY
 
 var can_attack = true
 
-var attack_cooldown = 0.4
+var attack_cooldown = 0.2
 
 @onready var slash = $sprite/slash
 
@@ -70,13 +70,15 @@ func attack() -> void:
 	slash.visible = false
 	slash.set_frame_and_progress(0,0.0)
 	
+	var pogo = false
+	
 	if Input.is_action_pressed("up"):
 		slash.rotation_degrees = 120
 	elif Input.is_action_pressed("down") and not is_on_floor():
+		pogo = true
 		slash.rotation_degrees = -60
 	else:
 		slash.rotation_degrees = 30
-	
 	slash.force_update_transform()
 	$sprite/slash/area.force_update_transform()
 	
@@ -91,26 +93,13 @@ func attack() -> void:
 	for enemy in enemies:
 		if enemy.is_in_group("enemy"):
 			enemy.damage(2.0)
+			if pogo:
+				pogo = false
+				velocity.y = -JUMP_VELOCITY
+			
 	
 	await slash.animation_finished
 	slash.visible = false
 	
 	await get_tree().create_timer(attack_cooldown).timeout
 	can_attack = true
-
-#func camera_smooth(delta: float):
-	#var smooth_speed = 12.0
-	#var target = global_position
-	#camera_float_pos.x = lerp_avg(camera_float_pos.x, target.x, SMOOTH_X, delta)
-	#
-	#var diff_y = target.y - camera_float_pos.y
-	#if abs(diff_y) > VERTICAL_DEADZONE:
-		#var actual_target_y = target.y - (sign(diff_y)*VERTICAL_DEADZONE)
-		#camera_float_pos.y = lerp_avg(camera_float_pos.y,actual_target_y,SMOOTH_Y,delta)
-	#
-	#camera_float_pos = camera_float_pos.lerp(global_position, 1.0 - exp(-smooth_speed * delta))
-	#
-	#$camera.global_position = camera_float_pos.round()
-#
-#func lerp_avg(current: float, target: float, speed: float, delta: float):
-	#return lerp(current, target, 1.0 - exp(-speed * delta))
