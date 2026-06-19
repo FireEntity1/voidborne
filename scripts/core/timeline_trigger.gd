@@ -15,6 +15,6 @@ func _on_body_entered(body) -> void:
 		print("ts player")
 		is_player_active = true
 		if automatic:
-			Dialogic.start_timeline(timeline)
+			Dialogic.start(timeline)
 			completed = true
 			monitoring = false
