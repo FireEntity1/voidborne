@@ -22,7 +22,7 @@ var health = 10
 signal player_hit
 
 func _ready() -> void:
-	pass
+	Dialogic.signal_event.connect(_dialogic_signal)
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
@@ -148,3 +148,6 @@ func _on_hit_body_entered(body: Node2D) -> void:
 
 		await get_tree().create_timer(0.8).timeout
 		invincible = false
+
+func _dialogic_signal(argument: String):
+	pass

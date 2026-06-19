@@ -23,7 +23,9 @@ Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 [dialogic]
 
 directories/dch_directory={}
-directories/dtl_directory={}
+directories/dtl_directory={
+"tutorial": "res://dialogic/timelines/void_nexus/tutorial.dtl"
+}
 layout/style_directory={}
 
 [display]
