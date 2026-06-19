@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://uno1klrruv6"]
 
-[ext_resource type="PackedScene" uid="uid://cu3pynmxlqcjn" path="res://areas/void_nexus.tscn" id="1_0wfyh"]
+[ext_resource type="PackedScene" uid="uid://cu3pynmxlqcjn" path="res://areas/void_nexus/void_nexus.tscn" id="1_0wfyh"]
 [ext_resource type="Texture2D" uid="uid://dhs3jn7rbwmtv" path="res://sprites/damage_overlay.png" id="1_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://dq7ng5vi3rwcu" path="res://components/core/player.tscn" id="1_o5qli"]
 [ext_resource type="Script" uid="uid://bg4myabll67os" path="res://scripts/core/main.gd" id="1_tbgi4"]

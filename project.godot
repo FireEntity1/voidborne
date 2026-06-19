@@ -74,7 +74,7 @@ down={
 
 [physics]
 
-2d/default_gravity=3000.0
+2d/default_gravity=3250.0
 common/physics_interpolation=true
 
 [rendering]
