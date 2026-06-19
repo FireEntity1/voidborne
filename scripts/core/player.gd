@@ -109,6 +109,10 @@ func attack() -> void:
 			if pogo:
 				pogo = false
 				velocity.y = -JUMP_VELOCITY
+	var areas: Array = $sprite/slash/area.get_overlapping_areas()
+	for area in areas:
+		if area.is_in_group("hittable"):
+			area.hit()
 			
 	
 	await slash.animation_finished

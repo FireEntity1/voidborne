@@ -1,0 +1,58 @@
+[gd_scene load_steps=9 format=3 uid="uid://c4dqvr751opkr"]
+
+[ext_resource type="Script" uid="uid://87co3ohxc75s" path="res://scripts/decoration/void_door.gd" id="1_1tcer"]
+[ext_resource type="Texture2D" uid="uid://cvq2u8u3ico3b" path="res://sprites/void_gate_closed.png" id="1_doar7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_doar7"]
+size = Vector2(15.5, 31.5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1tcer"]
+atlas = ExtResource("1_doar7")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7cs8m"]
+atlas = ExtResource("1_doar7")
+region = Rect2(16, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6f3it"]
+atlas = ExtResource("1_doar7")
+region = Rect2(32, 0, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ioshl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1tcer")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7cs8m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6f3it")
+}],
+"loop": false,
+"name": &"default",
+"speed": 15.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1tcer"]
+size = Vector2(16, 31.25)
+
+[node name="door" type="StaticBody2D"]
+scale = Vector2(8, 8)
+collision_mask = 4
+script = ExtResource("1_1tcer")
+
+[node name="collision" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_doar7")
+
+[node name="sprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ioshl")
+
+[node name="hit" type="Area2D" parent="."]
+visible = false
+collision_layer = 2
+collision_mask = 8
+
+[node name="shape" type="CollisionShape2D" parent="hit"]
+shape = SubResource("RectangleShape2D_1tcer")
