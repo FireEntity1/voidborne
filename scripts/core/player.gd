@@ -150,4 +150,4 @@ func _on_hit_body_entered(body: Node2D) -> void:
 		invincible = false
 
 func _dialogic_signal(argument: String):
-	pass
+	print(argument)

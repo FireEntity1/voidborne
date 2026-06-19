@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://cu3pynmxlqcjn"]
+[gd_scene load_steps=16 format=4 uid="uid://cu3pynmxlqcjn"]
 
 [ext_resource type="Shader" uid="uid://vju4x68rih5k" path="res://resources/shaders/fog_spots.gdshader" id="1_obxot"]
 [ext_resource type="Shader" uid="uid://bns6x60fcqhgn" path="res://resources/shaders/swirl.gdshader" id="1_vdein"]
@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://dout26du63bka" path="res://sprites/void_platform_bg.png" id="3_85ubq"]
 [ext_resource type="PackedScene" uid="uid://c4dqvr751opkr" path="res://components/void_nexus/door.tscn" id="6_vy1cv"]
 [ext_resource type="PackedScene" uid="uid://bpyd565dr731o" path="res://components/enemies/void_wisp.tscn" id="7_b5c3w"]
+[ext_resource type="PackedScene" uid="uid://6t8faj0pjahu" path="res://components/core/timeline_trigger.tscn" id="8_01gh4"]
+[ext_resource type="Resource" uid="uid://sgwnk6dkgfp" path="res://dialogic/timelines/void_nexus/arena.dtl" id="9_cjr88"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gveje"]
 shader = ExtResource("1_vdein")
@@ -119,13 +121,14 @@ offset_top = -1326.0
 offset_right = 5737.0
 offset_bottom = 409.0
 
-[node name="door" parent="." instance=ExtResource("6_vy1cv")]
-position = Vector2(7882, -24)
-rotation = 1.5708
-
 [node name="void_wisp" parent="." instance=ExtResource("7_b5c3w")]
 position = Vector2(10075, -310)
 
 [node name="door2" parent="." instance=ExtResource("6_vy1cv")]
 position = Vector2(4298, 1896)
 rotation = 1.5708
+
+[node name="timeline_trigger" parent="." instance=ExtResource("8_01gh4")]
+position = Vector2(4295, 1647)
+timeline = ExtResource("9_cjr88")
+automatic = true

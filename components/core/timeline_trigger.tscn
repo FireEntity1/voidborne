@@ -7,6 +7,8 @@ size = Vector2(49.75, 47)
 
 [node name="timeline_trigger" type="Area2D"]
 scale = Vector2(8, 8)
+collision_layer = 0
+collision_mask = 2
 script = ExtResource("1_b12qi")
 
 [node name="collision" type="CollisionShape2D" parent="."]

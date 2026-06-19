@@ -22,11 +22,19 @@ Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 
 [dialogic]
 
-directories/dch_directory={}
+directories/dch_directory={
+"???": "res://dialogic/timelines/void_nexus/???.dch"
+}
 directories/dtl_directory={
+"arena": "res://dialogic/timelines/void_nexus/arena.dtl",
 "tutorial": "res://dialogic/timelines/void_nexus/tutorial.dtl"
 }
-layout/style_directory={}
+layout/style_directory={
+"": "res://dialogic/main.tres",
+"main": "res://dialogic/main.tres"
+}
+layout/style_list=["res://dialogic/main.tres"]
+layout/default_style="res://dialogic/main.tres"
 
 [display]
 
