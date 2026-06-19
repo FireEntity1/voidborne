@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bpyd565dr731o"]
+[gd_scene load_steps=23 format=3 uid="uid://bpyd565dr731o"]
 
 [ext_resource type="Script" uid="uid://yya8xmoadvrd" path="res://scripts/enemy/basic_ground.gd" id="1_0q4nn"]
 [ext_resource type="Texture2D" uid="uid://b3qbrxt1yihal" path="res://sprites/void_wisp.png" id="2_jbaus"]
@@ -90,8 +90,35 @@ size = Vector2(228.75, 48.5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aaqo0"]
 size = Vector2(103.703, 93.9242)
 
+[sub_resource type="Gradient" id="Gradient_kw6kx"]
+offsets = PackedFloat32Array(0.594156)
+colors = PackedColorArray(0.11, 0.11, 0.11, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_aaqo0"]
+gradient = SubResource("Gradient_kw6kx")
+width = 16
+height = 16
+
+[sub_resource type="Curve" id="Curve_kw6kx"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.985402, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_aaqo0"]
+curve = SubResource("Curve_kw6kx")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_kw6kx"]
+particle_flag_disable_z = true
+angle_min = -720.0
+angle_max = 720.0
+spread = 180.0
+initial_velocity_min = 15.0
+initial_velocity_max = 50.0
+gravity = Vector3(0, 98, 0)
+scale_curve = SubResource("CurveTexture_aaqo0")
+
 [node name="void_wisp" type="CharacterBody2D" groups=["enemy"]]
 scale = Vector2(8, 8)
+collision_layer = 4
 script = ExtResource("1_0q4nn")
 
 [node name="sprite" type="AnimatedSprite2D" parent="."]
@@ -104,7 +131,6 @@ animation = &"move"
 autoplay = "idle"
 
 [node name="collision" type="CollisionShape2D" parent="."]
-visible = false
 shape = SubResource("CircleShape2D_jbaus")
 
 [node name="legs" type="CollisionShape2D" parent="."]
@@ -112,6 +138,9 @@ position = Vector2(0, 2.0625)
 shape = SubResource("RectangleShape2D_kw6kx")
 
 [node name="detection" type="Area2D" parent="."]
+visible = false
+collision_layer = 4
+collision_mask = 2
 
 [node name="collision" type="CollisionShape2D" parent="detection"]
 position = Vector2(0, -4.5)
@@ -120,7 +149,22 @@ shape = SubResource("RectangleShape2D_jbaus")
 [node name="collision2" type="CollisionShape2D" parent="detection"]
 position = Vector2(0.369996, -34.8873)
 rotation = -1.55862
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_aaqo0")
+
+[node name="groundcast_r" type="RayCast2D" parent="."]
+target_position = Vector2(-9.75, 10.625)
+
+[node name="groundcast_l" type="RayCast2D" parent="."]
+scale = Vector2(-1, 1)
+target_position = Vector2(-9.75, 10.625)
+
+[node name="death_particles" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 32
+texture = SubResource("GradientTexture2D_aaqo0")
+one_shot = true
+explosiveness = 0.56
+randomness = 0.5
+process_material = SubResource("ParticleProcessMaterial_kw6kx")
 
 [connection signal="body_entered" from="detection" to="." method="_on_detection_body_entered"]

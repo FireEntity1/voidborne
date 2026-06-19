@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://dq7ng5vi3rwcu"]
+[gd_scene load_steps=50 format=3 uid="uid://dq7ng5vi3rwcu"]
 
 [ext_resource type="Script" uid="uid://brq7vdr3t803u" path="res://scripts/core/player.gd" id="1_hpv3a"]
 [ext_resource type="Texture2D" uid="uid://c582x5ti7j4no" path="res://sprites/voidborn.png" id="2_hpv3a"]
@@ -305,8 +305,12 @@ animations = [{
 radius = 7.9528
 height = 15.9056
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ovj3t"]
+size = Vector2(8.25, 17.625)
+
 [node name="player" type="CharacterBody2D" groups=["player"]]
 scale = Vector2(8, 8)
+collision_layer = 2
 script = ExtResource("1_hpv3a")
 
 [node name="White" type="Sprite2D" parent="."]
@@ -363,6 +367,18 @@ offset = Vector2(7.02953, 4.5698)
 
 [node name="area" type="Area2D" parent="sprite/slash"]
 position = Vector2(6.53223, 4.32802)
+collision_layer = 8
+collision_mask = 4
 
 [node name="collision" type="CollisionShape2D" parent="sprite/slash/area"]
 shape = SubResource("CapsuleShape2D_5a7ls")
+
+[node name="hit" type="Area2D" parent="." groups=["player"]]
+collision_layer = 2
+collision_mask = 4
+
+[node name="collision" type="CollisionShape2D" parent="hit"]
+position = Vector2(0, 0.3125)
+shape = SubResource("RectangleShape2D_ovj3t")
+
+[connection signal="body_entered" from="hit" to="." method="_on_hit_body_entered"]

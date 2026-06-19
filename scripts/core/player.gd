@@ -10,8 +10,16 @@ var jumped = JUMP_VELOCITY
 var can_attack = true
 
 var attack_cooldown = 0.2
+var was_hit = false
+var hit_location = Vector2.ZERO
+
+var invincible = false
+
+var health = 10
 
 @onready var slash = $sprite/slash
+
+signal player_hit
 
 func _ready() -> void:
 	pass
@@ -31,11 +39,11 @@ func _physics_process(delta: float) -> void:
 		jumped = JUMP_VELOCITY
 	
 	var direction := Input.get_axis("left", "right")
-	if direction:
-		velocity.x = direction * SPEED
+	if direction and not was_hit:
+		velocity.x = move_toward(velocity.x, direction * SPEED,delta*30000)
 		if is_on_floor():
 			$sprite.play("move")
-	else:
+	elif not was_hit:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 	
 	if Input.is_action_just_pressed("attack") and can_attack:
@@ -61,6 +69,11 @@ func _physics_process(delta: float) -> void:
 	elif not direction:
 		$sprite.play("default")
 	#camera_smooth(delta)
+	
+	#if was_hit:
+		#velocity.x = -sign(hit_location.x-global_position.x)*1000
+		#velocity.y = -400
+	
 	move_and_slide()
 	#position = position.round()
 
@@ -103,3 +116,28 @@ func attack() -> void:
 	
 	await get_tree().create_timer(attack_cooldown).timeout
 	can_attack = true
+
+func _on_hit_body_entered(body: Node2D) -> void:
+	if invincible:
+		return
+	if body.is_in_group("enemy"):
+		hit_location = body.global_position
+		invincible = true
+		player_hit.emit()
+		health -= int(body.attack_strength)
+
+		var knockback_direction = sign(global_position.x - body.global_position.x)
+		if knockback_direction == 0:
+			knockback_direction = -$sprite.scale.x
+
+		velocity.x = knockback_direction * 1000
+		velocity.y = -400
+
+		was_hit = true
+		Global.screen_vingette(true,0.2)
+
+		await get_tree().create_timer(0.2).timeout
+		was_hit = false
+
+		await get_tree().create_timer(0.8).timeout
+		invincible = false

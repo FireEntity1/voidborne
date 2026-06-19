@@ -1,12 +1,47 @@
-[gd_scene load_steps=4 format=3 uid="uid://uno1klrruv6"]
+[gd_scene load_steps=10 format=3 uid="uid://uno1klrruv6"]
 
 [ext_resource type="PackedScene" uid="uid://cu3pynmxlqcjn" path="res://areas/void_nexus.tscn" id="1_0wfyh"]
+[ext_resource type="Texture2D" uid="uid://dhs3jn7rbwmtv" path="res://sprites/damage_overlay.png" id="1_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://dq7ng5vi3rwcu" path="res://components/core/player.tscn" id="1_o5qli"]
+[ext_resource type="Script" uid="uid://bg4myabll67os" path="res://scripts/core/main.gd" id="1_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://bpyd565dr731o" path="res://components/enemies/void_wisp.tscn" id="3_sugp2"]
+[ext_resource type="Shader" uid="uid://bj3b40or0bkl1" path="res://resources/shaders/vingette.gdshader" id="3_tefeu"]
+[ext_resource type="Shader" uid="uid://b4o0q82ffil6p" path="res://resources/shaders/radial_chromabb.gdshader" id="4_o6xl0"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_o6xl0"]
+shader = ExtResource("3_tefeu")
+shader_parameter/radius = 0.62
+shader_parameter/softness = 0.784
+shader_parameter/intensity = 2.0
+shader_parameter/contrast = 1.237
+shader_parameter/vignette_color = Color(0, 0, 0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tipki"]
+shader = ExtResource("4_o6xl0")
+shader_parameter/intensity = 6.0
+shader_parameter/threshold = 0.0
+shader_parameter/spread = 3.1
 
 [node name="main" type="Node2D"]
+script = ExtResource("1_tbgi4")
 
 [node name="ui" type="CanvasLayer" parent="."]
+
+[node name="damage_overlay" type="Sprite2D" parent="ui"]
+visible = false
+position = Vector2(966.889, 542)
+scale = Vector2(6.05556, 6.05556)
+texture = ExtResource("1_jyhfs")
+
+[node name="vingette" type="ColorRect" parent="ui"]
+material = SubResource("ShaderMaterial_o6xl0")
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="radial_chromabb" type="ColorRect" parent="ui"]
+material = SubResource("ShaderMaterial_tipki")
+offset_right = 1920.0
+offset_bottom = 1080.0
 
 [node name="game" type="Node2D" parent="."]
 position = Vector2(930, 260)
@@ -18,7 +53,7 @@ position = Vector2(-34, -85)
 position = Vector2(-894, -171)
 
 [node name="void_wisp" parent="game" instance=ExtResource("3_sugp2")]
-position = Vector2(1487, 52)
+position = Vector2(3120, -81)
 
 [node name="player" parent="game" instance=ExtResource("1_o5qli")]
 position = Vector2(34, 39)
