@@ -68,14 +68,8 @@ func _physics_process(delta: float) -> void:
 				$sprite.play("fall")
 	elif not direction:
 		$sprite.play("default")
-	#camera_smooth(delta)
-	
-	#if was_hit:
-		#velocity.x = -sign(hit_location.x-global_position.x)*1000
-		#velocity.y = -400
 	
 	move_and_slide()
-	#position = position.round()
 
 func attack() -> void:
 	can_attack = false
@@ -129,7 +123,17 @@ func _on_hit_body_entered(body: Node2D) -> void:
 		invincible = true
 		player_hit.emit()
 		health -= int(body.attack_strength)
-
+		
+		print(health)
+		
+		$sprite.modulate = Color(0.8,0.8,0.8)
+		await get_tree().create_timer(0.1).timeout
+		$sprite.modulate = Color(1.4,1.4,1.4)
+		
+		if health <= 0:
+			get_tree().reload_current_scene()
+			return
+		
 		var knockback_direction = sign(global_position.x - body.global_position.x)
 		if knockback_direction == 0:
 			knockback_direction = -$sprite.scale.x
@@ -138,7 +142,6 @@ func _on_hit_body_entered(body: Node2D) -> void:
 		velocity.y = -400
 
 		was_hit = true
-		Global.screen_vingette(true,0.2)
 
 		await get_tree().create_timer(0.2).timeout
 		was_hit = false

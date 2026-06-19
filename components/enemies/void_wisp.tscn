@@ -92,7 +92,7 @@ size = Vector2(103.703, 93.9242)
 
 [sub_resource type="Gradient" id="Gradient_kw6kx"]
 offsets = PackedFloat32Array(0.594156)
-colors = PackedColorArray(0.11, 0.11, 0.11, 1)
+colors = PackedColorArray(0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_aaqo0"]
 gradient = SubResource("Gradient_kw6kx")
@@ -111,8 +111,8 @@ particle_flag_disable_z = true
 angle_min = -720.0
 angle_max = 720.0
 spread = 180.0
-initial_velocity_min = 15.0
-initial_velocity_max = 50.0
+initial_velocity_min = 40.0
+initial_velocity_max = 80.0
 gravity = Vector3(0, 98, 0)
 scale_curve = SubResource("CurveTexture_aaqo0")
 
