@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://6t8faj0pjahu"]
 
-[ext_resource type="Script" uid="uid://gf3yxmghnpls" path="res://scripts/core/timeline_trigger.gd" id="1_b12qi"]
+[ext_resource type="Script" uid="uid://gf3yxmghnpls" path="res://scripts/core/timeline_trigger.gd" id="1_5qjrg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_66gho"]
 size = Vector2(49.75, 47)
@@ -9,7 +9,7 @@ size = Vector2(49.75, 47)
 scale = Vector2(8, 8)
 collision_layer = 0
 collision_mask = 2
-script = ExtResource("1_b12qi")
+script = ExtResource("1_5qjrg")
 
 [node name="collision" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_66gho")

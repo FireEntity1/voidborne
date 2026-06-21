@@ -1,10 +1,14 @@
 extends StaticBody2D
 
-@export var open_signal = "_door_voidnexus_boss"
+@export var open_signal = ""
 
-func open():
-	$sprite.hide()
-	$collision.disabled = true
+func _ready() -> void:
+	Dialogic.signal_event.connect(open)
+
+func open(arg):
+	if arg == open_signal:
+		$sprite.hide()
+		$collision.disabled = true
 
 func hit():
 	$sprite.play("default")

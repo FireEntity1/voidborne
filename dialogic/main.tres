@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="DialogicStyle" load_steps=21 format=3 uid="uid://1gxwx40luoxb"]
+[gd_resource type="Resource" script_class="DialogicStyle" load_steps=21 format=3 uid="uid://bct2ts8kdvmw"]
 
 [ext_resource type="PackedScene" uid="uid://cqpb3ie51rwl5" path="res://addons/dialogic/Modules/DefaultLayoutParts/Base_Default/default_layout_base.tscn" id="1_rthmu"]
 [ext_resource type="Script" uid="uid://bwg6yncmh2cml" path="res://addons/dialogic/Resources/dialogic_style_layer.gd" id="2_u1qqq"]
@@ -15,7 +15,9 @@
 [sub_resource type="Resource" id="Resource_ebvd1"]
 script = ExtResource("2_u1qqq")
 scene = ExtResource("1_rthmu")
-overrides = {}
+overrides = {
+"global_font_size": "30.0"
+}
 
 [sub_resource type="Resource" id="Resource_4rkio"]
 script = ExtResource("2_u1qqq")
@@ -35,7 +37,11 @@ overrides = {}
 [sub_resource type="Resource" id="Resource_j7l7g"]
 script = ExtResource("2_u1qqq")
 scene = ExtResource("6_i5o8d")
-overrides = {}
+overrides = {
+"box_size": "Vector2(900, 250)",
+"name_label_custom_font_size": "24.0",
+"text_size": "30.0"
+}
 
 [sub_resource type="Resource" id="Resource_ckr1r"]
 script = ExtResource("2_u1qqq")

@@ -1,0 +1,32 @@
+[gd_scene load_steps=8 format=3 uid="uid://l6vgldibdk3e"]
+
+[ext_resource type="Script" uid="uid://bhvhiq503str1" path="res://scripts/enemy/arena/arena.gd" id="1_twkyo"]
+[ext_resource type="Script" uid="uid://b13nu3g3jkfi7" path="res://scripts/enemy/arena/wave.gd" id="2_wrhwq"]
+[ext_resource type="Script" uid="uid://nyum2kmnthf2" path="res://scripts/enemy/arena/enemy_count.gd" id="3_qg7mv"]
+[ext_resource type="PackedScene" uid="uid://bpyd565dr731o" path="res://components/enemies/void_wisp.tscn" id="4_k3l8x"]
+
+[sub_resource type="Resource" id="Resource_r30nq"]
+script = ExtResource("3_qg7mv")
+enemy = ExtResource("4_k3l8x")
+amount = 3
+metadata/_custom_type_script = "uid://nyum2kmnthf2"
+
+[sub_resource type="Resource" id="Resource_n4ew5"]
+script = ExtResource("2_wrhwq")
+enemies = Array[ExtResource("3_qg7mv")]([SubResource("Resource_r30nq")])
+delay_before_next_wave = 1.0
+metadata/_custom_type_script = "uid://b13nu3g3jkfi7"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wrhwq"]
+size = Vector2(100, 100)
+
+[node name="arena" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_twkyo")
+waves = Array[ExtResource("2_wrhwq")]([SubResource("Resource_n4ew5")])
+
+[node name="collision" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_wrhwq")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
