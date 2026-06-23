@@ -1,0 +1,53 @@
+[gd_scene load_steps=9 format=3 uid="uid://kwapaj5ajref"]
+
+[ext_resource type="Texture2D" uid="uid://b3rtqfv6nxtf6" path="res://sprites/cracked_voiddoor.png" id="1_rxy87"]
+[ext_resource type="Script" uid="uid://s6oh68ca5s3o" path="res://scripts/world/break_wall.gd" id="1_yfkwg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0hjg1"]
+size = Vector2(16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yfkwg"]
+atlas = ExtResource("1_rxy87")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2k213"]
+atlas = ExtResource("1_rxy87")
+region = Rect2(16, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gksyt"]
+atlas = ExtResource("1_rxy87")
+region = Rect2(32, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c3nht"]
+atlas = ExtResource("1_rxy87")
+region = Rect2(48, 0, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rhhul"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yfkwg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2k213")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gksyt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c3nht")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="breakwall" type="Area2D"]
+scale = Vector2(8, 8)
+script = ExtResource("1_yfkwg")
+
+[node name="collision" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_0hjg1")
+
+[node name="sprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_rhhul")

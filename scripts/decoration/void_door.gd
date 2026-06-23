@@ -1,6 +1,7 @@
 extends StaticBody2D
 
-@export var open_signal = ""
+@export var open_signal: String = ""
+@export var closed: bool = true
 
 func _ready() -> void:
 	Dialogic.signal_event.connect(open)
