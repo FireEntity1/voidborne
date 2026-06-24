@@ -23,6 +23,7 @@ signal player_hit
 
 func _ready() -> void:
 	Dialogic.signal_event.connect(_dialogic_signal)
+	Global.player = self
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():

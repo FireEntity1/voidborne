@@ -6,6 +6,8 @@ var time_scale = 1.0
 
 var can_move = true
 
+var player: CharacterBody2D
+
 func _process(delta: float) -> void:
 	Engine.time_scale = move_toward(Engine.time_scale,time_scale,delta*10.0)
 

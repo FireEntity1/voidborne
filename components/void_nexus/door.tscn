@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://c4dqvr751opkr"]
+[gd_scene load_steps=16 format=3 uid="uid://c4dqvr751opkr"]
 
 [ext_resource type="Script" uid="uid://87co3ohxc75s" path="res://scripts/decoration/void_door.gd" id="1_1tcer"]
 [ext_resource type="Texture2D" uid="uid://cvq2u8u3ico3b" path="res://sprites/void_gate_closed.png" id="1_doar7"]
+[ext_resource type="Texture2D" uid="uid://dh308btpfe2yj" path="res://sprites/void_gate_opening.png" id="3_7cs8m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_doar7"]
 size = Vector2(16, 32)
@@ -18,6 +19,30 @@ region = Rect2(16, 0, 16, 32)
 atlas = ExtResource("1_doar7")
 region = Rect2(32, 0, 16, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_ioshl"]
+atlas = ExtResource("3_7cs8m")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m36o0"]
+atlas = ExtResource("3_7cs8m")
+region = Rect2(16, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_indyt"]
+atlas = ExtResource("3_7cs8m")
+region = Rect2(32, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fhit4"]
+atlas = ExtResource("3_7cs8m")
+region = Rect2(48, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7k85u"]
+atlas = ExtResource("3_7cs8m")
+region = Rect2(64, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_himp6"]
+atlas = ExtResource("3_7cs8m")
+region = Rect2(80, 0, 16, 32)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_ioshl"]
 animations = [{
 "frames": [{
@@ -32,6 +57,29 @@ animations = [{
 }],
 "loop": false,
 "name": &"default",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ioshl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m36o0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_indyt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fhit4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7k85u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_himp6")
+}],
+"loop": false,
+"name": &"open",
 "speed": 15.0
 }]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://kwapaj5ajref"]
+[gd_scene load_steps=10 format=3 uid="uid://kwapaj5ajref"]
 
 [ext_resource type="Texture2D" uid="uid://b3rtqfv6nxtf6" path="res://sprites/cracked_voiddoor.png" id="1_rxy87"]
 [ext_resource type="Script" uid="uid://s6oh68ca5s3o" path="res://scripts/world/break_wall.gd" id="1_yfkwg"]
@@ -42,12 +42,24 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="breakwall" type="Area2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yfkwg"]
+size = Vector2(32, 16)
+
+[node name="breakwall" type="Area2D" groups=["hittable"]]
 scale = Vector2(8, 8)
+collision_layer = 4
+collision_mask = 10
 script = ExtResource("1_yfkwg")
+onedirection = false
 
 [node name="collision" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_0hjg1")
 
 [node name="sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_rhhul")
+
+[node name="static" type="StaticBody2D" parent="." groups=["hittable"]]
+
+[node name="collision" type="CollisionShape2D" parent="static"]
+rotation = -1.5708
+shape = SubResource("RectangleShape2D_yfkwg")

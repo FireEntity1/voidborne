@@ -8,7 +8,7 @@ func _ready() -> void:
 
 func open(arg):
 	if arg == open_signal:
-		$sprite.hide()
+		$sprite.play("open")
 		$collision.disabled = true
 
 func hit():
