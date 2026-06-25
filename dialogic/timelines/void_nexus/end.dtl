@@ -1,1 +1,5 @@
+do Global.mod_can_move(false)
 do Global.fadescreen(true, false)
+[wait time="4.0"]
+do Global
+do Global.fadescreen(false, false)

@@ -6,6 +6,17 @@ var time_scale = 1.0
 
 var can_move = true
 
+var levels = {
+	"voidnexus": {
+		"scene": preload("res://areas/void_nexus/void_nexus.tscn"),
+		"startpos": Vector2(72,76)
+	},
+	"outlands": {
+		"scene": preload("res://areas/outlands/outlands.tscn"),
+		"startpos": Vector2()
+	}
+}
+
 var fade = {
 	"active": false,
 	"black": true
@@ -21,7 +32,7 @@ func pause_frames(time: float):
 	time_scale = 0.2
 	await get_tree().create_timer(time, true, false, true).timeout
 	time_scale = 1.0
-
+ 
 func screen_vingette(show: bool, time: float = 0.0, radius: float = 0.62):
 	vingette.emit(show,radius)
 	if time > 0.0:

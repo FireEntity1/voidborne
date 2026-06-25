@@ -57,4 +57,4 @@ position = Vector2(-34, -85)
 position = Vector2(-894, -171)
 
 [node name="player" parent="game" instance=ExtResource("1_o5qli")]
-position = Vector2(-6327, -1005)
+position = Vector2(11950, -3031)
