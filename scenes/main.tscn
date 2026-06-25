@@ -42,6 +42,11 @@ material = SubResource("ShaderMaterial_tipki")
 offset_right = 1920.0
 offset_bottom = 1080.0
 
+[node name="fade" type="ColorRect" parent="ui"]
+custom_minimum_size = Vector2(1920, 1080)
+offset_right = 40.0
+offset_bottom = 40.0
+
 [node name="game" type="Node2D" parent="."]
 position = Vector2(930, 260)
 

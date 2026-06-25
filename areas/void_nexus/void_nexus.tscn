@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=4 uid="uid://cu3pynmxlqcjn"]
+[gd_scene load_steps=27 format=4 uid="uid://cu3pynmxlqcjn"]
 
 [ext_resource type="Shader" uid="uid://vju4x68rih5k" path="res://resources/shaders/fog_spots.gdshader" id="1_obxot"]
 [ext_resource type="Shader" uid="uid://bns6x60fcqhgn" path="res://resources/shaders/swirl.gdshader" id="1_vdein"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://6t8faj0pjahu" path="res://components/triggers/timeline_trigger.tscn" id="13_rweyd"]
 [ext_resource type="Shader" uid="uid://bs1s0jtvdg4wu" path="res://resources/shaders/scroll.gdshader" id="14_o7svj"]
 [ext_resource type="Texture2D" uid="uid://cgw3r5xq8nk8b" path="res://sprites/column.png" id="14_xwhb6"]
+[ext_resource type="Resource" uid="uid://bygr2edvkljmp" path="res://dialogic/timelines/void_nexus/end.dtl" id="14_y65uw"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gveje"]
 shader = ExtResource("1_vdein")
@@ -193,11 +194,12 @@ closed = false
 position = Vector2(-118, 296)
 onedirection = true
 
-[node name="timeline_trigger" parent="." instance=ExtResource("13_rweyd")]
+[node name="end" parent="." instance=ExtResource("13_rweyd")]
 position = Vector2(-3264, -789)
 scale = Vector2(2.27523, 14.7138)
+timeline = ExtResource("14_y65uw")
 
-[node name="column" type="Sprite2D" parent="timeline_trigger"]
+[node name="column" type="Sprite2D" parent="end"]
 material = SubResource("ShaderMaterial_y65uw")
 position = Vector2(0, -12.3354)
 scale = Vector2(2.91179, 0.528311)
