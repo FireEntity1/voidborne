@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=4 uid="uid://cu3pynmxlqcjn"]
+[gd_scene load_steps=26 format=4 uid="uid://cu3pynmxlqcjn"]
 
 [ext_resource type="Shader" uid="uid://vju4x68rih5k" path="res://resources/shaders/fog_spots.gdshader" id="1_obxot"]
 [ext_resource type="Shader" uid="uid://bns6x60fcqhgn" path="res://resources/shaders/swirl.gdshader" id="1_vdein"]
@@ -12,6 +12,9 @@
 [ext_resource type="Script" uid="uid://nyum2kmnthf2" path="res://scripts/enemy/arena/enemy_count.gd" id="10_a7cik"]
 [ext_resource type="Resource" uid="uid://sgwnk6dkgfp" path="res://dialogic/timelines/void_nexus/arena.dtl" id="11_a7cik"]
 [ext_resource type="PackedScene" uid="uid://kwapaj5ajref" path="res://components/void_nexus/break_wall.tscn" id="12_wpvqk"]
+[ext_resource type="PackedScene" uid="uid://6t8faj0pjahu" path="res://components/triggers/timeline_trigger.tscn" id="13_rweyd"]
+[ext_resource type="Shader" uid="uid://bs1s0jtvdg4wu" path="res://resources/shaders/scroll.gdshader" id="14_o7svj"]
+[ext_resource type="Texture2D" uid="uid://cgw3r5xq8nk8b" path="res://sprites/column.png" id="14_xwhb6"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gveje"]
 shader = ExtResource("1_vdein")
@@ -115,6 +118,11 @@ enemies = Array[ExtResource("10_a7cik")]([SubResource("Resource_a7cik")])
 delay_before_next_wave = 1.0
 metadata/_custom_type_script = "uid://b13nu3g3jkfi7"
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_y65uw"]
+shader = ExtResource("14_o7svj")
+shader_parameter/speed_pixels_per_second = 16.0
+shader_parameter/offset_pixels = 0.0
+
 [node name="void_nexus" type="Node2D"]
 
 [node name="bg" type="Parallax2D" parent="."]
@@ -184,3 +192,13 @@ closed = false
 [node name="breakwall" parent="." instance=ExtResource("12_wpvqk")]
 position = Vector2(-118, 296)
 onedirection = true
+
+[node name="timeline_trigger" parent="." instance=ExtResource("13_rweyd")]
+position = Vector2(-3264, -789)
+scale = Vector2(2.27523, 14.7138)
+
+[node name="column" type="Sprite2D" parent="timeline_trigger"]
+material = SubResource("ShaderMaterial_y65uw")
+position = Vector2(0, -12.3354)
+scale = Vector2(2.91179, 0.528311)
+texture = ExtResource("14_xwhb6")
