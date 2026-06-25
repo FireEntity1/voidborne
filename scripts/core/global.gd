@@ -9,11 +9,11 @@ var can_move = true
 var levels = {
 	"voidnexus": {
 		"scene": preload("res://areas/void_nexus/void_nexus.tscn"),
-		"startpos": Vector2(72,76)
+		"startpos": Vector2(1200,250)
 	},
 	"outlands": {
 		"scene": preload("res://areas/outlands/outlands.tscn"),
-		"startpos": Vector2()
+		"startpos": Vector2(0,0)
 	}
 }
 
