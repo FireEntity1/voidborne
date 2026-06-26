@@ -5,6 +5,8 @@ extends StaticBody2D
 
 func _ready() -> void:
 	Dialogic.signal_event.connect(open)
+	if not closed:
+		open(open_signal)
 
 func open(arg):
 	if arg == open_signal:

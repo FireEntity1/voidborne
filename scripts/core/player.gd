@@ -13,6 +13,13 @@ var attack_cooldown = 0.2
 var was_hit = false
 var hit_location = Vector2.ZERO
 
+var hit_stun_time = 0.18
+var invincible_time = 0.8
+
+var knockback_x = 1200.0
+var knockback_y = -650.0
+var knockback_friction = 4500.0
+
 var invincible = false
 
 var health = 10
@@ -40,11 +47,14 @@ func _physics_process(delta: float) -> void:
 		jumped = JUMP_VELOCITY
 	
 	var direction := Input.get_axis("left", "right")
-	if direction and not was_hit and Global.can_move:
-		velocity.x = move_toward(velocity.x, direction * SPEED,delta*30000)
+		
+	if was_hit:
+		velocity.x = move_toward(velocity.x, 0, knockback_friction * delta)
+	elif direction and Global.can_move:
+		velocity.x = move_toward(velocity.x, direction * SPEED, delta * 30000)
 		if is_on_floor():
 			$sprite.play("move")
-	elif not was_hit:
+	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 	
 	if Input.is_action_just_pressed("attack") and can_attack:
@@ -119,36 +129,46 @@ func attack() -> void:
 func _on_hit_body_entered(body: Node2D) -> void:
 	if invincible:
 		return
+	
 	if body.is_in_group("enemy"):
 		hit_location = body.global_position
 		invincible = true
+		was_hit = true
+		Global.can_move = false
+		
 		player_hit.emit()
 		health -= int(body.attack_strength)
 		
 		print(health)
 		
-		$sprite.modulate = Color(0.8,0.8,0.8)
-		await get_tree().create_timer(0.1).timeout
-		$sprite.modulate = Color(1.4,1.4,1.4)
+		var knockback_direction = sign(global_position.x - body.global_position.x)
+		if knockback_direction == 0:
+			knockback_direction = -$sprite.scale.x
+		
+		velocity.x = knockback_direction * knockback_x
+		velocity.y = knockback_y
+		
+		flash_hit()
 		
 		if health <= 0:
 			get_tree().reload_current_scene()
 			return
 		
-		var knockback_direction = sign(global_position.x - body.global_position.x)
-		if knockback_direction == 0:
-			knockback_direction = -$sprite.scale.x
-
-		velocity.x = knockback_direction * 1000
-		velocity.y = -400
-
-		was_hit = true
-
-		await get_tree().create_timer(0.2).timeout
+		await get_tree().create_timer(hit_stun_time).timeout
+		Global.can_move = true
 		was_hit = false
-
-		await get_tree().create_timer(0.8).timeout
+		
+		await get_tree().create_timer(invincible_time - hit_stun_time).timeout
 		invincible = false
+
+func flash_hit() -> void:
+	$sprite.modulate = Color(4.0,2.4,2.4)
+	await get_tree().create_timer(0.02).timeout
+	$sprite.modulate = Color(1.4,1.4,1.4)
+	await get_tree().create_timer(0.02).timeout
+	$sprite.modulate = Color(4.0,2.4,2.4)
+	await get_tree().create_timer(0.02).timeout
+	$sprite.modulate = Color(1.4,1.4,1.4)
 
 func _dialogic_signal(argument: String):
 	print(argument)

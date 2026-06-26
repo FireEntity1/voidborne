@@ -86,6 +86,10 @@ player=""
 enemy=""
 hittable=""
 
+[gui]
+
+theme/custom_font="uid://b0p4jmx2wjx20"
+
 [input]
 
 jump={

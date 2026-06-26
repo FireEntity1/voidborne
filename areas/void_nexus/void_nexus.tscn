@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=4 uid="uid://cu3pynmxlqcjn"]
+[gd_scene load_steps=26 format=4 uid="uid://cu3pynmxlqcjn"]
 
 [ext_resource type="Shader" uid="uid://vju4x68rih5k" path="res://resources/shaders/fog_spots.gdshader" id="1_obxot"]
 [ext_resource type="Shader" uid="uid://bns6x60fcqhgn" path="res://resources/shaders/swirl.gdshader" id="1_vdein"]
@@ -13,8 +13,6 @@
 [ext_resource type="Resource" uid="uid://sgwnk6dkgfp" path="res://dialogic/timelines/void_nexus/arena.dtl" id="11_a7cik"]
 [ext_resource type="PackedScene" uid="uid://kwapaj5ajref" path="res://components/void_nexus/break_wall.tscn" id="12_wpvqk"]
 [ext_resource type="PackedScene" uid="uid://6t8faj0pjahu" path="res://components/triggers/timeline_trigger.tscn" id="13_rweyd"]
-[ext_resource type="Shader" uid="uid://bs1s0jtvdg4wu" path="res://resources/shaders/scroll.gdshader" id="14_o7svj"]
-[ext_resource type="Texture2D" uid="uid://cgw3r5xq8nk8b" path="res://sprites/column.png" id="14_xwhb6"]
 [ext_resource type="Resource" uid="uid://bygr2edvkljmp" path="res://dialogic/timelines/void_nexus/end.dtl" id="14_y65uw"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gveje"]
@@ -119,11 +117,6 @@ enemies = Array[ExtResource("10_a7cik")]([SubResource("Resource_a7cik")])
 delay_before_next_wave = 1.0
 metadata/_custom_type_script = "uid://b13nu3g3jkfi7"
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_y65uw"]
-shader = ExtResource("14_o7svj")
-shader_parameter/speed_pixels_per_second = 16.0
-shader_parameter/offset_pixels = 0.0
-
 [sub_resource type="Gradient" id="Gradient_y65uw"]
 offsets = PackedFloat32Array(0, 0.432432, 1)
 colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1)
@@ -206,16 +199,10 @@ onedirection = true
 [node name="player_hold" type="Node2D" parent="."]
 
 [node name="end" parent="." instance=ExtResource("13_rweyd")]
-position = Vector2(-3264, -789)
+position = Vector2(14081, -2514)
 scale = Vector2(2.27523, 14.7138)
 timeline = ExtResource("14_y65uw")
 automatic = true
-
-[node name="column" type="Sprite2D" parent="end"]
-material = SubResource("ShaderMaterial_y65uw")
-position = Vector2(0, -12.3354)
-scale = Vector2(2.91179, 0.528311)
-texture = ExtResource("14_xwhb6")
 
 [node name="fade" type="TextureRect" parent="."]
 offset_left = 12449.0
@@ -223,3 +210,18 @@ offset_top = -3374.0
 offset_right = 16064.0
 offset_bottom = -1908.0
 texture = SubResource("GradientTexture2D_hmamd")
+
+[node name="void_wisp2" parent="." instance=ExtResource("7_b5c3w")]
+position = Vector2(1387, -1953)
+
+[node name="void_wisp3" parent="." instance=ExtResource("7_b5c3w")]
+position = Vector2(2215, -1964)
+
+[node name="void_wisp4" parent="." instance=ExtResource("7_b5c3w")]
+position = Vector2(3388, -1968)
+
+[node name="void_wisp5" parent="." instance=ExtResource("7_b5c3w")]
+position = Vector2(6075, -2354)
+
+[node name="void_wisp6" parent="." instance=ExtResource("7_b5c3w")]
+position = Vector2(6968, -2354)
