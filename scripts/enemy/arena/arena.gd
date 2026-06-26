@@ -5,7 +5,8 @@ extends Node2D
 @export var spawnarea: Vector2 = Vector2(300,50)
 @export var min_spawn_distance: float = 160.0
 
-@export var onfinish: DialogicTimeline
+
+@export var onfinish: String
 
 var started = false
 
@@ -66,4 +67,4 @@ func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player") and not started:
 		started = true
 		await start_waves()
-		Dialogic.start(onfinish)
+		Dialogic.signal_event.emit(onfinish)
