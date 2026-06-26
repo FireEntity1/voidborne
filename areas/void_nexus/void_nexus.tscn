@@ -222,3 +222,4 @@ position = Vector2(6968, -2354)
 [node name="transition" parent="." instance=ExtResource("13_rweyd")]
 position = Vector2(14398, -2543)
 to = "outlands"
+location = "default"

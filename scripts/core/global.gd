@@ -10,12 +10,19 @@ var levels = {
 	"voidnexus": {
 		"scene": preload("res://areas/void_nexus/void_nexus.tscn"),
 		"startpos": Vector2(1200,250),
+		"locations": {
+			"default": Vector2(1200,250),
+			"to_outlands": Vector2(14300.0,-2543.0),
+		},
 		"vingette": true,
 		"radial_chromabb": true,
 	},
 	"outlands": {
 		"scene": preload("res://areas/outlands/outlands.tscn"),
 		"startpos": Vector2(150,-100),
+		"locations": {
+			"default": Vector2(150,-100),
+		},
 		"vingette": false,
 		"radial_chromabb": false,
 	}
@@ -50,5 +57,5 @@ func fadescreen(active = false,black = true):
 func mod_can_move(status: bool = true):
 	can_move = status
 
-func change_scene(area: String):
-	root.change_area(area)
+func change_scene(area: String, location: String = "default"):
+	root.change_area(area, location)
