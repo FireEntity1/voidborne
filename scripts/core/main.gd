@@ -51,5 +51,7 @@ func change_area(area: String,location: String = "default"):
 	print(Global.levels[area].locations[location])
 	Global.player.global_position = new.to_global(Global.levels[area].locations[location])
 	var camera := Global.player.get_node("camera") as Camera2D
+	camera.position_smoothing_enabled = false
 	camera.make_current()
-	camera.reset_smoothing()
+	await get_tree().create_timer(0.05).timeout
+	camera.position_smoothing_enabled = true

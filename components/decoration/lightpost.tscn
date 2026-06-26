@@ -66,12 +66,12 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_w61rj")
 }, {
-"duration": 1.0,
+"duration": 0.25,
 "texture": SubResource("AtlasTexture_yngyh")
 }],
 "loop": true,
 "name": &"default",
-"speed": 5.0
+"speed": 2.5
 }]
 
 [node name="lightpost" type="AnimatedSprite2D"]

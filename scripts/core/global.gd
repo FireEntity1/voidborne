@@ -12,7 +12,7 @@ var levels = {
 		"startpos": Vector2(1200,250),
 		"locations": {
 			"default": Vector2(1200,250),
-			"to_outlands": Vector2(14300.0,-2543.0),
+			"to_outlands": Vector2(13000.0,-2543.0),
 		},
 		"vingette": true,
 		"radial_chromabb": true,
