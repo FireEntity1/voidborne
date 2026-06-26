@@ -1,10 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://uno1klrruv6"]
+[gd_scene load_steps=7 format=3 uid="uid://uno1klrruv6"]
 
 [ext_resource type="Texture2D" uid="uid://dhs3jn7rbwmtv" path="res://sprites/damage_overlay.png" id="1_jyhfs"]
 [ext_resource type="Script" uid="uid://bg4myabll67os" path="res://scripts/core/main.gd" id="1_tbgi4"]
 [ext_resource type="Shader" uid="uid://bj3b40or0bkl1" path="res://resources/shaders/vingette.gdshader" id="3_tefeu"]
 [ext_resource type="Shader" uid="uid://b4o0q82ffil6p" path="res://resources/shaders/radial_chromabb.gdshader" id="4_o6xl0"]
-[ext_resource type="PackedScene" uid="uid://dx4rxr3ahpfkh" path="res://areas/outlands/outlands.tscn" id="5_tbgi4"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_o6xl0"]
 shader = ExtResource("3_tefeu")
@@ -51,5 +50,3 @@ position = Vector2(930, 260)
 
 [node name="loaded_scene" type="Node2D" parent="game"]
 position = Vector2(-34, -85)
-
-[node name="outlands" parent="game/loaded_scene" instance=ExtResource("5_tbgi4")]

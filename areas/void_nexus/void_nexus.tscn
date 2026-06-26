@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=4 uid="uid://cu3pynmxlqcjn"]
+[gd_scene load_steps=25 format=4 uid="uid://cu3pynmxlqcjn"]
 
 [ext_resource type="Shader" uid="uid://vju4x68rih5k" path="res://resources/shaders/fog_spots.gdshader" id="1_obxot"]
 [ext_resource type="Shader" uid="uid://bns6x60fcqhgn" path="res://resources/shaders/swirl.gdshader" id="1_vdein"]
@@ -12,8 +12,7 @@
 [ext_resource type="Script" uid="uid://nyum2kmnthf2" path="res://scripts/enemy/arena/enemy_count.gd" id="10_a7cik"]
 [ext_resource type="Resource" uid="uid://sgwnk6dkgfp" path="res://dialogic/timelines/void_nexus/arena.dtl" id="11_a7cik"]
 [ext_resource type="PackedScene" uid="uid://kwapaj5ajref" path="res://components/void_nexus/break_wall.tscn" id="12_wpvqk"]
-[ext_resource type="PackedScene" uid="uid://6t8faj0pjahu" path="res://components/triggers/timeline_trigger.tscn" id="13_rweyd"]
-[ext_resource type="Resource" uid="uid://bygr2edvkljmp" path="res://dialogic/timelines/void_nexus/end.dtl" id="14_y65uw"]
+[ext_resource type="PackedScene" uid="uid://bx5sw6412n002" path="res://components/core/transition.tscn" id="13_rweyd"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gveje"]
 shader = ExtResource("1_vdein")
@@ -199,12 +198,6 @@ onedirection = true
 
 [node name="player_hold" type="Node2D" parent="."]
 
-[node name="end" parent="." instance=ExtResource("13_rweyd")]
-position = Vector2(14081, -2514)
-scale = Vector2(2.27523, 14.7138)
-timeline = ExtResource("14_y65uw")
-automatic = true
-
 [node name="fade" type="TextureRect" parent="."]
 offset_left = 12449.0
 offset_top = -3374.0
@@ -226,3 +219,7 @@ position = Vector2(6075, -2354)
 
 [node name="void_wisp6" parent="." instance=ExtResource("7_b5c3w")]
 position = Vector2(6968, -2354)
+
+[node name="transition" parent="." instance=ExtResource("13_rweyd")]
+position = Vector2(14398, -2543)
+to = "outlands"
