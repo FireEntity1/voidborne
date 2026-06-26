@@ -172,3 +172,4 @@ func flash_hit() -> void:
 
 func _dialogic_signal(argument: String):
 	print(argument)
+ 

@@ -1,5 +1,6 @@
 do Global.mod_can_move(false)
 do Global.fadescreen(true, true)
 [wait time="4.0"]
-do 
+do Global.change_scene("outlands")
+do Global.mod_can_move(true)
 do Global.fadescreen(false, true)

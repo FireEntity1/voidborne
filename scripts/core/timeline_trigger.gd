@@ -17,4 +17,4 @@ func _on_body_entered(body) -> void:
 		if automatic:
 			Dialogic.start(timeline)
 			completed = true
-			monitoring = false
+			set_deferred("monitoring", false)

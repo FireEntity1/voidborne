@@ -198,6 +198,9 @@ position = Vector2(3108, -192)
 [node name="lightpost4" parent="." instance=ExtResource("4_38vwe")]
 position = Vector2(3904, -192)
 
+[node name="player_hold" type="Node2D" parent="."]
+position = Vector2(411, -402)
+
 [node name="fog" type="Parallax2D" parent="."]
 scroll_scale = Vector2(0.1, 0.1)
 scroll_offset = Vector2(52, 24)

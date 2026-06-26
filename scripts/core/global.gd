@@ -13,7 +13,7 @@ var levels = {
 	},
 	"outlands": {
 		"scene": preload("res://areas/outlands/outlands.tscn"),
-		"startpos": Vector2(0,0)
+		"startpos": Vector2(150,-100)
 	}
 }
 
@@ -45,3 +45,6 @@ func fadescreen(active = false,black = true):
 
 func mod_can_move(status: bool = true):
 	can_move = status
+
+func change_scene(area: String):
+	root.change_area(area)
