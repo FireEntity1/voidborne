@@ -1,5 +1,0 @@
-[signal arg="start_arena"]
-do Global.mod_can_move(false)
-???: hi
-[signal arg="_door_voidnexus_arena"]
-do Global.mod_can_move(true)

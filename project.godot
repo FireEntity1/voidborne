@@ -26,7 +26,6 @@ directories/dch_directory={
 "???": "res://dialogic/timelines/void_nexus/???.dch"
 }
 directories/dtl_directory={
-"arena": "res://dialogic/timelines/void_nexus/arena.dtl",
 "end": "res://dialogic/timelines/void_nexus/end.dtl",
 "tutorial": "res://dialogic/timelines/void_nexus/tutorial.dtl"
 }
