@@ -76,7 +76,7 @@ animations = [{
 
 [node name="lightpost" type="AnimatedSprite2D"]
 position = Vector2(8, -24)
-scale = Vector2(8, 8)
+scale = Vector2(12, 12)
 sprite_frames = SubResource("SpriteFrames_hmfpb")
 autoplay = "default"
 script = ExtResource("2_jkaec")
