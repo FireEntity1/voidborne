@@ -186,6 +186,7 @@ onfinish = ExtResource("11_a7cik")
 [node name="door" parent="." instance=ExtResource("6_vy1cv")]
 position = Vector2(7882, -24)
 rotation = 1.5708
+closed = false
 
 [node name="door3" parent="." instance=ExtResource("6_vy1cv")]
 position = Vector2(-5302, -408)

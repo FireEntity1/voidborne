@@ -3,6 +3,7 @@ extends Node2D
 @export var waves: Array[Wave] = []
 @export var size: Vector2 = Vector2(100,100)
 @export var spawnarea: Vector2 = Vector2(300,50)
+@export var min_spawn_distance: float = 160.0
 
 @export var onfinish: DialogicTimeline
 
@@ -29,13 +30,30 @@ func spawn_wave(wave: Wave) -> Array[Node]:
 			continue
 		
 		for i in range(enemy_count.amount):
-			var enemy = enemy_count.enemy.instantiate()
-			add_child(enemy)
-			var sign = [1,-1].pick_random()
-			enemy.global_position = global_position + Vector2(randi_range(sign*64,sign*spawnarea.x/2),0)
+			var enemy = enemy_count.enemy.instantiate() as Node2D
+			if enemy == null:
+				push_warning("ts scene does NOT inherit node2d u dumbass")
+				continue
+			
+			call_deferred("_add_spawned_enemy", enemy, _get_spawn_position())
 			spawned_enemies.append(enemy)
 	
 	return spawned_enemies
+
+func _get_spawn_position() -> Vector2:
+	var reference_position = Global.player.global_position if is_instance_valid(Global.player) else global_position
+	var max_distance = max(abs(spawnarea.x) * 0.5, min_spawn_distance)
+	var side = -1.0 if randf() < 0.5 else 1.0
+	var x_offset = randf_range(min_spawn_distance, max_distance) * side
+	var y_offset = randf_range(-abs(spawnarea.y) * 0.5, abs(spawnarea.y) * 0.5)
+	return Vector2(reference_position.x + x_offset, global_position.y + y_offset)
+
+func _add_spawned_enemy(enemy: Node2D, spawn_position: Vector2) -> void:
+	if not is_instance_valid(enemy):
+		return
+	
+	add_child(enemy)
+	enemy.global_position = spawn_position
 
 func enemies_alive(enemies: Array[Node]) -> bool:
 	for enemy in enemies:

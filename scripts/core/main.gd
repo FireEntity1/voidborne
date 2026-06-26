@@ -30,10 +30,10 @@ func change_area(area: String):
 		child.queue_free()
 	var new = Global.levels[area].scene.instantiate()
 	$game/loaded_scene.add_child(new)
-
+	
 	Global.player = PLAYER.instantiate()
 	new.get_node("player_hold").add_child(Global.player)
-
+	
 	Global.player.global_position = new.to_global(Global.levels[area].startpos)
 	
 	var camera := Global.player.get_node("camera") as Camera2D

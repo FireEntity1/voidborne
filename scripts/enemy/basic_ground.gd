@@ -14,9 +14,12 @@ var player: CharacterBody2D
 @onready var shader_mat: ShaderMaterial = sprite.material as ShaderMaterial
 
 func _ready() -> void:
+	remove_from_group("enemy")
 	if shader_mat:
 		shader_mat = shader_mat.duplicate()
 		sprite.material = shader_mat
+	await get_tree().create_timer(0.5).timeout
+	add_to_group("enemy")
 
 func _on_detection_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
