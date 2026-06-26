@@ -13,7 +13,7 @@ func _ready() -> void:
 	change_area("outlands")
 
 func _process(delta: float) -> void:
-	fade.modulate.a = move_toward(fade.modulate.a, 1.0, delta/2.0) if Global.fade.active else move_toward(fade.modulate.a, 0.0, delta/2.0)
+	fade.modulate.a = move_toward(fade.modulate.a, 1.0, delta) if Global.fade.active else move_toward(fade.modulate.a, 0.0, delta)
 	fade.color = Color(0,0,0) if Global.fade.black else Color(1,1,1)
 
 func _on_player_hit():
@@ -25,7 +25,7 @@ func _vingette(show: bool,radius: float) -> void:
 		vingette.show()
 	else:
 		vingette.hide()
-
+ 
 func change_area(area: String,location: String = "default"):
 	var area_data = Global.levels[area]
 	for child in $game/loaded_scene.get_children():

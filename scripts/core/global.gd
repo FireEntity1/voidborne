@@ -12,7 +12,7 @@ var levels = {
 		"startpos": Vector2(1200,250),
 		"locations": {
 			"default": Vector2(1200,250),
-			"to_outlands": Vector2(13000.0,-2543.0),
+			"to_outlands": Vector2(13000.0,-2343.0),
 		},
 		"vingette": true,
 		"radial_chromabb": true,
@@ -21,7 +21,7 @@ var levels = {
 		"scene": preload("res://areas/outlands/outlands.tscn"),
 		"startpos": Vector2(150,-100),
 		"locations": {
-			"default": Vector2(150,-100),
+			"default": Vector2(-800,-100),
 		},
 		"vingette": false,
 		"radial_chromabb": false,

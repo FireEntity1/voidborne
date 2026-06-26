@@ -9,7 +9,7 @@ func _on_body_entered(body: Node2D) -> void:
 		location = "default"
 	Global.mod_can_move(false)
 	Global.fadescreen(true,black)
-	await get_tree().create_timer(4.0).timeout
+	await get_tree().create_timer(1.4).timeout
 	if body.is_in_group("player"):
 		Global.change_scene(to, location)
 	Global.mod_can_move(true)
