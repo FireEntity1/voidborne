@@ -23,10 +23,12 @@ Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 [dialogic]
 
 directories/dch_directory={
-"???": "res://dialogic/timelines/void_nexus/???.dch"
+"???": "res://dialogic/timelines/void_nexus/???.dch",
+"nym": "res://dialogic/characters/outlands/nym.dch"
 }
 directories/dtl_directory={
 "end": "res://dialogic/timelines/void_nexus/end.dtl",
+"nym": "res://dialogic/timelines/outlands/nym.dtl",
 "tutorial": "res://dialogic/timelines/void_nexus/tutorial.dtl"
 }
 layout/style_directory={

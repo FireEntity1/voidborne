@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=4 uid="uid://dx4rxr3ahpfkh"]
+[gd_scene load_steps=28 format=4 uid="uid://dx4rxr3ahpfkh"]
 
 [ext_resource type="Shader" uid="uid://bbsxfqbwg6r80" path="res://resources/shaders/sky.gdshader" id="1_5hdg2"]
 [ext_resource type="Script" uid="uid://crajt0rtnos3k" path="res://scripts/world/outlands.gd" id="1_6xo6o"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bk7s8n45qeelk" path="res://sprites/cracked_concrete.png" id="3_6xo6o"]
 [ext_resource type="Script" uid="uid://cwd6n20cmdbf1" path="res://scripts/world/lightposts.gd" id="5_38vwe"]
 [ext_resource type="Shader" uid="uid://vju4x68rih5k" path="res://resources/shaders/fog_spots.gdshader" id="5_c4uuv"]
+[ext_resource type="Resource" uid="uid://t55ycrykx4lt" path="res://dialogic/timelines/outlands/nym.dtl" id="6_c4uuv"]
 [ext_resource type="PackedScene" uid="uid://bx5sw6412n002" path="res://components/core/transition.tscn" id="6_v7pnp"]
 [ext_resource type="PackedScene" uid="uid://odd4m527uyyk" path="res://components/npc/outlands_resident.tscn" id="8_38vwe"]
 
@@ -318,8 +319,10 @@ scale = Vector2(10, 10)
 tile_map_data = PackedByteArray("AAC8//H/AQAAAAMAAAAlAPH/AAAAAAUAAAAlAPL/AAAAAAYAAAAmAPH/AAABAAUAAAAmAPL/AAABAAYAAAAnAPH/AAACAAUAAAAnAPL/AAACAAYAAAAoAPH/AAADAAUAAAAoAPL/AAADAAYAAAApAPH/AAAEAAUAAAApAPL/AAAEAAYAAAAvAPH/AAAAAAUAAAAvAPL/AAAAAAYAAAAwAPH/AAABAAUAAAAwAPL/AAABAAYAAAAxAPH/AAACAAUAAAAxAPL/AAACAAYAAAAyAPH/AAADAAUAAAAyAPL/AAADAAYAAAAzAPH/AAAEAAUAAAAzAPL/AAAEAAYAAAA0APH/AAAAAAUAAAA0APL/AAAAAAYAAAA1APH/AAABAAUAAAA1APL/AAABAAYAAAA2APH/AAACAAUAAAA2APL/AAACAAYAAAA3APH/AAADAAUAAAA3APL/AAADAAYAAAA4APH/AAAEAAUAAAA4APL/AAAEAAYAAAA0APD/AAAAAAAAAAA1APD/AAABAAAAAAA2APD/AAACAAAAAAA3APD/AAADAAAAAAA4APD/AAAEAAAAAAAvAPD/AAAAAAAAAAAwAPD/AAABAAAAAAAxAPD/AAACAAAAAAAyAPD/AAADAAAAAAAzAPD/AAAEAAAAAAAlAPD/AAAAAAAAAAAmAPD/AAABAAAAAAAnAPD/AAACAAAAAAAoAPD/AAADAAAAAAApAPD/AAAEAAAAAAAqAPD/AAAAAAAAAAArAPD/AAABAAAAAAAsAPD/AAACAAAAAAAtAPD/AAADAAAAAAAuAPD/AAAEAAAAAAAqAPH/AAAAAAUAAAAqAPL/AAAAAAYAAAArAPH/AAABAAUAAAArAPL/AAABAAYAAAAsAPH/AAACAAUAAAAsAPL/AAACAAYAAAAtAPH/AAADAAUAAAAtAPL/AAADAAYAAAAuAPH/AAAEAAUAAAAuAPL/AAAEAAYAAAA6APD/AAABAAAAAAA6APH/AAABAAUAAAA6APL/AAABAAYAAAA7APD/AAACAAAAAAA7APH/AAACAAUAAAA7APL/AAACAAYAAAA8APD/AAADAAAAAAA8APH/AAADAAUAAAA8APL/AAADAAYAAAA9APD/AAAEAAAAAAA9APH/AAAEAAUAAAA9APL/AAAEAAYAAAA+APD/AAAAAAAAAAA+APH/AAAAAAUAAAA+APL/AAAAAAYAAAA/APD/AAABAAAAAAA/APH/AAABAAUAAAA/APL/AAABAAYAAABAAPD/AAACAAAAAABAAPH/AAACAAUAAABAAPL/AAACAAYAAABBAPD/AAADAAAAAABBAPH/AAADAAUAAABBAPL/AAADAAYAAABCAPD/AAAEAAAAAABCAPH/AAAEAAUAAABCAPL/AAAEAAYAAAA5APD/AAAAAAAAAAA5APH/AAAAAAUAAAA5APL/AAAAAAYAAABDAPH/AAAAAAUAAABDAPL/AAAAAAYAAABEAPH/AAABAAUAAABEAPL/AAABAAYAAABFAPH/AAACAAUAAABFAPL/AAACAAYAAABGAPH/AAADAAUAAABGAPL/AAADAAYAAABHAPH/AAAEAAUAAABHAPL/AAAEAAYAAABDAPD/AAAAAAAAAABEAPD/AAABAAAAAABFAPD/AAACAAAAAABGAPD/AAADAAAAAABHAPD/AAAEAAAAAAA=")
 tile_set = SubResource("TileSet_gd34r")
 
-[node name="outlands_resident" parent="." instance=ExtResource("8_38vwe")]
+[node name="nym" parent="." instance=ExtResource("8_38vwe")]
 position = Vector2(14083, -2263)
+timeline = ExtResource("6_c4uuv")
+text = "SPEAK"
 
 [node name="player_hold" type="Node2D" parent="."]
 position = Vector2(411, -402)
@@ -337,7 +340,7 @@ count = 9
 space = 700
 
 [node name="fog" type="Parallax2D" parent="."]
-scroll_scale = Vector2(0.5, 0.8)
+scroll_scale = Vector2(0.5, 0.5)
 scroll_offset = Vector2(52, 24)
 
 [node name="fog" type="ColorRect" parent="fog"]
