@@ -9,7 +9,6 @@ var can_move = true
 var levels = {
 	"voidnexus": {
 		"scene": preload("res://areas/void_nexus/void_nexus.tscn"),
-		"startpos": Vector2(1200,250),
 		"locations": {
 			"default": Vector2(1200,250),
 			"to_outlands": Vector2(13000.0,-2343.0),
@@ -19,11 +18,19 @@ var levels = {
 	},
 	"outlands": {
 		"scene": preload("res://areas/outlands/outlands.tscn"),
-		"startpos": Vector2(150,-100),
 		"locations": {
 			"default": Vector2(-800,-100),
 		},
 		"vingette": false,
+		"radial_chromabb": false,
+	},
+	"outlands_underground": {
+		"scene": preload("res://areas/outlands/underground.tscn"),
+		"locations": {
+				"default": Vector2(600,200),
+				"to_outlands": Vector2(600,200)
+			},
+		"vingette": true,
 		"radial_chromabb": false,
 	}
 }

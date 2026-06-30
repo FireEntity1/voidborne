@@ -7,5 +7,5 @@ const LIGHTPOST = preload("res://components/decoration/lightpost.tscn")
 func _ready() -> void:
 	for i in range(count):
 		var post = LIGHTPOST.instantiate()
-		post.position = Vector2(position.x+i*space,position.y-288)
+		post.position = Vector2(i*space,-270)
 		add_child(post)

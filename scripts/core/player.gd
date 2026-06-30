@@ -4,11 +4,15 @@ const player = true
 
 const SPEED = 900.0
 const JUMP_VELOCITY = 1300.0
+const DASH_VELOCITY = 2500.0
 
 var jumped = JUMP_VELOCITY
-
+var previous_direction = 1
 var can_attack = true
+var can_dash = true
+var is_dashing = false
 
+var dash_cooldown = 0.4
 var attack_cooldown = 0.2
 var was_hit = false
 var hit_location = Vector2.ZERO
@@ -52,6 +56,7 @@ func _physics_process(delta: float) -> void:
 	if was_hit:
 		velocity.x = move_toward(velocity.x, 0, knockback_friction * delta)
 	elif direction and Global.can_move:
+		previous_direction = direction
 		velocity.x = move_toward(velocity.x, direction * SPEED, delta * 30000)
 		if is_on_floor():
 			$sprite.play("move")
@@ -81,6 +86,15 @@ func _physics_process(delta: float) -> void:
 	elif not direction:
 		$sprite.play("default")
 	
+	if Input.is_action_just_pressed("dash") and Global.can_move:
+		is_dashing = true
+		can_dash = false
+		await get_tree().create_timer(0.1).timeout
+		is_dashing = false
+		await get_tree().create_timer(dash_cooldown).timeout
+	if is_dashing:
+		velocity.x = previous_direction*DASH_VELOCITY
+	
 	move_and_slide()
 
 func attack() -> void:
@@ -105,7 +119,6 @@ func attack() -> void:
 	
 	slash.visible = true
 	slash.play()
-	
 	await get_tree().physics_frame
 	
 	var enemies: Array = $sprite/slash/area.get_overlapping_bodies()
