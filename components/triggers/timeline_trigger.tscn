@@ -14,4 +14,17 @@ script = ExtResource("1_5qjrg")
 [node name="collision" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_66gho")
 
+[node name="confirm" type="Label" parent="."]
+top_level = true
+offset_left = -161.0
+offset_top = -100.0
+offset_right = 150.0
+offset_bottom = 86.0
+pivot_offset = Vector2(161, 91)
+theme_override_font_sizes/font_size = 50
+text = "TALK"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

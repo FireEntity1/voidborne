@@ -20,6 +20,7 @@ var levels = {
 		"scene": preload("res://areas/outlands/outlands.tscn"),
 		"locations": {
 			"default": Vector2(-800,-100),
+			"to_underground": Vector2(24000,1100),
 		},
 		"vingette": false,
 		"radial_chromabb": false,
@@ -27,8 +28,8 @@ var levels = {
 	"outlands_underground": {
 		"scene": preload("res://areas/outlands/underground.tscn"),
 		"locations": {
-				"default": Vector2(600,200),
-				"to_outlands": Vector2(600,200)
+				"default": Vector2(500,200),
+				"to_outlands": Vector2(500,200)
 			},
 		"vingette": true,
 		"radial_chromabb": false,

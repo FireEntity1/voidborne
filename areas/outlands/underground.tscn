@@ -110,6 +110,6 @@ texture = SubResource("GradientTexture2D_jpybe")
 flip_h = true
 
 [node name="to_outlands2" parent="." instance=ExtResource("3_poiw5")]
-position = Vector2(385, -80)
-to = "voidnexus"
-location = "to_outlands"
+position = Vector2(-433, -61)
+to = "outlands"
+location = "to_underground"
