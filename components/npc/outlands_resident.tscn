@@ -1,0 +1,83 @@
+[gd_scene load_steps=13 format=3 uid="uid://odd4m527uyyk"]
+
+[ext_resource type="Script" uid="uid://mgsdow8pw8hj" path="res://scripts/npc/outlands_resident.gd" id="1_feh4w"]
+[ext_resource type="PackedScene" uid="uid://6t8faj0pjahu" path="res://components/triggers/timeline_trigger.tscn" id="2_khkpm"]
+[ext_resource type="Texture2D" uid="uid://dnbgjpoqhft30" path="res://sprites/outlands_resident.png" id="3_u7aea"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fj2rv"]
+atlas = ExtResource("3_u7aea")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5isnm"]
+atlas = ExtResource("3_u7aea")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bvs1l"]
+atlas = ExtResource("3_u7aea")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q3wur"]
+atlas = ExtResource("3_u7aea")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kkgst"]
+atlas = ExtResource("3_u7aea")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hnblo"]
+atlas = ExtResource("3_u7aea")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3cnd5"]
+atlas = ExtResource("3_u7aea")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ccyj"]
+atlas = ExtResource("3_u7aea")
+region = Rect2(112, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_l4snk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fj2rv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5isnm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bvs1l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q3wur")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kkgst")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hnblo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3cnd5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2ccyj")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="outlands_resident" type="Node2D"]
+script = ExtResource("1_feh4w")
+
+[node name="timeline_trigger" parent="." instance=ExtResource("2_khkpm")]
+position = Vector2(0, -62)
+scale = Vector2(6.2, 6.48)
+repeat = true
+
+[node name="sprite" type="AnimatedSprite2D" parent="."]
+modulate = Color(0.963333, 0.96, 1, 1)
+scale = Vector2(8, 8)
+sprite_frames = SubResource("SpriteFrames_l4snk")
+autoplay = "default"
