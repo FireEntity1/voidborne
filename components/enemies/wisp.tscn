@@ -1,0 +1,143 @@
+[gd_scene load_steps=20 format=3 uid="uid://wwcmbugeyu4g"]
+
+[ext_resource type="Script" uid="uid://yya8xmoadvrd" path="res://scripts/enemy/basic_ground.gd" id="1_wdc6r"]
+[ext_resource type="Shader" uid="uid://b0edm3wthahe0" path="res://resources/shaders/trail.gdshader" id="2_brqwn"]
+[ext_resource type="Texture2D" uid="uid://cmbx3uw58yqkf" path="res://sprites/wisp.png" id="3_wdc6r"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_aaqo0"]
+shader = ExtResource("2_brqwn")
+shader_parameter/length = 6.0
+shader_parameter/velocity = Vector2(1, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_brqwn"]
+atlas = ExtResource("3_wdc6r")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d47w0"]
+atlas = ExtResource("3_wdc6r")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o1qat"]
+atlas = ExtResource("3_wdc6r")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oj7gj"]
+atlas = ExtResource("3_wdc6r")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_81n7d"]
+atlas = ExtResource("3_wdc6r")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ib0u5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_brqwn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d47w0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o1qat")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oj7gj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_81n7d")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jbaus"]
+radius = 6.0208
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kw6kx"]
+size = Vector2(0.5, 15.875)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jbaus"]
+size = Vector2(228.75, 48.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aaqo0"]
+size = Vector2(103.703, 93.9242)
+
+[sub_resource type="Gradient" id="Gradient_kw6kx"]
+offsets = PackedFloat32Array(0.594156)
+colors = PackedColorArray(0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_aaqo0"]
+gradient = SubResource("Gradient_kw6kx")
+width = 16
+height = 16
+
+[sub_resource type="Curve" id="Curve_kw6kx"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.985402, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_aaqo0"]
+curve = SubResource("Curve_kw6kx")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_kw6kx"]
+particle_flag_disable_z = true
+angle_min = -720.0
+angle_max = 720.0
+spread = 180.0
+initial_velocity_min = 133.17
+initial_velocity_max = 133.17
+gravity = Vector3(0, 98, 0)
+scale_curve = SubResource("CurveTexture_aaqo0")
+
+[node name="wisp" type="CharacterBody2D" groups=["enemy"]]
+scale = Vector2(8, 8)
+collision_layer = 4
+script = ExtResource("1_wdc6r")
+flip = true
+
+[node name="sprite" type="AnimatedSprite2D" parent="."]
+modulate = Color(1.2, 1.2, 1.2, 1)
+self_modulate = Color(1.4, 1.4, 1.4, 1)
+material = SubResource("ShaderMaterial_aaqo0")
+position = Vector2(0.25, 0)
+sprite_frames = SubResource("SpriteFrames_ib0u5")
+autoplay = "default"
+
+[node name="collision" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_jbaus")
+
+[node name="legs" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2.0625)
+shape = SubResource("RectangleShape2D_kw6kx")
+
+[node name="detection" type="Area2D" parent="."]
+visible = false
+collision_layer = 4
+collision_mask = 2
+
+[node name="collision" type="CollisionShape2D" parent="detection"]
+position = Vector2(0, -4.5)
+shape = SubResource("RectangleShape2D_jbaus")
+
+[node name="collision2" type="CollisionShape2D" parent="detection"]
+position = Vector2(0.369996, -34.8873)
+rotation = -1.55862
+shape = SubResource("RectangleShape2D_aaqo0")
+
+[node name="groundcast_r" type="RayCast2D" parent="."]
+target_position = Vector2(-9.75, 10.625)
+
+[node name="groundcast_l" type="RayCast2D" parent="."]
+scale = Vector2(-1, 1)
+target_position = Vector2(-9.75, 10.625)
+
+[node name="death_particles" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 32
+texture = SubResource("GradientTexture2D_aaqo0")
+lifetime = 0.4
+one_shot = true
+process_material = SubResource("ParticleProcessMaterial_kw6kx")
+
+[connection signal="body_entered" from="detection" to="." method="_on_detection_body_entered"]

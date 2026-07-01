@@ -63,7 +63,7 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 	
-	if Input.is_action_just_pressed("attack") and can_attack:
+	if Input.is_action_just_pressed("attack") and can_attack and Global.can_move:
 		attack()
 	
 	if not slash.is_playing():

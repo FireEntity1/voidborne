@@ -1,3 +1,11 @@
 join nym center
+do Global.mod_can_move(false)
 nym: Hello, void.
 nym: I am Nym, nothing but a resident living in this dreary place...
+nym: All we've ever been told is...
+nym: "Erase the void"
+nym: "Reject the void"
+nym: "Destroy the void"
+nym: ...and everyone has followed out of fear.
+nym: Yet I'm beginning to question whether it's worth all the effort...
+do Global.mod_can_move(true)
