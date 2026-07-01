@@ -8,6 +8,8 @@ extends Area2D
 var is_player_active = false
 var completed = false
 
+var active = false
+
 @onready var confirm = $confirm
 
 func _ready() -> void:
@@ -18,8 +20,14 @@ func _process(delta: float) -> void:
 		confirm.modulate.a = move_toward(confirm.modulate.a,1.0,delta)
 	else:
 		confirm.modulate.a = move_toward(confirm.modulate.a,0.0,delta)
-	if Input.is_action_just_pressed("interact") and is_player_active:
+	if Input.is_action_just_pressed("interact") and is_player_active and not active:
+		if repeat and completed:
+			return
 		Dialogic.start(timeline)
+		active = true
+		await Dialogic.timeline_ended
+		print("done!")
+		active = false
 
 func _on_body_entered(body) -> void:
 	print("ENTERED")
