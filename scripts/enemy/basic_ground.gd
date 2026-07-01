@@ -9,7 +9,7 @@ var health = 10.0
 var player: CharacterBody2D
 
 @export var attack_strength = 1
-@export var flip = false
+@export var speed_mult: float = 1.0
 
 @onready var sprite: AnimatedSprite2D = $sprite
 @onready var shader_mat: ShaderMaterial = sprite.material as ShaderMaterial

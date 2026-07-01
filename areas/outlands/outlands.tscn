@@ -384,3 +384,6 @@ position = Vector2(2456, -98)
 
 [node name="wisp2" parent="." instance=ExtResource("10_6meko")]
 position = Vector2(3664, -94)
+
+[node name="wisp3" parent="." instance=ExtResource("10_6meko")]
+position = Vector2(7182, -107)

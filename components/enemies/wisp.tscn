@@ -94,7 +94,7 @@ scale_curve = SubResource("CurveTexture_aaqo0")
 scale = Vector2(8, 8)
 collision_layer = 4
 script = ExtResource("1_wdc6r")
-flip = true
+speed_mult = 0.6
 
 [node name="sprite" type="AnimatedSprite2D" parent="."]
 modulate = Color(1.2, 1.2, 1.2, 1)
