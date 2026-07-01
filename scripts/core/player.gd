@@ -26,7 +26,9 @@ var knockback_friction = 4500.0
 
 var invincible = false
 
-var health = 10
+@export var max_health := 10
+var health := 10
+signal health_changed(current_health: int, max_health: int)
 
 @onready var slash = $sprite/slash
 
@@ -151,7 +153,7 @@ func _on_hit_body_entered(body: Node2D) -> void:
 		Global.can_move = false
 		
 		player_hit.emit()
-		health -= int(body.attack_strength)
+		take_damage(int(body.attack_strength))
 		
 		print(health)
 		
@@ -187,3 +189,11 @@ func flash_hit() -> void:
 func _dialogic_signal(argument: String):
 	print(argument)
  
+func set_health(value: int) -> void:
+	var old_health = health
+	health = clampi(value, 0, max_health)
+	if health != old_health:
+		health_changed.emit(health, max_health)
+
+func take_damage(amount: int) -> void:
+	set_health(health - amount)

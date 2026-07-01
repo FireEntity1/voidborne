@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://uno1klrruv6"]
+[gd_scene load_steps=8 format=3 uid="uid://uno1klrruv6"]
 
 [ext_resource type="Texture2D" uid="uid://dhs3jn7rbwmtv" path="res://sprites/damage_overlay.png" id="1_jyhfs"]
 [ext_resource type="Script" uid="uid://bg4myabll67os" path="res://scripts/core/main.gd" id="1_tbgi4"]
 [ext_resource type="Shader" uid="uid://bj3b40or0bkl1" path="res://resources/shaders/vingette.gdshader" id="3_tefeu"]
 [ext_resource type="Shader" uid="uid://b4o0q82ffil6p" path="res://resources/shaders/radial_chromabb.gdshader" id="4_o6xl0"]
+[ext_resource type="PackedScene" uid="uid://dm8ct8ksgt5s7" path="res://components/core/healthud.tscn" id="5_tbgi4"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_o6xl0"]
 shader = ExtResource("3_tefeu")
@@ -44,6 +45,8 @@ offset_bottom = 1080.0
 custom_minimum_size = Vector2(1920, 1080)
 offset_right = 40.0
 offset_bottom = 40.0
+
+[node name="healthhud" parent="ui" instance=ExtResource("5_tbgi4")]
 
 [node name="game" type="Node2D" parent="."]
 position = Vector2(930, 260)

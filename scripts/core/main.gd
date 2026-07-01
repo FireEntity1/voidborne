@@ -3,6 +3,7 @@ extends Node2D
 @onready var vingette = $ui/vingette
 @onready var radial_chromabb = $ui/radial_chromabb
 @onready var fade = $ui/fade
+@onready var health_hud = $ui/healthhud
 
 const PLAYER = preload("res://components/core/player.tscn")
 
@@ -43,10 +44,9 @@ func change_area(area: String,location: String = "default"):
 	else:
 		radial_chromabb.hide()
 	
-	
 	Global.player = PLAYER.instantiate()
 	new.get_node("player_hold").add_child(Global.player)
-	
+	health_hud.bind_player(Global.player)
 	
 	print(Global.levels[area].locations[location])
 	Global.player.global_position = new.to_global(Global.levels[area].locations[location])

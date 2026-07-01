@@ -1,0 +1,67 @@
+[gd_scene load_steps=8 format=3 uid="uid://dm8ct8ksgt5s7"]
+
+[ext_resource type="Script" uid="uid://cil6sahyur0cw" path="res://scripts/core/healthud.gd" id="1_wk1b8"]
+[ext_resource type="Texture2D" uid="uid://cihaf3ovvrulo" path="res://sprites/heart.png" id="2_o1wrg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oh1sh"]
+atlas = ExtResource("2_o1wrg")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dca66"]
+atlas = ExtResource("2_o1wrg")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o1wrg"]
+atlas = ExtResource("2_o1wrg")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tc7cn"]
+atlas = ExtResource("2_o1wrg")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wk1b8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oh1sh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dca66")
+}],
+"loop": true,
+"name": &"full",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o1wrg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tc7cn")
+}],
+"loop": true,
+"name": &"half",
+"speed": 1.0
+}]
+
+[node name="healthhud" type="Node2D"]
+script = ExtResource("1_wk1b8")
+
+[node name="heart" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(-8, -8)
+sprite_frames = SubResource("SpriteFrames_wk1b8")
+animation = &"full"
+autoplay = "full"
+offset = Vector2(8, 8)
+
+[node name="half_heart" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(-8, -8)
+sprite_frames = SubResource("SpriteFrames_wk1b8")
+animation = &"half"
+autoplay = "half"
+offset = Vector2(8, 8)
+
+[node name="container" type="Node2D" parent="."]
+scale = Vector2(8, 8)
