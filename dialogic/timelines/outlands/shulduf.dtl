@@ -1,0 +1,3 @@
+do Global.mod_can_move(false)
+shulduf: I am a fucking chud
+do Global.mod_can_move(true)

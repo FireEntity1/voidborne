@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=4 uid="uid://dx4rxr3ahpfkh"]
+[gd_scene load_steps=30 format=4 uid="uid://dx4rxr3ahpfkh"]
 
 [ext_resource type="Shader" uid="uid://bbsxfqbwg6r80" path="res://resources/shaders/sky.gdshader" id="1_5hdg2"]
 [ext_resource type="Script" uid="uid://crajt0rtnos3k" path="res://scripts/world/outlands.gd" id="1_6xo6o"]
@@ -8,6 +8,7 @@
 [ext_resource type="Shader" uid="uid://vju4x68rih5k" path="res://resources/shaders/fog_spots.gdshader" id="5_c4uuv"]
 [ext_resource type="Resource" uid="uid://t55ycrykx4lt" path="res://dialogic/timelines/outlands/nym.dtl" id="6_c4uuv"]
 [ext_resource type="PackedScene" uid="uid://bx5sw6412n002" path="res://components/core/transition.tscn" id="6_v7pnp"]
+[ext_resource type="Resource" uid="uid://bkglga5xkwmi5" path="res://dialogic/timelines/outlands/shulduf.dtl" id="7_2myrk"]
 [ext_resource type="PackedScene" uid="uid://odd4m527uyyk" path="res://components/npc/outlands_resident.tscn" id="8_38vwe"]
 [ext_resource type="PackedScene" uid="uid://wwcmbugeyu4g" path="res://components/enemies/wisp.tscn" id="10_6meko"]
 
@@ -325,8 +326,30 @@ position = Vector2(14083, -2263)
 timeline = ExtResource("6_c4uuv")
 text = "SPEAK"
 
+[node name="shulduf" parent="." instance=ExtResource("8_38vwe")]
+position = Vector2(21135, -990)
+timeline = ExtResource("7_2myrk")
+text = "SPEAK"
+
 [node name="player_hold" type="Node2D" parent="."]
 position = Vector2(411, -402)
+
+[node name="enemy_hold" type="Node2D" parent="."]
+
+[node name="wisp" parent="enemy_hold" instance=ExtResource("10_6meko")]
+position = Vector2(2456, -98)
+
+[node name="wisp2" parent="enemy_hold" instance=ExtResource("10_6meko")]
+position = Vector2(3664, -94)
+
+[node name="wisp3" parent="enemy_hold" instance=ExtResource("10_6meko")]
+position = Vector2(7182, -107)
+
+[node name="wisp4" parent="enemy_hold" instance=ExtResource("10_6meko")]
+position = Vector2(9362, -98)
+
+[node name="wisp5" parent="enemy_hold" instance=ExtResource("10_6meko")]
+position = Vector2(11716, -100)
 
 [node name="lightposts" type="Node2D" parent="."]
 position = Vector2(725, 0)
@@ -378,12 +401,3 @@ position = Vector2(24622, 973)
 scale = Vector2(-1, -1)
 to = "outlands_underground"
 location = "default"
-
-[node name="wisp" parent="." instance=ExtResource("10_6meko")]
-position = Vector2(2456, -98)
-
-[node name="wisp2" parent="." instance=ExtResource("10_6meko")]
-position = Vector2(3664, -94)
-
-[node name="wisp3" parent="." instance=ExtResource("10_6meko")]
-position = Vector2(7182, -107)
