@@ -56,7 +56,7 @@ func draw_hearts(current_health: int) -> void:
 func _show_slot(slot: AnimatedSprite2D, animation_name: StringName) -> void:
 	if slot.animation != animation_name:
 		slot.animation = animation_name
-
+	
 	slot.frame = 0
-	slot.stop()
+	#slot.stop()
 	slot.visible = true
