@@ -18,7 +18,7 @@ func bind_player(player: Node) -> void:
 	bound_player.health_changed.connect(_on_health_changed)
 	_build_heart_slots(player.max_health)
 	_on_health_changed(player.health, player.max_health)
-
+	
 func _on_health_changed(current_health: int, max_health: int) -> void:
 	_build_heart_slots(max_health)
 	draw_hearts(current_health)
