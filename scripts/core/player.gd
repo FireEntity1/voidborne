@@ -123,6 +123,8 @@ func attack() -> void:
 	slash.play()
 	await get_tree().physics_frame
 	
+	var did_hit = false
+	
 	var enemies: Array = $sprite/slash/area.get_overlapping_bodies()
 	for enemy in enemies:
 		if enemy.is_in_group("enemy"):
@@ -134,10 +136,11 @@ func attack() -> void:
 	for area in areas:
 		if area.is_in_group("hittable"):
 			area.hit()
-			
+	$sprite/slash/hit_particles.emitting = did_hit
 	
 	await slash.animation_finished
 	slash.visible = false
+	$sprite/slash/hit_particles.emitting = false
 	
 	await get_tree().create_timer(attack_cooldown).timeout
 	can_attack = true

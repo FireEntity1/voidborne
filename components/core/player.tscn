@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://dq7ng5vi3rwcu"]
+[gd_scene load_steps=55 format=3 uid="uid://dq7ng5vi3rwcu"]
 
 [ext_resource type="Script" uid="uid://brq7vdr3t803u" path="res://scripts/core/player.gd" id="1_hpv3a"]
 [ext_resource type="Texture2D" uid="uid://c582x5ti7j4no" path="res://sprites/voidborn.png" id="2_hpv3a"]
@@ -305,6 +305,30 @@ animations = [{
 radius = 7.9528
 height = 15.9056
 
+[sub_resource type="Gradient" id="Gradient_ovj3t"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_5a7ls"]
+gradient = SubResource("Gradient_ovj3t")
+width = 8
+height = 8
+
+[sub_resource type="Curve" id="Curve_ovj3t"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_5a7ls"]
+curve = SubResource("Curve_ovj3t")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ovj3t"]
+particle_flag_disable_z = true
+angular_velocity_min = -44.72
+angular_velocity_max = 26.83
+radial_velocity_min = -86.95
+radial_velocity_max = 223.6
+gravity = Vector3(0, 98, 0)
+scale_curve = SubResource("CurveTexture_5a7ls")
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ovj3t"]
 size = Vector2(8.25, 17.625)
 
@@ -372,6 +396,16 @@ collision_mask = 4
 
 [node name="collision" type="CollisionShape2D" parent="sprite/slash/area"]
 shape = SubResource("CapsuleShape2D_5a7ls")
+
+[node name="hit_particles" type="GPUParticles2D" parent="sprite/slash"]
+position = Vector2(6.32766, 4.35044)
+emitting = false
+amount = 16
+texture = SubResource("GradientTexture2D_5a7ls")
+one_shot = true
+explosiveness = 1.0
+randomness = 0.56
+process_material = SubResource("ParticleProcessMaterial_ovj3t")
 
 [node name="hit" type="Area2D" parent="." groups=["player"]]
 collision_layer = 2

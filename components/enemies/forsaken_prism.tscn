@@ -1,0 +1,77 @@
+[gd_scene load_steps=11 format=3 uid="uid://dkkoekf26wed6"]
+
+[ext_resource type="Texture2D" uid="uid://cg5msidsy21q2" path="res://sprites/forsaken_prism.png" id="1_6nrbk"]
+[ext_resource type="Script" uid="uid://dhpckctooatuj" path="res://scripts/enemy/top_bomb.gd" id="1_8svt2"]
+[ext_resource type="Shader" uid="uid://d1hmqju8ic4ld" path="res://resources/shaders/motion_blur.gdshader" id="2_hv4no"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_klira"]
+shader = ExtResource("2_hv4no")
+shader_parameter/dir = Vector2(0, 0)
+shader_parameter/quality = 8
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hv4no"]
+atlas = ExtResource("1_6nrbk")
+region = Rect2(16, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_klira"]
+atlas = ExtResource("1_6nrbk")
+region = Rect2(32, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q2th2"]
+atlas = ExtResource("1_6nrbk")
+region = Rect2(48, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0g3r5"]
+atlas = ExtResource("1_6nrbk")
+region = Rect2(64, 0, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ococg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hv4no")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_klira")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q2th2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0g3r5")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8svt2"]
+size = Vector2(6.75, 336.2)
+
+[node name="forsaken_prism" type="CharacterBody2D" groups=["enemy"]]
+scale = Vector2(5, 5)
+collision_layer = 4
+script = ExtResource("1_8svt2")
+
+[node name="collision" type="CollisionPolygon2D" parent="."]
+position = Vector2(0, -0.0234374)
+scale = Vector2(0.785061, 1.57774)
+polygon = PackedVector2Array(-10.25, 0, 0, 10.25, 10.25, 0)
+
+[node name="sprite" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_klira")
+sprite_frames = SubResource("SpriteFrames_ococg")
+
+[node name="detection" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 2
+
+[node name="collision" type="CollisionShape2D" parent="detection"]
+position = Vector2(0, 168.1)
+shape = SubResource("RectangleShape2D_8svt2")
+
+[node name="darken" type="Timer" parent="."]
+autostart = true
+
+[connection signal="body_entered" from="detection" to="." method="_on_detection_body_entered"]
+[connection signal="timeout" from="darken" to="." method="_on_darken_timeout"]
