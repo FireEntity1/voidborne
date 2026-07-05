@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=4 uid="uid://cu3pynmxlqcjn"]
+[gd_scene load_steps=27 format=4 uid="uid://cu3pynmxlqcjn"]
 
 [ext_resource type="Shader" uid="uid://vju4x68rih5k" path="res://resources/shaders/fog_spots.gdshader" id="1_obxot"]
 [ext_resource type="Shader" uid="uid://bns6x60fcqhgn" path="res://resources/shaders/swirl.gdshader" id="1_vdein"]
@@ -124,6 +124,15 @@ gradient = SubResource("Gradient_xwhb6")
 width = 256
 fill_to = Vector2(1, 0.0160643)
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_rweyd"]
+polygon = PackedVector2Array(10189, -90, 10558, -77, 10573, 40, 10934, 33, 10947, 175, 11454, 177, 10855, 269, 8016, 56, 8029, -219, 10189, -221)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_wpvqk"]
+polygon = PackedVector2Array(8008, -214, 10185, -215, 10350, -214, 10846, -218, 10839, -597, 11232, -606, 11233, 11, 7791, 14, 7660, -370, 8009, -788)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_xwhb6"]
+polygon = PackedVector2Array(5182, 33, 5193, -83, 5683, -83, 5695, -204, 10185, -215, 10350, -214, 15058, -178, 12826, 266, 7015, 515, 997, 523, 611, 184, 4669, 167, 4667, 52)
+
 [node name="voidnexus" type="Node2D"]
 
 [node name="bg" type="Parallax2D" parent="."]
@@ -223,3 +232,16 @@ position = Vector2(6968, -2354)
 position = Vector2(14398, -2543)
 to = "outlands"
 location = "default"
+
+[node name="particle_collisions" type="Node2D" parent="."]
+
+[node name="1" type="LightOccluder2D" parent="particle_collisions"]
+occluder = SubResource("OccluderPolygon2D_rweyd")
+
+[node name="2" type="LightOccluder2D" parent="particle_collisions"]
+position = Vector2(-4999, 2048)
+occluder = SubResource("OccluderPolygon2D_wpvqk")
+
+[node name="3" type="LightOccluder2D" parent="particle_collisions"]
+position = Vector2(-502, -2046)
+occluder = SubResource("OccluderPolygon2D_xwhb6")

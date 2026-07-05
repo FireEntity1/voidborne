@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://bpyd565dr731o"]
+[gd_scene load_steps=21 format=3 uid="uid://bpyd565dr731o"]
 
 [ext_resource type="Script" uid="uid://yya8xmoadvrd" path="res://scripts/enemy/basic_ground.gd" id="1_0q4nn"]
 [ext_resource type="Texture2D" uid="uid://b3qbrxt1yihal" path="res://sprites/void_wisp.png" id="2_jbaus"]
@@ -94,27 +94,21 @@ size = Vector2(103.703, 93.9242)
 offsets = PackedFloat32Array(0.594156)
 colors = PackedColorArray(0, 0, 0, 1)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_aaqo0"]
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_kw6kx"]
 gradient = SubResource("Gradient_kw6kx")
 width = 16
 height = 16
 
-[sub_resource type="Curve" id="Curve_kw6kx"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.985402, 0), 0.0, 0.0, 0, 0]
-point_count = 2
-
-[sub_resource type="CurveTexture" id="CurveTexture_aaqo0"]
-curve = SubResource("Curve_kw6kx")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_kw6kx"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_aaqo0"]
 particle_flag_disable_z = true
-angle_min = -720.0
-angle_max = 720.0
 spread = 180.0
-initial_velocity_min = 40.0
-initial_velocity_max = 80.0
-gravity = Vector3(0, 98, 0)
-scale_curve = SubResource("CurveTexture_aaqo0")
+initial_velocity_min = 20.0
+initial_velocity_max = 40.0
+gravity = Vector3(0, 300, 0)
+collision_mode = 1
+collision_friction = 0.8
+collision_bounce = 0.0
+collision_use_scale = true
 
 [node name="void_wisp" type="CharacterBody2D" groups=["enemy"]]
 scale = Vector2(8, 8)
@@ -161,10 +155,12 @@ target_position = Vector2(-9.75, 10.625)
 [node name="death_particles" type="GPUParticles2D" parent="."]
 emitting = false
 amount = 32
-texture = SubResource("GradientTexture2D_aaqo0")
+texture = SubResource("GradientTexture2D_kw6kx")
+lifetime = 11.0
 one_shot = true
-explosiveness = 0.56
+speed_scale = 2.96
+explosiveness = 1.0
 randomness = 0.5
-process_material = SubResource("ParticleProcessMaterial_kw6kx")
+process_material = SubResource("ParticleProcessMaterial_aaqo0")
 
 [connection signal="body_entered" from="detection" to="." method="_on_detection_body_entered"]

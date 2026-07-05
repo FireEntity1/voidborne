@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://cjw5jsk1dmc32"]
+[gd_scene load_steps=14 format=4 uid="uid://cjw5jsk1dmc32"]
 
 [ext_resource type="Texture2D" uid="uid://bk7s8n45qeelk" path="res://sprites/cracked_concrete.png" id="1_gqfbg"]
 [ext_resource type="Texture2D" uid="uid://cl5v8q7pkhafd" path="res://sprites/building.png" id="2_poiw5"]
@@ -105,6 +105,9 @@ gradient = SubResource("Gradient_y65uw")
 width = 256
 fill_to = Vector2(1, 0.0160643)
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_gffnh"]
+polygon = PackedVector2Array(-355, 4, 16641, 2, 16697, 147, -400, 232)
+
 [node name="underground" type="Node2D"]
 
 [node name="worldbg" type="TileMapLayer" parent="."]
@@ -163,3 +166,9 @@ flip_h = true
 position = Vector2(-433, -61)
 to = "outlands"
 location = "to_underground"
+
+[node name="particle_collisions" type="Node2D" parent="."]
+
+[node name="1" type="LightOccluder2D" parent="particle_collisions"]
+position = Vector2(6463, 2691)
+occluder = SubResource("OccluderPolygon2D_gffnh")

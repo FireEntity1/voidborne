@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=4 uid="uid://dx4rxr3ahpfkh"]
+[gd_scene load_steps=31 format=4 uid="uid://dx4rxr3ahpfkh"]
 
 [ext_resource type="Shader" uid="uid://bbsxfqbwg6r80" path="res://resources/shaders/sky.gdshader" id="1_5hdg2"]
 [ext_resource type="Script" uid="uid://crajt0rtnos3k" path="res://scripts/world/outlands.gd" id="1_6xo6o"]
@@ -246,6 +246,9 @@ gradient = SubResource("Gradient_2myrk")
 width = 256
 fill_to = Vector2(1, 0.0160643)
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_2myrk"]
+polygon = PackedVector2Array(-355, 4, 16641, 2, 16697, 147, -400, 232)
+
 [node name="outlands" type="Node2D"]
 script = ExtResource("1_6xo6o")
 
@@ -369,10 +372,10 @@ scroll_offset = Vector2(52, 24)
 
 [node name="fog" type="ColorRect" parent="fog"]
 material = SubResource("ShaderMaterial_e5fia")
-offset_left = -1085.0
-offset_top = -3939.0
-offset_right = 22277.0
-offset_bottom = 1506.0
+offset_left = -1083.0
+offset_top = -3952.0
+offset_right = 22279.0
+offset_bottom = 1493.0
 
 [node name="to_voidnexus" type="TextureRect" parent="."]
 offset_left = -2406.0
@@ -401,3 +404,8 @@ position = Vector2(24622, 973)
 scale = Vector2(-1, -1)
 to = "outlands_underground"
 location = "default"
+
+[node name="particle_collisions" type="Node2D" parent="."]
+
+[node name="1" type="LightOccluder2D" parent="particle_collisions"]
+occluder = SubResource("OccluderPolygon2D_2myrk")

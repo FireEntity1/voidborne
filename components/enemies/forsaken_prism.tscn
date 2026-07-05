@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dkkoekf26wed6"]
+[gd_scene load_steps=16 format=3 uid="uid://dkkoekf26wed6"]
 
 [ext_resource type="Texture2D" uid="uid://cg5msidsy21q2" path="res://sprites/forsaken_prism.png" id="1_6nrbk"]
 [ext_resource type="Script" uid="uid://dhpckctooatuj" path="res://scripts/enemy/top_bomb.gd" id="1_8svt2"]
@@ -46,7 +46,36 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8svt2"]
-size = Vector2(6.75, 336.2)
+size = Vector2(38.8, 172.4)
+
+[sub_resource type="Gradient" id="Gradient_kw6kx"]
+offsets = PackedFloat32Array(0.594156)
+colors = PackedColorArray(0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_hv4no"]
+gradient = SubResource("Gradient_kw6kx")
+width = 16
+height = 16
+
+[sub_resource type="Curve" id="Curve_klira"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.985402, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_aaqo0"]
+curve = SubResource("Curve_klira")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_q2th2"]
+particle_flag_disable_z = true
+angle_min = -720.0
+angle_max = 720.0
+spread = 180.0
+initial_velocity_min = 40.0
+initial_velocity_max = 80.0
+gravity = Vector3(0, 98, 0)
+scale_curve = SubResource("CurveTexture_aaqo0")
+collision_mode = 1
+collision_friction = 0.0
+collision_bounce = 0.0
 
 [node name="forsaken_prism" type="CharacterBody2D" groups=["enemy"]]
 scale = Vector2(5, 5)
@@ -56,7 +85,7 @@ script = ExtResource("1_8svt2")
 [node name="collision" type="CollisionPolygon2D" parent="."]
 position = Vector2(0, -0.0234374)
 scale = Vector2(0.785061, 1.57774)
-polygon = PackedVector2Array(-10.25, 0, 0, 10.25, 10.25, 0)
+polygon = PackedVector2Array(-10.1903, 1.28249, 0, 10.25, 10.1903, 1.28249)
 
 [node name="sprite" type="AnimatedSprite2D" parent="."]
 material = SubResource("ShaderMaterial_klira")
@@ -67,11 +96,21 @@ collision_layer = 4
 collision_mask = 2
 
 [node name="collision" type="CollisionShape2D" parent="detection"]
-position = Vector2(0, 168.1)
+position = Vector2(0, 86.2)
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_8svt2")
 
 [node name="darken" type="Timer" parent="."]
 autostart = true
+
+[node name="death_particles" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 32
+texture = SubResource("GradientTexture2D_hv4no")
+one_shot = true
+explosiveness = 0.72
+randomness = 0.5
+process_material = SubResource("ParticleProcessMaterial_q2th2")
 
 [connection signal="body_entered" from="detection" to="." method="_on_detection_body_entered"]
 [connection signal="timeout" from="darken" to="." method="_on_darken_timeout"]

@@ -21,7 +21,8 @@ func _physics_process(delta: float) -> void:
 	else:
 		$sprite.material.set_shader_parameter("dir",Vector2.ZERO)
 	global_position.y += velocity.y*delta
-	
+	if is_on_floor_only():
+		die()
 	if darkening:
 		$sprite.self_modulate -= Color(delta, delta, delta)/8.0
 	else:
@@ -41,3 +42,12 @@ func _on_body_entered(body: Node2D) -> void:
 
 func _on_darken_timeout() -> void:
 	darkening = not darkening
+
+func damage(amtd):
+	$collision.disabled = true
+	queue_free()
+
+func die():
+	$collision.disabled = true
+	$sprite.queue_free()
+	$death_particles.emitting = true

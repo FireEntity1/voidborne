@@ -11,7 +11,7 @@ func _ready() -> void:
 	#$game/player.connect("player_hit",_on_player_hit)
 	Global.root = self
 	Global.connect("vingette",_vingette)
-	change_area("outlands_underground")
+	change_area("outlands")
 
 func _process(delta: float) -> void:
 	fade.modulate.a = move_toward(fade.modulate.a, 1.0, delta) if Global.fade.active else move_toward(fade.modulate.a, 0.0, delta)
