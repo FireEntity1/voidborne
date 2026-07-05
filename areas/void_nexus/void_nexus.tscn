@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://bf6qocnhkokxw" path="res://sprites/void_platform_2.png" id="2_57rgy"]
 [ext_resource type="Texture2D" uid="uid://cbu0evfs7aeex" path="res://sprites/void_platform.png" id="2_vj87g"]
 [ext_resource type="Texture2D" uid="uid://dout26du63bka" path="res://sprites/void_platform_bg.png" id="3_85ubq"]
-[ext_resource type="PackedScene" uid="uid://c4dqvr751opkr" path="res://components/void_nexus/door.tscn" id="6_vy1cv"]
+[ext_resource type="PackedScene" uid="uid://c4dqvr751opkr" path="res://components/outlands/door.tscn" id="6_vy1cv"]
 [ext_resource type="PackedScene" uid="uid://bpyd565dr731o" path="res://components/enemies/void_wisp.tscn" id="7_b5c3w"]
 [ext_resource type="PackedScene" uid="uid://l6vgldibdk3e" path="res://components/triggers/arena.tscn" id="8_01gh4"]
 [ext_resource type="Script" uid="uid://b13nu3g3jkfi7" path="res://scripts/enemy/arena/wave.gd" id="9_ubmit"]
