@@ -11,13 +11,17 @@ var falling = false
 
 func _ready() -> void:
 	$darken.start()
+	$sprite.material = $sprite.material.duplicate()
 
 func _physics_process(delta: float) -> void:
 	if falling:
 		velocity.y += gravity*delta
 		$sprite.material.set_shader_parameter("dir",velocity/5000.0)
 		velocity.x = move_toward(velocity.x,position.x-player_pos.x,delta)
+	else:
+		$sprite.material.set_shader_parameter("dir",Vector2.ZERO)
 	global_position.y += velocity.y*delta
+	
 	if darkening:
 		$sprite.self_modulate -= Color(delta, delta, delta)/8.0
 	else:
