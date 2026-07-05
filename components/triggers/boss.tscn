@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://ytexip3u6x27"]
+
+[ext_resource type="Script" uid="uid://b8dll55q7c1kg" path="res://scripts/core/boss_trigger.gd" id="1_ligk0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vkvlt"]
+size = Vector2(914, 1578)
+
+[node name="boss" type="Node2D"]
+script = ExtResource("1_ligk0")
+
+[node name="trigger" type="Area2D" parent="."]
+
+[node name="collision" type="CollisionShape2D" parent="trigger"]
+shape = SubResource("RectangleShape2D_vkvlt")
+
+[connection signal="body_entered" from="trigger" to="." method="_on_trigger_body_entered"]

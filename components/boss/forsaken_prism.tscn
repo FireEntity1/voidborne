@@ -1,0 +1,162 @@
+[gd_scene load_steps=24 format=3 uid="uid://bw3jmqrqco05r"]
+
+[ext_resource type="Texture2D" uid="uid://bro4mb8ysvywo" path="res://sprites/big_forsaken_prism.png" id="1_b1udk"]
+[ext_resource type="Script" uid="uid://bme8ftod6enpx" path="res://scripts/enemy/forsaken_prism.gd" id="1_wnm7j"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wnm7j"]
+atlas = ExtResource("1_b1udk")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_12em0"]
+atlas = ExtResource("1_b1udk")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wi46f"]
+atlas = ExtResource("1_b1udk")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4u1dp"]
+atlas = ExtResource("1_b1udk")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mrp4a"]
+atlas = ExtResource("1_b1udk")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5uove"]
+atlas = ExtResource("1_b1udk")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3lhnd"]
+atlas = ExtResource("1_b1udk")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_upk6f"]
+atlas = ExtResource("1_b1udk")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2fhjf"]
+atlas = ExtResource("1_b1udk")
+region = Rect2(256, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r8k64"]
+atlas = ExtResource("1_b1udk")
+region = Rect2(288, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_06n8b"]
+atlas = ExtResource("1_b1udk")
+region = Rect2(320, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wr3ef"]
+atlas = ExtResource("1_b1udk")
+region = Rect2(352, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3qguy"]
+atlas = ExtResource("1_b1udk")
+region = Rect2(384, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oeccd"]
+atlas = ExtResource("1_b1udk")
+region = Rect2(416, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_24fk4"]
+atlas = ExtResource("1_b1udk")
+region = Rect2(448, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kqpct"]
+atlas = ExtResource("1_b1udk")
+region = Rect2(480, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qbhjh"]
+atlas = ExtResource("1_b1udk")
+region = Rect2(512, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ni6o0"]
+atlas = ExtResource("1_b1udk")
+region = Rect2(544, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0xtrg"]
+atlas = ExtResource("1_b1udk")
+region = Rect2(576, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j4g4k"]
+atlas = ExtResource("1_b1udk")
+region = Rect2(608, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bdayh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wnm7j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_12em0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wi46f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4u1dp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mrp4a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5uove")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3lhnd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_upk6f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2fhjf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r8k64")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_06n8b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wr3ef")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3qguy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oeccd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_24fk4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kqpct")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qbhjh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ni6o0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0xtrg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j4g4k")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="forsaken_prism" type="Node2D"]
+scale = Vector2(8, 8)
+script = ExtResource("1_wnm7j")
+
+[node name="sprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 16)
+sprite_frames = SubResource("SpriteFrames_bdayh")
+autoplay = "default"
+frame_progress = 0.737935

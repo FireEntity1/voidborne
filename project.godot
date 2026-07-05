@@ -24,13 +24,13 @@ Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 
 directories/dch_directory={
 "???": "res://dialogic/timelines/void_nexus/???.dch",
-"nym": "res://dialogic/characters/outlands/nym.dch",
-"shulduf": "res://dialogic/characters/outlands/shulduf.dch"
+"mykl": "res://dialogic/characters/outlands/mykl.dch",
+"nym": "res://dialogic/characters/outlands/nym.dch"
 }
 directories/dtl_directory={
 "end": "res://dialogic/timelines/void_nexus/end.dtl",
+"mykl": "res://dialogic/timelines/outlands/mykl.dtl",
 "nym": "res://dialogic/timelines/outlands/nym.dtl",
-"shulduf": "res://dialogic/timelines/outlands/shulduf.dtl",
 "tutorial": "res://dialogic/timelines/void_nexus/tutorial.dtl"
 }
 layout/style_directory={
