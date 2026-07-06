@@ -29,6 +29,7 @@ directories/dch_directory={
 }
 directories/dtl_directory={
 "end": "res://dialogic/timelines/void_nexus/end.dtl",
+"forsaken_prism_intro": "res://dialogic/timelines/outlands/forsaken_prism_intro.dtl",
 "mykl": "res://dialogic/timelines/outlands/mykl.dtl",
 "nym": "res://dialogic/timelines/outlands/nym.dtl",
 "tutorial": "res://dialogic/timelines/void_nexus/tutorial.dtl"

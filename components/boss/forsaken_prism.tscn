@@ -156,7 +156,12 @@ scale = Vector2(8, 8)
 script = ExtResource("1_wnm7j")
 
 [node name="sprite" type="AnimatedSprite2D" parent="."]
+self_modulate = Color(0.8648, 0.86856, 0.94, 1)
 position = Vector2(0, 16)
 sprite_frames = SubResource("SpriteFrames_bdayh")
 autoplay = "default"
-frame_progress = 0.737935
+frame_progress = 0.684563
+
+[node name="attack" type="Timer" parent="."]
+
+[connection signal="timeout" from="attack" to="." method="_on_attack_timeout"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dkkoekf26wed6"]
+[gd_scene load_steps=14 format=3 uid="uid://dkkoekf26wed6"]
 
 [ext_resource type="Texture2D" uid="uid://cg5msidsy21q2" path="res://sprites/forsaken_prism.png" id="1_6nrbk"]
 [ext_resource type="Script" uid="uid://dhpckctooatuj" path="res://scripts/enemy/top_bomb.gd" id="1_8svt2"]
@@ -48,34 +48,24 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8svt2"]
 size = Vector2(38.8, 172.4)
 
-[sub_resource type="Gradient" id="Gradient_kw6kx"]
-offsets = PackedFloat32Array(0.594156)
-colors = PackedColorArray(0, 0, 0, 1)
+[sub_resource type="Gradient" id="Gradient_hv4no"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_hv4no"]
-gradient = SubResource("Gradient_kw6kx")
+gradient = SubResource("Gradient_hv4no")
 width = 16
 height = 16
 
-[sub_resource type="Curve" id="Curve_klira"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.985402, 0), 0.0, 0.0, 0, 0]
-point_count = 2
-
-[sub_resource type="CurveTexture" id="CurveTexture_aaqo0"]
-curve = SubResource("Curve_klira")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_q2th2"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_klira"]
 particle_flag_disable_z = true
-angle_min = -720.0
-angle_max = 720.0
 spread = 180.0
-initial_velocity_min = 40.0
-initial_velocity_max = 80.0
-gravity = Vector3(0, 98, 0)
-scale_curve = SubResource("CurveTexture_aaqo0")
+initial_velocity_min = 20.0
+initial_velocity_max = 40.0
+gravity = Vector3(0, 300, 0)
 collision_mode = 1
-collision_friction = 0.0
+collision_friction = 0.8
 collision_bounce = 0.0
+collision_use_scale = true
 
 [node name="forsaken_prism" type="CharacterBody2D" groups=["enemy"]]
 scale = Vector2(5, 5)
@@ -107,10 +97,12 @@ autostart = true
 emitting = false
 amount = 32
 texture = SubResource("GradientTexture2D_hv4no")
+lifetime = 11.0
 one_shot = true
-explosiveness = 0.72
+speed_scale = 2.96
+explosiveness = 1.0
 randomness = 0.5
-process_material = SubResource("ParticleProcessMaterial_q2th2")
+process_material = SubResource("ParticleProcessMaterial_klira")
 
 [connection signal="body_entered" from="detection" to="." method="_on_detection_body_entered"]
 [connection signal="timeout" from="darken" to="." method="_on_darken_timeout"]

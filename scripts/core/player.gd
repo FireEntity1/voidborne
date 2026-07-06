@@ -24,6 +24,8 @@ var knockback_x = 1200.0
 var knockback_y = -650.0
 var knockback_friction = 4500.0
 
+var cam_zoom = 1.0
+
 var invincible = false
 
 @export var max_health := 10
@@ -54,7 +56,12 @@ func _physics_process(delta: float) -> void:
 		jumped = JUMP_VELOCITY
 	
 	var direction := Input.get_axis("left", "right")
-		
+	
+	$camera.zoom = Vector2(move_toward(
+		$camera.zoom.x, cam_zoom, delta/3.0), move_toward(
+			$camera.zoom.y, cam_zoom, delta/3.0
+		))
+	
 	if was_hit:
 		velocity.x = move_toward(velocity.x, 0, knockback_friction * delta)
 	elif direction and Global.can_move:
@@ -191,6 +198,8 @@ func flash_hit() -> void:
 
 func _dialogic_signal(argument: String):
 	print(argument)
+	if argument.begins_with("cam_zoom_"):
+		cam_zoom = float(argument.split("cam_zoom_")[1])
  
 func set_health(value: int) -> void:
 	var old_health = health
