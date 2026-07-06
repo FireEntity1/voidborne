@@ -13,8 +13,8 @@ func open(arg):
 	if arg == open_signal:
 		$sprite.play("open")
 		$collision.disabled = true
-	elif arg == "close_signal":
-		$sprite.play_backwards("open")
+	elif arg == close_signal:
+		$sprite.play("close")
 		$collision.disabled = false
 
 func hit():

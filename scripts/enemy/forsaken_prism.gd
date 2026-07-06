@@ -16,6 +16,7 @@ func start():
 	attack.start()
 	Dialogic.emit_signal("signal_event","cam_zoom_0.7")
 	Dialogic.emit_signal("signal_event","door_forsaken_boss_close")
+	print("started")
 
 func _on_attack_timeout():
 	spawn_enemy()

@@ -6,36 +6,59 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_doar7"]
 size = Vector2(16, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_tymdi"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_83uqa"]
 atlas = ExtResource("3_0l201")
-region = Rect2(0, 0, 16, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_b3yty"]
-atlas = ExtResource("3_0l201")
-region = Rect2(0, 0, 16, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_e4417"]
-atlas = ExtResource("3_0l201")
-region = Rect2(16, 0, 16, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_0isfe"]
-atlas = ExtResource("3_0l201")
-region = Rect2(32, 0, 16, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_apq1e"]
-atlas = ExtResource("3_0l201")
-region = Rect2(48, 0, 16, 32)
+region = Rect2(80, 0, 16, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i0pwn"]
 atlas = ExtResource("3_0l201")
 region = Rect2(64, 0, 16, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_83uqa"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_apq1e"]
 atlas = ExtResource("3_0l201")
-region = Rect2(80, 0, 16, 32)
+region = Rect2(48, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0isfe"]
+atlas = ExtResource("3_0l201")
+region = Rect2(32, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e4417"]
+atlas = ExtResource("3_0l201")
+region = Rect2(16, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b3yty"]
+atlas = ExtResource("3_0l201")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tymdi"]
+atlas = ExtResource("3_0l201")
+region = Rect2(0, 0, 16, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qonjq"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_83uqa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i0pwn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_apq1e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0isfe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e4417")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b3yty")
+}],
+"loop": false,
+"name": &"close",
+"speed": 15.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_tymdi")
@@ -81,6 +104,7 @@ shape = SubResource("RectangleShape2D_doar7")
 
 [node name="sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_qonjq")
+animation = &"close"
 
 [node name="hit" type="Area2D" parent="."]
 visible = false
