@@ -1,0 +1,91 @@
+[gd_scene load_steps=13 format=3 uid="uid://d11xidh5o488w"]
+
+[ext_resource type="Script" uid="uid://c1j3perxfie6l" path="res://scripts/core/item.gd" id="1_hr0k8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8t7xq"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hr0k8"]
+
+[sub_resource type="Gradient" id="Gradient_8t7xq"]
+offsets = PackedFloat32Array(0, 0.437838, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_hr0k8"]
+gradient = SubResource("Gradient_8t7xq")
+fill = 1
+fill_from = Vector2(0.540598, 0.527778)
+fill_to = Vector2(0.867521, 0.115385)
+
+[sub_resource type="Gradient" id="Gradient_hr0k8"]
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_jepqg"]
+gradient = SubResource("Gradient_hr0k8")
+width = 16
+height = 16
+
+[sub_resource type="Curve" id="Curve_hr0k8"]
+_limits = [-2.0, 2.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.991071, 2), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_jepqg"]
+curve = SubResource("Curve_hr0k8")
+
+[sub_resource type="Curve" id="Curve_ed6j0"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.267884), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_o1thk"]
+curve = SubResource("Curve_ed6j0")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_dwxnh"]
+particle_flag_disable_z = true
+angle_min = 1.07288e-05
+angle_max = 98.6
+angular_velocity_min = -1.60933e-05
+angular_velocity_max = 53.67
+orbit_velocity_min = 0.422
+orbit_velocity_max = 1.416
+orbit_velocity_curve = SubResource("CurveTexture_jepqg")
+radial_velocity_min = 86.96
+radial_velocity_max = 111.8
+gravity = Vector3(0, 98, 0)
+radial_accel_min = -2.23517e-06
+radial_accel_max = 80.75
+scale_curve = SubResource("CurveTexture_o1thk")
+
+[node name="item" type="Area2D"]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_hr0k8")
+
+[node name="collision" type="CollisionShape2D" parent="."]
+scale = Vector2(8, 8)
+shape = SubResource("RectangleShape2D_8t7xq")
+
+[node name="sprite" type="AnimatedSprite2D" parent="."]
+scale = Vector2(8, 8)
+sprite_frames = SubResource("SpriteFrames_hr0k8")
+
+[node name="glow" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0.54902)
+offset_left = -318.0
+offset_top = -308.0
+offset_right = 263.0
+offset_bottom = 273.0
+texture = SubResource("GradientTexture2D_hr0k8")
+
+[node name="up" type="Timer" parent="."]
+autostart = true
+
+[node name="collect" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 256
+texture = SubResource("GradientTexture2D_jepqg")
+lifetime = 1.4
+one_shot = true
+process_material = SubResource("ParticleProcessMaterial_dwxnh")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="up" to="." method="_on_up_timeout"]

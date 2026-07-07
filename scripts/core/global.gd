@@ -6,6 +6,10 @@ var time_scale = 1.0
 
 var can_move = true
 
+var items = {
+	"dash": false
+}
+
 var levels = {
 	"voidnexus": {
 		"scene": preload("res://areas/void_nexus/void_nexus.tscn"),

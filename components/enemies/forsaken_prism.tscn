@@ -46,7 +46,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8svt2"]
-size = Vector2(38.8, 172.4)
+size = Vector2(124, 172.4)
 
 [sub_resource type="Gradient" id="Gradient_hv4no"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
@@ -87,6 +87,7 @@ collision_mask = 2
 
 [node name="collision" type="CollisionShape2D" parent="detection"]
 position = Vector2(0, 86.2)
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_8svt2")
 
 [node name="darken" type="Timer" parent="."]

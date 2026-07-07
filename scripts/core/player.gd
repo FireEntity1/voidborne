@@ -135,7 +135,7 @@ func attack() -> void:
 	var enemies: Array = $sprite/slash/area.get_overlapping_bodies()
 	for enemy in enemies:
 		if enemy.is_in_group("enemy"):
-			enemy.damage(2.0)
+			enemy.damage(200.0)
 			if pogo:
 				pogo = false
 				velocity.y = -JUMP_VELOCITY
