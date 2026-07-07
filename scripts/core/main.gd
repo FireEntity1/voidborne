@@ -16,6 +16,8 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	fade.modulate.a = move_toward(fade.modulate.a, 1.0, delta) if Global.fade.active else move_toward(fade.modulate.a, 0.0, delta)
 	fade.color = Color(0,0,0) if Global.fade.black else Color(1,1,1)
+	if Global.fade.instant:
+		fade.modulate.a = 1.0 if Global.fade.active else 0.0
 
 func _on_player_hit():
 	await get_tree().create_timer(0.3, true, false, true).timeout

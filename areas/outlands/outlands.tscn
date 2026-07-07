@@ -419,4 +419,4 @@ occluder = SubResource("OccluderPolygon2D_2myrk")
 [node name="fallzone" parent="." instance=ExtResource("12_ablkg")]
 position = Vector2(27998, -73)
 scale = Vector2(1.72, 1)
-return_point = Vector2(26423, -1000)
+return_point = Vector2(27423, -800)

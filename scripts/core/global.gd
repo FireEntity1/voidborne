@@ -42,7 +42,8 @@ var levels = {
 
 var fade = {
 	"active": false,
-	"black": true
+	"black": true,
+	"instant": false,
 }
 
 var player: CharacterBody2D
@@ -62,9 +63,10 @@ func screen_vingette(show: bool, time: float = 0.0, radius: float = 0.62):
 		await get_tree().create_timer(time, true, false, true).timeout
 		vingette.emit(false, radius)
 
-func fadescreen(active = false,black = true):
+func fadescreen(active = false,black = true,instant = false):
 	fade.active = active
 	fade.black = black
+	fade.instant = instant
 
 func mod_can_move(status: bool = true):
 	can_move = status
