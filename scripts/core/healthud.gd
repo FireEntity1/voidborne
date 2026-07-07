@@ -6,6 +6,8 @@ extends Node2D
 
 var bound_player: Node = null
 var heart_slots: Array[AnimatedSprite2D] = []
+var previous_health: int = -1
+var flash_tween: Tween
 
 const HEART_SPACING := 18
 
@@ -16,12 +18,26 @@ func bind_player(player: Node) -> void:
 
 	bound_player = player
 	bound_player.health_changed.connect(_on_health_changed)
+	previous_health = player.health
 	_build_heart_slots(player.max_health)
-	_on_health_changed(player.health, player.max_health)
+	draw_hearts(player.health)
 	
 func _on_health_changed(current_health: int, max_health: int) -> void:
 	_build_heart_slots(max_health)
 	draw_hearts(current_health)
+	if previous_health != -1 and current_health != previous_health:
+		_flash_hearts(current_health > previous_health)
+	previous_health = current_health
+
+func _flash_hearts(healed: bool) -> void:
+	if is_instance_valid(flash_tween):
+		flash_tween.kill()
+
+	container.modulate = Color.WHITE
+	var flash_color := Color(0.75, 1.75, 0.75) if healed else Color(1.9, 0.7, 0.7)
+	flash_tween = create_tween()
+	flash_tween.tween_property(container, "modulate", flash_color, 0.06)
+	flash_tween.tween_property(container, "modulate", Color.WHITE, 0.12)
 
 func _build_heart_slots(max_health: int) -> void:
 	heart.visible = false

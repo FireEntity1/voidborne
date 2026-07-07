@@ -59,7 +59,7 @@ offset = Vector2(8, 8)
 visible = false
 position = Vector2(-8, -8)
 sprite_frames = SubResource("SpriteFrames_wk1b8")
-animation = &"half"
+animation = &"full"
 autoplay = "half"
 offset = Vector2(8, 8)
 
