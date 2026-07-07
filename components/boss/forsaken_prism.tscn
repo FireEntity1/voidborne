@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://bw3jmqrqco05r"]
+[gd_scene load_steps=27 format=3 uid="uid://bw3jmqrqco05r"]
 
 [ext_resource type="Texture2D" uid="uid://bro4mb8ysvywo" path="res://sprites/big_forsaken_prism.png" id="1_b1udk"]
 [ext_resource type="Script" uid="uid://bme8ftod6enpx" path="res://scripts/enemy/forsaken_prism.gd" id="1_wnm7j"]
@@ -151,8 +151,30 @@ animations = [{
 "speed": 10.0
 }]
 
-[node name="forsaken_prism" type="Node2D"]
-scale = Vector2(8, 8)
+[sub_resource type="Gradient" id="Gradient_wdc6r"]
+offsets = PackedFloat32Array(0.594156)
+colors = PackedColorArray(1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_wnm7j"]
+gradient = SubResource("Gradient_wdc6r")
+width = 16
+height = 16
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_12em0"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(0.1, 0.1, 0.1)
+spread = 180.0
+initial_velocity_min = 20.0
+initial_velocity_max = 40.0
+gravity = Vector3(0, 300, 0)
+collision_mode = 1
+collision_friction = 0.8
+collision_bounce = 0.0
+collision_use_scale = true
+
+[node name="forsaken_prism" type="CharacterBody2D" groups=["enemy"]]
+scale = Vector2(7, 7)
+collision_layer = 4
 script = ExtResource("1_wnm7j")
 
 [node name="sprite" type="AnimatedSprite2D" parent="."]
@@ -160,8 +182,34 @@ self_modulate = Color(0.8648, 0.86856, 0.94, 1)
 position = Vector2(0, 16)
 sprite_frames = SubResource("SpriteFrames_bdayh")
 autoplay = "default"
-frame_progress = 0.684563
+frame_progress = 0.633344
 
 [node name="attack" type="Timer" parent="."]
+wait_time = 0.5
+
+[node name="col" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-0.5, 30, 15, 0, -16, 0)
+
+[node name="death_particles" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 128
+texture = SubResource("GradientTexture2D_wnm7j")
+lifetime = 33.21
+one_shot = true
+speed_scale = 2.96
+explosiveness = 1.0
+randomness = 0.5
+process_material = SubResource("ParticleProcessMaterial_12em0")
+
+[node name="hit_particle" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 12
+texture = SubResource("GradientTexture2D_wnm7j")
+lifetime = 11.0
+one_shot = true
+speed_scale = 2.96
+explosiveness = 1.0
+randomness = 0.5
+process_material = SubResource("ParticleProcessMaterial_12em0")
 
 [connection signal="timeout" from="attack" to="." method="_on_attack_timeout"]
