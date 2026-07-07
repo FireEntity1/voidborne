@@ -87,7 +87,6 @@ collision_mask = 2
 
 [node name="collision" type="CollisionShape2D" parent="detection"]
 position = Vector2(0, 86.2)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_8svt2")
 
 [node name="darken" type="Timer" parent="."]

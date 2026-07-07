@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://c5tr8yj3krkfs"]
+
+[ext_resource type="Script" uid="uid://bie68ojeiugqh" path="res://scripts/world/fallzone.gd" id="1_tcda1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5oyw0"]
+size = Vector2(1720, 20)
+
+[sub_resource type="Gradient" id="Gradient_2myrk"]
+offsets = PackedFloat32Array(0, 0.432432, 1)
+colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_5oyw0"]
+gradient = SubResource("Gradient_2myrk")
+width = 256
+fill_to = Vector2(1, 0.0160643)
+
+[node name="fallzone" type="Area2D"]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_tcda1")
+
+[node name="collision" type="CollisionShape2D" parent="."]
+position = Vector2(310, 219)
+shape = SubResource("RectangleShape2D_5oyw0")
+
+[node name="to_underground" type="TextureRect" parent="."]
+offset_left = -1220.0
+offset_top = 1148.0
+offset_right = 187.0
+offset_bottom = 4181.0
+rotation = 1.5708
+scale = Vector2(-1, -1)
+texture = SubResource("GradientTexture2D_5oyw0")
+flip_h = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
