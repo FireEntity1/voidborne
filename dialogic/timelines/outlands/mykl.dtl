@@ -1,0 +1,7 @@
+do Global.mod_can_move(false)
+mykl: Salutations, void thing.
+mykl: I'm Mykl.
+mykl: Those underground tunnels are riddled with the disciples of the prism.
+mykl: I would watch out down there.
+mykl: I've heard stories of individuals who enter and never return.
+do Global.mod_can_move(true)

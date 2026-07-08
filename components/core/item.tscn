@@ -33,8 +33,8 @@ point_count = 2
 curve = SubResource("Curve_hr0k8")
 
 [sub_resource type="Curve" id="Curve_ed6j0"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.267884), 0.0, 0.0, 0, 0]
-point_count = 2
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.520833, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
 
 [sub_resource type="CurveTexture" id="CurveTexture_o1thk"]
 curve = SubResource("Curve_ed6j0")
@@ -80,6 +80,7 @@ texture = SubResource("GradientTexture2D_hr0k8")
 autostart = true
 
 [node name="collect" type="GPUParticles2D" parent="."]
+scale = Vector2(2, 2)
 emitting = false
 amount = 256
 texture = SubResource("GradientTexture2D_jepqg")
