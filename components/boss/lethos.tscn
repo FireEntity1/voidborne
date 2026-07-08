@@ -1,0 +1,88 @@
+[gd_scene load_steps=13 format=3 uid="uid://dh502ibqj2pd7"]
+
+[ext_resource type="Texture2D" uid="uid://ddx8oairvmg68" path="res://sprites/lethos.png" id="1_no3og"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_no3og"]
+radius = 9.0
+height = 23.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o3dtm"]
+size = Vector2(4, 43.75)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o3dtm"]
+atlas = ExtResource("1_no3og")
+region = Rect2(0, 0, 48, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4u6vl"]
+atlas = ExtResource("1_no3og")
+region = Rect2(48, 0, 48, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tjmyx"]
+atlas = ExtResource("1_no3og")
+region = Rect2(96, 0, 48, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jh63k"]
+atlas = ExtResource("1_no3og")
+region = Rect2(144, 0, 48, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jrxvu"]
+atlas = ExtResource("1_no3og")
+region = Rect2(192, 0, 48, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4hut8"]
+atlas = ExtResource("1_no3og")
+region = Rect2(240, 0, 48, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1sr8x"]
+atlas = ExtResource("1_no3og")
+region = Rect2(288, 0, 48, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hhr1v"]
+atlas = ExtResource("1_no3og")
+region = Rect2(336, 0, 48, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_151ei"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o3dtm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4u6vl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tjmyx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jh63k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jrxvu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4hut8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1sr8x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hhr1v")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="lethos" type="CharacterBody2D"]
+scale = Vector2(12, 12)
+
+[node name="collision" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_no3og")
+
+[node name="collision2" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_o3dtm")
+
+[node name="sprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_151ei")
