@@ -2,3 +2,4 @@ do Global.mod_can_move(false)
 ???: ⟡░▒▓█▓▒░⟡\
 ╎⋆⟢⋇⟣⋆╎
 do Global.mod_can_move(true)
+[signal arg="start_boss"]

@@ -24,12 +24,14 @@ Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 
 directories/dch_directory={
 "???": "res://dialogic/timelines/void_nexus/???.dch",
+"lethos": "res://dialogic/characters/outlands/lethos.dch",
 "mykl": "res://dialogic/characters/outlands/mykl.dch",
 "nym": "res://dialogic/characters/outlands/nym.dch"
 }
 directories/dtl_directory={
 "end": "res://dialogic/timelines/void_nexus/end.dtl",
 "forsaken_prism_intro": "res://dialogic/timelines/outlands/forsaken_prism_intro.dtl",
+"lethos_start": "res://dialogic/timelines/outlands/lethos_start.dtl",
 "mykl": "res://dialogic/timelines/outlands/mykl.dtl",
 "nym": "res://dialogic/timelines/outlands/nym.dtl",
 "tutorial": "res://dialogic/timelines/void_nexus/tutorial.dtl"

@@ -11,6 +11,8 @@ var player: CharacterBody2D
 @export var attack_strength = 1
 @export var speed_mult: float = 1.0
 
+@export var move_anim: bool = false
+
 @onready var sprite: AnimatedSprite2D = $sprite
 @onready var shader_mat: ShaderMaterial = sprite.material as ShaderMaterial
 
@@ -46,7 +48,8 @@ func _physics_process(delta: float) -> void:
 			has_ground = $groundcast_r.is_colliding()
 		
 		if has_ground:
-			sprite.play("move")
+			if move_anim:
+				sprite.play("move")
 			
 			if direction != 0:
 				sprite.flip_h = direction > 0

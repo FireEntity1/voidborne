@@ -114,6 +114,7 @@ collision_use_scale = true
 scale = Vector2(8, 8)
 collision_layer = 4
 script = ExtResource("1_0q4nn")
+move_anim = true
 
 [node name="sprite" type="AnimatedSprite2D" parent="."]
 modulate = Color(1.2, 1.2, 1.2, 1)

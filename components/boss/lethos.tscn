@@ -1,6 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://dh502ibqj2pd7"]
+[gd_scene load_steps=14 format=3 uid="uid://dh502ibqj2pd7"]
 
 [ext_resource type="Texture2D" uid="uid://ddx8oairvmg68" path="res://sprites/lethos.png" id="1_no3og"]
+[ext_resource type="Script" uid="uid://i0p0vibet3ch" path="res://scripts/enemy/lethos.gd" id="1_o3dtm"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_no3og"]
 radius = 9.0
@@ -70,11 +71,13 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
-"speed": 5.0
+"speed": 8.0
 }]
 
 [node name="lethos" type="CharacterBody2D"]
 scale = Vector2(12, 12)
+collision_layer = 4
+script = ExtResource("1_o3dtm")
 
 [node name="collision" type="CollisionShape2D" parent="."]
 rotation = 1.5708
@@ -86,3 +89,8 @@ shape = SubResource("RectangleShape2D_o3dtm")
 
 [node name="sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_151ei")
+autoplay = "default"
+frame_progress = 0.0370318
+
+[node name="bosscam" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)

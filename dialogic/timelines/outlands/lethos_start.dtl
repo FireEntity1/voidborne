@@ -1,0 +1,6 @@
+do Global.mod_can_move(false)
+[signal arg="start_boss"]
+lethos: You.... Void...
+lethos: You dare enter this holy land..?
+lethos: May the power of the light strike you down!
+do Global.mod_can_move(true)

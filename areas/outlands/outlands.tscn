@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=4 uid="uid://dx4rxr3ahpfkh"]
+[gd_scene load_steps=37 format=4 uid="uid://dx4rxr3ahpfkh"]
 
 [ext_resource type="Shader" uid="uid://bbsxfqbwg6r80" path="res://resources/shaders/sky.gdshader" id="1_5hdg2"]
 [ext_resource type="Script" uid="uid://crajt0rtnos3k" path="res://scripts/world/outlands.gd" id="1_6xo6o"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://c4dqvr751opkr" path="res://components/outlands/door.tscn" id="13_ggd2s"]
 [ext_resource type="PackedScene" uid="uid://dh502ibqj2pd7" path="res://components/boss/lethos.tscn" id="14_fc1e8"]
 [ext_resource type="PackedScene" uid="uid://ytexip3u6x27" path="res://components/triggers/boss.tscn" id="15_a2din"]
+[ext_resource type="Resource" uid="uid://doe3x6i0nq2vp" path="res://dialogic/timelines/outlands/lethos_start.dtl" id="16_qbjl0"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_i1kom"]
 
@@ -386,8 +387,9 @@ position = Vector2(21135, -990)
 timeline = SubResource("Resource_ablkg")
 text = "SPEAK"
 
-[node name="player_hold" type="Node2D" parent="."]
-position = Vector2(411, -402)
+[node name="lethos" parent="." instance=ExtResource("14_fc1e8")]
+visible = false
+position = Vector2(24480, -9013)
 
 [node name="enemy_hold" type="Node2D" parent="."]
 
@@ -423,6 +425,9 @@ position = Vector2(34016, -5664)
 
 [node name="wisp11" parent="enemy_hold" instance=ExtResource("10_6meko")]
 position = Vector2(34777, -5656)
+
+[node name="player_hold" type="Node2D" parent="."]
+position = Vector2(411, -402)
 
 [node name="lightposts" type="Node2D" parent="."]
 position = Vector2(725, 0)
@@ -492,10 +497,8 @@ closed = false
 [node name="boss_exit" parent="." instance=ExtResource("13_ggd2s")]
 position = Vector2(21184, -8704)
 
-[node name="lethos" parent="." instance=ExtResource("14_fc1e8")]
-visible = false
-position = Vector2(24480, -9013)
-
-[node name="boss" parent="." instance=ExtResource("15_a2din")]
+[node name="boss" parent="." node_paths=PackedStringArray("boss") instance=ExtResource("15_a2din")]
 position = Vector2(24470, -8961)
 scale = Vector2(0.12, 1)
+start_timeline = ExtResource("16_qbjl0")
+boss = NodePath("../lethos")
