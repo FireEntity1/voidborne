@@ -496,10 +496,14 @@ return_point = Vector2(27423, -800)
 
 [node name="boss_entry" parent="." instance=ExtResource("13_ggd2s")]
 position = Vector2(27840, -8704)
+open_signal = "lethos_end"
+close_signal = "lethos_start"
 closed = false
 
 [node name="boss_exit" parent="." instance=ExtResource("13_ggd2s")]
 position = Vector2(21184, -8704)
+open_signal = "lethos_end"
+close_signal = "lethos_start"
 
 [node name="boss" parent="." node_paths=PackedStringArray("boss") instance=ExtResource("15_a2din")]
 position = Vector2(24470, -8961)

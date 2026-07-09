@@ -8,6 +8,8 @@ func _ready() -> void:
 	Dialogic.signal_event.connect(open)
 	if not closed:
 		open(open_signal)
+	elif closed:
+		open(close_signal)
 
 func open(arg):
 	if arg == open_signal:
