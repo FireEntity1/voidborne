@@ -24,6 +24,7 @@ shader_parameter/spread = 3.1
 script = ExtResource("1_tbgi4")
 
 [node name="ui" type="CanvasLayer" parent="."]
+layer = 2
 
 [node name="damage_overlay" type="Sprite2D" parent="ui"]
 visible = false

@@ -387,7 +387,7 @@ position = Vector2(21135, -990)
 timeline = SubResource("Resource_ablkg")
 text = "SPEAK"
 
-[node name="lethos" parent="." instance=ExtResource("14_fc1e8")]
+[node name="lethos" parent="." groups=["enemy"] instance=ExtResource("14_fc1e8")]
 visible = false
 position = Vector2(24480, -9013)
 
@@ -483,6 +483,10 @@ location = "default"
 [node name="particle_collisions" type="Node2D" parent="."]
 
 [node name="1" type="LightOccluder2D" parent="particle_collisions"]
+occluder = SubResource("OccluderPolygon2D_2myrk")
+
+[node name="2" type="LightOccluder2D" parent="particle_collisions"]
+position = Vector2(18036, -8578)
 occluder = SubResource("OccluderPolygon2D_2myrk")
 
 [node name="fallzone" parent="." instance=ExtResource("12_ablkg")]

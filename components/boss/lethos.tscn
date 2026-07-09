@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dh502ibqj2pd7"]
+[gd_scene load_steps=17 format=3 uid="uid://dh502ibqj2pd7"]
 
 [ext_resource type="Texture2D" uid="uid://ddx8oairvmg68" path="res://sprites/lethos.png" id="1_no3og"]
 [ext_resource type="Script" uid="uid://i0p0vibet3ch" path="res://scripts/enemy/lethos.gd" id="1_o3dtm"]
@@ -74,6 +74,26 @@ animations = [{
 "speed": 8.0
 }]
 
+[sub_resource type="Gradient" id="Gradient_wdc6r"]
+offsets = PackedFloat32Array(0.594156)
+colors = PackedColorArray(1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_o3dtm"]
+gradient = SubResource("Gradient_wdc6r")
+width = 16
+height = 16
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_4u6vl"]
+particle_flag_disable_z = true
+spread = 180.0
+initial_velocity_min = 10.0
+initial_velocity_max = 20.0
+gravity = Vector3(0, 300, 0)
+collision_mode = 1
+collision_friction = 0.8
+collision_bounce = 0.0
+collision_use_scale = true
+
 [node name="lethos" type="CharacterBody2D"]
 scale = Vector2(12, 12)
 collision_layer = 4
@@ -94,3 +114,14 @@ frame_progress = 0.0370318
 
 [node name="bosscam" type="Camera2D" parent="."]
 zoom = Vector2(2, 2)
+
+[node name="hit_particle" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 16
+texture = SubResource("GradientTexture2D_o3dtm")
+lifetime = 16.16
+one_shot = true
+speed_scale = 2.96
+explosiveness = 1.0
+randomness = 0.5
+process_material = SubResource("ParticleProcessMaterial_4u6vl")

@@ -24,7 +24,8 @@ var levels = {
 		"scene": preload("res://areas/outlands/outlands.tscn"),
 		"locations": {
 			"default": Vector2(-800,-100),
-			"to_underground": Vector2(24000,1100),
+			#"to_underground": Vector2(24000,1100),
+			"to_underground": Vector2(24000,-11300),
 		},
 		"vingette": false,
 		"radial_chromabb": false,

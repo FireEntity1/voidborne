@@ -200,6 +200,8 @@ func _dialogic_signal(argument: String):
 	print(argument)
 	if argument.begins_with("cam_zoom_"):
 		cam_zoom = float(argument.split("cam_zoom_")[1])
+	elif argument == "player_cam":
+		$camera.make_current()
  
 func set_health(value: int) -> void:
 	var old_health = health

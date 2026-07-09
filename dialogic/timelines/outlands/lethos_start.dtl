@@ -1,6 +1,13 @@
 do Global.mod_can_move(false)
+do Global.fadescreen(true, true, true)
+[wait time="1.0"]
+[signal arg="lethos_cam"]
 [signal arg="start_boss"]
+do Global.fadescreen(false, true, false)
 lethos: You.... Void...
 lethos: You dare enter this holy land..?
 lethos: May the power of the light strike you down!
+[signal arg="cam_zoom_0.5"]
 do Global.mod_can_move(true)
+[signal arg="lethos_start"]
+[signal arg="player_cam"]
