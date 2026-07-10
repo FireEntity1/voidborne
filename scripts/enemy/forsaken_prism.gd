@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 var mini_prism = preload("res://components/enemies/forsaken_prism.tscn")
 
-var health = 50.0
+var health = 30.0
 
 var running = false
 @onready var attack = $attack

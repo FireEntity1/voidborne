@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dh502ibqj2pd7"]
+[gd_scene load_steps=26 format=3 uid="uid://dh502ibqj2pd7"]
 
 [ext_resource type="Texture2D" uid="uid://ddx8oairvmg68" path="res://sprites/lethos.png" id="1_no3og"]
 [ext_resource type="Script" uid="uid://i0p0vibet3ch" path="res://scripts/enemy/lethos.gd" id="1_o3dtm"]
@@ -94,6 +94,58 @@ collision_friction = 0.8
 collision_bounce = 0.0
 collision_use_scale = true
 
+[sub_resource type="Gradient" id="Gradient_o3dtm"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_4u6vl"]
+gradient = SubResource("Gradient_o3dtm")
+width = 16
+height = 16
+
+[sub_resource type="Gradient" id="Gradient_4u6vl"]
+offsets = PackedFloat32Array(0, 0.0496454)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_tjmyx"]
+gradient = SubResource("Gradient_4u6vl")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_o3dtm"]
+particle_flag_disable_z = true
+angle_min = -286.2
+angle_max = 1.07288e-05
+inherit_velocity_ratio = 0.98
+spread = 180.0
+flatness = 1.0
+initial_velocity_min = 8.0
+initial_velocity_max = 15.0
+gravity = Vector3(0, -15, 0)
+color_ramp = SubResource("GradientTexture1D_tjmyx")
+
+[sub_resource type="Gradient" id="Gradient_tjmyx"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_jh63k"]
+gradient = SubResource("Gradient_tjmyx")
+width = 1
+height = 1
+
+[sub_resource type="CurveTexture" id="CurveTexture_4u6vl"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_tjmyx"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(20, 7, 1)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+spread = 180.0
+initial_velocity_min = 37.26
+initial_velocity_max = 74.53
+gravity = Vector3(0, 98, 0)
+scale_curve = SubResource("CurveTexture_4u6vl")
+collision_mode = 1
+collision_friction = 0.8
+collision_bounce = 0.0
+collision_use_scale = true
+
 [node name="lethos" type="CharacterBody2D"]
 scale = Vector2(12, 12)
 collision_layer = 4
@@ -125,3 +177,22 @@ speed_scale = 2.96
 explosiveness = 1.0
 randomness = 0.5
 process_material = SubResource("ParticleProcessMaterial_4u6vl")
+
+[node name="death_particle" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 1024
+texture = SubResource("GradientTexture2D_4u6vl")
+lifetime = 36.72
+speed_scale = 20.85
+process_material = SubResource("ParticleProcessMaterial_o3dtm")
+
+[node name="end_particle" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 256
+texture = SubResource("GradientTexture2D_jh63k")
+lifetime = 116.32
+one_shot = true
+explosiveness = 1.0
+visibility_rect = Rect2(-2000, -2000, 4000, 4000)
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_tjmyx")

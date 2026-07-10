@@ -17,6 +17,7 @@ var attack_cooldown = 0.2
 var was_hit = false
 var hit_location = Vector2.ZERO
 
+var damage = 80
 var hit_stun_time = 0.18
 var invincible_time = 0.8
 
@@ -135,7 +136,7 @@ func attack() -> void:
 	var enemies: Array = $sprite/slash/area.get_overlapping_bodies()
 	for enemy in enemies:
 		if enemy.is_in_group("enemy"):
-			enemy.damage(200.0)
+			enemy.damage(damage)
 			if pogo:
 				pogo = false
 				velocity.y = -JUMP_VELOCITY
