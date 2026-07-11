@@ -1,0 +1,59 @@
+[gd_scene load_steps=8 format=3 uid="uid://cwb4t4qdcxul4"]
+
+[ext_resource type="Script" uid="uid://87co3ohxc75s" path="res://scripts/decoration/void_door.gd" id="1_wvc8p"]
+[ext_resource type="Texture2D" uid="uid://c7onbxdeaqyis" path="res://sprites/outlands_smogridge_door.png" id="2_wvc8p"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jjgpl"]
+atlas = ExtResource("2_wvc8p")
+region = Rect2(0, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tmedl"]
+atlas = ExtResource("2_wvc8p")
+region = Rect2(32, 0, 32, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qonjq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jjgpl")
+}],
+"loop": false,
+"name": &"close",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tmedl")
+}],
+"loop": true,
+"name": &"open",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_doar7"]
+size = Vector2(35.625, 86.25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1tcer"]
+size = Vector2(16, 31.25)
+
+[node name="door" type="StaticBody2D"]
+scale = Vector2(8, 8)
+collision_mask = 4
+script = ExtResource("1_wvc8p")
+
+[node name="sprite" type="AnimatedSprite2D" parent="."]
+scale = Vector2(1.5, 1.5)
+sprite_frames = SubResource("SpriteFrames_qonjq")
+animation = &"open"
+
+[node name="collision" type="CollisionShape2D" parent="."]
+position = Vector2(6.3125, 4.875)
+shape = SubResource("RectangleShape2D_doar7")
+
+[node name="hit" type="Area2D" parent="."]
+visible = false
+collision_layer = 2
+collision_mask = 8
+
+[node name="shape" type="CollisionShape2D" parent="hit"]
+shape = SubResource("RectangleShape2D_1tcer")

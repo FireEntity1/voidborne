@@ -12,7 +12,7 @@ var can_attack = true
 var can_dash = true
 var is_dashing = false
 
-var dash_cooldown = 0.4
+var dash_cooldown = 0.01
 var attack_cooldown = 0.2
 var was_hit = false
 var hit_location = Vector2.ZERO

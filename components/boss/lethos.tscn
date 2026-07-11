@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://dh502ibqj2pd7"]
+[gd_scene load_steps=27 format=3 uid="uid://dh502ibqj2pd7"]
 
 [ext_resource type="Texture2D" uid="uid://ddx8oairvmg68" path="res://sprites/lethos.png" id="1_no3og"]
 [ext_resource type="Script" uid="uid://i0p0vibet3ch" path="res://scripts/enemy/lethos.gd" id="1_o3dtm"]
@@ -129,7 +129,12 @@ gradient = SubResource("Gradient_tjmyx")
 width = 1
 height = 1
 
+[sub_resource type="Curve" id="Curve_o3dtm"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
 [sub_resource type="CurveTexture" id="CurveTexture_4u6vl"]
+curve = SubResource("Curve_o3dtm")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_tjmyx"]
 particle_flag_disable_z = true
