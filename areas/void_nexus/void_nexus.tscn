@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=4 uid="uid://cu3pynmxlqcjn"]
+[gd_scene load_steps=28 format=4 uid="uid://cu3pynmxlqcjn"]
 
 [ext_resource type="Shader" uid="uid://vju4x68rih5k" path="res://resources/shaders/fog_spots.gdshader" id="1_obxot"]
 [ext_resource type="Shader" uid="uid://bns6x60fcqhgn" path="res://resources/shaders/swirl.gdshader" id="1_vdein"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://l6vgldibdk3e" path="res://components/triggers/arena.tscn" id="8_01gh4"]
 [ext_resource type="Script" uid="uid://b13nu3g3jkfi7" path="res://scripts/enemy/arena/wave.gd" id="9_ubmit"]
 [ext_resource type="Script" uid="uid://nyum2kmnthf2" path="res://scripts/enemy/arena/enemy_count.gd" id="10_a7cik"]
+[ext_resource type="PackedScene" uid="uid://wxx5p2crs4lb" path="res://components/core/voidwell.tscn" id="12_rweyd"]
 [ext_resource type="PackedScene" uid="uid://kwapaj5ajref" path="res://components/void_nexus/break_wall.tscn" id="12_wpvqk"]
 [ext_resource type="PackedScene" uid="uid://bx5sw6412n002" path="res://components/core/transition.tscn" id="13_rweyd"]
 
@@ -203,6 +204,16 @@ closed = false
 [node name="breakwall" parent="." instance=ExtResource("12_wpvqk")]
 position = Vector2(-118, 296)
 onedirection = true
+
+[node name="voidwell_hold" type="Node2D" parent="."]
+
+[node name="voidwell" parent="voidwell_hold" instance=ExtResource("12_rweyd")]
+position = Vector2(10094, 3176)
+id = "outlands_upper_one"
+
+[node name="voidwell2" parent="voidwell_hold" instance=ExtResource("12_rweyd")]
+position = Vector2(-2082, 1128)
+id = "outlands_upper_one"
 
 [node name="player_hold" type="Node2D" parent="."]
 

@@ -16,6 +16,9 @@ const colours = [
 @export var text: String = ""
 @export var repeat: bool = false
 
+@export var secondary_timeline: DialogicTimeline
+@export var secondary_condition: String = ""
+
 func _ready() -> void:
 	$timeline_trigger.timeline = timeline
 	$timeline_trigger.automatic = automatic

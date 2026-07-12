@@ -24,7 +24,7 @@ var levels = {
 	"outlands": {
 		"scene": preload("res://areas/outlands/outlands.tscn"),
 		"locations": {
-			"default": Vector2(-800,-100),
+			"default": Vector2(-800,300),
 			#"to_underground": Vector2(24000,1100),
 			"to_underground": Vector2(24000,-11300),
 		},
@@ -40,6 +40,17 @@ var levels = {
 		"vingette": true,
 		"radial_chromabb": false,
 	}
+}
+
+var state = {
+	"items": {
+		"dash": false,
+		"ridge_tablet": false
+	},
+	"area": "outlands",
+	"voidwell_id":"",
+	"health": 10,
+	"max_health": 10,
 }
 
 var fade = {
@@ -75,3 +86,6 @@ func mod_can_move(status: bool = true):
 
 func change_scene(area: String, location: String = "default"):
 	root.change_area(area, location)
+
+func set_voidwell(id: String):
+	pass

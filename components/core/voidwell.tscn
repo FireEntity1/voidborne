@@ -1,0 +1,88 @@
+[gd_scene load_steps=13 format=3 uid="uid://wxx5p2crs4lb"]
+
+[ext_resource type="Script" uid="uid://b8nviwxava7j0" path="res://scripts/core/voidwell.gd" id="1_iyyiy"]
+[ext_resource type="Texture2D" uid="uid://3hw6iw5feui2" path="res://sprites/voidwell.png" id="1_vkdeh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vkdeh"]
+size = Vector2(32, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iyyiy"]
+atlas = ExtResource("1_vkdeh")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_visee"]
+atlas = ExtResource("1_vkdeh")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i0mr5"]
+atlas = ExtResource("1_vkdeh")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rucc6"]
+atlas = ExtResource("1_vkdeh")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gjnx2"]
+atlas = ExtResource("1_vkdeh")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fdgr4"]
+atlas = ExtResource("1_vkdeh")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2lwf3"]
+atlas = ExtResource("1_vkdeh")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_65aqq"]
+atlas = ExtResource("1_vkdeh")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_75oox"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iyyiy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_visee")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i0mr5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rucc6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gjnx2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fdgr4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2lwf3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_65aqq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
+
+[node name="voidwell" type="Area2D"]
+scale = Vector2(12, 12)
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_iyyiy")
+
+[node name="collision" type="CollisionShape2D" parent="."]
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_vkdeh")
+
+[node name="sprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_75oox")
+autoplay = "default"
+frame_progress = 0.825349
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

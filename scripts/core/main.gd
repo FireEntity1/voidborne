@@ -5,13 +5,17 @@ extends Node2D
 @onready var fade = $ui/fade
 @onready var health_hud = $ui/healthhud
 
+var loaded_scene: String
+
 const PLAYER = preload("res://components/core/player.tscn")
 
 func _ready() -> void:
 	#$game/player.connect("player_hit",_on_player_hit)
 	Global.root = self
 	Global.connect("vingette",_vingette)
-	change_area("outlands_underground")
+	change_area("outlands")
+	#change_location(Global.state.voidwell_id)
+	change_location("outlands_boss")
 
 func _process(delta: float) -> void:
 	fade.modulate.a = move_toward(fade.modulate.a, 1.0, delta) if Global.fade.active else move_toward(fade.modulate.a, 0.0, delta)
@@ -30,6 +34,7 @@ func _vingette(show: bool,radius: float) -> void:
 		vingette.hide()
  
 func change_area(area: String,location: String = "default"):
+	loaded_scene = area
 	var area_data = Global.levels[area]
 	for child in $game/loaded_scene.get_children():
 		child.queue_free()
@@ -57,3 +62,14 @@ func change_area(area: String,location: String = "default"):
 	camera.make_current()
 	await get_tree().create_timer(0.05).timeout
 	camera.position_smoothing_enabled = true
+
+func change_location(id: String):
+	var scene = $game/loaded_scene.get_children()[0]
+	var player = scene.get_node("player_hold").get_node("player")
+	print(scene)
+	if id == "":
+		player.position = Global.levels[loaded_scene].locations["default"]
+	for child in scene.get_node("voidwell_hold").get_children():
+		if child.id == id:
+			player.position = child.position
+	
