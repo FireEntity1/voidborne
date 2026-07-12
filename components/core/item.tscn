@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://d11xidh5o488w"]
+[gd_scene load_steps=11 format=3 uid="uid://d11xidh5o488w"]
 
 [ext_resource type="Script" uid="uid://c1j3perxfie6l" path="res://scripts/core/item.gd" id="1_hr0k8"]
 
@@ -17,7 +17,7 @@ fill_from = Vector2(0.540598, 0.527778)
 fill_to = Vector2(0.867521, 0.115385)
 
 [sub_resource type="Gradient" id="Gradient_hr0k8"]
-colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_jepqg"]
 gradient = SubResource("Gradient_hr0k8")
@@ -25,35 +25,21 @@ width = 16
 height = 16
 
 [sub_resource type="Curve" id="Curve_hr0k8"]
-_limits = [-2.0, 2.0, 0.0, 1.0]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.991071, 2), 0.0, 0.0, 0, 0]
+_limits = [-200.0, 200.0, 0.0, 1.0]
+_data = [Vector2(0.0208333, 7.40741), 0.0, 0.0, 0, 0, Vector2(0.913691, 134.044), -76.1371, 0.0, 0, 0]
 point_count = 2
 
 [sub_resource type="CurveTexture" id="CurveTexture_jepqg"]
 curve = SubResource("Curve_hr0k8")
 
-[sub_resource type="Curve" id="Curve_ed6j0"]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.520833, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
-point_count = 3
-
-[sub_resource type="CurveTexture" id="CurveTexture_o1thk"]
-curve = SubResource("Curve_ed6j0")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_dwxnh"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_hr0k8"]
 particle_flag_disable_z = true
-angle_min = 1.07288e-05
-angle_max = 98.6
-angular_velocity_min = -1.60933e-05
-angular_velocity_max = 53.67
-orbit_velocity_min = 0.422
-orbit_velocity_max = 1.416
-orbit_velocity_curve = SubResource("CurveTexture_jepqg")
-radial_velocity_min = 86.96
-radial_velocity_max = 111.8
-gravity = Vector3(0, 98, 0)
-radial_accel_min = -2.23517e-06
-radial_accel_max = 80.75
-scale_curve = SubResource("CurveTexture_o1thk")
+spread = 180.0
+initial_velocity_max = 37.27
+gravity = Vector3(0, 0, 0)
+linear_accel_min = -2.23517e-06
+linear_accel_max = 24.84
+linear_accel_curve = SubResource("CurveTexture_jepqg")
 
 [node name="item" type="Area2D"]
 collision_layer = 4
@@ -80,13 +66,14 @@ texture = SubResource("GradientTexture2D_hr0k8")
 autostart = true
 
 [node name="collect" type="GPUParticles2D" parent="."]
-scale = Vector2(2, 2)
 emitting = false
-amount = 256
+amount = 32
 texture = SubResource("GradientTexture2D_jepqg")
-lifetime = 1.4
+lifetime = 8.28
 one_shot = true
-process_material = SubResource("ParticleProcessMaterial_dwxnh")
+explosiveness = 0.83
+visibility_rect = Rect2(-2000, -2000, 4000, 4000)
+process_material = SubResource("ParticleProcessMaterial_hr0k8")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="up" to="." method="_on_up_timeout"]

@@ -2,10 +2,13 @@ extends Area2D
 
 @export var sprite: SpriteFrames
 @export var item_id: String = ""
+@export var glow = true
 
 var up = true
 
 func _ready() -> void:
+	if not glow:
+		$glow.hide()
 	$sprite.sprite_frames = sprite
 	$sprite.play()
 

@@ -7,7 +7,8 @@ var time_scale = 1.0
 var can_move = true
 
 var items = {
-	"dash": false
+	"dash": false,
+	"ridge_tablet": false
 }
 
 var levels = {

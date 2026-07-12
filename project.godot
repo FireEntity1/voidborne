@@ -25,16 +25,18 @@ Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 directories/dch_directory={
 "???": "res://dialogic/timelines/void_nexus/???.dch",
 "lethos": "res://dialogic/characters/outlands/lethos.dch",
-"mykl": "res://dialogic/characters/outlands/mykl.dch",
-"nym": "res://dialogic/characters/outlands/nym.dch"
+"nym": "res://dialogic/characters/outlands/nym.dch",
+"nyra": "res://dialogic/characters/outlands/nyra.dch",
+"ryn": "res://dialogic/characters/outlands/ryn.dch"
 }
 directories/dtl_directory={
 "end": "res://dialogic/timelines/void_nexus/end.dtl",
 "forsaken_prism_intro": "res://dialogic/timelines/outlands/forsaken_prism_intro.dtl",
 "lethos_end": "res://dialogic/timelines/outlands/lethos_end.dtl",
 "lethos_start": "res://dialogic/timelines/outlands/lethos_start.dtl",
-"mykl": "res://dialogic/timelines/outlands/mykl.dtl",
+"mykl": "res://dialogic/timelines/outlands/nyra.dtl",
 "nym": "res://dialogic/timelines/outlands/nym.dtl",
+"ryn_closed": "res://dialogic/timelines/outlands/ryn_closed.dtl",
 "tutorial": "res://dialogic/timelines/void_nexus/tutorial.dtl"
 }
 layout/style_directory={
