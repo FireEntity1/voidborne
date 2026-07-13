@@ -24,3 +24,7 @@ func _ready() -> void:
 	$timeline_trigger.automatic = automatic
 	$timeline_trigger.repeat = repeat
 	$sprite.self_modulate = colours.pick_random()
+	var s = randf_range(0.92, 1.08)
+	$sprite.scale = Vector2(8.0*s, 8.0*s)
+	modulate.a = randf_range(0.9, 1.0)
+	$sprite.speed_scale = randf_range(0.8,1.2)

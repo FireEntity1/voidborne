@@ -27,6 +27,7 @@ directories/dch_directory={
 "lethos": "res://dialogic/characters/outlands/lethos.dch",
 "nym": "res://dialogic/characters/outlands/nym.dch",
 "nyra": "res://dialogic/characters/outlands/nyra.dch",
+"orren": "res://dialogic/characters/outlands/orren.dch",
 "ryn": "res://dialogic/characters/outlands/ryn.dch"
 }
 directories/dtl_directory={
@@ -36,6 +37,7 @@ directories/dtl_directory={
 "lethos_start": "res://dialogic/timelines/outlands/lethos_start.dtl",
 "mykl": "res://dialogic/timelines/outlands/nyra.dtl",
 "nym": "res://dialogic/timelines/outlands/nym.dtl",
+"orren_underground": "res://dialogic/timelines/outlands/orren_underground.dtl",
 "ryn_closed": "res://dialogic/timelines/outlands/ryn_closed.dtl",
 "tutorial": "res://dialogic/timelines/void_nexus/tutorial.dtl"
 }
