@@ -5,7 +5,7 @@ extends Node2D
 @export var spawnarea: Vector2 = Vector2(300,50)
 @export var min_spawn_distance: float = 160.0
 
-
+@export var onstart: String
 @export var onfinish: String
 
 var started = false
@@ -65,6 +65,7 @@ func enemies_alive(enemies: Array[Node]) -> bool:
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player") and not started:
+		Dialogic.emit_signal("signal_event",onstart)
 		started = true
 		await start_waves()
 		Dialogic.signal_event.emit(onfinish)
