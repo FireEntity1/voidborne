@@ -191,6 +191,12 @@ size = Vector2(100, 500)
 spawnarea = Vector2(1000, 50)
 onfinish = "_door_voidnexus_arena"
 
+[node name="marker" type="Marker2D" parent="arena"]
+position = Vector2(-804, -34)
+
+[node name="marker2" type="Marker2D" parent="arena"]
+position = Vector2(803, -34)
+
 [node name="door" parent="." instance=ExtResource("6_vy1cv")]
 position = Vector2(7882, -24)
 rotation = 1.5708

@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=4 uid="uid://dx4rxr3ahpfkh"]
+[gd_scene load_steps=64 format=4 uid="uid://dx4rxr3ahpfkh"]
 
 [ext_resource type="Shader" uid="uid://bbsxfqbwg6r80" path="res://resources/shaders/sky.gdshader" id="1_5hdg2"]
 [ext_resource type="Script" uid="uid://crajt0rtnos3k" path="res://scripts/world/outlands.gd" id="1_6xo6o"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" uid="uid://cm0lw40qto3sd" path="res://addons/dialogic/Resources/timeline.gd" id="7_2myrk"]
 [ext_resource type="PackedScene" uid="uid://odd4m527uyyk" path="res://components/npc/outlands_resident.tscn" id="8_38vwe"]
 [ext_resource type="PackedScene" uid="uid://wwcmbugeyu4g" path="res://components/enemies/wisp.tscn" id="10_6meko"]
+[ext_resource type="PackedScene" uid="uid://bpyd565dr731o" path="res://components/enemies/void_wisp.tscn" id="11_7tm88"]
 [ext_resource type="Texture2D" uid="uid://c7onbxdeaqyis" path="res://sprites/outlands_smogridge_door.png" id="11_eattu"]
 [ext_resource type="PackedScene" uid="uid://c5tr8yj3krkfs" path="res://components/triggers/fallzone.tscn" id="12_ablkg"]
 [ext_resource type="Texture2D" uid="uid://exqgo1ef74sp" path="res://sprites/outlands_smogridge_door_open.png" id="12_f4fh5"]
@@ -521,6 +522,12 @@ scale = Vector2(10, 10)
 tile_map_data = PackedByteArray("AABkAPn/AAAAAAUAAABkAPr/AAAAAAYAAABlAPn/AAABAAUAAABlAPr/AAABAAYAAABmAPn/AAACAAUAAABmAPr/AAACAAYAAABnAPn/AAADAAUAAABnAPr/AAADAAYAAABoAPn/AAAEAAUAAABoAPr/AAAEAAYAAABqAPn/AAAAAAUAAABqAPr/AAAAAAYAAABrAPn/AAABAAUAAABrAPr/AAABAAYAAABsAPn/AAACAAUAAABsAPr/AAACAAYAAABtAPn/AAADAAUAAABtAPr/AAADAAYAAABuAPn/AAAEAAUAAABuAPr/AAAEAAYAAAB1APn/AAAAAAUAAAB1APr/AAAAAAYAAAB2APn/AAABAAUAAAB2APr/AAABAAYAAAB3APn/AAACAAUAAAB3APr/AAACAAYAAAB4APn/AAADAAUAAAB4APr/AAADAAYAAAB5APn/AAAEAAUAAAB5APr/AAAEAAYAAABkAPf/AAAAAAMAAABkAPj/AAAAAAQAAABlAPf/AAABAAMAAABlAPj/AAABAAQAAABmAPf/AAACAAMAAABmAPj/AAACAAQAAABnAPf/AAADAAMAAABnAPj/AAADAAQAAABoAPf/AAAEAAMAAABoAPj/AAAEAAQAAABqAPj/AAAAAAMAAABrAPj/AAABAAMAAABsAPj/AAACAAMAAABtAPj/AAADAAMAAABuAPj/AAAEAAMAAABqAPf/AAAAAAMAAABrAPf/AAABAAMAAABsAPf/AAACAAMAAABtAPf/AAADAAMAAABuAPf/AAAEAAMAAABqAPX/AAAAAAMAAABrAPX/AAABAAMAAABsAPX/AAACAAMAAABtAPX/AAADAAMAAABuAPX/AAAEAAMAAABqAPb/AAAAAAMAAABrAPb/AAABAAMAAABsAPb/AAACAAMAAABtAPb/AAADAAMAAABuAPb/AAAEAAMAAAB1APj/AAAAAAMAAAB2APj/AAABAAMAAAB3APj/AAACAAMAAAB4APj/AAADAAMAAAB5APj/AAAEAAMAAAB1APf/AAAAAAMAAAB2APf/AAABAAMAAAB3APf/AAACAAMAAAB4APf/AAADAAMAAAB5APf/AAAEAAMAAAB1APb/AAAAAAAAAAB2APb/AAABAAAAAAB3APb/AAACAAAAAAB4APb/AAADAAAAAAB5APb/AAAEAAAAAABqAPT/AAAAAAAAAABrAPT/AAABAAAAAABsAPT/AAACAAAAAABtAPT/AAADAAAAAABuAPT/AAAEAAAAAABkAPb/AAAAAAAAAABlAPb/AAABAAAAAABmAPb/AAACAAAAAABnAPb/AAADAAAAAABoAPb/AAAEAAAAAAA=")
 tile_set = SubResource("TileSet_gd34r")
 
+[node name="bg_buildings4" type="TileMapLayer" parent="."]
+position = Vector2(13172, -3188)
+scale = Vector2(10, 10)
+tile_map_data = PackedByteArray("AABkAPn/AAAAAAUAAABkAPr/AAAAAAYAAABlAPn/AAABAAUAAABlAPr/AAABAAYAAABmAPn/AAACAAUAAABmAPr/AAACAAYAAABnAPn/AAADAAUAAABnAPr/AAADAAYAAABoAPn/AAAEAAUAAABoAPr/AAAEAAYAAABqAPn/AAAAAAUAAABqAPr/AAAAAAYAAABrAPn/AAABAAUAAABrAPr/AAABAAYAAABsAPn/AAACAAUAAABsAPr/AAACAAYAAABtAPn/AAADAAUAAABtAPr/AAADAAYAAABuAPn/AAAEAAUAAABuAPr/AAAEAAYAAABkAPf/AAAAAAMAAABkAPj/AAAAAAQAAABlAPf/AAABAAMAAABlAPj/AAABAAQAAABmAPf/AAACAAMAAABmAPj/AAACAAQAAABnAPf/AAADAAMAAABnAPj/AAADAAQAAABoAPf/AAAEAAMAAABoAPj/AAAEAAQAAABqAPj/AAAAAAMAAABrAPj/AAABAAMAAABsAPj/AAACAAMAAABtAPj/AAADAAMAAABuAPj/AAAEAAMAAABqAPf/AAAAAAMAAABrAPf/AAABAAMAAABsAPf/AAACAAMAAABtAPf/AAADAAMAAABuAPf/AAAEAAMAAABqAPX/AAAAAAMAAABrAPX/AAABAAMAAABsAPX/AAACAAMAAABtAPX/AAADAAMAAABuAPX/AAAEAAMAAABqAPb/AAAAAAMAAABrAPb/AAABAAMAAABsAPb/AAACAAMAAABtAPb/AAADAAMAAABuAPb/AAAEAAMAAABqAPT/AAAAAAAAAABrAPT/AAABAAAAAABsAPT/AAACAAAAAABtAPT/AAADAAAAAABuAPT/AAAEAAAAAABkAPb/AAAAAAAAAABlAPb/AAABAAAAAABmAPb/AAACAAAAAABnAPb/AAADAAAAAABoAPb/AAAEAAAAAAA=")
+tile_set = SubResource("TileSet_gd34r")
+
 [node name="nym" parent="." instance=ExtResource("8_38vwe")]
 position = Vector2(14083, -2263)
 timeline = ExtResource("6_c4uuv")
@@ -538,7 +545,7 @@ position = Vector2(24480, -9013)
 [node name="enemy_hold" type="Node2D" parent="."]
 
 [node name="wisp" parent="enemy_hold" instance=ExtResource("10_6meko")]
-position = Vector2(2456, -98)
+position = Vector2(5218, -111)
 
 [node name="wisp2" parent="enemy_hold" instance=ExtResource("10_6meko")]
 position = Vector2(3664, -94)
@@ -570,6 +577,9 @@ position = Vector2(34016, -5664)
 [node name="wisp11" parent="enemy_hold" instance=ExtResource("10_6meko")]
 position = Vector2(34777, -5656)
 
+[node name="void_wisp" parent="enemy_hold" instance=ExtResource("11_7tm88")]
+position = Vector2(1208, -88)
+
 [node name="voidwell_hold" type="Node2D" parent="."]
 
 [node name="voidwell" parent="voidwell_hold" instance=ExtResource("24_amlo6")]
@@ -599,6 +609,48 @@ space = 1000
 position = Vector2(12510, -2182)
 script = ExtResource("5_38vwe")
 count = 9
+space = 700
+
+[node name="lightposts8" type="Node2D" parent="."]
+position = Vector2(22017, -896)
+script = ExtResource("5_38vwe")
+count = 8
+space = 700
+
+[node name="lightposts9" type="Node2D" parent="."]
+position = Vector2(30008, -896)
+script = ExtResource("5_38vwe")
+count = 8
+space = 700
+
+[node name="lightposts3" type="Node2D" parent="."]
+position = Vector2(29315, -8576)
+script = ExtResource("5_38vwe")
+count = 7
+space = 700
+
+[node name="lightposts4" type="Node2D" parent="."]
+position = Vector2(32336, -7040)
+script = ExtResource("5_38vwe")
+count = 4
+space = 700
+
+[node name="lightposts5" type="Node2D" parent="."]
+position = Vector2(32637, -5504)
+script = ExtResource("5_38vwe")
+count = 4
+space = 700
+
+[node name="lightposts6" type="Node2D" parent="."]
+position = Vector2(32459, -3968)
+script = ExtResource("5_38vwe")
+count = 4
+space = 700
+
+[node name="lightposts7" type="Node2D" parent="."]
+position = Vector2(32601, -2432)
+script = ExtResource("5_38vwe")
+count = 4
 space = 700
 
 [node name="fog" type="Parallax2D" parent="."]
