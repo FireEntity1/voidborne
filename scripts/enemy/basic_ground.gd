@@ -16,6 +16,8 @@ var player: CharacterBody2D
 @onready var sprite: AnimatedSprite2D = $sprite
 @onready var shader_mat: ShaderMaterial = sprite.material as ShaderMaterial
 
+var alive = true
+
 func _ready() -> void:
 	remove_from_group("enemy")
 	if shader_mat:
@@ -94,6 +96,7 @@ func damage(damage):
 
 func die():
 	$death_particles.emitting = true
+	alive = false
 	$detection.monitoring = false
 	$sprite.hide()
 	remove_from_group("enemy")

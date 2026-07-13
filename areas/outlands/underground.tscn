@@ -271,3 +271,15 @@ spawnarea = Vector2(2000, 50)
 min_spawn_distance = 1000.0
 onstart = "outlands_underground_arena_start"
 onfinish = "outlands_underground_arena_end"
+
+[node name="marker" type="Marker2D" parent="arena"]
+position = Vector2(-1050, 25)
+
+[node name="marker2" type="Marker2D" parent="arena"]
+position = Vector2(-537, 16)
+
+[node name="marker3" type="Marker2D" parent="arena"]
+position = Vector2(442, 23)
+
+[node name="marker4" type="Marker2D" parent="arena"]
+position = Vector2(1001, 17)
