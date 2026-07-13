@@ -5,5 +5,8 @@ func _ready() -> void:
 
 func _on_signal(arg):
 	if arg == "open_smog_ridge":
-		$door_over.play()
+		$door_over.play("open")
 		$door.get_node("collision").disabled = true
+		$door.get_node("sprite").play("open")
+		await $door_over.animation_finished
+		$door_over.play("default")

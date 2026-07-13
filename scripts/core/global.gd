@@ -8,7 +8,7 @@ var can_move = true
 
 var items = {
 	"dash": false,
-	"ridge_tablet": false
+	"ridge_tablet": true
 }
 
 var levels = {
@@ -27,6 +27,7 @@ var levels = {
 			"default": Vector2(-800,300),
 			#"to_underground": Vector2(24000,1100),
 			"to_underground": Vector2(24000,-11300),
+			"to_foundry": Vector2(40133,-1200)
 		},
 		"vingette": false,
 		"radial_chromabb": false,
@@ -39,6 +40,15 @@ var levels = {
 			},
 		"vingette": true,
 		"radial_chromabb": false,
+	},
+	"foundry": {
+		"scene": preload("res://areas/foundry/foundry.tscn"),
+		"locations": {
+			"default": Vector2(1500,250),
+			"to_outlands": Vector2(1500,250)
+		},
+		"vingette": false,
+		"radial_chromabb": false
 	}
 }
 

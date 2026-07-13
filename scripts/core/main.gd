@@ -13,7 +13,7 @@ func _ready() -> void:
 	#$game/player.connect("player_hit",_on_player_hit)
 	Global.root = self
 	Global.connect("vingette",_vingette)
-	change_area("outlands_underground")
+	change_area("foundry")
 	#change_location(Global.state.voidwell_id)
 	change_location("")
 
@@ -56,7 +56,8 @@ func change_area(area: String,location: String = "default"):
 	health_hud.bind_player(Global.player)
 	
 	print(Global.levels[area].locations[location])
-	Global.player.global_position = new.to_global(Global.levels[area].locations[location])
+	Global.player.position = Global.levels[area].locations[location]
+	Global.player.velocity.y = 5000
 	var camera := Global.player.get_node("camera") as Camera2D
 	camera.position_smoothing_enabled = false
 	camera.make_current()

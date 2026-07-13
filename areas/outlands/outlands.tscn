@@ -162,7 +162,7 @@ physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_6xo6o")
 sources/2 = SubResource("TileSetAtlasSource_38vwe")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_c4uuv"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7tm88"]
 texture = ExtResource("3_6xo6o")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, -8, -8, -8, -8, 8, 8, 8)
@@ -193,7 +193,7 @@ texture = ExtResource("3_6xo6o")
 2:2/0 = 0
 4:2/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6meko"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pnkr2"]
 texture = ExtResource("2_v7pnp")
 texture_region_size = Vector2i(16, 20)
 0:0/0 = 0
@@ -234,8 +234,8 @@ texture_region_size = Vector2i(16, 20)
 
 [sub_resource type="TileSet" id="TileSet_aal6u"]
 physics_layer_0/collision_layer = 1
-sources/1 = SubResource("TileSetAtlasSource_c4uuv")
-sources/2 = SubResource("TileSetAtlasSource_6meko")
+sources/1 = SubResource("TileSetAtlasSource_7tm88")
+sources/2 = SubResource("TileSetAtlasSource_pnkr2")
 
 [sub_resource type="Resource" id="Resource_ablkg"]
 script = ExtResource("7_2myrk")
@@ -335,7 +335,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_wwjmg")
 }],
 "loop": false,
-"name": &"new_animation",
+"name": &"open",
 "speed": 10.0
 }]
 
@@ -352,12 +352,12 @@ shader_parameter/horizontal_stretch = 3.0
 shader_parameter/vertical_detail = 1.4
 shader_parameter/seed = 12.0
 
-[sub_resource type="Gradient" id="Gradient_ggd2s"]
+[sub_resource type="Gradient" id="Gradient_7tm88"]
 offsets = PackedFloat32Array(0, 0.432432, 1)
 colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_5hdg2"]
-gradient = SubResource("Gradient_ggd2s")
+gradient = SubResource("Gradient_7tm88")
 width = 256
 fill_to = Vector2(1, 0.0160643)
 
@@ -598,7 +598,6 @@ position = Vector2(411, -402)
 position = Vector2(40516, -1535)
 scale = Vector2(12, 12)
 sprite_frames = SubResource("SpriteFrames_w2vbx")
-animation = &"new_animation"
 
 [node name="lightposts" type="Node2D" parent="."]
 position = Vector2(725, 0)
@@ -677,6 +676,10 @@ flip_h = true
 position = Vector2(-1212, -186)
 to = "voidnexus"
 location = "to_outlands"
+
+[node name="to_voidnexus3" parent="." instance=ExtResource("6_v7pnp")]
+position = Vector2(40632, -1366)
+to = "foundry"
 
 [node name="to_underground" type="TextureRect" parent="."]
 offset_left = 26324.0
