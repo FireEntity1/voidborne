@@ -1,0 +1,4 @@
+do Global.mod_can_move(false)
+venn: Those caverns extend down much farther than we can see.
+venn: If you intend to explore them, stay safe, void thing.
+do Global.mod_can_move(true)

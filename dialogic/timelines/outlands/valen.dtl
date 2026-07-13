@@ -1,0 +1,9 @@
+do Global.mod_can_move(false)
+valen: Hello, void.
+valen: Most of us down here are content with our lives.
+valen: The Zenith can't corrupt us. You are safe here.
+valen: Though do be warned...
+valen: Other areas may not be like this...
+valen: ...and what lies down below us is something not even the Zenith dares to touch.
+valen: Nobody knows what it is, and no one has returned from those depths.
+do Global.mod_can_move(true)
