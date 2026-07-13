@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=4 uid="uid://cjw5jsk1dmc32"]
+[gd_scene load_steps=34 format=4 uid="uid://cjw5jsk1dmc32"]
 
 [ext_resource type="Texture2D" uid="uid://bk7s8n45qeelk" path="res://sprites/cracked_concrete.png" id="1_gqfbg"]
 [ext_resource type="Texture2D" uid="uid://cl5v8q7pkhafd" path="res://sprites/building.png" id="2_poiw5"]
@@ -15,6 +15,7 @@
 [ext_resource type="Script" uid="uid://b13nu3g3jkfi7" path="res://scripts/enemy/arena/wave.gd" id="13_ks5ff"]
 [ext_resource type="Script" uid="uid://nyum2kmnthf2" path="res://scripts/enemy/arena/enemy_count.gd" id="14_ga4r2"]
 [ext_resource type="PackedScene" uid="uid://wwcmbugeyu4g" path="res://components/enemies/wisp.tscn" id="15_vrwqy"]
+[ext_resource type="PackedScene" uid="uid://dmnv7rn8xmis2" path="res://components/decoration/lightposts.tscn" id="16_ga4r2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jpybe"]
 texture = ExtResource("1_gqfbg")
@@ -238,6 +239,18 @@ position = Vector2(11112, 2179)
 
 [node name="forsaken_prism4" parent="enemy_hold" instance=ExtResource("4_gffnh")]
 position = Vector2(9358, 2179)
+
+[node name="lightposts" parent="." instance=ExtResource("16_ga4r2")]
+position = Vector2(12128, -128)
+count = 3
+space = 1000
+type = "toplight"
+
+[node name="lightposts2" parent="." instance=ExtResource("16_ga4r2")]
+position = Vector2(17732, -128)
+count = 4
+space = 1000
+type = "toplight"
 
 [node name="world" type="TileMapLayer" parent="."]
 scale = Vector2(8, 8)

@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://dodbxq4ph47on"]
+
+[ext_resource type="Texture2D" uid="uid://s1qymjctnc6j" path="res://sprites/toplight.png" id="1_qt74e"]
+[ext_resource type="Script" uid="uid://bdbvdcj5j8o3w" path="res://scripts/decoration/lightpost.gd" id="2_y8epe"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qt74e"]
+atlas = ExtResource("1_qt74e")
+region = Rect2(0, 0, 128, 68)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y8epe"]
+atlas = ExtResource("1_qt74e")
+region = Rect2(128, 0, 128, 68)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_60o0k"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qt74e")
+}, {
+"duration": 0.05,
+"texture": SubResource("AtlasTexture_y8epe")
+}],
+"loop": true,
+"name": &"default",
+"speed": 0.2
+}]
+
+[node name="toplight" type="AnimatedSprite2D"]
+scale = Vector2(8, 8)
+sprite_frames = SubResource("SpriteFrames_60o0k")
+autoplay = "default"
+script = ExtResource("2_y8epe")

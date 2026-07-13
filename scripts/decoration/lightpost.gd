@@ -1,7 +1,9 @@
 extends AnimatedSprite2D
 
 func _ready() -> void:
-	frame = randi_range(0,8)
+	await get_tree().create_timer(randf_range(0.0,1.0)).timeout
+	frame = 0
 	while true:
-		await get_tree().create_timer(2.0).timeout
-		frame = randi_range(0,8)
+		await get_tree().create_timer(8.0).timeout
+		await get_tree().create_timer(randf_range(0.0,1.0)).timeout
+		frame = 0
