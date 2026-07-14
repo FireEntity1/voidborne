@@ -8,5 +8,6 @@ const CONVEYER = preload("res://components/foundry/conveyer.tscn")
 func _ready() -> void:
 	for i in range(length):
 		var new = CONVEYER.instantiate()
-		new.position += Vector2(i*128,-32)
+		new.position += Vector2(i*128*dir,-32)
+		new.dir = dir
 		add_child(new)
