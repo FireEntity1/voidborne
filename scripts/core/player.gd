@@ -24,6 +24,7 @@ var invincible_time = 0.8
 var knockback_x = 1200.0
 var knockback_y = -650.0
 var knockback_friction = 4500.0
+var moving = false
 
 var cam_zoom = 1.0
 
@@ -62,7 +63,7 @@ func _physics_process(delta: float) -> void:
 		#$camera.zoom.x, cam_zoom, delta/3.0), move_toward(
 			#$camera.zoom.y, cam_zoom, delta/3.0
 		#))
-	var z = lerp($camera.zoom.x,cam_zoom, delta/1.0)
+	var z = lerp($camera.zoom.x,cam_zoom, delta)
 	$camera.zoom = Vector2(z,z)
 	
 	if was_hit:
@@ -72,8 +73,10 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, direction * SPEED, delta * 30000)
 		if is_on_floor():
 			$sprite.play("move")
+			moving = true
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
+		moving = false
 	
 	if Input.is_action_just_pressed("attack") and can_attack and Global.can_move:
 		attack()

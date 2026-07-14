@@ -1,0 +1,54 @@
+[gd_scene load_steps=7 format=3 uid="uid://1q0nc2tagi56"]
+
+[ext_resource type="Script" uid="uid://bevvw6wmjh4sv" path="res://scripts/world/conveyer.gd" id="1_0p7js"]
+[ext_resource type="Texture2D" uid="uid://y2d2uidk23tn" path="res://sprites/conveyer_belt.png" id="1_kq05a"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yu1uv"]
+size = Vector2(16, 2.75)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0p7js"]
+atlas = ExtResource("1_kq05a")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3sbsn"]
+atlas = ExtResource("1_kq05a")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ry547"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0p7js")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3sbsn")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="conveyer" type="Area2D"]
+scale = Vector2(8, 8)
+collision_mask = 2
+script = ExtResource("1_0p7js")
+
+[node name="collision" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1.75)
+shape = SubResource("RectangleShape2D_yu1uv")
+
+[node name="sprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ry547")
+autoplay = "default"
+frame_progress = 0.523099
+
+[node name="static" type="StaticBody2D" parent="."]
+collision_layer = 7
+collision_mask = 7
+
+[node name="collision2" type="CollisionShape2D" parent="static"]
+position = Vector2(0, -1.625)
+shape = SubResource("RectangleShape2D_yu1uv")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
