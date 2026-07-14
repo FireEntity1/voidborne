@@ -25,6 +25,7 @@ var knockback_x = 1200.0
 var knockback_y = -650.0
 var knockback_friction = 4500.0
 var moving = false
+var velocity_mod = 0.0
 
 var cam_zoom = 1.0
 
@@ -44,6 +45,7 @@ func _ready() -> void:
 	
 
 func _physics_process(delta: float) -> void:
+	velocity.x = clamp(velocity.x - velocity_mod,-3000,3000)
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 
@@ -109,7 +111,7 @@ func _physics_process(delta: float) -> void:
 		await get_tree().create_timer(dash_cooldown).timeout
 	if is_dashing:
 		velocity.x = previous_direction*DASH_VELOCITY
-	
+	velocity.x = clamp(velocity_mod + velocity.x,-3000,3000)
 	move_and_slide()
 
 func attack() -> void:

@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://qser0tdqcguf" path="res://sprites/foundry_buildings.png" id="3_gednu"]
 [ext_resource type="Shader" uid="uid://d102on4be1bkp" path="res://resources/shaders/heat.gdshader" id="4_gjgd7"]
 [ext_resource type="PackedScene" uid="uid://dh1lee42hp8xa" path="res://components/decoration/cam_zoom_zone.tscn" id="6_s664x"]
-[ext_resource type="PackedScene" uid="uid://1q0nc2tagi56" path="res://components/foundry/conveyer.tscn" id="7_76w4v"]
+[ext_resource type="PackedScene" uid="uid://mjyf1nkmqbc0" path="res://components/foundry/conveyers.tscn" id="7_76w4v"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_80esv"]
 
@@ -238,12 +238,12 @@ offset_top = -1337.0
 offset_right = 6741.0
 offset_bottom = 601.0
 
-[node name="heat" type="ColorRect" parent="."]
+[node name="heat" type="ColorRect" parent="parallax_buildings"]
 material = SubResource("ShaderMaterial_s664x")
-offset_left = -127.0
-offset_top = -1157.0
-offset_right = 11388.0
-offset_bottom = 189.0
+offset_left = 443.0
+offset_top = -1231.0
+offset_right = 11958.0
+offset_bottom = 115.0
 
 [node name="bottom_glow" type="TextureRect" parent="."]
 offset_left = -301.0
@@ -299,14 +299,6 @@ scale = Vector2(495.638, 169.902)
 collision_mask = 2
 zoom = 0.8
 
-[node name="conveyer" parent="." instance=ExtResource("7_76w4v")]
-position = Vector2(-3867, 4219)
-
-[node name="conveyer2" parent="." instance=ExtResource("7_76w4v")]
-position = Vector2(-3738, 4219)
-
-[node name="conveyer3" parent="." instance=ExtResource("7_76w4v")]
-position = Vector2(-3610, 4219)
-
-[node name="conveyer4" parent="." instance=ExtResource("7_76w4v")]
-position = Vector2(-3481, 4219)
+[node name="conveyers" parent="." instance=ExtResource("7_76w4v")]
+position = Vector2(1285, -177)
+length = 20
