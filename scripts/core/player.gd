@@ -58,10 +58,12 @@ func _physics_process(delta: float) -> void:
 	
 	var direction := Input.get_axis("left", "right")
 	
-	$camera.zoom = Vector2(move_toward(
-		$camera.zoom.x, cam_zoom, delta/3.0), move_toward(
-			$camera.zoom.y, cam_zoom, delta/3.0
-		))
+	#$camera.zoom = Vector2(move_toward(
+		#$camera.zoom.x, cam_zoom, delta/3.0), move_toward(
+			#$camera.zoom.y, cam_zoom, delta/3.0
+		#))
+	var z = lerp($camera.zoom.x,cam_zoom, delta/1.0)
+	$camera.zoom = Vector2(z,z)
 	
 	if was_hit:
 		velocity.x = move_toward(velocity.x, 0, knockback_friction * delta)

@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dh1lee42hp8xa"]
+
+[ext_resource type="Script" uid="uid://btkcqo5ro4mr7" path="res://scripts/decoration/cam_zoom_zone.gd" id="1_m21fc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o0h28"]
+
+[node name="cam_zoom_zone" type="Area2D"]
+scale = Vector2(8, 8)
+script = ExtResource("1_m21fc")
+
+[node name="collision" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_o0h28")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
