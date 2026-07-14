@@ -3,30 +3,30 @@
 [ext_resource type="Script" uid="uid://cil6sahyur0cw" path="res://scripts/core/healthud.gd" id="1_wk1b8"]
 [ext_resource type="Texture2D" uid="uid://cihaf3ovvrulo" path="res://sprites/heart.png" id="2_o1wrg"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_o1wrg"]
+atlas = ExtResource("2_o1wrg")
+region = Rect2(0, 0, 20, 18)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_oh1sh"]
 atlas = ExtResource("2_o1wrg")
-region = Rect2(0, 0, 16, 16)
+region = Rect2(20, 0, 20, 18)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dca66"]
 atlas = ExtResource("2_o1wrg")
-region = Rect2(16, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_o1wrg"]
-atlas = ExtResource("2_o1wrg")
-region = Rect2(32, 0, 16, 16)
+region = Rect2(40, 0, 20, 18)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tc7cn"]
 atlas = ExtResource("2_o1wrg")
-region = Rect2(48, 0, 16, 16)
+region = Rect2(60, 0, 20, 18)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_wk1b8"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_oh1sh")
+"texture": SubResource("AtlasTexture_o1wrg")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_dca66")
+"texture": SubResource("AtlasTexture_oh1sh")
 }],
 "loop": true,
 "name": &"full",
@@ -34,7 +34,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_o1wrg")
+"texture": SubResource("AtlasTexture_dca66")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_tc7cn")
@@ -45,13 +45,14 @@ animations = [{
 }]
 
 [node name="healthhud" type="Node2D"]
+scale = Vector2(0.8, 0.8)
 script = ExtResource("1_wk1b8")
 
 [node name="heart" type="AnimatedSprite2D" parent="."]
 visible = false
 position = Vector2(-8, -8)
 sprite_frames = SubResource("SpriteFrames_wk1b8")
-animation = &"full"
+animation = &"half"
 autoplay = "full"
 offset = Vector2(8, 8)
 
@@ -59,9 +60,10 @@ offset = Vector2(8, 8)
 visible = false
 position = Vector2(-8, -8)
 sprite_frames = SubResource("SpriteFrames_wk1b8")
-animation = &"full"
+animation = &"half"
 autoplay = "half"
 offset = Vector2(8, 8)
 
 [node name="container" type="Node2D" parent="."]
+position = Vector2(32, 32)
 scale = Vector2(8, 8)

@@ -3,13 +3,14 @@ extends Node2D
 @onready var heart: AnimatedSprite2D = $heart
 @onready var half_heart: AnimatedSprite2D = $half_heart
 @onready var container: Node2D = $container
+@onready var bg  = $heartbg
 
 var bound_player: Node = null
 var heart_slots: Array[AnimatedSprite2D] = []
 var previous_health: int = -1
 var flash_tween: Tween
 
-const HEART_SPACING := 18
+const HEART_SPACING := 20
 
 func bind_player(player: Node) -> void:
 	if is_instance_valid(bound_player):
