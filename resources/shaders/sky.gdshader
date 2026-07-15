@@ -8,6 +8,7 @@ uniform vec2 scroll_speed2 = vec2(-0.015, -0.004); //The scroll-speed of the sec
 uniform vec2 center_pos = vec2(0.5, 0.0); //The position, the clouds are bend around
 uniform float position_impact : hint_range(0.0, 1.0, 0.01) = 0.75;
 uniform sampler2D color_gardient; //The colors of the cloud-sky-transition as a 1D-Gradient (set interpolation to constant for more pixel look)
+uniform float ALPHA : hint_range(0.0, 1.0, 0.01) = 1.0;
 
 void fragment() {
 	//The pixelated UV (so that the texture is actually pixelart)
@@ -30,4 +31,5 @@ void fragment() {
 	float final = mix(1.0-noise_col.r, dist, position_impact);
 	//applies the color from the gradient
 	COLOR = texture(color_gardient, vec2(final, final));
+	COLOR.a *= ALPHA;
 }
