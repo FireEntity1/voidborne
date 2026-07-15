@@ -13,7 +13,7 @@ func _ready() -> void:
 	#$game/player.connect("player_hit",_on_player_hit)
 	Global.root = self
 	Global.connect("vingette",_vingette)
-	change_area("foundry")
+	change_area("outlands")
 	#change_location(Global.state.voidwell_id)
 	change_location("")
 
