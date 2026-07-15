@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cuyvbmua2eula"
-path="res://.godot/imported/ridge_tablet.png-08161d503012bc38b1c717e1cac68640.ctex"
+uid="uid://bqbcj4k54p2fb"
+path="res://.godot/imported/elevator.png-69afffe8726c576f9b46ee3c3742207f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://aseprite/ridge_tablet.png"
-dest_files=["res://.godot/imported/ridge_tablet.png-08161d503012bc38b1c717e1cac68640.ctex"]
+source_file="res://sprites/elevator.png"
+dest_files=["res://.godot/imported/elevator.png-69afffe8726c576f9b46ee3c3742207f.ctex"]
 
 [params]
 
