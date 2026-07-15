@@ -269,10 +269,6 @@ tile_set = SubResource("TileSet_gednu")
 position = Vector2(-3312, 4252)
 length = 13
 
-[node name="to" type="Marker2D" parent="elevator"]
-position = Vector2(0, -176.375)
-gizmo_extents = 5.0
-
 [node name="world" type="TileMapLayer" parent="."]
 position = Vector2(-6013, 4250)
 scale = Vector2(8, 8)

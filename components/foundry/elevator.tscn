@@ -76,9 +76,9 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_5kpiw")
 }],
-"loop": true,
+"loop": false,
 "name": &"default",
-"speed": 5.0
+"speed": 15.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6c7du"]

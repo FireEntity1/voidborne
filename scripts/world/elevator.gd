@@ -43,9 +43,9 @@ func _ready() -> void:
 		var new_chain: Sprite2D = chain.duplicate() as Sprite2D
 
 		if starts_at_top:
-			new_chain.position.y += segment_height * i
+			new_chain.position.y += 32 * i
 		else:
-			new_chain.position.y -= segment_height * i
+			new_chain.position.y -= 32 * i
 
 		$base.add_child(new_chain)
 
@@ -53,7 +53,7 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if not moving:
 		return
-	if $base/trigger.get_overlapping_bodies().has(player):
+	if $base/trigger.get_overlapping_bodies().has(player) and player.is_on_floor():
 		player.velocity.y = 5000
 	var distance_from_start: float = abs(global_position.y - departure_y)
 	var distance_to_end: float = abs(global_position.y - target_y)
@@ -92,6 +92,7 @@ func _physics_process(delta: float) -> void:
 		$base/side_l.set_deferred("disabled", true)
 		$base/side_r.set_deferred("disabled", true)
 		Global.mod_can_move(true)
+		$base/base.play_backwards("default")
 
 
 func _on_trigger_body_entered(body: Node2D) -> void:
@@ -112,5 +113,6 @@ func _on_trigger_body_entered(body: Node2D) -> void:
 
 	$base/side_l.set_deferred("disabled", false)
 	$base/side_r.set_deferred("disabled", false)
+	$base/base.play("default")
 	await get_tree().create_timer(0.02).timeout
 	Global.mod_can_move(false)
