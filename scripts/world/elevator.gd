@@ -1,7 +1,7 @@
 extends Node2D
 
 @export var length: int = 1
-@export var close_speed: float = 400.0
+@export var close_speed: float = 800.0
 @export var segment_height: float = 128.0
 @export var visible_segments: int = 2
 
