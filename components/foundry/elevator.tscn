@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://lvsb5jkcikid" path="res://sprites/elevator_chain.png" id="2_sqgel"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5cid8"]
-size = Vector2(0.625, 26.875)
+size = Vector2(26.7501, 0.165333)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8rq37"]
 size = Vector2(12, 2)
@@ -93,13 +93,17 @@ collision_mask = 2
 
 [node name="side_r" type="CollisionShape2D" parent="base"]
 position = Vector2(7.75, -12.625)
+rotation = -1.5708
 shape = SubResource("RectangleShape2D_5cid8")
 disabled = true
+one_way_collision = true
 
 [node name="side_l" type="CollisionShape2D" parent="base"]
-position = Vector2(-7.75, -12.625)
+position = Vector2(-7.96875, -12.625)
+rotation = 1.56997
 shape = SubResource("RectangleShape2D_5cid8")
 disabled = true
+one_way_collision = true
 
 [node name="collision" type="CollisionShape2D" parent="base"]
 position = Vector2(0, 1)
