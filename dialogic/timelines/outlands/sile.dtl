@@ -1,0 +1,9 @@
+do Global.mod_can_move(false)
+sile: Greetings.
+sile: I've been awaiting someone of your kind.
+sile: The path to the underground is overrun with void.
+sile: And you're the only one that can safely free it.
+sile: Go to the top of this tower and look for a glowing object.
+sile: It should allow you to clear the path.
+sile: Good luck, void thing.
+do Global.mod_can_move(true)

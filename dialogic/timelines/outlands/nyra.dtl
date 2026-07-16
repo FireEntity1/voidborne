@@ -2,6 +2,7 @@ do Global.mod_can_move(false)
 nyra: Salutations, void thing.
 nyra: I'm Nyra.
 nyra: Those underground tunnels are riddled with the disciples of the prism.
-nyra: I would watch out down there.
+nyra: But have recently been blocked off by this mass of void.
 nyra: I've heard stories of individuals who enter and never return.
+nyra: Maybe it's for the better?
 do Global.mod_can_move(true)
