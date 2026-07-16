@@ -38,17 +38,21 @@ texture = ExtResource("1_gqfbg")
 1:3/0 = 0
 1:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, -8, -8, -8, -8, 8, 8, 8)
 2:3/0 = 0
+2:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, -8, -8, -8, -8, 8, 8, 8)
 3:3/0 = 0
 3:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, -8, -8, -8, -8, 8, 8, 8)
 3:2/0 = 0
 3:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, -8, -8, -8, -8, 8, 8, 8)
 3:1/0 = 0
+3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, -8, -8, -8, -8, 8, 8, 8)
 3:0/0 = 0
 3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, -8, -8, -8, -8, 8, 8, 8)
 2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, -8, -8, -8, -8, 8, 8, 8)
 2:1/0 = 0
 2:2/0 = 0
 4:2/0 = 0
+4:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, -8, -8, -8, -8, 8, 8, 8)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k1a3w"]
 texture = ExtResource("2_poiw5")
@@ -387,10 +391,10 @@ position = Vector2(30144, 2176)
 open_signal = "cavern_unlock"
 
 [node name="temp" type="Label" parent="."]
-offset_left = 31386.0
-offset_top = 2026.0
-offset_right = 31600.0
-offset_bottom = 2073.0
+offset_left = 31328.0
+offset_top = 1993.0
+offset_right = 31542.0
+offset_bottom = 2040.0
 scale = Vector2(10.2638, 10.2638)
 text = "ENTRANCE TO CAVERNS
 CAVERNS LEAD TO ABYSS"
