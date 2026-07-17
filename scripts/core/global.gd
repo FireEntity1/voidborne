@@ -41,6 +41,14 @@ var levels = {
 		"vingette": true,
 		"radial_chromabb": false,
 	},
+	"outlands_tower": {
+		"scene": preload("res://areas/outlands/tower.tscn"),
+		"locations": {
+				"default": Vector2(0,0),
+			},
+		"vingette": true,
+		"radial_chromabb": false,
+	},
 	"foundry": {
 		"scene": preload("res://areas/foundry/foundry.tscn"),
 		"locations": {

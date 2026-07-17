@@ -133,7 +133,7 @@ colors = PackedColorArray(0, 0, 0, 0, 0.93, 0.59055, 0.2511, 0.176471, 0.35, 0.2
 gradient = SubResource("Gradient_gjgd7")
 fill_to = Vector2(0, 1)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qturw"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4f36y"]
 texture = ExtResource("1_qturw")
 0:0/0 = 0
 1:0/0 = 0
@@ -152,9 +152,9 @@ texture = ExtResource("1_qturw")
 
 [sub_resource type="TileSet" id="TileSet_34no4"]
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_qturw")
+sources/0 = SubResource("TileSetAtlasSource_4f36y")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_34no4"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_g15l6"]
 texture = ExtResource("1_qturw")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -191,7 +191,7 @@ texture = ExtResource("1_qturw")
 
 [sub_resource type="TileSet" id="TileSet_s664x"]
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_34no4")
+sources/0 = SubResource("TileSetAtlasSource_g15l6")
 
 [sub_resource type="Gradient" id="Gradient_ggd2s"]
 offsets = PackedFloat32Array(0, 0.432432, 1)
