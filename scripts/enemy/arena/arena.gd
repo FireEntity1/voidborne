@@ -7,10 +7,13 @@ extends Node2D
 
 @export var spawn_positions: Array[float] = [-1200,-1000,800,800,1000,1200]
 
+@export var particle_colour: Color = Color(1, 1, 1)
+
 @export var onstart: String
 @export var onfinish: String
 
 var markers: Array[Marker2D]
+var markers_used: Array[bool]
 
 var started = false
 
@@ -54,7 +57,8 @@ func _get_spawn_position() -> Vector2:
 	#var x_offset = randf_range(min_spawn_distance, max_distance) * side
 	#var y_offset = randf_range(-abs(spawnarea.y) * 0.5, abs(spawnarea.y) * 0.5)
 	#return Vector2(reference_position.x + x_offset, global_position.y + y_offset)
-	return markers.pick_random().global_position
+	var rand = randi_range(0,markers.size()-1)
+	return markers[rand].global_position
 
 func _add_spawned_enemy(enemy: Node2D, spawn_position: Vector2) -> void:
 	if not is_instance_valid(enemy):
@@ -62,6 +66,14 @@ func _add_spawned_enemy(enemy: Node2D, spawn_position: Vector2) -> void:
 	var particles = $spawn_ref.duplicate()
 	add_child(particles)
 	particles.global_position = spawn_position
+	var texture = GradientTexture2D.new()
+	texture.gradient = Gradient.new()
+	texture.gradient.set_color(0,particle_colour)
+	texture.gradient.set_color(1,particle_colour)
+	texture.width = 16
+	texture.height = 16
+	particles.texture = texture
+	
 	particles.show()
 	particles.restart()
 	particles.emitting = true
