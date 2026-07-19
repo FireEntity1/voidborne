@@ -69,8 +69,13 @@ func change_location(id: String):
 	var player = scene.get_node("player_hold").get_node("player")
 	print(scene)
 	if id == "":
-		player.position = Global.levels[loaded_scene].locations["default"]
+		#player.position = Global.levels[loaded_scene].locations["default"]
+		player.global_position = get_location("default")
+	else:
+		player.global_position = get_location("default")
 	for child in scene.get_node("voidwell_hold").get_children():
 		if child.id == id:
 			player.position = child.position
 	
+func get_location(id: String):
+	return $game/loaded_scene.get_children()[0].get_node("spawn_pos").get_node(id).global_position

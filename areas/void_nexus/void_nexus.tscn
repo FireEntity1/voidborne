@@ -223,6 +223,14 @@ id = "outlands_upper_one"
 
 [node name="player_hold" type="Node2D" parent="."]
 
+[node name="spawn_pos" type="Node2D" parent="."]
+
+[node name="default" type="Marker2D" parent="spawn_pos"]
+position = Vector2(1636, 187)
+
+[node name="to_outlands" type="Marker2D" parent="spawn_pos"]
+position = Vector2(13607, -2475)
+
 [node name="fade" type="TextureRect" parent="."]
 offset_left = 12449.0
 offset_top = -3374.0
