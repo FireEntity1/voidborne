@@ -4,4 +4,5 @@ extends Area2D
 
 func hit():
 	$sprite.play()
+	await $sprite.animation_finished
 	parent.flash()

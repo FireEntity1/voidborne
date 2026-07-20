@@ -13,8 +13,8 @@ func _ready() -> void:
 	$to_outlands.monitoring = true
 
 func _physics_process(delta: float) -> void:
-	col = lerp(col,0.0,delta/8.0)
 	if switched:
+		col = lerp(col,0.0,delta*2.0)
 		overlay.texture.gradient.colors = PackedColorArray([
 		Color(1,1,1,col),
 		Color(1,1,1,0)
