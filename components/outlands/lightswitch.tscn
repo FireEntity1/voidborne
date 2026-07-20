@@ -1,0 +1,83 @@
+[gd_scene load_steps=13 format=3 uid="uid://dhyt3u7vos240"]
+
+[ext_resource type="Script" uid="uid://7pi8f7h7on6q" path="res://scripts/world/lightswitch.gd" id="1_hmt44"]
+[ext_resource type="Texture2D" uid="uid://dlvdijnwsaslp" path="res://sprites/lightswitch.png" id="1_r77ia"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hmt44"]
+atlas = ExtResource("1_r77ia")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_auork"]
+atlas = ExtResource("1_r77ia")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tdcq3"]
+atlas = ExtResource("1_r77ia")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_blcpw"]
+atlas = ExtResource("1_r77ia")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2txhi"]
+atlas = ExtResource("1_r77ia")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fuu0w"]
+atlas = ExtResource("1_r77ia")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_btcge"]
+atlas = ExtResource("1_r77ia")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l7rlb"]
+atlas = ExtResource("1_r77ia")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mh20k"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hmt44")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_auork")
+}, {
+"duration": 0.6,
+"texture": SubResource("AtlasTexture_tdcq3")
+}, {
+"duration": 0.7,
+"texture": SubResource("AtlasTexture_blcpw")
+}, {
+"duration": 0.8,
+"texture": SubResource("AtlasTexture_2txhi")
+}, {
+"duration": 0.9,
+"texture": SubResource("AtlasTexture_fuu0w")
+}, {
+"duration": 0.9,
+"texture": SubResource("AtlasTexture_btcge")
+}, {
+"duration": 1.2,
+"texture": SubResource("AtlasTexture_l7rlb")
+}],
+"loop": false,
+"name": &"default",
+"speed": 20.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r77ia"]
+size = Vector2(10.5, 6.125)
+
+[node name="lightswitch" type="Area2D" groups=["hittable"]]
+scale = Vector2(8, 8)
+collision_layer = 4
+script = ExtResource("1_hmt44")
+
+[node name="sprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_mh20k")
+
+[node name="collision" type="CollisionShape2D" parent="."]
+position = Vector2(-1.125, 9.625)
+shape = SubResource("RectangleShape2D_r77ia")
