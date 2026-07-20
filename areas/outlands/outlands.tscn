@@ -988,6 +988,7 @@ offset_left = -1083.0
 offset_top = -6260.0
 offset_right = 30146.0
 offset_bottom = 1493.0
+metadata/_edit_use_anchors_ = true
 
 [node name="to_voidnexus" type="TextureRect" parent="."]
 offset_left = -2406.0

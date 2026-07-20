@@ -71,7 +71,7 @@ animations = [{
 size = Vector2(10.5, 6.125)
 
 [node name="lightswitch" type="Area2D" groups=["hittable"]]
-scale = Vector2(8, 8)
+scale = Vector2(16, 16)
 collision_layer = 4
 script = ExtResource("1_hmt44")
 
