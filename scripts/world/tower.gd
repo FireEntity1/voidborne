@@ -6,6 +6,7 @@ var switched = false
 var col = 0.2
 
 func _ready() -> void:
+	$overlay.show()
 	$to_outlands/collision.disabled = true
 	$to_outlands.monitoring = false
 	await get_tree().create_timer(4.0).timeout
