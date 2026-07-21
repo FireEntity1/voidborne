@@ -16,14 +16,11 @@ var dir = true
 
 var final_pos: Vector2
 
-var player: CharacterBody2D
-
 var color = 1.0
 
 func _ready() -> void:
 	move_target = [position.x-move_range,position.x+move_range]
 	Dialogic.connect("signal_event",_signal_event)
-	player = get_parent().get_node("player_hold").get_node("player")
 
 func _process(delta: float) -> void:
 	if finished:
@@ -85,4 +82,10 @@ func _signal_event(arg):
 
 func _on_attack_timeout() -> void:
 	var new = ATTACK.instantiate()
-	new.goal = player.global_position
+	new.global_position = global_position - Vector2(900,200)
+	new.goal = player().global_position
+	get_parent().add_child(new)
+	print("spawning",new.global_position)
+
+func player() -> CharacterBody2D:
+	return get_parent().get_node("player_hold").get_node("player")
