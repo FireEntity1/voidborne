@@ -12,3 +12,4 @@ func hit():
 	await $sprite.animation_finished
 	parent.flash()
 	Dialogic.emit_signal("signal_event","light_switch")
+	Global.state["outlands_light"] = true

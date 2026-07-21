@@ -65,10 +65,14 @@ var state = {
 		"dash": false,
 		"ridge_tablet": false
 	},
+	# basic stuff
 	"area": "outlands",
 	"voidwell_id":"",
 	"health": 10,
 	"max_health": 10,
+	
+	# world states and wtv
+	"outlands_light": false,
 }
 
 var fade = {
