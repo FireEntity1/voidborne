@@ -932,16 +932,16 @@ sprite_frames = SubResource("SpriteFrames_wyirb")
 autoplay = "default"
 frame_progress = 0.428154
 
-[node name="underground_cover2" type="Area2D" parent="."]
+[node name="underground_cover_hit" type="Area2D" parent="."]
 position = Vector2(21632, -832)
 scale = Vector2(8.05, 8.05)
 collision_mask = 2
 
-[node name="collision" type="CollisionShape2D" parent="underground_cover2"]
+[node name="collision" type="CollisionShape2D" parent="underground_cover_hit"]
 position = Vector2(0.0625, 1.4375)
 shape = SubResource("RectangleShape2D_tlunu")
 
-[node name="collision2" type="CollisionShape2D" parent="underground_cover2"]
+[node name="collision2" type="CollisionShape2D" parent="underground_cover_hit"]
 position = Vector2(-1.5, 3.125)
 rotation = 1.5708
 shape = SubResource("RectangleShape2D_7x5v4")
@@ -1115,4 +1115,4 @@ position = Vector2(16341, -8673)
 sprite = SubResource("SpriteFrames_1p7xc")
 item_id = "ridge_tablet"
 
-[connection signal="body_entered" from="underground_cover2" to="." method="_on_underground_cover_2_body_entered"]
+[connection signal="body_entered" from="underground_cover_hit" to="." method="_on_underground_cover_2_body_entered"]
