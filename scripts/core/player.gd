@@ -166,34 +166,36 @@ func _on_hit_body_entered(body: Node2D) -> void:
 	
 	if body.is_in_group("enemy"):
 		hit_location = body.global_position
-		invincible = true
-		was_hit = true
-		Global.can_move = false
+		hit(int(body.attack_strength),true,hit_location)
 		
-		player_hit.emit()
-		take_damage(int(body.attack_strength))
+
+func hit(damage=1, knock:bool = false, hit_location = Vector2.ZERO) -> void:
+	if invincible:
+		return
+	invincible = true
+	was_hit = true
+	var knockback_direction = sign(global_position.x - hit_location.x)
+	if knockback_direction == 0:
+		knockback_direction = -$sprite.scale.x
+	Global.can_move = false
 		
-		print(health)
+	player_hit.emit()
 		
-		var knockback_direction = sign(global_position.x - body.global_position.x)
-		if knockback_direction == 0:
-			knockback_direction = -$sprite.scale.x
+	print(health)
 		
-		velocity.x = knockback_direction * knockback_x
-		velocity.y = knockback_y
-		
-		flash_hit()
-		
-		if health <= 0:
-			get_tree().reload_current_scene()
-			return
-		
-		await get_tree().create_timer(hit_stun_time).timeout
-		Global.can_move = true
-		was_hit = false
-		
-		await get_tree().create_timer(invincible_time - hit_stun_time).timeout
-		invincible = false
+	if health <= 0:
+		get_tree().reload_current_scene()
+		return
+	
+	take_damage(damage)
+	Global.can_move = true
+	velocity.x = knockback_direction * knockback_x
+	velocity.y = knockback_y
+	flash_hit()
+	await get_tree().create_timer(hit_stun_time).timeout
+	was_hit = false
+	await get_tree().create_timer(invincible_time - hit_stun_time).timeout
+	invincible = false
 
 func flash_hit() -> void:
 	$sprite.modulate = Color(4.0,2.4,2.4)
