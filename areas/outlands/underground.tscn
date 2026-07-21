@@ -398,3 +398,8 @@ offset_bottom = 2040.0
 scale = Vector2(10.2638, 10.2638)
 text = "ENTRANCE TO CAVERNS
 CAVERNS LEAD TO ABYSS"
+
+[node name="spawn_pos" type="Node2D" parent="."]
+
+[node name="default" type="Marker2D" parent="spawn_pos"]
+position = Vector2(30, -45)

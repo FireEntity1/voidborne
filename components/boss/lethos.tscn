@@ -201,3 +201,8 @@ explosiveness = 1.0
 visibility_rect = Rect2(-2000, -2000, 4000, 4000)
 local_coords = true
 process_material = SubResource("ParticleProcessMaterial_tjmyx")
+
+[node name="attack" type="Timer" parent="."]
+wait_time = 2.0
+
+[connection signal="timeout" from="attack" to="." method="_on_attack_timeout"]

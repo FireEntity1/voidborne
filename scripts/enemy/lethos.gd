@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+const ATTACK = preload("res://components/boss/lethos_attack.tscn")
+
 var attack_strength = 1
 var health = 80.0
 
@@ -14,11 +16,14 @@ var dir = true
 
 var final_pos: Vector2
 
+var player: CharacterBody2D
+
 var color = 1.0
 
 func _ready() -> void:
 	move_target = [position.x-move_range,position.x+move_range]
 	Dialogic.connect("signal_event",_signal_event)
+	player = get_parent().get_node("player_hold").get_node("player")
 
 func _process(delta: float) -> void:
 	if finished:
@@ -32,8 +37,6 @@ func _process(delta: float) -> void:
 
 	if abs(position.x - target_x) < 1.0:
 		dir = !dir
-	
-		
 
 func start(actual = false):
 	show()
@@ -76,5 +79,10 @@ func die():
 func _signal_event(arg):
 	if arg == "lethos_start":
 		running = true
+		$attack.start()
 	if arg == "lethos_cam":
 		$bosscam.make_current()
+
+func _on_attack_timeout() -> void:
+	var new = ATTACK.instantiate()
+	new.goal = player.global_position

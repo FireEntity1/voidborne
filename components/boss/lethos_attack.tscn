@@ -1,0 +1,54 @@
+[gd_scene load_steps=9 format=3 uid="uid://c4eororinh3id"]
+
+[ext_resource type="Texture2D" uid="uid://cnmey0xmybl62" path="res://sprites/lethos_attack.png" id="1_ihgoe"]
+[ext_resource type="Script" uid="uid://vyim3n286qyd" path="res://scripts/enemy/lethos_attack.gd" id="1_kouox"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8bcjy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kouox"]
+atlas = ExtResource("1_ihgoe")
+region = Rect2(0, 0, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_puetb"]
+atlas = ExtResource("1_ihgoe")
+region = Rect2(20, 0, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6uf1b"]
+atlas = ExtResource("1_ihgoe")
+region = Rect2(40, 0, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cnjl1"]
+atlas = ExtResource("1_ihgoe")
+region = Rect2(60, 0, 20, 20)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2kwc2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kouox")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_puetb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6uf1b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cnjl1")
+}],
+"loop": true,
+"name": &"default",
+"speed": 15.0
+}]
+
+[node name="lethos_attack" type="Area2D" groups=["enemy"]]
+scale = Vector2(8, 8)
+collision_mask = 2
+script = ExtResource("1_kouox")
+
+[node name="collision" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_8bcjy")
+
+[node name="sprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_2kwc2")
+frame_progress = 0.128913
