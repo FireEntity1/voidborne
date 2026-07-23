@@ -1093,7 +1093,7 @@ open_signal = "lethos_end"
 close_signal = "lethos_start"
 
 [node name="boss" parent="." node_paths=PackedStringArray("boss") instance=ExtResource("15_a2din")]
-position = Vector2(24470, -8961)
+position = Vector2(24461, -8999)
 scale = Vector2(0.12, 1)
 start_timeline = ExtResource("16_qbjl0")
 boss = NodePath("../lethos")

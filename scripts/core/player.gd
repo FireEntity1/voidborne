@@ -168,6 +168,8 @@ func _on_hit_body_entered(body: Node2D) -> void:
 	if body.is_in_group("enemy"):
 		hit_location = body.global_position
 		hit(int(body.attack_strength),true,hit_location)
+		if body.has_method("attack"):
+			body.attack()
 		
 
 func hit(damage=1, knock:bool = false, hit_location = Vector2.ZERO) -> void:

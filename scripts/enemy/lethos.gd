@@ -10,6 +10,8 @@ var health = 80.0
 var running = false
 var finished = false
 
+var ground = Vector2(24470,-8450)
+
 var move_range = 2000
 var move_target = [0,0]
 var dir = true
@@ -84,6 +86,7 @@ func _on_attack_timeout() -> void:
 	var new = ATTACK.instantiate()
 	new.global_position = global_position - Vector2(900,200)
 	new.goal = player().global_position
+	new.ground = ground.y
 	get_parent().add_child(new)
 	print("spawning",new.global_position)
 
