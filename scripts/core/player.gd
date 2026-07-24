@@ -103,7 +103,7 @@ func _physics_process(delta: float) -> void:
 	elif not direction:
 		$sprite.play("default")
 	
-	if Input.is_action_just_pressed("dash") and Global.can_move:
+	if Input.is_action_just_pressed("dash") and Global.can_move and Global.state["items"]["dash"]:
 		is_dashing = true
 		can_dash = false
 		await get_tree().create_timer(0.1).timeout

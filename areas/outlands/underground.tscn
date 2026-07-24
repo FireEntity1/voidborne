@@ -403,3 +403,6 @@ CAVERNS LEAD TO ABYSS"
 
 [node name="default" type="Marker2D" parent="spawn_pos"]
 position = Vector2(30, -45)
+
+[node name="to_outlands" type="Marker2D" parent="spawn_pos"]
+position = Vector2(30, -45)

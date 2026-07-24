@@ -17,13 +17,10 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	var distance := global_position.distance_to(goal)
 	$particles.global_rotation_degrees = 0
-	#if distance <= SPEED * delta:
-		#global_position = goal
+
 	if not done and global_position.y > ground:
 		die()
 
-	#rotation = global_position.angle_to_point(goal) - PI / 2
-	#global_position = global_position.move_toward(goal, SPEED * delta)
 	global_position += direction * SPEED * delta
 
 func die():

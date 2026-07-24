@@ -14,47 +14,28 @@ var items = {
 var levels = {
 	"voidnexus": {
 		"scene": preload("res://areas/void_nexus/void_nexus.tscn"),
-		"locations": {
-			"default": Vector2(1200,250),
-			"to_outlands": Vector2(13000.0,-2343.0),
-		},
 		"vingette": true,
 		"radial_chromabb": true,
 	},
 	"outlands": {
 		"scene": preload("res://areas/outlands/outlands.tscn"),
 		"locations": {
-			"default": Vector2(-800,300),
-			#"to_underground": Vector2(24000,1100),
-			"to_underground": Vector2(24000,-11300),
-			"to_foundry": Vector2(40133,-1200)
 		},
 		"vingette": false,
 		"radial_chromabb": false,
 	},
 	"outlands_underground": {
 		"scene": preload("res://areas/outlands/underground.tscn"),
-		"locations": {
-				"default": Vector2(500,200),
-				"to_outlands": Vector2(500,200)
-			},
 		"vingette": true,
 		"radial_chromabb": false,
 	},
 	"outlands_tower": {
 		"scene": preload("res://areas/outlands/tower.tscn"),
-		"locations": {
-				"default": Vector2(0,0),
-			},
 		"vingette": true,
 		"radial_chromabb": false,
 	},
 	"foundry": {
 		"scene": preload("res://areas/foundry/foundry.tscn"),
-		"locations": {
-			"default": Vector2(1500,250),
-			"to_outlands": Vector2(1500,250)
-		},
 		"vingette": false,
 		"radial_chromabb": false
 	}
@@ -84,6 +65,11 @@ var fade = {
 var player: CharacterBody2D
 var root: Node2D
 
+func _ready() -> void:
+	save()
+	load_save()
+	print(state)
+
 func _process(delta: float) -> void:
 	Engine.time_scale = move_toward(Engine.time_scale,time_scale,delta*10.0)
 
@@ -111,3 +97,22 @@ func change_scene(area: String, location: String = "default"):
 
 func set_voidwell(id: String):
 	pass
+
+func encode_vector(value: Variant):
+	pass 
+	# i dont need ts rn 
+	# but i might need it if i add vector2s to the save file somewhere 
+	# so eh might as well keep it here
+
+func save():
+	var string = JSON.stringify(state)
+	var file = FileAccess.open("user://save.void",FileAccess.WRITE)
+	file.store_string(string)
+	file.close()
+
+func load_save():
+	if FileAccess.file_exists("user://save.void"):
+		var file = FileAccess.open("user://save.void",FileAccess.READ)
+		var data = file.get_as_text()
+		state = JSON.parse_string(data)
+		file.close()

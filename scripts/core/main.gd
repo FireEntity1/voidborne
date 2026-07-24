@@ -15,7 +15,7 @@ func _ready() -> void:
 	Global.connect("vingette",_vingette)
 	change_area("outlands_underground")
 	#change_location(Global.state.voidwell_id)
-	change_location("test")
+	change_location("to_outlands")
 
 func _process(delta: float) -> void:
 	fade.modulate.a = move_toward(fade.modulate.a, 1.0, delta) if Global.fade.active else move_toward(fade.modulate.a, 0.0, delta)
@@ -55,8 +55,7 @@ func change_area(area: String,location: String = "default"):
 	new.get_node("player_hold").add_child(Global.player)
 	health_hud.bind_player(Global.player)
 	
-	print(Global.levels[area].locations[location])
-	Global.player.position = Global.levels[area].locations[location]
+	#Global.player.position = Global.levels[area].locations[location]
 	Global.player.velocity.y = 5000
 	var camera := Global.player.get_node("camera") as Camera2D
 	camera.position_smoothing_enabled = false
@@ -69,13 +68,12 @@ func change_location(id: String):
 	var player = scene.get_node("player_hold").get_node("player")
 	print(scene)
 	if id == "":
-		#player.position = Global.levels[loaded_scene].locations["default"]
-		player.global_position = get_location("default")
-	else:
 		player.global_position = get_location("default")
 	for child in scene.get_node("voidwell_hold").get_children():
 		if child.id == id:
 			player.position = child.position
+			return
+	player.global_position = get_location(id)
 	
 func get_location(id: String):
 	return $game/loaded_scene.get_children()[0].get_node("spawn_pos").get_node(id).global_position
