@@ -340,6 +340,7 @@ boss = NodePath("../forsaken_prism")
 [node name="item" parent="." instance=ExtResource("9_ek2py")]
 position = Vector2(19337, 2602)
 sprite = SubResource("SpriteFrames_nl6yn")
+item_id = "dash"
 
 [node name="door3" parent="." instance=ExtResource("5_smh35")]
 position = Vector2(14528, 128)

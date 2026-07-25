@@ -25,8 +25,12 @@ func _on_up_timeout() -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
-		Global.items[item_id] = true
+		body.velocity = Vector2(0,0)
+		Global.mod_can_move(false)
+		Global.state.items[item_id] = true
 		$sprite.hide()
 		$glow.hide()
 		$collect.emitting = true
 		monitoring = false
+		await get_tree().create_timer(1.0).timeout
+		Global.mod_can_move(true)

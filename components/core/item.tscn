@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://d11xidh5o488w"]
+[gd_scene load_steps=15 format=3 uid="uid://d11xidh5o488w"]
 
 [ext_resource type="Script" uid="uid://c1j3perxfie6l" path="res://scripts/core/item.gd" id="1_hr0k8"]
 
@@ -26,20 +26,38 @@ height = 16
 
 [sub_resource type="Curve" id="Curve_hr0k8"]
 _limits = [-200.0, 200.0, 0.0, 1.0]
-_data = [Vector2(0.0208333, 7.40741), 0.0, 0.0, 0, 0, Vector2(0.913691, 134.044), -76.1371, 0.0, 0, 0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.616601, -196.389), 455.562, 0.0, 0, 0]
 point_count = 2
 
 [sub_resource type="CurveTexture" id="CurveTexture_jepqg"]
 curve = SubResource("Curve_hr0k8")
 
+[sub_resource type="Curve" id="Curve_jepqg"]
+_limits = [-200.0, 200.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.371542, -34.7041), 0.0, 0.0, 0, 0, Vector2(0.413043, -1.67168), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_ed6j0"]
+curve = SubResource("Curve_jepqg")
+
+[sub_resource type="Curve" id="Curve_ed6j0"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.594862, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_o1thk"]
+curve = SubResource("Curve_ed6j0")
+
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_hr0k8"]
 particle_flag_disable_z = true
 spread = 180.0
-initial_velocity_max = 37.27
+initial_velocity_min = 158.54
+initial_velocity_max = 341.46
 gravity = Vector3(0, 0, 0)
-linear_accel_min = -2.23517e-06
-linear_accel_max = 24.84
 linear_accel_curve = SubResource("CurveTexture_jepqg")
+radial_accel_min = 3.25
+radial_accel_max = 39.02
+radial_accel_curve = SubResource("CurveTexture_ed6j0")
+scale_curve = SubResource("CurveTexture_o1thk")
 
 [node name="item" type="Area2D"]
 collision_layer = 4
@@ -71,7 +89,7 @@ amount = 32
 texture = SubResource("GradientTexture2D_jepqg")
 lifetime = 8.28
 one_shot = true
-explosiveness = 0.83
+explosiveness = 0.98
 visibility_rect = Rect2(-2000, -2000, 4000, 4000)
 process_material = SubResource("ParticleProcessMaterial_hr0k8")
 
