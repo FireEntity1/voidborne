@@ -16,6 +16,8 @@ var player: CharacterBody2D
 @onready var sprite: AnimatedSprite2D = $sprite
 @onready var shader_mat: ShaderMaterial = sprite.material as ShaderMaterial
 
+@export var dir_speed = 1
+
 var alive = true
 
 func _ready() -> void:
@@ -62,7 +64,7 @@ func _physics_process(delta: float) -> void:
 			if sign(velocity.x) != direction and abs(velocity.x) > 10.0:
 				accel = turn_acceleration
 		
-			velocity.x = move_toward(velocity.x, target_x, accel * delta)
+			velocity.x = move_toward(velocity.x, target_x, accel * delta * dir_speed * speed_mult)
 		else:
 			sprite.play("idle")
 			velocity.x = 0.0

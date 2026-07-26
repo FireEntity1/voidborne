@@ -6,6 +6,7 @@
 
 [node name="cam_zoom_zone" type="Area2D"]
 scale = Vector2(8, 8)
+collision_mask = 2
 script = ExtResource("1_m21fc")
 
 [node name="collision" type="CollisionShape2D" parent="."]

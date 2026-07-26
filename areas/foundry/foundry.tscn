@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=4 uid="uid://c31j2tw7k2jqi"]
+[gd_scene load_steps=27 format=4 uid="uid://c31j2tw7k2jqi"]
 
 [ext_resource type="Texture2D" uid="uid://1f1dcaidw5ya" path="res://sprites/foundry_tiles.png" id="1_qturw"]
 [ext_resource type="PackedScene" uid="uid://bx5sw6412n002" path="res://components/core/transition.tscn" id="2_34no4"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dh1lee42hp8xa" path="res://components/decoration/cam_zoom_zone.tscn" id="6_s664x"]
 [ext_resource type="PackedScene" uid="uid://mjyf1nkmqbc0" path="res://components/foundry/conveyers.tscn" id="7_76w4v"]
 [ext_resource type="PackedScene" uid="uid://g7udiwmfyemd" path="res://components/foundry/elevator.tscn" id="8_4f36y"]
+[ext_resource type="PackedScene" uid="uid://c5614u464p3tk" path="res://components/enemies/cinderling.tscn" id="9_g15l6"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_80esv"]
 
@@ -306,5 +307,12 @@ flip_h = true
 visible = false
 position = Vector2(3384, -970)
 scale = Vector2(348.712, 160.792)
-collision_mask = 2
 zoom = 0.8
+
+[node name="cinderling" parent="." instance=ExtResource("9_g15l6")]
+position = Vector2(9749, -302)
+
+[node name="spawn_pos" type="Node2D" parent="."]
+
+[node name="default" type="Marker2D" parent="spawn_pos"]
+position = Vector2(-5118, 4118)

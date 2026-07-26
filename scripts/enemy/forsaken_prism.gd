@@ -21,7 +21,6 @@ func _physics_process(delta: float) -> void:
 func start():
 	running = true
 	attack.start()
-	Dialogic.emit_signal("signal_event","cam_zoom_0.7")
 	Dialogic.emit_signal("signal_event","door_forsaken_boss_close")
 	print("started")
 

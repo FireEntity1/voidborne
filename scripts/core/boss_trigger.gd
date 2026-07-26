@@ -11,7 +11,10 @@ func _ready() -> void:
 
 func _on_trigger_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player") and not started:
-		Dialogic.start(start_timeline)
+		if start_timeline != null:
+			Dialogic.start(start_timeline)
+		else:
+			Dialogic.emit_signal("signal_event","boss_start")
 		started = true
 
 func _on_dialogic_signal(arg):
