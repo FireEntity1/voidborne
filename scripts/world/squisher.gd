@@ -9,7 +9,6 @@ func _physics_process(delta: float) -> void:
 		$collision.position.y = move_toward($collision.position.y,$bottom.position.y,delta*80.0)
 
 func _on_timer_timeout() -> void:
-	#$sprite.play("default")
 	if location == "up":
 		location = "down"
 	else:
