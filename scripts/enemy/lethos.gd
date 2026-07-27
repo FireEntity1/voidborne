@@ -23,6 +23,8 @@ var color = 1.0
 func _ready() -> void:
 	move_target = [position.x-move_range,position.x+move_range]
 	Dialogic.connect("signal_event",_signal_event)
+	$collision.disabled = true
+	$collision2.disabled = true
 
 func _process(delta: float) -> void:
 	if finished:
@@ -61,10 +63,13 @@ func damage(amt):
 
 func die():
 	print("DIE")
+	$attack.stop()
 	running = false
 	final_pos = position
 	finished = true
 	print(final_pos, finished)
+	$collision.disabled = true
+	$collision2.disabled = true
 	$death_particle.emitting = true
 	await get_tree().create_timer(4.0).timeout
 	$sprite.hide()
@@ -78,6 +83,8 @@ func die():
 func _signal_event(arg):
 	if arg == "lethos_start":
 		running = true
+		$collision.disabled = false
+		$collision2.disabled = false
 		$attack.start()
 	if arg == "lethos_cam":
 		$bosscam.make_current()
