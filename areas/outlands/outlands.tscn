@@ -913,6 +913,9 @@ position = Vector2(24359, 1113)
 [node name="to_foundry" type="Marker2D" parent="spawn_pos"]
 position = Vector2(40323, -1304)
 
+[node name="boss" type="Marker2D" parent="spawn_pos"]
+position = Vector2(26597, -8863)
+
 [node name="underground_cover" type="StaticBody2D" parent="."]
 position = Vector2(21632, -832)
 scale = Vector2(8, 8)

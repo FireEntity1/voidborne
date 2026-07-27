@@ -83,6 +83,16 @@ func _signal_event(arg):
 		$bosscam.make_current()
 
 func _on_attack_timeout() -> void:
+	$attack_pre.restart()
+	var spawn_position := global_position - Vector2(900, 200)
+	var aim_direction := spawn_position.direction_to(player().global_position)
+	$attack_pre.process_material.direction = Vector3(
+		aim_direction.x,
+		aim_direction.y,
+		0.0
+ 	)
+	$attack_pre.emitting = true
+	await get_tree().create_timer(0.5).timeout
 	var new = ATTACK.instantiate()
 	new.global_position = global_position - Vector2(900,200)
 	new.goal = player().global_position
