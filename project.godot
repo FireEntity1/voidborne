@@ -30,6 +30,7 @@ directories/dch_directory={
 "orren": "res://dialogic/characters/outlands/orren.dch",
 "ryn": "res://dialogic/characters/outlands/ryn.dch",
 "sile": "res://dialogic/characters/outlands/sile.dch",
+"vael": "res://dialogic/characters/foundry/vael.dch",
 "valen": "res://dialogic/characters/outlands/valen.dch",
 "venn": "res://dialogic/characters/outlands/venn.dch"
 }
@@ -43,6 +44,7 @@ directories/dtl_directory={
 "ryn_closed": "res://dialogic/timelines/outlands/ryn_closed.dtl",
 "sile": "res://dialogic/timelines/outlands/sile.dtl",
 "tutorial": "res://dialogic/timelines/void_nexus/tutorial.dtl",
+"vael": "res://dialogic/timelines/foundry/vael.dtl",
 "valen": "res://dialogic/timelines/outlands/valen.dtl",
 "venn": "res://dialogic/timelines/outlands/venn.dtl"
 }

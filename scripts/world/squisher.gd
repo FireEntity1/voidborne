@@ -22,8 +22,6 @@ func _on_timer_timeout() -> void:
 	else:
 		location = "up"
 
-
-
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
 			body.hit(1,true,global_position)
