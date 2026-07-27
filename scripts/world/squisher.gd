@@ -2,6 +2,14 @@ extends Area2D
 
 var location = "up"
 
+@export var delay: float = 0.0
+@export var time: float = 3.0
+
+func _ready() -> void:
+	await get_tree().create_timer(delay).timeout
+	$timer.wait_time = time
+	$timer.start()
+
 func _physics_process(delta: float) -> void:
 	if location == "up":
 		$collision.position.y = move_toward($collision.position.y,$top.position.y,delta*48.0)

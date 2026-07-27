@@ -178,7 +178,6 @@ frame_progress = 0.964366
 
 [node name="timer" type="Timer" parent="."]
 wait_time = 3.0
-autostart = true
 
 [node name="bottom" type="Marker2D" parent="."]
 position = Vector2(0, 48)

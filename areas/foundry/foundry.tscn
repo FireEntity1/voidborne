@@ -279,7 +279,12 @@ length = 16
 position = Vector2(676, -3174)
 
 [node name="squisher2" parent="." instance=ExtResource("10_xa7cm")]
-position = Vector2(2419, -3174)
+position = Vector2(1648, -3174)
+delay = 0.4
+
+[node name="squisher3" parent="." instance=ExtResource("10_xa7cm")]
+position = Vector2(2657, -3174)
+delay = 0.8
 
 [node name="world" type="TileMapLayer" parent="."]
 position = Vector2(-6013, 4250)
