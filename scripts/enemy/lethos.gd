@@ -62,6 +62,7 @@ func damage(amt):
 		particles.queue_free()
 
 func die():
+	Global.mod_can_move(false)
 	print("DIE")
 	$attack.stop()
 	running = false
@@ -72,12 +73,16 @@ func die():
 	$collision2.disabled = true
 	$death_particle.emitting = true
 	await get_tree().create_timer(4.0).timeout
+	Global.fadescreen(true,true,true)
 	$sprite.hide()
 	finished = false
 	$end_particle.restart()
 	$end_particle.emitting = true
 	$death_particle.emitting = false
 	Dialogic.emit_signal("signal_event","lethos_end")
+	await get_tree().create_timer(0.4).timeout
+	Global.fadescreen(false,true,true)
+	Global.mod_can_move(true)
 	#Dialogic.start(end_timeline)
 
 func _signal_event(arg):
