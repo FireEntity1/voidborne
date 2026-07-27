@@ -1,47 +1,75 @@
-[gd_scene load_steps=8 format=3 uid="uid://dm8ct8ksgt5s7"]
+[gd_scene load_steps=12 format=3 uid="uid://dm8ct8ksgt5s7"]
 
 [ext_resource type="Script" uid="uid://cil6sahyur0cw" path="res://scripts/core/healthud.gd" id="1_wk1b8"]
-[ext_resource type="Texture2D" uid="uid://cihaf3ovvrulo" path="res://sprites/heart.png" id="2_o1wrg"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_o1wrg"]
-atlas = ExtResource("2_o1wrg")
-region = Rect2(0, 0, 20, 18)
+[ext_resource type="Texture2D" uid="uid://d3b14ruvowcvs" path="res://sprites/health_orb.png" id="2_o1wrg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_oh1sh"]
 atlas = ExtResource("2_o1wrg")
-region = Rect2(20, 0, 20, 18)
+region = Rect2(0, 0, 18, 18)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dca66"]
 atlas = ExtResource("2_o1wrg")
-region = Rect2(40, 0, 20, 18)
+region = Rect2(18, 0, 18, 18)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tc7cn"]
 atlas = ExtResource("2_o1wrg")
-region = Rect2(60, 0, 20, 18)
+region = Rect2(36, 0, 18, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w81bx"]
+atlas = ExtResource("2_o1wrg")
+region = Rect2(54, 0, 18, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iyg3d"]
+atlas = ExtResource("2_o1wrg")
+region = Rect2(72, 0, 18, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tcnmc"]
+atlas = ExtResource("2_o1wrg")
+region = Rect2(90, 0, 18, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o4bcs"]
+atlas = ExtResource("2_o1wrg")
+region = Rect2(108, 0, 18, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6r6e6"]
+atlas = ExtResource("2_o1wrg")
+region = Rect2(126, 0, 18, 18)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_wk1b8"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_o1wrg")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_oh1sh")
-}],
-"loop": true,
-"name": &"full",
-"speed": 1.0
 }, {
-"frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_dca66")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_tc7cn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w81bx")
+}],
+"loop": true,
+"name": &"full",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iyg3d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tcnmc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o4bcs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6r6e6")
 }],
 "loop": true,
 "name": &"half",
-"speed": 1.0
+"speed": 2.0
 }]
 
 [node name="healthhud" type="Node2D"]
@@ -60,7 +88,7 @@ offset = Vector2(8, 8)
 visible = false
 position = Vector2(-8, -8)
 sprite_frames = SubResource("SpriteFrames_wk1b8")
-animation = &"half"
+animation = &"full"
 autoplay = "half"
 offset = Vector2(8, 8)
 
