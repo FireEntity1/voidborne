@@ -1,8 +1,22 @@
 extends Area2D
 
+var location = "up"
+
+func _physics_process(delta: float) -> void:
+	if location == "up":
+		$collision.position.y = move_toward($collision.position.y,$top.position.y,delta*48.0)
+	else:
+		$collision.position.y = move_toward($collision.position.y,$bottom.position.y,delta*80.0)
+
 func _on_timer_timeout() -> void:
-	$sprite.play("default")
-	await get_tree().create_timer(0.4).timeout
-	for body in get_overlapping_bodies():
-		if body.is_in_group("player"):
+	#$sprite.play("default")
+	if location == "up":
+		location = "down"
+	else:
+		location = "up"
+
+
+
+func _on_body_entered(body: Node2D) -> void:
+	if body.is_in_group("player"):
 			body.hit(1,true,global_position)

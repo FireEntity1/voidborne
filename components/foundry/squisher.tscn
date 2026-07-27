@@ -3,6 +3,9 @@
 [ext_resource type="Script" uid="uid://cl7ddq8g5gfhs" path="res://scripts/world/squisher.gd" id="1_jcqs7"]
 [ext_resource type="Texture2D" uid="uid://exv3p8vy7bs5" path="res://sprites/squisher.png" id="1_lsmjb"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lsmjb"]
+size = Vector2(31.75, 4.5)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_jcqs7"]
 atlas = ExtResource("1_lsmjb")
 region = Rect2(0, 0, 32, 96)
@@ -153,29 +156,35 @@ animations = [{
 "duration": 1.4,
 "texture": SubResource("AtlasTexture_mwvbi")
 }],
-"loop": false,
+"loop": true,
 "name": &"default",
 "speed": 15.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_lsmjb"]
-size = Vector2(31.75, 4.5)
-
 [node name="squisher" type="Area2D"]
 scale = Vector2(8, 8)
+collision_mask = 2
 script = ExtResource("1_jcqs7")
 
-[node name="sprite" type="AnimatedSprite2D" parent="."]
+[node name="collision" type="CollisionShape2D" parent="."]
+position = Vector2(0, 45.75)
+shape = SubResource("RectangleShape2D_lsmjb")
+
+[node name="sprite" type="AnimatedSprite2D" parent="collision"]
+position = Vector2(0, -16)
 sprite_frames = SubResource("SpriteFrames_2y4ds")
 frame = 20
-frame_progress = 1.0
-
-[node name="collision" type="CollisionShape2D" parent="."]
-position = Vector2(0, 45.875)
-shape = SubResource("RectangleShape2D_lsmjb")
+frame_progress = 0.964366
 
 [node name="timer" type="Timer" parent="."]
 wait_time = 3.0
 autostart = true
 
+[node name="bottom" type="Marker2D" parent="."]
+position = Vector2(0, 48)
+
+[node name="top" type="Marker2D" parent="."]
+position = Vector2(0, 16)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="timer" to="." method="_on_timer_timeout"]
