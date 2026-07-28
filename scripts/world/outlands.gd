@@ -3,6 +3,9 @@ extends Node2D
 var timer = Timer.new()
 
 func _ready() -> void:
+	if Global.state.outlands_light == true:
+		$underground_cover.queue_free()
+		$underground_cover_hit.queue_free()
 	Dialogic.connect("signal_event",_on_signal)
 	await get_tree().create_timer(0.1).timeout
 	if Global.state.outlands_light == true:

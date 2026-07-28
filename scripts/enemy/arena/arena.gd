@@ -83,8 +83,9 @@ func _add_spawned_enemy(enemy: Node2D, spawn_position: Vector2) -> void:
 
 func enemies_alive(enemies: Array[Node]) -> bool:
 	for enemy in enemies:
-		if enemy.alive:
-			return true
+		if is_instance_valid(enemy):
+			if enemy.alive:
+				return true
 	
 	return false
 
