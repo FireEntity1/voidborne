@@ -23,6 +23,7 @@ func _process(delta: float) -> void:
 	fade.color = Color(0,0,0) if Global.fade.black else Color(1,1,1)
 	if Global.fade.instant:
 		fade.modulate.a = 1.0 if Global.fade.active else 0.0
+	voidmeter.value = Global.voidmeter
 
 func _on_player_hit():
 	await get_tree().create_timer(0.3, true, false, true).timeout

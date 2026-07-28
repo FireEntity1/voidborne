@@ -145,6 +145,7 @@ func attack() -> void:
 		if enemy.is_in_group("enemy"):
 			if enemy.has_method("damage"):
 				enemy.damage(damage)
+				Global.voidmeter += 1
 			if pogo:
 				pogo = false
 				velocity.y = -JUMP_VELOCITY
