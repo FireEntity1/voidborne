@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://wwcmbugeyu4g"]
+[gd_scene load_steps=25 format=3 uid="uid://wwcmbugeyu4g"]
 
 [ext_resource type="Script" uid="uid://yya8xmoadvrd" path="res://scripts/enemy/basic_ground.gd" id="1_wdc6r"]
 [ext_resource type="Shader" uid="uid://b0edm3wthahe0" path="res://resources/shaders/trail.gdshader" id="2_brqwn"]
@@ -113,15 +113,20 @@ gradient = SubResource("Gradient_wdc6r")
 width = 16
 height = 16
 
+[sub_resource type="Curve" id="Curve_wdc6r"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_brqwn"]
+curve = SubResource("Curve_wdc6r")
+
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_wdc6r"]
 particle_flag_disable_z = true
 spread = 180.0
 initial_velocity_min = 20.0
 initial_velocity_max = 40.0
 gravity = Vector3(0, 300, 0)
-collision_mode = 1
-collision_friction = 0.8
-collision_bounce = 0.0
+scale_curve = SubResource("CurveTexture_brqwn")
 collision_use_scale = true
 
 [node name="wisp" type="CharacterBody2D" groups=["enemy"]]
@@ -170,7 +175,7 @@ target_position = Vector2(-9.75, 10.625)
 emitting = false
 amount = 32
 texture = SubResource("GradientTexture2D_wdc6r")
-lifetime = 11.0
+lifetime = 3.0
 one_shot = true
 speed_scale = 2.96
 explosiveness = 1.0
