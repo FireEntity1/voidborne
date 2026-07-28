@@ -31,6 +31,14 @@ var cam_zoom = 1.0
 
 var invincible = false
 
+const CAST_TAP_DURATION = 0.3
+const CAST_FIRST_HEAL_DELAY = 1.0
+const CAST_HEAL_INTERVAL = 1.0
+var cast_held_time: float
+var next_heal_time = CAST_FIRST_HEAL_DELAY
+var cast_active = false
+var is_focusing = false
+
 @export var max_health := 10
 var health := 10
 signal health_changed(current_health: int, max_health: int)
@@ -61,6 +69,8 @@ func _physics_process(delta: float) -> void:
 	
 	var direction := Input.get_axis("left", "right")
 	
+	_handle_cast(delta)
+		
 	#$camera.zoom = Vector2(move_toward(
 		#$camera.zoom.x, cam_zoom, delta/3.0), move_toward(
 			#$camera.zoom.y, cam_zoom, delta/3.0
@@ -113,6 +123,44 @@ func _physics_process(delta: float) -> void:
 		velocity.x = previous_direction*DASH_VELOCITY
 	velocity.x = clamp(velocity_mod + velocity.x,-3000,3000)
 	move_and_slide()
+
+func _handle_cast(delta: float) -> void:
+	if Input.is_action_just_pressed("cast"):
+		cast_active = true
+		cast_held_time = 0.0
+		next_heal_time = CAST_FIRST_HEAL_DELAY
+		is_focusing = false
+		
+	if cast_active and Input.is_action_pressed("cast"):
+		cast_held_time += delta
+		
+		if not is_focusing and cast_held_time >= CAST_TAP_DURATION and is_on_floor():
+			is_focusing = true
+			Global.mod_can_move(false)
+		
+		if is_focusing:
+			if not is_on_floor():
+				_cancel_focus()
+			elif health < max_health and cast_held_time >= next_heal_time:
+				heal(1)
+				next_heal_time += CAST_HEAL_INTERVAL
+
+	if cast_active and Input.is_action_just_released("cast"):
+		var was_tap = cast_held_time < CAST_TAP_DURATION and not is_focusing
+		_cancel_focus()
+		cast_active = false
+		cast_held_time = 0.0
+		next_heal_time = CAST_FIRST_HEAL_DELAY
+		
+		if was_tap:
+			take_damage(1)
+
+func _cancel_focus():
+	if not is_focusing:
+		return
+	
+	is_focusing = false
+	Global.mod_can_move(true)
 
 func attack() -> void:
 	can_attack = false
@@ -225,3 +273,6 @@ func set_health(value: int) -> void:
 
 func take_damage(amount: int) -> void:
 	set_health(health - amount)
+
+func heal(amount: int) -> void:
+	set_health(health + amount)
