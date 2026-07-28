@@ -1,4 +1,4 @@
-[gd_scene load_steps=81 format=4 uid="uid://dx4rxr3ahpfkh"]
+[gd_scene load_steps=87 format=4 uid="uid://dx4rxr3ahpfkh"]
 
 [ext_resource type="Shader" uid="uid://bbsxfqbwg6r80" path="res://resources/shaders/sky.gdshader" id="1_5hdg2"]
 [ext_resource type="Script" uid="uid://crajt0rtnos3k" path="res://scripts/world/outlands.gd" id="1_6xo6o"]
@@ -36,13 +36,13 @@
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_i1kom"]
 seed = 5
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_b5whv"]
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_tlunu"]
 seamless = true
 noise = SubResource("FastNoiseLite_i1kom")
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_3jvra"]
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_vwex7"]
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_7x5v4"]
 width = 256
 height = 256
 seamless = true
@@ -51,19 +51,19 @@ noise = SubResource("FastNoiseLite_3jvra")
 [sub_resource type="Gradient" id="Gradient_e5fia"]
 colors = PackedColorArray(0, 0, 0, 1, 0.195661, 0.238505, 0.318088, 1)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_sefu1"]
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ten1k"]
 gradient = SubResource("Gradient_e5fia")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_yjpmo"]
 shader = ExtResource("1_5hdg2")
 shader_parameter/pixelation = Vector2(128, 128)
-shader_parameter/cloud_noise1 = SubResource("NoiseTexture2D_b5whv")
+shader_parameter/cloud_noise1 = SubResource("NoiseTexture2D_tlunu")
 shader_parameter/scroll_speed1 = Vector2(0.02, 0.007)
-shader_parameter/cloud_noise2 = SubResource("NoiseTexture2D_vwex7")
+shader_parameter/cloud_noise2 = SubResource("NoiseTexture2D_7x5v4")
 shader_parameter/scroll_speed2 = Vector2(-0.015, -0.004)
 shader_parameter/center_pos = Vector2(0, 0)
 shader_parameter/position_impact = 0.75
-shader_parameter/color_gardient = SubResource("GradientTexture1D_sefu1")
+shader_parameter/color_gardient = SubResource("GradientTexture1D_ten1k")
 shader_parameter/ALPHA = 0.7
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2llsi"]
@@ -174,6 +174,27 @@ texture_region_size = Vector2i(16, 20)
 physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_6xo6o")
 sources/2 = SubResource("TileSetAtlasSource_38vwe")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_kmni5"]
+seed = 5
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_b5whv"]
+seamless = true
+noise = SubResource("FastNoiseLite_kmni5")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_3vghc"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_vwex7"]
+width = 256
+height = 256
+seamless = true
+noise = SubResource("FastNoiseLite_3vghc")
+
+[sub_resource type="Gradient" id="Gradient_lrdjw"]
+colors = PackedColorArray(0, 0, 0, 1, 0.195661, 0.238505, 0.318088, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_sefu1"]
+gradient = SubResource("Gradient_lrdjw")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ak6jr"]
 shader = ExtResource("1_5hdg2")

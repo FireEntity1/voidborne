@@ -1,0 +1,109 @@
+[gd_scene load_steps=12 format=3 uid="uid://cfrttr2avymic"]
+
+[ext_resource type="Script" uid="uid://35uss2p7f8fg" path="res://scripts/core/title.gd" id="1_p6dhs"]
+[ext_resource type="Shader" uid="uid://bbsxfqbwg6r80" path="res://resources/shaders/sky.gdshader" id="2_pyl7j"]
+[ext_resource type="Shader" uid="uid://vju4x68rih5k" path="res://resources/shaders/fog_spots.gdshader" id="3_b3w7a"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_j8o6j"]
+seed = 5
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_u7j7y"]
+seamless = true
+noise = SubResource("FastNoiseLite_j8o6j")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_i8wpt"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_fdyms"]
+width = 256
+height = 256
+seamless = true
+noise = SubResource("FastNoiseLite_i8wpt")
+
+[sub_resource type="Gradient" id="Gradient_6cqm2"]
+colors = PackedColorArray(0, 0, 0, 1, 0.195661, 0.238505, 0.318088, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_l0ujy"]
+gradient = SubResource("Gradient_6cqm2")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mafm3"]
+shader = ExtResource("2_pyl7j")
+shader_parameter/pixelation = Vector2(128, 128)
+shader_parameter/cloud_noise1 = SubResource("NoiseTexture2D_u7j7y")
+shader_parameter/scroll_speed1 = Vector2(0.02, 0.007)
+shader_parameter/cloud_noise2 = SubResource("NoiseTexture2D_fdyms")
+shader_parameter/scroll_speed2 = Vector2(-0.015, -0.004)
+shader_parameter/center_pos = Vector2(0, 0)
+shader_parameter/position_impact = 0.75
+shader_parameter/color_gardient = SubResource("GradientTexture1D_l0ujy")
+shader_parameter/ALPHA = 0.7
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_j8o6j"]
+shader = ExtResource("3_b3w7a")
+shader_parameter/fog_colour = Color(0, 0, 0, 0.219608)
+shader_parameter/scale = 5.0
+shader_parameter/density = 0.3
+shader_parameter/softness = 0.35
+shader_parameter/alpha_strength = 0.35
+shader_parameter/x_speed = 0.02
+shader_parameter/y_speed = 0.02
+shader_parameter/horizontal_stretch = 3.0
+shader_parameter/vertical_detail = 1.4
+shader_parameter/seed = 12.0
+
+[node name="title" type="Node2D"]
+script = ExtResource("1_p6dhs")
+
+[node name="sky" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_mafm3")
+offset_left = -77.0
+offset_top = -88.0
+offset_right = 1974.0
+offset_bottom = 1161.0
+
+[node name="centre" type="CenterContainer" parent="."]
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="vbox" type="VBoxContainer" parent="centre"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="title" type="Label" parent="centre/vbox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 120
+text = "voidborne
+"
+
+[node name="play" type="Button" parent="centre/vbox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 72
+text = "PLAY"
+
+[node name="settings" type="Button" parent="centre/vbox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 72
+text = "SETTINGS"
+
+[node name="quit" type="Button" parent="centre/vbox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 72
+text = "QUIT"
+
+[node name="fog" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_j8o6j")
+offset_left = -76.0
+offset_top = -13.0
+offset_right = 1924.0
+offset_bottom = 1087.0
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="fade" type="ColorRect" parent="."]
+visible = false
+offset_right = 1920.0
+offset_bottom = 1080.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[connection signal="button_up" from="centre/vbox/play" to="." method="_on_play_button_up"]
+[connection signal="button_up" from="centre/vbox/quit" to="." method="_on_quit_button_up"]
