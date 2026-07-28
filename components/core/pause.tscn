@@ -1,0 +1,40 @@
+[gd_scene load_steps=2 format=3 uid="uid://clyut1ivapn1d"]
+
+[ext_resource type="Script" uid="uid://cp4vgfeg7qvw2" path="res://scripts/core/pause.gd" id="1_vcwwm"]
+
+[node name="pause" type="CanvasLayer"]
+process_mode = 3
+layer = 5
+script = ExtResource("1_vcwwm")
+
+[node name="bg" type="ColorRect" parent="."]
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0, 0, 0, 0.415686)
+
+[node name="center" type="CenterContainer" parent="bg"]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="vbox" type="VBoxContainer" parent="bg/center"]
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="resume" type="Button" parent="bg/center/vbox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 72
+text = "RESUME"
+
+[node name="settings" type="Button" parent="bg/center/vbox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 72
+text = "SETTINGS"
+
+[node name="quit" type="Button" parent="bg/center/vbox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 72
+text = "QUIT"
+
+[connection signal="button_up" from="bg/center/vbox/resume" to="." method="_on_resume_button_up"]
+[connection signal="button_up" from="bg/center/vbox/quit" to="." method="_on_quit_button_up"]
