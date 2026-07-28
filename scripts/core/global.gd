@@ -56,7 +56,7 @@ var state = {
 	"outlands_light": false,
 }
 
-var voidmeter = 0
+var voidmeter = 12
 
 var fade = {
 	"active": false,

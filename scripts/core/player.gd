@@ -125,7 +125,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func _handle_cast(delta: float) -> void:
-	if Input.is_action_just_pressed("cast"):
+	if Input.is_action_just_pressed("cast") and Global.can_move and Global.voidmeter >= 3:
 		cast_active = true
 		cast_held_time = 0.0
 		next_heal_time = CAST_FIRST_HEAL_DELAY
@@ -134,16 +134,20 @@ func _handle_cast(delta: float) -> void:
 	if cast_active and Input.is_action_pressed("cast"):
 		cast_held_time += delta
 		
-		if not is_focusing and cast_held_time >= CAST_TAP_DURATION and is_on_floor():
+		if not is_focusing and cast_held_time >= CAST_TAP_DURATION and is_on_floor() and Global.voidmeter >= 3:
 			is_focusing = true
 			Global.mod_can_move(false)
 		
-		if is_focusing:
+		if is_focusing or Global.voidmeter < 3:
 			if not is_on_floor():
 				_cancel_focus()
 			elif health < max_health and cast_held_time >= next_heal_time:
 				heal(1)
+				Global.voidmeter -= 3
 				next_heal_time += CAST_HEAL_INTERVAL
+				if Global.voidmeter < 3:
+					Input.action_release("cast")
+					_cancel_focus()
 
 	if cast_active and Input.is_action_just_released("cast"):
 		var was_tap = cast_held_time < CAST_TAP_DURATION and not is_focusing
@@ -154,6 +158,7 @@ func _handle_cast(delta: float) -> void:
 		
 		if was_tap:
 			take_damage(1)
+			Global.voidmeter -= 3
 
 func _cancel_focus():
 	if not is_focusing:
