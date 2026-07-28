@@ -1,11 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://uno1klrruv6"]
+[gd_scene load_steps=11 format=3 uid="uid://uno1klrruv6"]
 
 [ext_resource type="Script" uid="uid://bg4myabll67os" path="res://scripts/core/main.gd" id="1_pdxoy"]
 [ext_resource type="Texture2D" uid="uid://dhs3jn7rbwmtv" path="res://sprites/damage_overlay.png" id="2_5nrm8"]
 [ext_resource type="Shader" uid="uid://bj3b40or0bkl1" path="res://resources/shaders/vingette.gdshader" id="3_fsffk"]
 [ext_resource type="Shader" uid="uid://b4o0q82ffil6p" path="res://resources/shaders/radial_chromabb.gdshader" id="4_q15wk"]
 [ext_resource type="PackedScene" uid="uid://dm8ct8ksgt5s7" path="res://components/core/healthud.tscn" id="5_vdvw4"]
+[ext_resource type="Texture2D" uid="uid://dhkdrk43pmywg" path="res://sprites/voidmeter_empty.png" id="6_5nrm8"]
 [ext_resource type="PackedScene" uid="uid://clyut1ivapn1d" path="res://components/core/pause.tscn" id="6_8wsji"]
+[ext_resource type="Texture2D" uid="uid://dhvg21xejf8i6" path="res://sprites/voidmeter_filled.png" id="7_fsffk"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_o6xl0"]
 shader = ExtResource("3_fsffk")
@@ -49,6 +51,17 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="healthhud" parent="ui" instance=ExtResource("5_vdvw4")]
+
+[node name="voidmeter" type="TextureProgressBar" parent="ui"]
+offset_left = 25.0
+offset_top = 156.0
+offset_right = 265.0
+offset_bottom = 227.0
+max_value = 4.0
+value = 1.0
+nine_patch_stretch = true
+texture_under = ExtResource("6_5nrm8")
+texture_progress = ExtResource("7_fsffk")
 
 [node name="game" type="Node2D" parent="."]
 position = Vector2(930, 260)

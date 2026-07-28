@@ -4,6 +4,7 @@ extends Node2D
 @onready var radial_chromabb = $ui/radial_chromabb
 @onready var fade = $ui/fade
 @onready var health_hud = $ui/healthhud
+@onready var voidmeter = $ui/voidmeter
 
 var loaded_scene: String
 

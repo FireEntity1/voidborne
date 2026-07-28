@@ -77,7 +77,6 @@ scale = Vector2(0.8, 0.8)
 script = ExtResource("1_wk1b8")
 
 [node name="heart" type="AnimatedSprite2D" parent="."]
-visible = false
 position = Vector2(-8, -8)
 sprite_frames = SubResource("SpriteFrames_wk1b8")
 animation = &"half"
@@ -85,7 +84,6 @@ autoplay = "full"
 offset = Vector2(8, 8)
 
 [node name="half_heart" type="AnimatedSprite2D" parent="."]
-visible = false
 position = Vector2(-8, -8)
 sprite_frames = SubResource("SpriteFrames_wk1b8")
 animation = &"full"
