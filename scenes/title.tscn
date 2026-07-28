@@ -1,8 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://cfrttr2avymic"]
+[gd_scene load_steps=14 format=3 uid="uid://cfrttr2avymic"]
 
 [ext_resource type="Script" uid="uid://35uss2p7f8fg" path="res://scripts/core/title.gd" id="1_p6dhs"]
 [ext_resource type="Shader" uid="uid://bbsxfqbwg6r80" path="res://resources/shaders/sky.gdshader" id="2_pyl7j"]
 [ext_resource type="Shader" uid="uid://vju4x68rih5k" path="res://resources/shaders/fog_spots.gdshader" id="3_b3w7a"]
+[ext_resource type="Texture2D" uid="uid://dy4wpso1t047d" path="res://sprites/checked.png" id="4_pyl7j"]
+[ext_resource type="Texture2D" uid="uid://b8uavw3iyshd0" path="res://sprites/unchecked.png" id="5_b3w7a"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_j8o6j"]
 seed = 5
@@ -105,5 +107,55 @@ offset_bottom = 1080.0
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
+[node name="settings" type="Window" parent="."]
+size = Vector2i(800, 500)
+visible = false
+theme_override_font_sizes/title_font_size = 20
+
+[node name="centre" type="CenterContainer" parent="settings"]
+offset_right = 799.0
+offset_bottom = 501.0
+
+[node name="vbox" type="VBoxContainer" parent="settings/centre"]
+layout_mode = 2
+theme_override_constants/separation = 32
+
+[node name="volume" type="HBoxContainer" parent="settings/centre/vbox"]
+layout_mode = 2
+theme_override_constants/separation = 40
+
+[node name="label" type="Label" parent="settings/centre/vbox/volume"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "VOLUME"
+
+[node name="slider" type="HSlider" parent="settings/centre/vbox/volume"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+
+[node name="reduce_fx" type="HBoxContainer" parent="settings/centre/vbox"]
+layout_mode = 2
+theme_override_constants/separation = 40
+
+[node name="label" type="Label" parent="settings/centre/vbox/reduce_fx"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "REDUCED FX"
+
+[node name="check" type="CheckBox" parent="settings/centre/vbox/reduce_fx"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme_override_icons/checked = ExtResource("4_pyl7j")
+theme_override_icons/unchecked = ExtResource("5_b3w7a")
+
+[node name="close" type="Button" parent="settings/centre/vbox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "close"
+
 [connection signal="button_up" from="centre/vbox/play" to="." method="_on_play_button_up"]
+[connection signal="button_up" from="centre/vbox/settings" to="." method="_on_settings_button_up"]
 [connection signal="button_up" from="centre/vbox/quit" to="." method="_on_quit_button_up"]
+[connection signal="button_up" from="settings/centre/vbox/close" to="." method="_on_close_button_up"]
