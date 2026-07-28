@@ -807,44 +807,6 @@ position = Vector2(40516, -1535)
 position = Vector2(10305, -5248)
 length = 28
 
-[node name="enemy_hold" type="Node2D" parent="."]
-
-[node name="wisp" parent="enemy_hold" instance=ExtResource("10_6meko")]
-position = Vector2(5218, -111)
-
-[node name="wisp2" parent="enemy_hold" instance=ExtResource("10_6meko")]
-position = Vector2(3664, -94)
-
-[node name="wisp3" parent="enemy_hold" instance=ExtResource("10_6meko")]
-position = Vector2(7182, -107)
-
-[node name="wisp4" parent="enemy_hold" instance=ExtResource("10_6meko")]
-position = Vector2(9362, -98)
-
-[node name="wisp5" parent="enemy_hold" instance=ExtResource("10_6meko")]
-position = Vector2(11716, -100)
-
-[node name="wisp6" parent="enemy_hold" instance=ExtResource("10_6meko")]
-position = Vector2(33038, -2576)
-
-[node name="wisp7" parent="enemy_hold" instance=ExtResource("10_6meko")]
-position = Vector2(34396, -2553)
-
-[node name="wisp8" parent="enemy_hold" instance=ExtResource("10_6meko")]
-position = Vector2(33711, -4105)
-
-[node name="wisp9" parent="enemy_hold" instance=ExtResource("10_6meko")]
-position = Vector2(33300, -5656)
-
-[node name="wisp10" parent="enemy_hold" instance=ExtResource("10_6meko")]
-position = Vector2(34016, -5664)
-
-[node name="wisp11" parent="enemy_hold" instance=ExtResource("10_6meko")]
-position = Vector2(34777, -5656)
-
-[node name="void_wisp" parent="enemy_hold" instance=ExtResource("11_7tm88")]
-position = Vector2(1208, -88)
-
 [node name="overlays" type="TileMapLayer" parent="."]
 scale = Vector2(8, 8)
 tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAACAAAAAAAAAAAAAAADAAAAAAAAAAAAAAD8/wAAAAAAAAAAAAD7/wAAAAAAAAAAAAD9/wAAAAAAAAAAAAD6/wAAAAAAAAAAAAD5/wAAAAAAAAAAAAD4/wAAAAAAAAAAAAD3/wAAAAAAAAAAAAAFAAAAAAAAAAAAAAAGAAAAAAAAAAAAAAAHAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAJAAAAAAAAAAAAAAAKAAAAAAAAAAAAAAALAAAAAAAAAAAAAAANAAAAAAAAAAAAAAAOAAAAAAAAAAAAAAAPAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAAZAAAAAAAAAAAAAAAaAAAAAAAAAAAAAAAbAAAAAAAAAAAAAAAfAAAAAAAAAAAAAAAgAAAAAAABAAAAAAAhAAAAAAABAAAAAAAiAAAAAAABAAAAAAAlAAAAAAAAAAAAAAAmAAAAAAAAAAAAAAAqAAAAAAAAAAAAAAArAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAAtAAAAAAAAAAAAAAAuAAAAAAAAAAAAAAAvAAAAAAAAAAAAAAAyAAAAAAAAAAAAAAAzAAAAAAAAAAAAAAA3AAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA5AAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA9AAAAAAAAAAAAAAA+AAAAAAAAAAAAAAA/AAAAAAAAAAAAAABAAAAAAAAAAAAAAABBAAAAAAAAAAAAAABDAAAAAAAAAAAAAABEAAAAAAAAAAAAAABFAAAAAAAAAAAAAABGAAAAAAAAAAAAAABJAAAAAAAAAAAAAABKAAAAAAAAAAAAAABLAAAAAAAAAAAAAABPAAAAAAAAAAAAAABQAAAAAAAAAAAAAABUAAAAAAAAAAAAAABVAAAAAAAAAAAAAABZAAAAAAAAAAAAAABaAAAAAAAAAAAAAABbAAAAAAAAAAAAAABcAAAAAAAAAAAAAABjAAAAAAAAAAAAAABkAAAAAAAAAAAAAABlAAAAAAAAAAAAAABmAAAAAAAAAAAAAABrAAAAAAAAAAAAAABsAAAAAAAAAAAAAABtAAAAAAAAAAAAAABuAAAAAAAAAAAAAABvAAAAAAAAAAAAAABzAAAAAAAAAAAAAAB0AAAAAAAAAAAAAAB1AAAAAAAAAAAAAAB2AAAAAAAAAAAAAAB3AAAAAAAAAAAAAAB4AAAAAAAAAAAAAAB7AAAAAAAAAAAAAAB8AAAAAAAAAAAAAAB9AAAAAAAAAAAAAAB/AAAAAAAAAAAAAACAAAAAAAAAAAAAAAA0AAAAAAABAAAAAAA1AAAAAAABAAAAAAAjAAAAAAABAAAAAAAkAAAAAAABAAAAAAA=")
@@ -885,6 +847,44 @@ position = Vector2(13172, -3188)
 scale = Vector2(10, 10)
 tile_map_data = PackedByteArray("AABkAPn/AAAAAAUAAABkAPr/AAAAAAYAAABlAPn/AAABAAUAAABlAPr/AAABAAYAAABmAPn/AAACAAUAAABmAPr/AAACAAYAAABnAPn/AAADAAUAAABnAPr/AAADAAYAAABoAPn/AAAEAAUAAABoAPr/AAAEAAYAAABqAPn/AAAAAAUAAABqAPr/AAAAAAYAAABrAPn/AAABAAUAAABrAPr/AAABAAYAAABsAPn/AAACAAUAAABsAPr/AAACAAYAAABtAPn/AAADAAUAAABtAPr/AAADAAYAAABuAPn/AAAEAAUAAABuAPr/AAAEAAYAAABkAPf/AAAAAAMAAABkAPj/AAAAAAQAAABlAPf/AAABAAMAAABlAPj/AAABAAQAAABmAPf/AAACAAMAAABmAPj/AAACAAQAAABnAPf/AAADAAMAAABnAPj/AAADAAQAAABoAPf/AAAEAAMAAABoAPj/AAAEAAQAAABqAPj/AAAAAAMAAABrAPj/AAABAAMAAABsAPj/AAACAAMAAABtAPj/AAADAAMAAABuAPj/AAAEAAMAAABqAPf/AAAAAAMAAABrAPf/AAABAAMAAABsAPf/AAACAAMAAABtAPf/AAADAAMAAABuAPf/AAAEAAMAAABqAPX/AAAAAAMAAABrAPX/AAABAAMAAABsAPX/AAACAAMAAABtAPX/AAADAAMAAABuAPX/AAAEAAMAAABqAPb/AAAAAAMAAABrAPb/AAABAAMAAABsAPb/AAACAAMAAABtAPb/AAADAAMAAABuAPb/AAAEAAMAAABqAPT/AAAAAAAAAABrAPT/AAABAAAAAABsAPT/AAACAAAAAABtAPT/AAADAAAAAABuAPT/AAAEAAAAAABkAPb/AAAAAAAAAABlAPb/AAABAAAAAABmAPb/AAACAAAAAABnAPb/AAADAAAAAABoAPb/AAAEAAAAAAA=")
 tile_set = SubResource("TileSet_gd34r")
+
+[node name="enemy_hold" type="Node2D" parent="."]
+
+[node name="wisp" parent="enemy_hold" instance=ExtResource("10_6meko")]
+position = Vector2(5218, -111)
+
+[node name="wisp2" parent="enemy_hold" instance=ExtResource("10_6meko")]
+position = Vector2(3664, -94)
+
+[node name="wisp3" parent="enemy_hold" instance=ExtResource("10_6meko")]
+position = Vector2(7182, -107)
+
+[node name="wisp4" parent="enemy_hold" instance=ExtResource("10_6meko")]
+position = Vector2(9362, -98)
+
+[node name="wisp5" parent="enemy_hold" instance=ExtResource("10_6meko")]
+position = Vector2(11716, -100)
+
+[node name="wisp6" parent="enemy_hold" instance=ExtResource("10_6meko")]
+position = Vector2(33038, -2576)
+
+[node name="wisp7" parent="enemy_hold" instance=ExtResource("10_6meko")]
+position = Vector2(34396, -2553)
+
+[node name="wisp8" parent="enemy_hold" instance=ExtResource("10_6meko")]
+position = Vector2(33711, -4105)
+
+[node name="wisp9" parent="enemy_hold" instance=ExtResource("10_6meko")]
+position = Vector2(33300, -5656)
+
+[node name="wisp10" parent="enemy_hold" instance=ExtResource("10_6meko")]
+position = Vector2(34016, -5664)
+
+[node name="wisp11" parent="enemy_hold" instance=ExtResource("10_6meko")]
+position = Vector2(34777, -5656)
+
+[node name="void_wisp" parent="enemy_hold" instance=ExtResource("11_7tm88")]
+position = Vector2(1208, -88)
 
 [node name="world" type="TileMapLayer" parent="."]
 scale = Vector2(8, 8)
@@ -980,50 +980,50 @@ script = ExtResource("5_38vwe")
 count = 15
 space = 1000
 
-[node name="lightposts2" type="Node2D" parent="."]
-position = Vector2(12510, -2182)
+[node name="lightposts2" type="Node2D" parent="lightposts"]
+position = Vector2(11785, -2182)
 script = ExtResource("5_38vwe")
 count = 9
 space = 700
 
-[node name="lightposts8" type="Node2D" parent="."]
-position = Vector2(22017, -896)
+[node name="lightposts8" type="Node2D" parent="lightposts"]
+position = Vector2(21292, -896)
 script = ExtResource("5_38vwe")
 count = 8
 space = 700
 
-[node name="lightposts9" type="Node2D" parent="."]
-position = Vector2(30008, -896)
+[node name="lightposts9" type="Node2D" parent="lightposts"]
+position = Vector2(29283, -896)
 script = ExtResource("5_38vwe")
 count = 8
 space = 700
 
-[node name="lightposts3" type="Node2D" parent="."]
-position = Vector2(29315, -8576)
+[node name="lightposts3" type="Node2D" parent="lightposts"]
+position = Vector2(28590, -8576)
 script = ExtResource("5_38vwe")
 count = 7
 space = 700
 
-[node name="lightposts4" type="Node2D" parent="."]
-position = Vector2(32336, -7040)
+[node name="lightposts4" type="Node2D" parent="lightposts"]
+position = Vector2(31611, -7040)
 script = ExtResource("5_38vwe")
 count = 4
 space = 700
 
-[node name="lightposts5" type="Node2D" parent="."]
-position = Vector2(32822, -5504)
+[node name="lightposts5" type="Node2D" parent="lightposts"]
+position = Vector2(32097, -5504)
 script = ExtResource("5_38vwe")
 count = 4
 space = 700
 
-[node name="lightposts7" type="Node2D" parent="."]
-position = Vector2(32867, -2432)
+[node name="lightposts6" type="Node2D" parent="lightposts"]
+position = Vector2(32000, -3968)
 script = ExtResource("5_38vwe")
 count = 4
 space = 700
 
-[node name="lightposts6" type="Node2D" parent="lightposts7"]
-position = Vector2(-142, -1536)
+[node name="lightposts7" type="Node2D" parent="lightposts"]
+position = Vector2(32142, -2432)
 script = ExtResource("5_38vwe")
 count = 4
 space = 700

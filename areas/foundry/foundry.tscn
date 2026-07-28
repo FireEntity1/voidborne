@@ -343,6 +343,12 @@ dir = -1
 [node name="enemy_hold" type="Node2D" parent="."]
 position = Vector2(-6013, 4250)
 
+[node name="cinderling" parent="enemy_hold" instance=ExtResource("9_g15l6")]
+position = Vector2(16134, -4552)
+
+[node name="cinderling2" parent="enemy_hold" instance=ExtResource("9_g15l6")]
+position = Vector2(18169, -4552)
+
 [node name="voidwell_hold" type="Node2D" parent="."]
 position = Vector2(-6013, 4250)
 
@@ -377,12 +383,6 @@ visible = false
 position = Vector2(3384, -970)
 scale = Vector2(348.712, 160.792)
 zoom = 0.8
-
-[node name="cinderling" parent="." instance=ExtResource("9_g15l6")]
-position = Vector2(10121, -302)
-
-[node name="cinderling2" parent="." instance=ExtResource("9_g15l6")]
-position = Vector2(12156, -302)
 
 [node name="spawn_pos" type="Node2D" parent="."]
 
