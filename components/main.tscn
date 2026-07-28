@@ -1,14 +1,14 @@
 [gd_scene load_steps=9 format=3 uid="uid://uno1klrruv6"]
 
-[ext_resource type="Texture2D" uid="uid://dhs3jn7rbwmtv" path="res://sprites/damage_overlay.png" id="1_jyhfs"]
-[ext_resource type="Script" uid="uid://bg4myabll67os" path="res://scripts/core/main.gd" id="1_tbgi4"]
-[ext_resource type="Shader" uid="uid://bj3b40or0bkl1" path="res://resources/shaders/vingette.gdshader" id="3_tefeu"]
-[ext_resource type="Shader" uid="uid://b4o0q82ffil6p" path="res://resources/shaders/radial_chromabb.gdshader" id="4_o6xl0"]
-[ext_resource type="PackedScene" uid="uid://dm8ct8ksgt5s7" path="res://components/core/healthud.tscn" id="5_tbgi4"]
-[ext_resource type="PackedScene" uid="uid://clyut1ivapn1d" path="res://components/core/pause.tscn" id="6_tefeu"]
+[ext_resource type="Script" uid="uid://bg4myabll67os" path="res://scripts/core/main.gd" id="1_pdxoy"]
+[ext_resource type="Texture2D" uid="uid://dhs3jn7rbwmtv" path="res://sprites/damage_overlay.png" id="2_5nrm8"]
+[ext_resource type="Shader" uid="uid://bj3b40or0bkl1" path="res://resources/shaders/vingette.gdshader" id="3_fsffk"]
+[ext_resource type="Shader" uid="uid://b4o0q82ffil6p" path="res://resources/shaders/radial_chromabb.gdshader" id="4_q15wk"]
+[ext_resource type="PackedScene" uid="uid://dm8ct8ksgt5s7" path="res://components/core/healthud.tscn" id="5_vdvw4"]
+[ext_resource type="PackedScene" uid="uid://clyut1ivapn1d" path="res://components/core/pause.tscn" id="6_8wsji"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_o6xl0"]
-shader = ExtResource("3_tefeu")
+shader = ExtResource("3_fsffk")
 shader_parameter/radius = 0.62
 shader_parameter/softness = 0.784
 shader_parameter/intensity = 2.0
@@ -16,13 +16,13 @@ shader_parameter/contrast = 1.237
 shader_parameter/vignette_color = Color(0, 0, 0, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_tipki"]
-shader = ExtResource("4_o6xl0")
+shader = ExtResource("4_q15wk")
 shader_parameter/intensity = 6.0
 shader_parameter/threshold = 0.0
 shader_parameter/spread = 3.1
 
 [node name="main" type="Node2D"]
-script = ExtResource("1_tbgi4")
+script = ExtResource("1_pdxoy")
 
 [node name="ui" type="CanvasLayer" parent="."]
 layer = 2
@@ -31,7 +31,7 @@ layer = 2
 visible = false
 position = Vector2(966.889, 542)
 scale = Vector2(6.05556, 6.05556)
-texture = ExtResource("1_jyhfs")
+texture = ExtResource("2_5nrm8")
 
 [node name="vingette" type="ColorRect" parent="ui"]
 material = SubResource("ShaderMaterial_o6xl0")
@@ -48,7 +48,7 @@ custom_minimum_size = Vector2(1920, 1080)
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="healthhud" parent="ui" instance=ExtResource("5_tbgi4")]
+[node name="healthhud" parent="ui" instance=ExtResource("5_vdvw4")]
 
 [node name="game" type="Node2D" parent="."]
 position = Vector2(930, 260)
@@ -56,4 +56,4 @@ position = Vector2(930, 260)
 [node name="loaded_scene" type="Node2D" parent="game"]
 position = Vector2(-34, -85)
 
-[node name="pause" parent="." instance=ExtResource("6_tefeu")]
+[node name="pause" parent="." instance=ExtResource("6_8wsji")]

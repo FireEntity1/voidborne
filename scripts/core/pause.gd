@@ -41,5 +41,7 @@ func _on_resume_button_up() -> void:
 	toggle_pause()
 
 func _on_quit_button_up() -> void:
-	# TS TEMPORARY CHANGE IT TO ACTUAL TITLE MENU WHEN U MAKE IT
-	get_tree().change_scene_to_file("res://scenes/main.tscn") 
+	get_tree().change_scene_to_file("res://scenes/title.tscn") 
+
+func _on_settings_button_up() -> void:
+	$settings.popup_centered()

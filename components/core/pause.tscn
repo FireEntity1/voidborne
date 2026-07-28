@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://clyut1ivapn1d"]
+[gd_scene load_steps=3 format=3 uid="uid://clyut1ivapn1d"]
 
 [ext_resource type="Script" uid="uid://cp4vgfeg7qvw2" path="res://scripts/core/pause.gd" id="1_vcwwm"]
+[ext_resource type="PackedScene" uid="uid://cf1drldhcrqob" path="res://components/settings.tscn" id="2_swbsk"]
 
 [node name="pause" type="CanvasLayer"]
 process_mode = 3
@@ -36,5 +37,9 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 72
 text = "QUIT"
 
+[node name="settings" parent="." instance=ExtResource("2_swbsk")]
+visible = false
+
 [connection signal="button_up" from="bg/center/vbox/resume" to="." method="_on_resume_button_up"]
+[connection signal="button_up" from="bg/center/vbox/settings" to="." method="_on_settings_button_up"]
 [connection signal="button_up" from="bg/center/vbox/quit" to="." method="_on_quit_button_up"]

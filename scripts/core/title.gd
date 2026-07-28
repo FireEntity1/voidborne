@@ -26,7 +26,3 @@ func _on_quit_button_up() -> void:
 
 func _on_settings_button_up() -> void:
 	$settings.popup_centered()
-
-
-func _on_close_button_up() -> void:
-	$settings.hide()

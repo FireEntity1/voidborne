@@ -1,0 +1,55 @@
+[gd_scene load_steps=4 format=3 uid="uid://cf1drldhcrqob"]
+
+[ext_resource type="Texture2D" uid="uid://dy4wpso1t047d" path="res://sprites/checked.png" id="1_7g2wo"]
+[ext_resource type="Script" uid="uid://0g6jgdkf4gdw" path="res://scripts/core/settings.gd" id="1_dwwj2"]
+[ext_resource type="Texture2D" uid="uid://b8uavw3iyshd0" path="res://sprites/unchecked.png" id="2_dwwj2"]
+
+[node name="settings" type="Window"]
+size = Vector2i(800, 500)
+script = ExtResource("1_dwwj2")
+
+[node name="centre" type="CenterContainer" parent="."]
+offset_right = 799.0
+offset_bottom = 501.0
+
+[node name="vbox" type="VBoxContainer" parent="centre"]
+layout_mode = 2
+theme_override_constants/separation = 32
+
+[node name="volume" type="HBoxContainer" parent="centre/vbox"]
+layout_mode = 2
+theme_override_constants/separation = 40
+
+[node name="label" type="Label" parent="centre/vbox/volume"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "VOLUME"
+
+[node name="slider" type="HSlider" parent="centre/vbox/volume"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+
+[node name="reduce_fx" type="HBoxContainer" parent="centre/vbox"]
+layout_mode = 2
+theme_override_constants/separation = 40
+
+[node name="label" type="Label" parent="centre/vbox/reduce_fx"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "REDUCED FX"
+
+[node name="check" type="CheckBox" parent="centre/vbox/reduce_fx"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme_override_icons/checked = ExtResource("1_7g2wo")
+theme_override_icons/unchecked = ExtResource("2_dwwj2")
+
+[node name="close" type="Button" parent="centre/vbox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "close"
+
+[connection signal="value_changed" from="centre/vbox/volume/slider" to="." method="_on_volume_value_changed"]
+[connection signal="button_up" from="centre/vbox/close" to="." method="_on_close_button_up"]
