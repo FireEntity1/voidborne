@@ -1,12 +1,15 @@
 extends Node2D
 
-@onready var vingette = $ui/vingette
+@onready var vingette: ColorRect = $ui/vingette
 @onready var radial_chromabb = $ui/radial_chromabb
 @onready var fade = $ui/fade
 @onready var health_hud = $ui/healthhud
 @onready var voidmeter = $ui/voidmeter
 
 var loaded_scene: String
+var area_vingette = false
+var focus_vingette = false
+var vingette_tween: Tween
 
 const PLAYER = preload("res://components/core/player.tscn")
 
@@ -14,6 +17,7 @@ func _ready() -> void:
 	#$game/player.connect("player_hit",_on_player_hit)
 	Global.root = self
 	Global.connect("vingette",_vingette)
+	Global.connect("focus_vingette",_focus_vingette)
 	change_area("foundry")
 	#change_location(Global.state.voidwell_id)
 	change_location("default")
@@ -29,11 +33,30 @@ func _on_player_hit():
 	await get_tree().create_timer(0.3, true, false, true).timeout
 
 func _vingette(show: bool,radius: float) -> void:
-	vingette.material.set_shader_parameter("radius", radius)
-	if show:
+	area_vingette = show
+	_update_vingette(radius)
+
+func _focus_vingette(show: bool) -> void:
+	focus_vingette = show
+	_update_vingette()
+
+func _update_vingette(radius: float = 0.62) -> void:
+	if is_instance_valid(vingette_tween):
+		vingette_tween.kill()
+	vingette_tween = create_tween().set_parallel()
+	if focus_vingette:
+		if not vingette.visible:
+			vingette.modulate.a = 0.0
+			vingette.show()
+		vingette_tween.tween_property(vingette,"modulate:a",1.0,1.0)
+		vingette_tween.tween_property(vingette.material,"shader_parameter/radius",0.5,1.0)
+	elif area_vingette:
 		vingette.show()
+		vingette_tween.tween_property(vingette,"modulate:a",1.0,1.0)
+		vingette_tween.tween_property(vingette.material,"shader_parameter/radius",radius,1.0)
 	else:
-		vingette.hide()
+		vingette_tween.tween_property(vingette,"modulate:a",0.0,1.0)
+		vingette_tween.tween_callback(vingette.hide).set_delay(1.0)
  
 func change_area(area: String,location: String = "default"):
 	loaded_scene = area
@@ -43,10 +66,8 @@ func change_area(area: String,location: String = "default"):
 	var new = area_data.scene.instantiate()
 	$game/loaded_scene.add_child(new)
 	
-	if area_data.vingette:
-		vingette.show()
-	else:
-		vingette.hide()
+	area_vingette = area_data.vingette
+	_update_vingette()
 	
 	if area_data.radial_chromabb:
 		radial_chromabb.show()

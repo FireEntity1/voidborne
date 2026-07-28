@@ -1,6 +1,7 @@
 extends Node
 
-signal vingette(show:bool, time:float)
+signal vingette(show:bool, radius:float)
+signal focus_vingette(show:bool)
 
 var time_scale = 1.0
 
@@ -85,6 +86,9 @@ func screen_vingette(show: bool, time: float = 0.0, radius: float = 0.62):
 	if time > 0.0:
 		await get_tree().create_timer(time, true, false, true).timeout
 		vingette.emit(false, radius)
+
+func screen_focus_vingette(show: bool):
+	focus_vingette.emit(show)
 
 func fadescreen(active = false,black = true,instant = false):
 	fade.active = active

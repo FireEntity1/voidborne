@@ -28,6 +28,7 @@ var moving = false
 var velocity_mod = 0.0
 
 var cam_zoom = 1.0
+var prev_zoom = cam_zoom
 
 var invincible = false
 
@@ -75,7 +76,11 @@ func _physics_process(delta: float) -> void:
 		#$camera.zoom.x, cam_zoom, delta/3.0), move_toward(
 			#$camera.zoom.y, cam_zoom, delta/3.0
 		#))
-	var z = lerp($camera.zoom.x,cam_zoom, delta)
+	var z
+	if not is_focusing:
+		z = lerp($camera.zoom.x,cam_zoom, delta)
+	else:
+		z = lerp($camera.zoom.x,1.5, delta)
 	$camera.zoom = Vector2(z,z)
 	
 	if was_hit:
@@ -133,9 +138,10 @@ func _handle_cast(delta: float) -> void:
 		
 	if cast_active and Input.is_action_pressed("cast"):
 		cast_held_time += delta
-		
 		if not is_focusing and cast_held_time >= CAST_TAP_DURATION and is_on_floor() and Global.voidmeter >= 3:
 			is_focusing = true
+			$heal.emitting = true
+			Global.screen_focus_vingette(true)
 			Global.mod_can_move(false)
 		
 		if is_focusing or Global.voidmeter < 3:
@@ -163,9 +169,10 @@ func _handle_cast(delta: float) -> void:
 func _cancel_focus():
 	if not is_focusing:
 		return
-	
+	$heal.emitting = false
 	is_focusing = false
 	Global.mod_can_move(true)
+	Global.screen_focus_vingette(false)
 
 func attack() -> void:
 	can_attack = false

@@ -24,7 +24,7 @@ void fragment() {
     v = pow(v, contrast);
 
     vec4 overlay = vignette_color;
-    overlay.a = clamp(v * intensity, 0.0, 1.0);
+    overlay.a = clamp(v * intensity, 0.0, 1.0) * COLOR.a;
 
     // Output just the vignette color/alpha (use on a full-screen ColorRect)
     COLOR = overlay;

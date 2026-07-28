@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=3 uid="uid://dq7ng5vi3rwcu"]
+[gd_scene load_steps=60 format=3 uid="uid://dq7ng5vi3rwcu"]
 
 [ext_resource type="Script" uid="uid://brq7vdr3t803u" path="res://scripts/core/player.gd" id="1_hpv3a"]
 [ext_resource type="Texture2D" uid="uid://c582x5ti7j4no" path="res://sprites/voidborn.png" id="2_hpv3a"]
@@ -332,6 +332,29 @@ scale_curve = SubResource("CurveTexture_5a7ls")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ovj3t"]
 size = Vector2(8.25, 17.625)
 
+[sub_resource type="Gradient" id="Gradient_5a7ls"]
+offsets = PackedFloat32Array(0.0241228)
+colors = PackedColorArray(0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_bl7dy"]
+gradient = SubResource("Gradient_5a7ls")
+width = 16
+height = 16
+
+[sub_resource type="Curve" id="Curve_5a7ls"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.367299, 1), 0.0, 0.0, 0, 0, Vector2(0.763033, 0.997386), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_bl7dy"]
+curve = SubResource("Curve_5a7ls")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_5a7ls"]
+particle_flag_disable_z = true
+radial_velocity_min = 40.0
+radial_velocity_max = 80.0
+gravity = Vector3(0, 0, 0)
+scale_curve = SubResource("CurveTexture_bl7dy")
+
 [node name="player" type="CharacterBody2D" groups=["player"]]
 scale = Vector2(8, 8)
 collision_layer = 2
@@ -414,5 +437,13 @@ collision_mask = 4
 [node name="collision" type="CollisionShape2D" parent="hit"]
 position = Vector2(0, 0.3125)
 shape = SubResource("RectangleShape2D_ovj3t")
+
+[node name="heal" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 32
+texture = SubResource("GradientTexture2D_bl7dy")
+lifetime = 2.0
+speed_scale = 1.5
+process_material = SubResource("ParticleProcessMaterial_5a7ls")
 
 [connection signal="body_entered" from="hit" to="." method="_on_hit_body_entered"]
