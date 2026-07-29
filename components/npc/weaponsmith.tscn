@@ -1,0 +1,132 @@
+[gd_scene load_steps=16 format=3 uid="uid://cxuqcr8jqffrw"]
+
+[ext_resource type="Texture2D" uid="uid://bs0b53ofyt2o7" path="res://sprites/weaponsmith.png" id="1_ysp2b"]
+[ext_resource type="Texture2D" uid="uid://bvgg87cfxkdax" path="res://aseprite/weaponsmith_anvil.png" id="2_d8bcg"]
+[ext_resource type="PackedScene" uid="uid://6t8faj0pjahu" path="res://components/triggers/timeline_trigger.tscn" id="3_qo5fb"]
+[ext_resource type="Resource" uid="uid://dx7k3g288rt30" path="res://dialogic/timelines/foundry/upgrade.dtl" id="4_ggukt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e6nen"]
+size = Vector2(118.75, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d8bcg"]
+atlas = ExtResource("1_ysp2b")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qo5fb"]
+atlas = ExtResource("1_ysp2b")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ggukt"]
+atlas = ExtResource("1_ysp2b")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_duons"]
+atlas = ExtResource("1_ysp2b")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nssry"]
+atlas = ExtResource("1_ysp2b")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gwo5h"]
+atlas = ExtResource("1_ysp2b")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hn6q3"]
+atlas = ExtResource("1_ysp2b")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_67au0"]
+atlas = ExtResource("1_ysp2b")
+region = Rect2(112, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u8cvw"]
+atlas = ExtResource("1_ysp2b")
+region = Rect2(128, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_i8bf3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d8bcg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qo5fb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ggukt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_duons")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nssry")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d8bcg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qo5fb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ggukt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_duons")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nssry")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gwo5h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hn6q3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_67au0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u8cvw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gwo5h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hn6q3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_67au0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u8cvw")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[node name="weaponsmith" type="Area2D"]
+scale = Vector2(8, 8)
+
+[node name="collision" type="CollisionShape2D" parent="."]
+position = Vector2(0, -18.125)
+shape = SubResource("RectangleShape2D_e6nen")
+
+[node name="weaponsmith" type="AnimatedSprite2D" parent="."]
+position = Vector2(-2.25, -4)
+scale = Vector2(1.25, 1.25)
+sprite_frames = SubResource("SpriteFrames_i8bf3")
+autoplay = "default"
+frame_progress = 0.613973
+
+[node name="table" type="Sprite2D" parent="."]
+position = Vector2(0, 1.875)
+texture = ExtResource("2_d8bcg")
+
+[node name="timeline_trigger" parent="." instance=ExtResource("3_qo5fb")]
+position = Vector2(-0.75, -13.75)
+scale = Vector2(2.34575, 1.3917)
+timeline = ExtResource("4_ggukt")
+distance_above = -80
+interact_text = "UPGRADE"

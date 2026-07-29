@@ -1,0 +1,6 @@
+weaponsmith: Void? This deep into Halcrya?
+weaponsmith: What brings you here?
+- Upgrading weapon
+	[signal arg="upgrade_menu"]
+- Learning about Halcrya
+	weaponsmith: yap yap yap sahur
