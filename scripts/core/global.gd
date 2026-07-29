@@ -54,6 +54,8 @@ var state = {
 	"health": 10,
 	"max_health": 10,
 	
+	"light_shards": 0,
+	
 	# world states and wtv
 	"outlands_light": false,
 }

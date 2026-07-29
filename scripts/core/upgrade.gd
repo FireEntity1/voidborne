@@ -12,6 +12,7 @@ var upgrades = [
 ]
 
 func _ready() -> void:
+	Global.state.light_shards = 20
 	for upgrade in upgrades:
 		var hbox = HBoxContainer.new()
 		var label = Label.new()
@@ -29,5 +30,11 @@ func _ready() -> void:
 		
 		$container/vbox.add_child(hbox)
 
-func _buy(name):
-	print(name)
+func _buy(_name):
+	var item
+	for upgrade in upgrades:
+		if upgrade.name == _name:
+			item = upgrade
+			break
+	Global.state.light_shards -= item.cost
+	print(_name, ", ", Global.state.light_shards, " left")
