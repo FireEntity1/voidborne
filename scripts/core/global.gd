@@ -56,6 +56,13 @@ var state = {
 	
 	"light_shards": 0,
 	
+	"upgrades": {
+		"Strength 1": false,
+		"Strength 2": false,
+		
+		"Range": false,
+	},
+	
 	"visited": [],
 	
 	# world states and wtv

@@ -2,18 +2,33 @@ extends Window
 
 var upgrades = [
 	{
-		"name": "Damage",
-		"cost": 1
+		"name": "Strength 1",
+		"cost": 3,
+		"prereq": "none"
+	},
+	{
+		"name": "Strength 2",
+		"cost": 10,
+		"prereq": "Strength 1"
 	},
 	{
 		"name": "Range",
-		"cost": 3
+		"cost": 10,
+		"prereq": "none"
 	}
 ]
 
 func _ready() -> void:
 	Global.state.light_shards = 20
+	generate()
+
+func generate():
+	for child in $container/vbox.get_children():
+		child.queue_free()
 	for upgrade in upgrades:
+		if upgrade.prereq != "none" and Global.state.upgrades[upgrade.prereq] == false or Global.state.upgrades[upgrade.name] == true:
+			continue
+		
 		var hbox = HBoxContainer.new()
 		hbox.custom_minimum_size = Vector2(700,64)
 		var label = Label.new()
@@ -40,4 +55,6 @@ func _buy(_name):
 			item = upgrade
 			break
 	Global.state.light_shards -= item.cost
+	Global.state.upgrades[_name] = true
 	print(_name, ", ", Global.state.light_shards, " left")
+	generate()
