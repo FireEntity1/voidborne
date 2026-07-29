@@ -141,7 +141,7 @@ width = 1
 height = 256
 fill_to = Vector2(0, 1)
 
-[node name="tower" type="Node2D"]
+[node name="outlands_tower" type="Node2D"]
 script = ExtResource("1_xqb17")
 
 [node name="worldbg" type="TileMapLayer" parent="."]

@@ -56,6 +56,9 @@ func _ready() -> void:
 	Dialogic.signal_event.connect(_dialogic_signal)
 	Global.player = self
 	
+	await get_tree().create_timer(1.0).timeout
+	Global.state.visited.append(get_parent().get_parent().name)
+	
 
 func _physics_process(delta: float) -> void:
 	velocity.x = clamp(velocity.x - velocity_mod,-3000,3000)

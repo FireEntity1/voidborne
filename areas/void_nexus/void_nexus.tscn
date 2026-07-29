@@ -1,7 +1,8 @@
-[gd_scene load_steps=28 format=4 uid="uid://cu3pynmxlqcjn"]
+[gd_scene load_steps=29 format=4 uid="uid://cu3pynmxlqcjn"]
 
 [ext_resource type="Shader" uid="uid://vju4x68rih5k" path="res://resources/shaders/fog_spots.gdshader" id="1_obxot"]
 [ext_resource type="Shader" uid="uid://bns6x60fcqhgn" path="res://resources/shaders/swirl.gdshader" id="1_vdein"]
+[ext_resource type="Script" uid="uid://ltyd0ngci7nj" path="res://scripts/world/void_nexus.gd" id="1_xwhb6"]
 [ext_resource type="Texture2D" uid="uid://bf6qocnhkokxw" path="res://sprites/void_platform_2.png" id="2_57rgy"]
 [ext_resource type="Texture2D" uid="uid://cbu0evfs7aeex" path="res://sprites/void_platform.png" id="2_vj87g"]
 [ext_resource type="Texture2D" uid="uid://dout26du63bka" path="res://sprites/void_platform_bg.png" id="3_85ubq"]
@@ -135,6 +136,7 @@ polygon = PackedVector2Array(8008, -214, 10185, -215, 10350, -214, 10846, -218, 
 polygon = PackedVector2Array(5182, 33, 5193, -83, 5683, -83, 5695, -204, 10185, -215, 10350, -214, 15058, -178, 12826, 266, 7015, 515, 997, 523, 611, 184, 4669, 167, 4667, 52)
 
 [node name="voidnexus" type="Node2D"]
+script = ExtResource("1_xwhb6")
 
 [node name="bg" type="Parallax2D" parent="."]
 scroll_scale = Vector2(0.4, 0.4)

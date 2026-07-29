@@ -1,6 +1,7 @@
-[gd_scene load_steps=38 format=4 uid="uid://cjw5jsk1dmc32"]
+[gd_scene load_steps=39 format=4 uid="uid://cjw5jsk1dmc32"]
 
 [ext_resource type="Texture2D" uid="uid://bk7s8n45qeelk" path="res://sprites/cracked_concrete.png" id="1_gqfbg"]
+[ext_resource type="Script" uid="uid://h3pypeusrmmh" path="res://scripts/world/underground.gd" id="1_timks"]
 [ext_resource type="Texture2D" uid="uid://cl5v8q7pkhafd" path="res://sprites/building.png" id="2_poiw5"]
 [ext_resource type="PackedScene" uid="uid://bx5sw6412n002" path="res://components/core/transition.tscn" id="3_poiw5"]
 [ext_resource type="PackedScene" uid="uid://wxx5p2crs4lb" path="res://components/core/voidwell.tscn" id="4_0oqmg"]
@@ -218,7 +219,8 @@ enemies = Array[ExtResource("14_ga4r2")]([SubResource("Resource_ks5ff")])
 delay_before_next_wave = 1.0
 metadata/_custom_type_script = "uid://b13nu3g3jkfi7"
 
-[node name="underground" type="Node2D"]
+[node name="outlands_underground" type="Node2D"]
+script = ExtResource("1_timks")
 
 [node name="worldbg" type="TileMapLayer" parent="."]
 scale = Vector2(8, 8)

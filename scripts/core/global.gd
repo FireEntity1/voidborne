@@ -56,8 +56,11 @@ var state = {
 	
 	"light_shards": 0,
 	
+	"visited": [],
+	
 	# world states and wtv
 	"outlands_light": false,
+	
 }
 
 var voidmeter = 12

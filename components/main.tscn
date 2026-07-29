@@ -64,6 +64,7 @@ texture_under = ExtResource("6_5nrm8")
 texture_progress = ExtResource("7_fsffk")
 
 [node name="title" type="Label" parent="ui"]
+modulate = Color(1, 1, 1, 0)
 custom_minimum_size = Vector2(1400, 300)
 offset_left = 260.0
 offset_top = 300.0

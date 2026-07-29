@@ -9,7 +9,10 @@ func _ready() -> void:
 	$overlay.show()
 	$to_outlands/collision.disabled = true
 	$to_outlands.monitoring = false
-	await get_tree().create_timer(4.0).timeout
+	await get_tree().create_timer(0.8).timeout
+	if not Global.state.visited.has("outlands_tower"):
+		Dialogic.emit_signal("signal_event","title_The Tower")
+	await get_tree().create_timer(3.2).timeout
 	$to_outlands/collision.disabled = false
 	$to_outlands.monitoring = true
 
