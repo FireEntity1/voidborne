@@ -121,7 +121,7 @@ shape = SubResource("CircleShape2D_eowlx")
 [node name="sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_uuyw6")
 autoplay = "default"
-frame_progress = 0.237618
+frame_progress = 0.95878
 
 [node name="collect" type="GPUParticles2D" parent="."]
 emitting = false

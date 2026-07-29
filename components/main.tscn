@@ -63,6 +63,17 @@ nine_patch_stretch = true
 texture_under = ExtResource("6_5nrm8")
 texture_progress = ExtResource("7_fsffk")
 
+[node name="title" type="Label" parent="ui"]
+custom_minimum_size = Vector2(1400, 300)
+offset_left = 260.0
+offset_top = 300.0
+offset_right = 1660.0
+offset_bottom = 600.0
+theme_override_font_sizes/font_size = 128
+text = "HALCRYA"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="game" type="Node2D" parent="."]
 position = Vector2(930, 260)
 
@@ -70,5 +81,7 @@ position = Vector2(930, 260)
 position = Vector2(-34, -85)
 
 [node name="pause" parent="." instance=ExtResource("6_8wsji")]
+visible = false
 
 [node name="upgrade" parent="." instance=ExtResource("9_q15wk")]
+visible = false

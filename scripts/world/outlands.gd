@@ -17,6 +17,7 @@ func _ready() -> void:
 	timer.one_shot = false
 	timer.connect("timeout",_col_timeout)
 	timer.start()
+	Dialogic.emit_signal("signal_event","title_The Outlands")
 
 func _on_signal(arg):
 	if arg == "open_smog_ridge":

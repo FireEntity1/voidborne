@@ -11,10 +11,13 @@ var area_vingette = false
 var focus_vingette = false
 var vingette_tween: Tween
 
+var show_title = false
+
 const PLAYER = preload("res://components/core/player.tscn")
 
 func _ready() -> void:
 	#$game/player.connect("player_hit",_on_player_hit)
+	Dialogic.connect("signal_event",_dialogic_signal)
 	Global.root = self
 	Global.connect("vingette",_vingette)
 	Global.connect("focus_vingette",_focus_vingette)
@@ -28,6 +31,11 @@ func _process(delta: float) -> void:
 	if Global.fade.instant:
 		fade.modulate.a = 1.0 if Global.fade.active else 0.0
 	voidmeter.value = Global.voidmeter
+	
+	if show_title:
+		$ui/title.modulate.a = lerpf($ui/title.modulate.a,1.0,delta*3.0)
+	else:
+		$ui/title.modulate.a = lerpf($ui/title.modulate.a,0.0,delta*3.0)
 
 func _on_player_hit():
 	await get_tree().create_timer(0.3, true, false, true).timeout
@@ -100,3 +108,14 @@ func change_location(id: String):
 	
 func get_location(id: String):
 	return $game/loaded_scene.get_children()[0].get_node("spawn_pos").get_node(id).global_position
+
+func _dialogic_signal(param:String):
+	if param.begins_with("title_"):
+		var text = param.split("title_")
+		title(text[1])
+
+func title(text):
+	$ui/title.text = text
+	show_title = true
+	await get_tree().create_timer(3.0).timeout
+	show_title = false
