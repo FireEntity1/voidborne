@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cm8xoibi06qa4"]
+[gd_scene load_steps=24 format=3 uid="uid://cm8xoibi06qa4"]
 
 [ext_resource type="Script" uid="uid://dbcetsdne21ax" path="res://scripts/core/voidblast.gd" id="1_j2r8k"]
 [ext_resource type="Texture2D" uid="uid://cpurbhelmwhs2" path="res://sprites/voidblast.png" id="1_nu3qa"]
@@ -105,6 +105,71 @@ animations = [{
 "speed": 30.0
 }]
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_j2r8k"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j2r8k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vuwl3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e016f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ta7w8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7sjor")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fbw7u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_87trt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wpcej")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uy2s0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hej22")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aptkl")
+}],
+"loop": false,
+"name": &"default",
+"speed": 30.0
+}]
+
+[sub_resource type="Gradient" id="Gradient_j2r8k"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_vuwl3"]
+gradient = SubResource("Gradient_j2r8k")
+width = 16
+height = 16
+
+[sub_resource type="Curve" id="Curve_j2r8k"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_vuwl3"]
+curve = SubResource("Curve_j2r8k")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_j2r8k"]
+particle_flag_disable_z = true
+spread = 54.75
+initial_velocity_min = 30.0
+initial_velocity_max = 60.0
+gravity = Vector3(0, 0, 0)
+scale_curve = SubResource("CurveTexture_vuwl3")
+
 [node name="voidblast" type="Area2D"]
 scale = Vector2(8, 8)
 collision_layer = 8
@@ -122,3 +187,16 @@ sprite_frames = SubResource("SpriteFrames_qawop")
 autoplay = "default"
 frame = 12
 frame_progress = 1.0
+
+[node name="sprite2" type="AnimatedSprite2D" parent="."]
+position = Vector2(145.562, 0)
+scale = Vector2(18.1953, 1)
+sprite_frames = SubResource("SpriteFrames_j2r8k")
+autoplay = "default"
+
+[node name="particles" type="GPUParticles2D" parent="."]
+amount = 64
+texture = SubResource("GradientTexture2D_vuwl3")
+one_shot = true
+explosiveness = 0.86
+process_material = SubResource("ParticleProcessMaterial_j2r8k")

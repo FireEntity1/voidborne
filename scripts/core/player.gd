@@ -21,7 +21,7 @@ var attack_cooldown = 0.2
 var was_hit = false
 var hit_location = Vector2.ZERO
 
-var damage = 80
+var damage = 2
 var hit_stun_time = 0.18
 var invincible_time = 0.8
 
@@ -171,6 +171,8 @@ func _handle_cast(delta: float) -> void:
 		next_heal_time = CAST_FIRST_HEAL_DELAY
 		
 		if was_tap:
+			if not Global.state.items.voidblast:
+				return
 			voidblast()
 			Global.voidmeter -= 3
 
