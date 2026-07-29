@@ -1,5 +1,6 @@
-[gd_scene load_steps=17 format=3 uid="uid://cm8xoibi06qa4"]
+[gd_scene load_steps=18 format=3 uid="uid://cm8xoibi06qa4"]
 
+[ext_resource type="Script" uid="uid://dbcetsdne21ax" path="res://scripts/core/voidblast.gd" id="1_j2r8k"]
 [ext_resource type="Texture2D" uid="uid://cpurbhelmwhs2" path="res://sprites/voidblast.png" id="1_nu3qa"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nu3qa"]
@@ -106,6 +107,9 @@ animations = [{
 
 [node name="voidblast" type="Area2D"]
 scale = Vector2(8, 8)
+collision_layer = 8
+collision_mask = 4
+script = ExtResource("1_j2r8k")
 
 [node name="collision" type="CollisionShape2D" parent="."]
 position = Vector2(147.875, 0.375)

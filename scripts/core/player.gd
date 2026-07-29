@@ -2,9 +2,13 @@ extends CharacterBody2D
 
 const player = true
 
+const VOIDBLAST = preload("res://components/core/voidblast.tscn")
+
 const SPEED = 900.0
 const JUMP_VELOCITY = 1300.0
 const DASH_VELOCITY = 2500.0
+
+var blasting = false
 
 var jumped = JUMP_VELOCITY
 var previous_direction = 1
@@ -127,6 +131,10 @@ func _physics_process(delta: float) -> void:
 	if is_dashing:
 		velocity.x = previous_direction*DASH_VELOCITY
 	velocity.x = clamp(velocity_mod + velocity.x,-3000,3000)
+	
+	if blasting:
+		velocity = Vector2(0,0)
+	
 	move_and_slide()
 
 func _handle_cast(delta: float) -> void:
@@ -163,7 +171,7 @@ func _handle_cast(delta: float) -> void:
 		next_heal_time = CAST_FIRST_HEAL_DELAY
 		
 		if was_tap:
-			take_damage(1)
+			voidblast()
 			Global.voidmeter -= 3
 
 func _cancel_focus():
@@ -288,3 +296,14 @@ func take_damage(amount: int) -> void:
 
 func heal(amount: int) -> void:
 	set_health(health + amount)
+
+func voidblast():
+	blasting = true
+	var blast = VOIDBLAST.instantiate()
+	blast.position = Vector2(0,-2)
+	blast.scale.x *= previous_direction
+	blast.scale.y = 1
+	$ambient.add_child(blast)
+	await get_tree().create_timer(0.2).timeout
+	blasting = false
+	

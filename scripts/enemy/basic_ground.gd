@@ -27,6 +27,7 @@ func _ready() -> void:
 		sprite.material = shader_mat
 	await get_tree().create_timer(0.5).timeout
 	add_to_group("enemy")
+	player = Global.player
 
 func _on_detection_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
