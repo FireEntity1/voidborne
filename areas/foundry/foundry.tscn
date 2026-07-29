@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=4 uid="uid://c31j2tw7k2jqi"]
+[gd_scene load_steps=43 format=4 uid="uid://c31j2tw7k2jqi"]
 
 [ext_resource type="Texture2D" uid="uid://1f1dcaidw5ya" path="res://sprites/foundry_tiles.png" id="1_qturw"]
 [ext_resource type="PackedScene" uid="uid://bx5sw6412n002" path="res://components/core/transition.tscn" id="2_34no4"]
@@ -17,6 +17,8 @@
 [ext_resource type="PackedScene" uid="uid://l6vgldibdk3e" path="res://components/triggers/arena.tscn" id="15_p85ij"]
 [ext_resource type="Script" uid="uid://b13nu3g3jkfi7" path="res://scripts/enemy/arena/wave.gd" id="16_kbflu"]
 [ext_resource type="Script" uid="uid://nyum2kmnthf2" path="res://scripts/enemy/arena/enemy_count.gd" id="17_aghgt"]
+[ext_resource type="PackedScene" uid="uid://d11xidh5o488w" path="res://components/core/item.tscn" id="18_aghgt"]
+[ext_resource type="Texture2D" uid="uid://0q3p4ipsjfw0" path="res://sprites/dash_item.png" id="19_3x045"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_80esv"]
 
@@ -265,6 +267,21 @@ enemies = Array[ExtResource("17_aghgt")]([SubResource("Resource_kbflu")])
 delay_before_next_wave = 1.0
 metadata/_custom_type_script = "uid://b13nu3g3jkfi7"
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_8tmxa"]
+atlas = ExtResource("19_3x045")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rsdli"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8tmxa")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="foundry" type="Node2D"]
 
 [node name="bg" type="Parallax2D" parent="."]
@@ -335,6 +352,16 @@ length = 27
 [node name="elevator2" parent="." instance=ExtResource("8_4f36y")]
 position = Vector2(-957, -998)
 length = 16
+
+[node name="elevator3" parent="." instance=ExtResource("8_4f36y")]
+position = Vector2(9411, -2790)
+length = 20
+starts_at_top = true
+chain_spacing = -32.0
+
+[node name="elevator4" parent="." instance=ExtResource("8_4f36y")]
+position = Vector2(7364, -2790)
+length = 13
 
 [node name="squisher" parent="." instance=ExtResource("10_xa7cm")]
 position = Vector2(676, -3174)
@@ -449,7 +476,7 @@ position = Vector2(365, 10)
 [node name="marker4" type="Marker2D" parent="arena"]
 position = Vector2(719, 10)
 
-[node name="elevator3" parent="." instance=ExtResource("8_4f36y")]
-position = Vector2(9411, -486)
-length = 20
-starts_at_top = true
+[node name="item" parent="." instance=ExtResource("18_aghgt")]
+position = Vector2(4108, -4324)
+sprite = SubResource("SpriteFrames_rsdli")
+item_id = "voidblast"
