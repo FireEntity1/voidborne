@@ -125,11 +125,14 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("dash") and Global.can_move and Global.state["items"]["dash"]:
 		is_dashing = true
 		can_dash = false
+		$dash.restart()
+		$dash.emitting = true
 		await get_tree().create_timer(0.1).timeout
 		is_dashing = false
 		await get_tree().create_timer(dash_cooldown).timeout
 	if is_dashing:
 		velocity.x = previous_direction*DASH_VELOCITY
+		$sprite.play("dash")
 	velocity.x = clamp(velocity_mod + velocity.x,-3000,3000)
 	
 	if blasting:

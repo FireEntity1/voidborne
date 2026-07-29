@@ -44,9 +44,9 @@ var levels = {
 
 var state = {
 	"items": {
-		"dash": false,
+		"dash": true,
 		"ridge_tablet": false,
-		"voidblast": false,
+		"voidblast": true,
 	},
 	# basic stuff
 	"area": "outlands",
