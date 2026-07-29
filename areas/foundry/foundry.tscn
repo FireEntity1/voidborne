@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=4 uid="uid://c31j2tw7k2jqi"]
+[gd_scene load_steps=45 format=4 uid="uid://c31j2tw7k2jqi"]
 
 [ext_resource type="Texture2D" uid="uid://1f1dcaidw5ya" path="res://sprites/foundry_tiles.png" id="1_qturw"]
 [ext_resource type="PackedScene" uid="uid://bx5sw6412n002" path="res://components/core/transition.tscn" id="2_34no4"]
@@ -20,6 +20,7 @@
 [ext_resource type="Script" uid="uid://nyum2kmnthf2" path="res://scripts/enemy/arena/enemy_count.gd" id="17_aghgt"]
 [ext_resource type="PackedScene" uid="uid://d11xidh5o488w" path="res://components/core/item.tscn" id="18_aghgt"]
 [ext_resource type="Texture2D" uid="uid://0q3p4ipsjfw0" path="res://sprites/dash_item.png" id="19_3x045"]
+[ext_resource type="PackedScene" uid="uid://c0ho8wjd0okb5" path="res://components/core/light_shard.tscn" id="21_rsdli"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_80esv"]
 
@@ -494,3 +495,6 @@ item_id = "voidblast"
 [node name="door3" parent="." instance=ExtResource("9_60m6c")]
 position = Vector2(11971, 1498)
 rotation = 1.5708
+
+[node name="light_shard" parent="." instance=ExtResource("21_rsdli")]
+position = Vector2(-4031, 4134)
