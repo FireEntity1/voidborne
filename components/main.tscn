@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://uno1klrruv6"]
+[gd_scene load_steps=12 format=3 uid="uid://uno1klrruv6"]
 
 [ext_resource type="Script" uid="uid://bg4myabll67os" path="res://scripts/core/main.gd" id="1_pdxoy"]
 [ext_resource type="Texture2D" uid="uid://dhs3jn7rbwmtv" path="res://sprites/damage_overlay.png" id="2_5nrm8"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dhkdrk43pmywg" path="res://sprites/voidmeter_empty.png" id="6_5nrm8"]
 [ext_resource type="PackedScene" uid="uid://clyut1ivapn1d" path="res://components/core/pause.tscn" id="6_8wsji"]
 [ext_resource type="Texture2D" uid="uid://dhvg21xejf8i6" path="res://sprites/voidmeter_filled.png" id="7_fsffk"]
+[ext_resource type="PackedScene" uid="uid://lt087w2jnfit" path="res://components/core/upgrade.tscn" id="9_q15wk"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_o6xl0"]
 shader = ExtResource("3_fsffk")
@@ -69,3 +70,5 @@ position = Vector2(930, 260)
 position = Vector2(-34, -85)
 
 [node name="pause" parent="." instance=ExtResource("6_8wsji")]
+
+[node name="upgrade" parent="." instance=ExtResource("9_q15wk")]

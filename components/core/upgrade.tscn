@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://lt087w2jnfit"]
+
+[ext_resource type="Script" uid="uid://dlub5utv4c8dy" path="res://scripts/core/upgrade.gd" id="1_bi7em"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_d33h1"]
+
+[node name="upgrade" type="Window"]
+size = Vector2i(800, 500)
+theme_override_icons/close = SubResource("CanvasTexture_d33h1")
+script = ExtResource("1_bi7em")
+
+[node name="container" type="CenterContainer" parent="."]
+offset_right = 800.0
+offset_bottom = 500.0
+
+[node name="vbox" type="VBoxContainer" parent="container"]
+layout_mode = 2
+theme_override_constants/separation = 20

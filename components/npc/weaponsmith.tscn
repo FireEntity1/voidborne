@@ -118,7 +118,7 @@ position = Vector2(-2.25, -4)
 scale = Vector2(1.25, 1.25)
 sprite_frames = SubResource("SpriteFrames_i8bf3")
 autoplay = "default"
-frame_progress = 0.613973
+frame_progress = 0.731534
 
 [node name="table" type="Sprite2D" parent="."]
 position = Vector2(0, 1.875)
