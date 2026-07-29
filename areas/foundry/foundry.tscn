@@ -412,7 +412,13 @@ close_signal = "door_f_arna1_close"
 position = Vector2(-6013, 4250)
 
 [node name="cinderling" parent="enemy_hold" instance=ExtResource("9_g15l6")]
-position = Vector2(16134, -4552)
+position = Vector2(17818, -4560)
+
+[node name="cinderling3" parent="enemy_hold" instance=ExtResource("9_g15l6")]
+position = Vector2(17465, -4560)
+
+[node name="cinderling4" parent="enemy_hold" instance=ExtResource("9_g15l6")]
+position = Vector2(17153, -4560)
 
 [node name="cinderling2" parent="enemy_hold" instance=ExtResource("9_g15l6")]
 position = Vector2(18169, -4552)

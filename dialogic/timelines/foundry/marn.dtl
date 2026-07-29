@@ -1,2 +1,4 @@
+do Global.mod_can_move(false)
 marn: There's crushers blocking the path ahead.
 marn: Be careful [speed=10] . . . [speed=1] or dont [speed=10] . . . [speed=1] void thing.
+do Global.mod_can_move(true)

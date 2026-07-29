@@ -1,2 +1,4 @@
+do Global.mod_can_move(false)
 vael: Void?? In the foundry??
 vael: I'd recommend you leave before the light learns of your prescence.
+do Global.mod_can_move(true)

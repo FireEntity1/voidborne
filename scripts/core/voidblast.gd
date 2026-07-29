@@ -3,6 +3,7 @@ extends Area2D
 var damaged = false
 
 func _ready() -> void:
+	$particles.emitting = true
 	await get_tree().create_timer(2.0).timeout
 	queue_free()
 

@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cpurbhelmwhs2" path="res://sprites/voidblast.png" id="1_nu3qa"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nu3qa"]
-size = Vector2(295.5, 5.25)
+size = Vector2(295.5, 26.875)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j2r8k"]
 atlas = ExtResource("1_nu3qa")
@@ -177,7 +177,7 @@ collision_mask = 4
 script = ExtResource("1_j2r8k")
 
 [node name="collision" type="CollisionShape2D" parent="."]
-position = Vector2(147.875, 0.375)
+position = Vector2(147.875, 4.6875)
 shape = SubResource("RectangleShape2D_nu3qa")
 
 [node name="sprite" type="AnimatedSprite2D" parent="."]
@@ -195,6 +195,7 @@ sprite_frames = SubResource("SpriteFrames_j2r8k")
 autoplay = "default"
 
 [node name="particles" type="GPUParticles2D" parent="."]
+emitting = false
 amount = 64
 texture = SubResource("GradientTexture2D_vuwl3")
 one_shot = true
