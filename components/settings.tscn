@@ -1,14 +1,24 @@
-[gd_scene load_steps=5 format=3 uid="uid://cf1drldhcrqob"]
+[gd_scene load_steps=6 format=3 uid="uid://cf1drldhcrqob"]
 
 [ext_resource type="Texture2D" uid="uid://dy4wpso1t047d" path="res://sprites/checked.png" id="1_7g2wo"]
 [ext_resource type="Script" uid="uid://0g6jgdkf4gdw" path="res://scripts/core/settings.gd" id="1_dwwj2"]
 [ext_resource type="Texture2D" uid="uid://b8uavw3iyshd0" path="res://sprites/unchecked.png" id="2_dwwj2"]
+[ext_resource type="Texture2D" uid="uid://dljr5mcgyqlmf" path="res://sprites/window.png" id="2_vfnio"]
 [ext_resource type="Theme" uid="uid://cdhymgfj7lkn7" path="res://resources/game.tres" id="4_w0rpu"]
 
 [node name="settings" type="Window"]
+transparent_bg = true
 position = Vector2i(0, 36)
 size = Vector2i(800, 500)
+visible = false
+borderless = true
+transparent = true
 script = ExtResource("1_dwwj2")
+
+[node name="bg" type="TextureRect" parent="."]
+offset_right = 805.0
+offset_bottom = 503.0
+texture = ExtResource("2_vfnio")
 
 [node name="centre" type="CenterContainer" parent="."]
 offset_right = 799.0

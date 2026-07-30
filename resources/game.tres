@@ -1,8 +1,9 @@
-[gd_resource type="Theme" load_steps=8 format=3 uid="uid://cdhymgfj7lkn7"]
+[gd_resource type="Theme" load_steps=10 format=3 uid="uid://cdhymgfj7lkn7"]
 
 [ext_resource type="Texture2D" uid="uid://b5l5xdakkdd0" path="res://sprites/button-bg.png" id="1_60bu5"]
 [ext_resource type="Texture2D" uid="uid://ddr5t6bin8u1e" path="res://aseprite/button-bg_hover.png" id="1_f2nem"]
 [ext_resource type="Texture2D" uid="uid://d2dxj3lq23nxl" path="res://aseprite/button-bg_pressed.png" id="3_bl4yv"]
+[ext_resource type="Texture2D" uid="uid://dljr5mcgyqlmf" path="res://sprites/window.png" id="4_bl4yv"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_f2nem"]
 
@@ -12,6 +13,10 @@ expand_margin_top = 40.0
 expand_margin_bottom = 40.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qtnyj"]
+content_margin_left = 20.0
+content_margin_top = 40.0
+content_margin_right = 20.0
+content_margin_bottom = 30.0
 texture = ExtResource("1_60bu5")
 expand_margin_top = 40.0
 expand_margin_bottom = 40.0
@@ -21,8 +26,12 @@ texture = ExtResource("3_bl4yv")
 expand_margin_top = 40.0
 expand_margin_bottom = 40.0
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ojggu"]
+texture = ExtResource("4_bl4yv")
+
 [resource]
 Button/styles/focus = SubResource("StyleBoxEmpty_f2nem")
 Button/styles/hover = SubResource("StyleBoxTexture_dcr0n")
 Button/styles/normal = SubResource("StyleBoxTexture_qtnyj")
 Button/styles/pressed = SubResource("StyleBoxTexture_v6sxd")
+Window/styles/embedded_border = SubResource("StyleBoxTexture_ojggu")

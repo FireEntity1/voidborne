@@ -111,7 +111,6 @@ mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
 [node name="settings" parent="." instance=ExtResource("4_pyl7j")]
-visible = false
 
 [connection signal="button_up" from="centre/vbox/play" to="." method="_on_play_button_up"]
 [connection signal="button_up" from="centre/vbox/settings" to="." method="_on_settings_button_up"]
