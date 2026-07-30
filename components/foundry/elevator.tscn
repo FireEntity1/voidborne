@@ -124,4 +124,7 @@ collision_mask = 2
 position = Vector2(0, -13.25)
 shape = SubResource("RectangleShape2D_6c7du")
 
+[node name="boarding_position" type="Marker2D" parent="."]
+position = Vector2(0, -9)
+
 [connection signal="body_entered" from="base/trigger" to="." method="_on_trigger_body_entered"]

@@ -307,7 +307,9 @@ position = Vector2(111, 752)
 rotation = 1.56964
 scale = Vector2(4, 4)
 to = "outlands"
-location = "default"
+location = "to_tower"
+arrival_elevator_path = "elevator"
+arrival_elevator_terminal = "top"
 
 [node name="door" parent="." instance=ExtResource("8_71cyo")]
 position = Vector2(1600, -10944)

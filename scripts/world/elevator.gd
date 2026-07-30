@@ -32,14 +32,22 @@ func _ready() -> void:
 	var movement_segments: int = max(length - visible_segments, 0)
 	var movement_distance: float = movement_segments * segment_height
 
-	is_at_top = starts_at_top
-
+	#is_at_top = starts_at_top
+#
+	#if starts_at_top:
+		#top_y = global_position.y
+		#bottom_y = global_position.y + movement_distance
+	#else:
+		#bottom_y = global_position.y
+		#top_y = global_position.y - movement_distance
+	
+	bottom_y = global_position.y
+	top_y = bottom_y - movement_distance
+	
 	if starts_at_top:
-		top_y = global_position.y
-		bottom_y = global_position.y + movement_distance
-	else:
-		bottom_y = global_position.y
-		top_y = global_position.y - movement_distance
+		global_position.y = top_y
+	is_at_top = starts_at_top
+	
 
 	departure_y = global_position.y
 	target_y = global_position.y
@@ -132,18 +140,26 @@ func _on_trigger_body_entered(body: Node2D) -> void:
 	if moving:
 		return
 
+	begin_trip(body)
+
+	#await get_tree().create_timer(0.02).timeout
+	#Global.mod_can_move(false)
+
+func set_initial_terminal(at_top: bool) -> void:
+	starts_at_top = at_top
+
+func get_boarding_position() -> Vector2:
+	return $boarding_position.global_position
+
+func begin_trip(body: CharacterBody2D) -> bool:
+	if moving:
+		return false
+	player = body
 	departure_y = global_position.y
-
-	if is_at_top:
-		target_y = bottom_y
-	else:
-		target_y = top_y
-
+	target_y = bottom_y if is_at_top else top_y
 	moving = true
-
-	$base/side_l.set_deferred("disabled", false)
-	$base/side_r.set_deferred("disabled", false)
+	$base/side_l.set_deferred("disabled",false)
+	$base/side_r.set_deferred("disabled",false)
 	$base/base.play("default")
-
-	await get_tree().create_timer(0.02).timeout
 	Global.mod_can_move(false)
+	return true

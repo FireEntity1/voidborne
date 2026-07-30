@@ -23,7 +23,6 @@ func _ready() -> void:
 	Global.connect("focus_vingette",_focus_vingette)
 	change_area("foundry")
 	#change_location(Global.state.voidwell_id)
-	change_location("default")
 
 func _process(delta: float) -> void:
 	fade.modulate.a = move_toward(fade.modulate.a, 1.0, delta) if Global.fade.active else move_toward(fade.modulate.a, 0.0, delta)
@@ -66,13 +65,25 @@ func _update_vingette(radius: float = 0.62) -> void:
 		vingette_tween.tween_property(vingette,"modulate:a",0.0,1.0)
 		vingette_tween.tween_callback(vingette.hide).set_delay(1.0)
  
-func change_area(area: String,location: String = "default"):
+func change_area(area: String,location: String = "default",elevator_arrival: Dictionary = {}):
 	loaded_scene = area
 	var area_data = Global.levels[area]
 	for child in $game/loaded_scene.get_children():
-		child.queue_free()
-	var new = area_data.scene.instantiate()
+		child.free()
+	var new: Node2D = area_data.scene.instantiate()
+	
+	var arrival_elevator: Node2D = null
+	
+	if not elevator_arrival.is_empty():
+		arrival_elevator = new.get_node_or_null(elevator_arrival.path) as Node2D
+		if arrival_elevator == null:
+			push_error("elevator was not found :pensive:")
+		else:
+			arrival_elevator.set_initial_terminal(elevator_arrival.at_top)
+	
+
 	$game/loaded_scene.add_child(new)
+	
 	
 	area_vingette = area_data.vingette
 	_update_vingette()
@@ -85,6 +96,17 @@ func change_area(area: String,location: String = "default"):
 	Global.player = PLAYER.instantiate()
 	new.get_node("player_hold").add_child(Global.player)
 	health_hud.bind_player(Global.player)
+	
+	if arrival_elevator != null:
+		Global.player.global_position = arrival_elevator.get_boarding_position()
+		Global.player.velocity = Vector2.ZERO
+		
+		await get_tree().process_frame
+		
+		if elevator_arrival.auto_depart:
+			arrival_elevator.begin_trip(Global.player)
+	else:
+		change_location(location)
 	
 	#Global.player.position = Global.levels[area].locations[location]
 	Global.player.velocity.y = 5000
@@ -105,7 +127,7 @@ func change_location(id: String):
 			player.position = child.position
 			return
 	player.global_position = get_location(id)
-	
+
 func get_location(id: String):
 	return $game/loaded_scene.get_children()[0].get_node("spawn_pos").get_node(id).global_position
 

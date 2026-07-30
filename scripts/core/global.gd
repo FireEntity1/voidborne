@@ -131,8 +131,8 @@ func fadescreen(active = false,black = true,instant = false):
 func mod_can_move(status: bool = true):
 	can_move = status
 
-func change_scene(area: String, location: String = "default"):
-	root.change_area(area, location)
+func change_scene(area: String, location: String = "default", elevator_arrival: Dictionary = {}):
+	root.change_area(area, location, elevator_arrival)
 
 func set_voidwell(id: String):
 	pass

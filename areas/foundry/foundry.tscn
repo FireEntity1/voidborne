@@ -469,6 +469,9 @@ zoom = 0.8
 [node name="default" type="Marker2D" parent="spawn_pos"]
 position = Vector2(-5118, 4118)
 
+[node name="to_outlands" type="Marker2D" parent="spawn_pos"]
+position = Vector2(-5118, 4118)
+
 [node name="arena" parent="." instance=ExtResource("15_p85ij")]
 position = Vector2(5540, -2993)
 waves = Array[ExtResource("16_kbflu")]([SubResource("Resource_8tmxa"), SubResource("Resource_aghgt")])
