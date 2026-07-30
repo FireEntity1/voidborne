@@ -27,6 +27,7 @@ var target_y: float
 var top_y: float
 var bottom_y: float
 
+var initial_terminal_override: Variant = null
 
 func _ready() -> void:
 	var movement_segments: int = max(length - visible_segments, 0)
@@ -44,12 +45,20 @@ func _ready() -> void:
 	bottom_y = global_position.y
 	top_y = bottom_y - movement_distance
 	
-	if starts_at_top:
+	var initial_at_top = starts_at_top
+	if initial_terminal_override != null:
+		initial_at_top = initial_terminal_override
+	
+	if initial_at_top:
 		global_position.y = top_y
-	is_at_top = starts_at_top
+	
+	
+	is_at_top = initial_at_top
 	
 
 	departure_y = global_position.y
+	
+	
 	target_y = global_position.y
 
 	chain_segments.append(chain)
@@ -146,7 +155,7 @@ func _on_trigger_body_entered(body: Node2D) -> void:
 	#Global.mod_can_move(false)
 
 func set_initial_terminal(at_top: bool) -> void:
-	starts_at_top = at_top
+	initial_terminal_override = at_top
 
 func get_boarding_position() -> Vector2:
 	return $boarding_position.global_position
