@@ -1,7 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://cfrttr2avymic"]
+[gd_scene load_steps=14 format=3 uid="uid://cfrttr2avymic"]
 
 [ext_resource type="Script" uid="uid://35uss2p7f8fg" path="res://scripts/core/title.gd" id="1_p6dhs"]
 [ext_resource type="Shader" uid="uid://bbsxfqbwg6r80" path="res://resources/shaders/sky.gdshader" id="2_pyl7j"]
+[ext_resource type="Theme" uid="uid://cdhymgfj7lkn7" path="res://resources/game.tres" id="3_4rr2b"]
 [ext_resource type="Shader" uid="uid://vju4x68rih5k" path="res://resources/shaders/fog_spots.gdshader" id="3_b3w7a"]
 [ext_resource type="PackedScene" uid="uid://cf1drldhcrqob" path="res://components/settings.tscn" id="4_pyl7j"]
 
@@ -67,7 +68,7 @@ offset_bottom = 1080.0
 
 [node name="vbox" type="VBoxContainer" parent="centre"]
 layout_mode = 2
-theme_override_constants/separation = 20
+theme_override_constants/separation = 40
 
 [node name="title" type="Label" parent="centre/vbox"]
 layout_mode = 2
@@ -77,16 +78,19 @@ text = "voidborne
 
 [node name="play" type="Button" parent="centre/vbox"]
 layout_mode = 2
+theme = ExtResource("3_4rr2b")
 theme_override_font_sizes/font_size = 72
 text = "PLAY"
 
 [node name="settings" type="Button" parent="centre/vbox"]
 layout_mode = 2
+theme = ExtResource("3_4rr2b")
 theme_override_font_sizes/font_size = 72
 text = "SETTINGS"
 
 [node name="quit" type="Button" parent="centre/vbox"]
 layout_mode = 2
+theme = ExtResource("3_4rr2b")
 theme_override_font_sizes/font_size = 72
 text = "QUIT"
 

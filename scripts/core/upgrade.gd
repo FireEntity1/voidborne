@@ -1,5 +1,7 @@
 extends Window
 
+const THEME = preload("res://resources/game.tres")
+
 var upgrades = [
 	{
 		"name": "Strength 1",

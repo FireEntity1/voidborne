@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://lt087w2jnfit"]
+[gd_scene load_steps=4 format=3 uid="uid://lt087w2jnfit"]
 
 [ext_resource type="Script" uid="uid://dlub5utv4c8dy" path="res://scripts/core/upgrade.gd" id="1_bi7em"]
+[ext_resource type="Theme" uid="uid://cdhymgfj7lkn7" path="res://resources/game.tres" id="2_1sh51"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_d33h1"]
 
@@ -16,4 +17,5 @@ offset_bottom = 500.0
 
 [node name="vbox" type="VBoxContainer" parent="container"]
 layout_mode = 2
+theme = ExtResource("2_1sh51")
 theme_override_constants/separation = 20

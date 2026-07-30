@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://cf1drldhcrqob"]
+[gd_scene load_steps=5 format=3 uid="uid://cf1drldhcrqob"]
 
 [ext_resource type="Texture2D" uid="uid://dy4wpso1t047d" path="res://sprites/checked.png" id="1_7g2wo"]
 [ext_resource type="Script" uid="uid://0g6jgdkf4gdw" path="res://scripts/core/settings.gd" id="1_dwwj2"]
 [ext_resource type="Texture2D" uid="uid://b8uavw3iyshd0" path="res://sprites/unchecked.png" id="2_dwwj2"]
+[ext_resource type="Theme" uid="uid://cdhymgfj7lkn7" path="res://resources/game.tres" id="4_w0rpu"]
 
 [node name="settings" type="Window"]
 position = Vector2i(0, 36)
@@ -49,6 +50,7 @@ theme_override_icons/unchecked = ExtResource("2_dwwj2")
 
 [node name="close" type="Button" parent="centre/vbox"]
 layout_mode = 2
+theme = ExtResource("4_w0rpu")
 theme_override_font_sizes/font_size = 32
 text = "close"
 
