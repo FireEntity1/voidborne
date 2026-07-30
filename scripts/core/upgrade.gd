@@ -52,6 +52,13 @@ func generate():
 		hbox.add_child(button)
 		
 		$container/vbox.add_child(hbox)
+	var button = Button.new()
+	button.text = "close"
+	button.add_theme_font_size_override("font_size",30)
+	button.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	$container/vbox.add_child(button)
+		
+	button.connect("button_up",close)
 
 func _buy(_name):
 	var item
@@ -66,3 +73,7 @@ func _buy(_name):
 	Dialogic.emit_signal("signal_event","upgrade_" + item.name)
 	print(_name, ", ", Global.state.light_shards, " left")
 	generate()
+
+func close():
+	Global.mod_can_move(true)
+	hide()

@@ -113,6 +113,8 @@ func _dialogic_signal(param:String):
 	if param.begins_with("title_"):
 		var text = param.split("title_")
 		title(text[1])
+	elif param == "upgrade_menu":
+		$upgrade.popup_centered()
 
 func title(text):
 	$ui/title.text = text

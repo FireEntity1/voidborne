@@ -85,3 +85,4 @@ position = Vector2(-34, -85)
 visible = false
 
 [node name="upgrade" parent="." instance=ExtResource("9_q15wk")]
+visible = false
