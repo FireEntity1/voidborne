@@ -2,6 +2,8 @@ extends Area2D
 
 var collected = false
 
+@export var id: int = 0
+
 func _physics_process(delta: float) -> void:
 	if collected:
 		$sprite.modulate.a -= delta*5.0

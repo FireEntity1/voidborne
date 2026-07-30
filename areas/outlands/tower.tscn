@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=4 uid="uid://d0db4oaf5tlcm"]
+[gd_scene load_steps=31 format=4 uid="uid://d0db4oaf5tlcm"]
 
 [ext_resource type="Texture2D" uid="uid://1f1dcaidw5ya" path="res://sprites/foundry_tiles.png" id="1_cq5fg"]
 [ext_resource type="Script" uid="uid://bemxuocfbiixe" path="res://scripts/world/tower.gd" id="1_xqb17"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://l6vgldibdk3e" path="res://components/triggers/arena.tscn" id="9_e2box"]
 [ext_resource type="PackedScene" uid="uid://wwcmbugeyu4g" path="res://components/enemies/wisp.tscn" id="10_4rn5a"]
 [ext_resource type="PackedScene" uid="uid://dhyt3u7vos240" path="res://components/outlands/lightswitch.tscn" id="12_5e2ng"]
+[ext_resource type="PackedScene" uid="uid://c0ho8wjd0okb5" path="res://components/core/light_shard.tscn" id="14_j3bbb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vemo6"]
 texture = ExtResource("1_cq5fg")
@@ -355,3 +356,21 @@ closed = false
 position = Vector2(448, -11840)
 rotation = 1.5708
 open_signal = "light_switch"
+
+[node name="light_shards" type="Node2D" parent="."]
+
+[node name="light_shard" parent="light_shards" instance=ExtResource("14_j3bbb")]
+position = Vector2(-1, -4295)
+id = 14
+
+[node name="light_shard2" parent="light_shards" instance=ExtResource("14_j3bbb")]
+position = Vector2(50, -10882)
+id = 15
+
+[node name="light_shard3" parent="light_shards" instance=ExtResource("14_j3bbb")]
+position = Vector2(-759, -16685)
+id = 16
+
+[node name="light_shard4" parent="light_shards" instance=ExtResource("14_j3bbb")]
+position = Vector2(900, -16707)
+id = 17

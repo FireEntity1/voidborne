@@ -1,4 +1,4 @@
-[gd_scene load_steps=87 format=4 uid="uid://dx4rxr3ahpfkh"]
+[gd_scene load_steps=88 format=4 uid="uid://dx4rxr3ahpfkh"]
 
 [ext_resource type="Shader" uid="uid://bbsxfqbwg6r80" path="res://resources/shaders/sky.gdshader" id="1_5hdg2"]
 [ext_resource type="Script" uid="uid://crajt0rtnos3k" path="res://scripts/world/outlands.gd" id="1_6xo6o"]
@@ -32,6 +32,7 @@
 [ext_resource type="PackedScene" uid="uid://d11xidh5o488w" path="res://components/core/item.tscn" id="21_1p7xc"]
 [ext_resource type="Texture2D" uid="uid://y5frcf73tyq" path="res://sprites/ridge_tablet.png" id="22_cee0a"]
 [ext_resource type="PackedScene" uid="uid://wxx5p2crs4lb" path="res://components/core/voidwell.tscn" id="24_amlo6"]
+[ext_resource type="PackedScene" uid="uid://c0ho8wjd0okb5" path="res://components/core/light_shard.tscn" id="33_7x5v4"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_i1kom"]
 seed = 5
@@ -919,6 +920,32 @@ id = "outlands_upper_one"
 [node name="voidwell2" parent="voidwell_hold" instance=ExtResource("24_amlo6")]
 position = Vector2(34200, -8768)
 id = "outlands_boss"
+
+[node name="light_shards" type="Node2D" parent="."]
+
+[node name="light_shard" parent="light_shards" instance=ExtResource("33_7x5v4")]
+position = Vector2(12585, -2279)
+id = 4
+
+[node name="light_shard2" parent="light_shards" instance=ExtResource("33_7x5v4")]
+position = Vector2(12746, -3852)
+id = 5
+
+[node name="light_shard3" parent="light_shards" instance=ExtResource("33_7x5v4")]
+position = Vector2(30069, -4081)
+id = 6
+
+[node name="light_shard4" parent="light_shards" instance=ExtResource("33_7x5v4")]
+position = Vector2(15875, -8686)
+id = 7
+
+[node name="light_shard5" parent="light_shards" instance=ExtResource("33_7x5v4")]
+position = Vector2(16772, -8686)
+id = 8
+
+[node name="light_shard6" parent="light_shards" instance=ExtResource("33_7x5v4")]
+position = Vector2(36130, -1316)
+id = 9
 
 [node name="player_hold" type="Node2D" parent="."]
 position = Vector2(411, -479)

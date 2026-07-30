@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=4 uid="uid://cjw5jsk1dmc32"]
+[gd_scene load_steps=40 format=4 uid="uid://cjw5jsk1dmc32"]
 
 [ext_resource type="Texture2D" uid="uid://bk7s8n45qeelk" path="res://sprites/cracked_concrete.png" id="1_gqfbg"]
 [ext_resource type="Script" uid="uid://h3pypeusrmmh" path="res://scripts/world/underground.gd" id="1_timks"]
@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://odd4m527uyyk" path="res://components/npc/outlands_resident.tscn" id="17_vrwqy"]
 [ext_resource type="Resource" uid="uid://bna2b0nffji4" path="res://dialogic/timelines/outlands/orren_underground.dtl" id="18_ibjfp"]
 [ext_resource type="PackedScene" uid="uid://dh1lee42hp8xa" path="res://components/decoration/cam_zoom_zone.tscn" id="19_timks"]
+[ext_resource type="PackedScene" uid="uid://c0ho8wjd0okb5" path="res://components/core/light_shard.tscn" id="20_k5io8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jpybe"]
 texture = ExtResource("1_gqfbg")
@@ -308,7 +309,25 @@ tile_set = SubResource("TileSet_udhn2")
 [node name="voidwell" parent="voidwell_hold" instance=ExtResource("4_0oqmg")]
 position = Vector2(10860, 64)
 
+[node name="light_shards" type="Node2D" parent="."]
+
 [node name="player_hold" type="Node2D" parent="."]
+
+[node name="light_shard" parent="player_hold" instance=ExtResource("20_k5io8")]
+position = Vector2(10378, 98)
+id = 10
+
+[node name="light_shard2" parent="player_hold" instance=ExtResource("20_k5io8")]
+position = Vector2(16164, 2462)
+id = 11
+
+[node name="light_shard3" parent="player_hold" instance=ExtResource("20_k5io8")]
+position = Vector2(23750, 2870)
+id = 12
+
+[node name="light_shard4" parent="player_hold" instance=ExtResource("20_k5io8")]
+position = Vector2(32763, 765)
+id = 13
 
 [node name="forsaken_prism" parent="." instance=ExtResource("6_xfklv")]
 position = Vector2(13572, 2048)

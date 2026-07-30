@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=4 uid="uid://c31j2tw7k2jqi"]
+[gd_scene load_steps=46 format=4 uid="uid://c31j2tw7k2jqi"]
 
 [ext_resource type="Texture2D" uid="uid://1f1dcaidw5ya" path="res://sprites/foundry_tiles.png" id="1_qturw"]
 [ext_resource type="Script" uid="uid://cle4ltxxwdvan" path="res://scripts/world/foundry.gd" id="1_r7a1b"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://bxldkxc6j8cya" path="res://components/npc/foundry_resident.tscn" id="11_yssb6"]
 [ext_resource type="PackedScene" uid="uid://cxuqcr8jqffrw" path="res://components/npc/weaponsmith.tscn" id="13_8tmxa"]
 [ext_resource type="PackedScene" uid="uid://l6vgldibdk3e" path="res://components/triggers/arena.tscn" id="15_p85ij"]
+[ext_resource type="PackedScene" uid="uid://c0ho8wjd0okb5" path="res://components/core/light_shard.tscn" id="15_r7a1b"]
 [ext_resource type="Script" uid="uid://b13nu3g3jkfi7" path="res://scripts/enemy/arena/wave.gd" id="16_kbflu"]
 [ext_resource type="Script" uid="uid://nyum2kmnthf2" path="res://scripts/enemy/arena/enemy_count.gd" id="17_aghgt"]
 [ext_resource type="PackedScene" uid="uid://d11xidh5o488w" path="res://components/core/item.tscn" id="18_aghgt"]
@@ -441,6 +442,16 @@ text = "SPEAK"
 
 [node name="weaponsmith" parent="." instance=ExtResource("13_8tmxa")]
 position = Vector2(12732, 1611)
+
+[node name="light_shards" type="Node2D" parent="."]
+
+[node name="light_shard" parent="light_shards" instance=ExtResource("15_r7a1b")]
+position = Vector2(9424, -1919)
+id = 18
+
+[node name="light_shard2" parent="light_shards" instance=ExtResource("15_r7a1b")]
+position = Vector2(2161, -3065)
+id = 19
 
 [node name="player_hold" type="Node2D" parent="."]
 position = Vector2(-5602, 3848)

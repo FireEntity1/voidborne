@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=4 uid="uid://cu3pynmxlqcjn"]
+[gd_scene load_steps=30 format=4 uid="uid://cu3pynmxlqcjn"]
 
 [ext_resource type="Shader" uid="uid://vju4x68rih5k" path="res://resources/shaders/fog_spots.gdshader" id="1_obxot"]
 [ext_resource type="Shader" uid="uid://bns6x60fcqhgn" path="res://resources/shaders/swirl.gdshader" id="1_vdein"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://wxx5p2crs4lb" path="res://components/core/voidwell.tscn" id="12_rweyd"]
 [ext_resource type="PackedScene" uid="uid://kwapaj5ajref" path="res://components/void_nexus/break_wall.tscn" id="12_wpvqk"]
 [ext_resource type="PackedScene" uid="uid://bx5sw6412n002" path="res://components/core/transition.tscn" id="13_rweyd"]
+[ext_resource type="PackedScene" uid="uid://c0ho8wjd0okb5" path="res://components/core/light_shard.tscn" id="15_o7svj"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gveje"]
 shader = ExtResource("1_vdein")
@@ -226,7 +227,24 @@ id = "outlands_upper_one"
 position = Vector2(-2082, 1128)
 id = "outlands_upper_one"
 
+[node name="light_shards" type="Node2D" parent="."]
+
 [node name="player_hold" type="Node2D" parent="."]
+
+[node name="light_shard" parent="player_hold" instance=ExtResource("15_o7svj")]
+position = Vector2(10526, 3274)
+
+[node name="light_shard2" parent="player_hold" instance=ExtResource("15_o7svj")]
+position = Vector2(9651, 3290)
+id = 1
+
+[node name="light_shard3" parent="player_hold" instance=ExtResource("15_o7svj")]
+position = Vector2(-369, 297)
+id = 2
+
+[node name="light_shard4" parent="player_hold" instance=ExtResource("15_o7svj")]
+position = Vector2(9144, 856)
+id = 3
 
 [node name="fog" type="Parallax2D" parent="."]
 scroll_scale = Vector2(0.4, 0.4)
