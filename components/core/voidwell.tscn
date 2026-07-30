@@ -1,7 +1,8 @@
-[gd_scene load_steps=19 format=3 uid="uid://wxx5p2crs4lb"]
+[gd_scene load_steps=20 format=3 uid="uid://wxx5p2crs4lb"]
 
 [ext_resource type="Script" uid="uid://b8nviwxava7j0" path="res://scripts/core/voidwell.gd" id="1_iyyiy"]
 [ext_resource type="Texture2D" uid="uid://3hw6iw5feui2" path="res://sprites/voidwell.png" id="1_vkdeh"]
+[ext_resource type="PackedScene" uid="uid://6t8faj0pjahu" path="res://components/triggers/timeline_trigger.tscn" id="3_visee"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vkdeh"]
 size = Vector2(32, 26)
@@ -153,6 +154,12 @@ process_material = SubResource("ParticleProcessMaterial_i0mr5")
 [node name="sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_75oox")
 autoplay = "default"
-frame_progress = 0.578627
+frame_progress = 0.77439
+
+[node name="timeline_trigger" parent="." instance=ExtResource("3_visee")]
+position = Vector2(-0.166667, 1.75)
+scale = Vector2(0.6, 0.6)
+interact_text = "SAVE"
+emit_signal = true
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -454,7 +454,6 @@ position = Vector2(2161, -3065)
 id = 19
 
 [node name="player_hold" type="Node2D" parent="."]
-position = Vector2(-5602, 3848)
 
 [node name="to_voidnexus2" parent="." instance=ExtResource("2_34no4")]
 position = Vector2(-5660, 3963)

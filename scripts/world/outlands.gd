@@ -34,7 +34,7 @@ func _on_signal(arg):
 		$door_over.play("default")
 
 func _col_timeout():
-	if not is_instance_valid(get_node("underground_cover_hit")):
+	if get_node_or_null("underground_cover_hit") == null:
 		return
 	for body in $underground_cover_hit.get_overlapping_bodies():
 		if body.is_in_group("player"):

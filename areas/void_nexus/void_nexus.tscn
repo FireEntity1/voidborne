@@ -229,22 +229,22 @@ id = "outlands_upper_one"
 
 [node name="light_shards" type="Node2D" parent="."]
 
-[node name="player_hold" type="Node2D" parent="."]
-
-[node name="light_shard" parent="player_hold" instance=ExtResource("15_o7svj")]
+[node name="light_shard" parent="light_shards" instance=ExtResource("15_o7svj")]
 position = Vector2(10526, 3274)
 
-[node name="light_shard2" parent="player_hold" instance=ExtResource("15_o7svj")]
+[node name="light_shard2" parent="light_shards" instance=ExtResource("15_o7svj")]
 position = Vector2(9651, 3290)
 id = 1
 
-[node name="light_shard3" parent="player_hold" instance=ExtResource("15_o7svj")]
+[node name="light_shard3" parent="light_shards" instance=ExtResource("15_o7svj")]
 position = Vector2(-369, 297)
 id = 2
 
-[node name="light_shard4" parent="player_hold" instance=ExtResource("15_o7svj")]
+[node name="light_shard4" parent="light_shards" instance=ExtResource("15_o7svj")]
 position = Vector2(9144, 856)
 id = 3
+
+[node name="player_hold" type="Node2D" parent="."]
 
 [node name="fog" type="Parallax2D" parent="."]
 scroll_scale = Vector2(0.4, 0.4)

@@ -142,7 +142,8 @@ func change_scene(area: String, location: String = "default", elevator_arrival: 
 	root.change_area(area, location, elevator_arrival)
 
 func set_voidwell(id: String):
-	pass
+	state.voidwell_id = id
+	print(state.voidwell_id)
 
 func encode_vector(value: Variant):
 	pass 

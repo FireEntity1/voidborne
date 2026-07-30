@@ -23,6 +23,7 @@ func _ready() -> void:
 	Global.connect("focus_vingette",_focus_vingette)
 	change_area("foundry")
 	Global.health = Global.player.health
+	Global.state.voidwell_id = "tower"
 	#change_location(Global.state.voidwell_id)
 
 func _process(delta: float) -> void:
@@ -108,6 +109,7 @@ func change_area(area: String,location: String = "default",elevator_arrival: Dic
 			arrival_elevator.begin_trip(Global.player)
 	else:
 		Global.player.global_position = new.get_node("spawn_pos").get_node(location).global_position
+	Global.state.area = area
 	
 	#Global.player.position = Global.levels[area].locations[location]
 	Global.player.velocity.y = 5000
@@ -121,10 +123,7 @@ func change_area(area: String,location: String = "default",elevator_arrival: Dic
 
 func change_location(id: String):
 	var scene = $game/loaded_scene.get_children()[0]
-	var player = scene.get_node("player_hold").get_node("player")
-	print(scene)
-	if id == "":
-		player.global_position = get_location("default")
+	var player = Global.player
 	for child in scene.get_node("voidwell_hold").get_children():
 		if child.id == id:
 			player.position = child.position
@@ -132,9 +131,13 @@ func change_location(id: String):
 	player.global_position = get_location(id)
 
 func get_location(id: String):
-	return $game/loaded_scene.get_children()[0].get_node("spawn_pos").get_node(id).global_position
+	var hold = $game/loaded_scene.get_children()[0].get_node("voidwell_hold").get_children()
+	for child: Area2D in hold:
+		if child.id == id:
+			return child.global_position
 
 func _dialogic_signal(param:String):
+	print(param)
 	if param.begins_with("title_"):
 		var text = param.split("title_")
 		title(text[1])

@@ -948,7 +948,6 @@ position = Vector2(36130, -1316)
 id = 9
 
 [node name="player_hold" type="Node2D" parent="."]
-position = Vector2(411, -479)
 
 [node name="spawn_pos" type="Node2D" parent="."]
 

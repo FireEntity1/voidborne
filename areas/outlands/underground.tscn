@@ -311,23 +311,23 @@ tile_set = SubResource("TileSet_udhn2")
 
 [node name="light_shards" type="Node2D" parent="."]
 
-[node name="player_hold" type="Node2D" parent="."]
-
-[node name="light_shard" parent="player_hold" instance=ExtResource("20_k5io8")]
+[node name="light_shard" parent="light_shards" instance=ExtResource("20_k5io8")]
 position = Vector2(10378, 98)
 id = 10
 
-[node name="light_shard2" parent="player_hold" instance=ExtResource("20_k5io8")]
+[node name="light_shard2" parent="light_shards" instance=ExtResource("20_k5io8")]
 position = Vector2(16164, 2462)
 id = 11
 
-[node name="light_shard3" parent="player_hold" instance=ExtResource("20_k5io8")]
+[node name="light_shard3" parent="light_shards" instance=ExtResource("20_k5io8")]
 position = Vector2(23750, 2870)
 id = 12
 
-[node name="light_shard4" parent="player_hold" instance=ExtResource("20_k5io8")]
+[node name="light_shard4" parent="light_shards" instance=ExtResource("20_k5io8")]
 position = Vector2(32763, 765)
 id = 13
+
+[node name="player_hold" type="Node2D" parent="."]
 
 [node name="forsaken_prism" parent="." instance=ExtResource("6_xfklv")]
 position = Vector2(13572, 2048)
