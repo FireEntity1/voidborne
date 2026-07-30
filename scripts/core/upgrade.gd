@@ -54,7 +54,10 @@ func _buy(_name):
 		if upgrade.name == _name:
 			item = upgrade
 			break
+	if Global.state.light_shards < item.cost:
+		return
 	Global.state.light_shards -= item.cost
 	Global.state.upgrades[_name] = true
+	Dialogic.emit_signal("signal_event","upgrade_" + item.name)
 	print(_name, ", ", Global.state.light_shards, " left")
 	generate()

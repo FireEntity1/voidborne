@@ -12,6 +12,21 @@ var items = {
 	"ridge_tablet": true
 }
 
+var upgrade_lookup = {
+	"Strength 1": {
+		"effect": "damage",
+		"amt": 2
+	},
+	"Strength 2": {
+		"effect": "damage",
+		"amt": 4
+	},
+	"Range": {
+		"effect": "range_projectile",
+		"amt": 1
+	},
+}
+
 var levels = {
 	"voidnexus": {
 		"scene": preload("res://areas/void_nexus/void_nexus.tscn"),

@@ -5,6 +5,7 @@
 [sub_resource type="CanvasTexture" id="CanvasTexture_d33h1"]
 
 [node name="upgrade" type="Window"]
+position = Vector2i(0, 36)
 size = Vector2i(800, 500)
 theme_override_icons/close = SubResource("CanvasTexture_d33h1")
 script = ExtResource("1_bi7em")

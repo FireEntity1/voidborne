@@ -7,6 +7,7 @@ const VOIDBLAST = preload("res://components/core/voidblast.tscn")
 const SPEED = 900.0
 const JUMP_VELOCITY = 1300.0
 const DASH_VELOCITY = 2500.0
+const BASE_DAMAGE = 2
 
 var blasting = false
 
@@ -53,6 +54,7 @@ signal health_changed(current_health: int, max_health: int)
 signal player_hit
 
 func _ready() -> void:
+	apply_upgrades()
 	Dialogic.signal_event.connect(_dialogic_signal)
 	Global.player = self
 	
@@ -292,6 +294,8 @@ func _dialogic_signal(argument: String):
 		cam_zoom = float(argument.split("cam_zoom_")[1])
 	elif argument == "player_cam":
 		$camera.make_current()
+	elif argument.begins_with("upgrade_"):
+		apply_upgrades()
  
 func set_health(value: int) -> void:
 	var old_health = health
@@ -315,3 +319,12 @@ func voidblast():
 	await get_tree().create_timer(0.2).timeout
 	blasting = false
 	
+func apply_upgrades():
+	damage = BASE_DAMAGE
+	for key in Global.state.upgrades:
+		if Global.state.upgrades[key] == false:
+			continue
+		var lookup = Global.upgrade_lookup[key]
+		if lookup.effect == "damage":
+			damage += lookup.amt
+	print(damage)
