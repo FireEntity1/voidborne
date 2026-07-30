@@ -320,6 +320,7 @@ func voidblast():
 	blasting = false
 	
 func apply_upgrades():
+	$sprite/slash/area/collision.shape.radius = 8.0
 	damage = BASE_DAMAGE
 	for key in Global.state.upgrades:
 		if Global.state.upgrades[key] == false:
@@ -327,4 +328,6 @@ func apply_upgrades():
 		var lookup = Global.upgrade_lookup[key]
 		if lookup.effect == "damage":
 			damage += lookup.amt
-	print(damage)
+		elif lookup.effect == "range":
+			$sprite/slash/area/collision.shape.radius += lookup.amt
+	print($sprite/slash/area/collision.shape.radius)

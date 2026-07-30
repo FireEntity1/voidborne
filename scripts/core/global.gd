@@ -21,9 +21,13 @@ var upgrade_lookup = {
 		"effect": "damage",
 		"amt": 4
 	},
-	"Range": {
-		"effect": "range_projectile",
-		"amt": 1
+	"Range 1": {
+		"effect": "range",
+		"amt": 2.0
+	},
+	"Range 2": {
+		"effect": "range",
+		"amt": 2.0
 	},
 }
 
@@ -75,7 +79,8 @@ var state = {
 		"Strength 1": false,
 		"Strength 2": false,
 		
-		"Range": false,
+		"Range 1": false,
+		"Range 2": false,
 	},
 	
 	"visited": [],

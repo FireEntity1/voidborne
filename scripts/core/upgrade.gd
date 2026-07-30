@@ -12,9 +12,14 @@ var upgrades = [
 		"prereq": "Strength 1"
 	},
 	{
-		"name": "Range",
-		"cost": 10,
+		"name": "Range 1",
+		"cost": 5,
 		"prereq": "none"
+	},
+	{
+		"name": "Range 2",
+		"cost": 10,
+		"prereq": "Range 1"
 	}
 ]
 
