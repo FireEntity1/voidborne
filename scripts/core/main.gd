@@ -116,6 +116,8 @@ func change_area(area: String,location: String = "default",elevator_arrival: Dic
 	camera.make_current()
 	await get_tree().create_timer(0.05).timeout
 	camera.position_smoothing_enabled = true
+	
+	remove_shards()
 
 func change_location(id: String):
 	var scene = $game/loaded_scene.get_children()[0]
@@ -144,3 +146,13 @@ func title(text):
 	show_title = true
 	await get_tree().create_timer(3.0).timeout
 	show_title = false
+
+func remove_shards():
+	var parent = $game/loaded_scene.get_children()[0].get_node("light_shards").get_children()
+	for child in parent:
+		for id in Global.state.shards_collected:
+			print(id, "child: ", child.id)
+			if child.id == id:
+				
+				child.queue_free()
+				continue

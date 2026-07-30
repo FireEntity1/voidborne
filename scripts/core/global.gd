@@ -87,6 +87,8 @@ var state = {
 	
 	"visited": [],
 	
+	"shards_collected": [],
+	
 	# world states and wtv
 	"outlands_light": true,
 	"foundry_unlocked": true,
