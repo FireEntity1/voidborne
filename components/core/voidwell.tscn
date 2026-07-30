@@ -1,10 +1,47 @@
-[gd_scene load_steps=13 format=3 uid="uid://wxx5p2crs4lb"]
+[gd_scene load_steps=19 format=3 uid="uid://wxx5p2crs4lb"]
 
 [ext_resource type="Script" uid="uid://b8nviwxava7j0" path="res://scripts/core/voidwell.gd" id="1_iyyiy"]
 [ext_resource type="Texture2D" uid="uid://3hw6iw5feui2" path="res://sprites/voidwell.png" id="1_vkdeh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vkdeh"]
 size = Vector2(32, 26)
+
+[sub_resource type="Gradient" id="Gradient_iyyiy"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_visee"]
+gradient = SubResource("Gradient_iyyiy")
+width = 16
+height = 16
+
+[sub_resource type="Curve" id="Curve_iyyiy"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.421801, 1), 0.0, 0.0, 0, 0, Vector2(0.819905, 1), -0.491525, -0.491525, 0, 0, Vector2(0.827014, 0), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 5
+
+[sub_resource type="CurveTexture" id="CurveTexture_visee"]
+curve = SubResource("Curve_iyyiy")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_iyyiy"]
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+spread = 0.0
+initial_velocity_min = 2.0
+initial_velocity_max = 5.0
+angular_velocity_min = -49.41
+angular_velocity_max = 49.41
+gravity = Vector3(0, 98, 0)
+scale_curve = SubResource("CurveTexture_visee")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_i0mr5"]
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+initial_velocity_min = 5.0
+initial_velocity_max = 10.0
+angular_velocity_min = -49.41
+angular_velocity_max = 49.41
+gravity = Vector3(0, 98, 0)
+scale_curve = SubResource("CurveTexture_visee")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_iyyiy"]
 atlas = ExtResource("1_vkdeh")
@@ -67,7 +104,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
-"speed": 6.0
+"speed": 12.0
 }]
 
 [node name="voidwell" type="Area2D"]
@@ -77,12 +114,45 @@ collision_mask = 2
 script = ExtResource("1_iyyiy")
 
 [node name="collision" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(0, 3)
 shape = SubResource("RectangleShape2D_vkdeh")
+
+[node name="fall1" type="GPUParticles2D" parent="."]
+position = Vector2(-5.08333, -7.66667)
+amount = 32
+texture = SubResource("GradientTexture2D_visee")
+lifetime = 3.0
+speed_scale = 3.0
+process_material = SubResource("ParticleProcessMaterial_iyyiy")
+
+[node name="fall2" type="GPUParticles2D" parent="."]
+position = Vector2(4.91667, -7.66667)
+amount = 32
+texture = SubResource("GradientTexture2D_visee")
+lifetime = 3.0
+speed_scale = 3.0
+process_material = SubResource("ParticleProcessMaterial_iyyiy")
+
+[node name="splash1" type="GPUParticles2D" parent="."]
+position = Vector2(-6.08333, 11.0833)
+amount = 32
+texture = SubResource("GradientTexture2D_visee")
+lifetime = 3.0
+speed_scale = 3.0
+process_material = SubResource("ParticleProcessMaterial_i0mr5")
+
+[node name="splash2" type="GPUParticles2D" parent="."]
+position = Vector2(6.83333, 11.0833)
+amount = 32
+texture = SubResource("GradientTexture2D_visee")
+lifetime = 3.0
+speed_scale = 4.29
+process_material = SubResource("ParticleProcessMaterial_i0mr5")
 
 [node name="sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_75oox")
 autoplay = "default"
-frame_progress = 0.825349
+frame_progress = 0.578627
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
