@@ -18,7 +18,7 @@ func _ready() -> void:
 	active = true
 
 func _on_body_entered(body: Node2D) -> void:
-	if not active:
+	if not active or not body.is_in_group("player"):
 		return
 	if location.is_empty():
 		location = "default"

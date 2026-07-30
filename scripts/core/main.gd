@@ -69,7 +69,7 @@ func change_area(area: String,location: String = "default",elevator_arrival: Dic
 	loaded_scene = area
 	var area_data = Global.levels[area]
 	for child in $game/loaded_scene.get_children():
-		child.free()
+		child.queue_free()
 	var new: Node2D = area_data.scene.instantiate()
 	
 	var arrival_elevator: Node2D = null
@@ -106,7 +106,7 @@ func change_area(area: String,location: String = "default",elevator_arrival: Dic
 		if elevator_arrival.auto_depart:
 			arrival_elevator.begin_trip(Global.player)
 	else:
-		change_location(location)
+		Global.player.global_position = new.get_node("spawn_pos").get_node(location).global_position
 	
 	#Global.player.position = Global.levels[area].locations[location]
 	Global.player.velocity.y = 5000
