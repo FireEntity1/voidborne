@@ -7,6 +7,8 @@ var time_scale = 1.0
 
 var can_move = true
 
+var health: int
+
 var items = {
 	"dash": false,
 	"ridge_tablet": true
@@ -86,7 +88,8 @@ var state = {
 	"visited": [],
 	
 	# world states and wtv
-	"outlands_light": false,
+	"outlands_light": true,
+	"foundry_unlocked": true,
 	
 }
 
@@ -104,7 +107,9 @@ var root: Node2D
 func _ready() -> void:
 	save()
 	load_save()
+	health = state.max_health
 	print(state)
+	
 
 func _process(delta: float) -> void:
 	Engine.time_scale = move_toward(Engine.time_scale,time_scale,delta*10.0)

@@ -26,6 +26,7 @@ func _on_body_entered(body: Node2D) -> void:
 	Global.fadescreen(true,black)
 	await get_tree().create_timer(1.4).timeout
 	if body.is_in_group("player"):
+		Global.health = body.health
 		var elevator_arrival = {}
 		if not arrival_elevator_path.is_empty():
 			elevator_arrival = {

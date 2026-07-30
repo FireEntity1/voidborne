@@ -19,9 +19,14 @@ func _ready() -> void:
 	timer.start()
 	if not Global.state.visited.has("outlands"):
 		Dialogic.emit_signal("signal_event","title_The Outlands")
+	
+	if Global.state.foundry_unlocked:
+		$door_over.play("default")
+		$door.get_node("collision").disabled = true
+		$door.get_node("sprite").play("open")
 
 func _on_signal(arg):
-	if arg == "open_smog_ridge":
+	if arg == "open_foundry":
 		$door_over.play("open")
 		$door.get_node("collision").disabled = true
 		$door.get_node("sprite").play("open")
@@ -29,6 +34,8 @@ func _on_signal(arg):
 		$door_over.play("default")
 
 func _col_timeout():
+	if not is_instance_valid(get_node("underground_cover_hit")):
+		return
 	for body in $underground_cover_hit.get_overlapping_bodies():
 		if body.is_in_group("player"):
 			body.hit(1,true,body.global_position)

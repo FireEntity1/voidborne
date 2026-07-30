@@ -451,9 +451,9 @@ to = "outlands"
 location = "to_foundry"
 
 [node name="to_voidnexus" type="TextureRect" parent="to_voidnexus2"]
-offset_left = -1033.0
+offset_left = -1320.0
 offset_top = -1354.0
-offset_right = 1192.0
+offset_right = 1204.0
 offset_bottom = 1532.0
 texture = SubResource("GradientTexture2D_80esv")
 flip_h = true

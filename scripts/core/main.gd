@@ -22,6 +22,7 @@ func _ready() -> void:
 	Global.connect("vingette",_vingette)
 	Global.connect("focus_vingette",_focus_vingette)
 	change_area("foundry")
+	Global.health = Global.player.health
 	#change_location(Global.state.voidwell_id)
 
 func _process(delta: float) -> void:

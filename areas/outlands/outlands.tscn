@@ -973,6 +973,7 @@ shape = SubResource("RectangleShape2D_7x5v4")
 position = Vector2(40516, -1535)
 scale = Vector2(12, 12)
 sprite_frames = SubResource("SpriteFrames_w2vbx")
+animation = &"open"
 
 [node name="lightposts" type="Node2D" parent="."]
 position = Vector2(725, 0)
@@ -1132,7 +1133,7 @@ position = Vector2(40133, -1337)
 interact_text = "OPEN"
 item_required = "ridge_tablet"
 emit_signal = true
-signal_string = "open_smog_ridge"
+signal_string = "open_foundry"
 
 [node name="item" parent="." instance=ExtResource("21_1p7xc")]
 position = Vector2(16341, -8673)
