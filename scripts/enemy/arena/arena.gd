@@ -28,6 +28,7 @@ func start_waves():
 		var enemies = spawn_wave(wave)
 		
 		while enemies_alive(enemies):
+			get_tree()
 			await get_tree().process_frame
 		
 		await get_tree().create_timer(wave.delay_before_next_wave).timeout

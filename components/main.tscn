@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://uno1klrruv6"]
+[gd_scene load_steps=14 format=3 uid="uid://uno1klrruv6"]
 
 [ext_resource type="Script" uid="uid://bg4myabll67os" path="res://scripts/core/main.gd" id="1_pdxoy"]
 [ext_resource type="Texture2D" uid="uid://dhs3jn7rbwmtv" path="res://sprites/damage_overlay.png" id="2_5nrm8"]
 [ext_resource type="Shader" uid="uid://bj3b40or0bkl1" path="res://resources/shaders/vingette.gdshader" id="3_fsffk"]
 [ext_resource type="Shader" uid="uid://b4o0q82ffil6p" path="res://resources/shaders/radial_chromabb.gdshader" id="4_q15wk"]
+[ext_resource type="Shader" uid="uid://bv6dctvnvcxms" path="res://resources/shaders/glitch.gdshader" id="5_8wsji"]
 [ext_resource type="PackedScene" uid="uid://dm8ct8ksgt5s7" path="res://components/core/healthud.tscn" id="5_vdvw4"]
 [ext_resource type="Texture2D" uid="uid://dhkdrk43pmywg" path="res://sprites/voidmeter_empty.png" id="6_5nrm8"]
 [ext_resource type="PackedScene" uid="uid://clyut1ivapn1d" path="res://components/core/pause.tscn" id="6_8wsji"]
@@ -23,6 +24,14 @@ shader = ExtResource("4_q15wk")
 shader_parameter/intensity = 6.0
 shader_parameter/threshold = 0.0
 shader_parameter/spread = 3.1
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nnpke"]
+shader = ExtResource("5_8wsji")
+shader_parameter/shake_power = 0.0
+shader_parameter/shake_rate = 1.0
+shader_parameter/shake_speed = 5.0
+shader_parameter/shake_block_size = 30.5
+shader_parameter/shake_color_rate = 0.0
 
 [node name="main" type="Node2D"]
 script = ExtResource("1_pdxoy")
@@ -46,10 +55,11 @@ material = SubResource("ShaderMaterial_tipki")
 offset_right = 1920.0
 offset_bottom = 1080.0
 
-[node name="fade" type="ColorRect" parent="ui"]
-custom_minimum_size = Vector2(1920, 1080)
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="glitch" type="ColorRect" parent="ui"]
+visible = false
+material = SubResource("ShaderMaterial_nnpke")
+offset_right = 1920.0
+offset_bottom = 1080.0
 
 [node name="healthhud" parent="ui" instance=ExtResource("5_vdvw4")]
 
@@ -74,6 +84,12 @@ theme_override_font_sizes/font_size = 128
 text = "HALCRYA"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="fade" type="ColorRect" parent="ui"]
+custom_minimum_size = Vector2(1920, 1080)
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0, 0, 0, 1)
 
 [node name="game" type="Node2D" parent="."]
 position = Vector2(930, 260)

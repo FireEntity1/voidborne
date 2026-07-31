@@ -351,8 +351,5 @@ func apply_upgrades():
 	print($sprite/slash/area/collision.shape.radius)
 
 func die():
-	Global.mod_can_move(false)
-	Global.screen_vingette(true,0.0,0.4)
-	Dialogic.emit_signal("signal_event","cam_zoom_4.0")
-	await get_tree().create_timer(1.4).timeout
-	Global.fadescreen(true,true,false)
+	Global.root.die()
+	return

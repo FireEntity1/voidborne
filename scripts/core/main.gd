@@ -5,6 +5,7 @@ extends Node2D
 @onready var fade = $ui/fade
 @onready var health_hud = $ui/healthhud
 @onready var voidmeter = $ui/voidmeter
+@onready var glitch = $ui/glitch
 
 var loaded_scene: String
 var area_vingette = false
@@ -12,6 +13,8 @@ var focus_vingette = false
 var vingette_tween: Tween
 
 var show_title = false
+
+var died = false
 
 const PLAYER = preload("res://components/core/player.tscn")
 
@@ -34,9 +37,18 @@ func _process(delta: float) -> void:
 	voidmeter.value = Global.voidmeter
 	
 	if show_title:
-		$ui/title.modulate.a = lerpf($ui/title.modulate.a,1.0,delta*3.0)
+		$ui/title.modulate.a = move_toward($ui/title.modulate.a,1.0,delta/3.0)
 	else:
-		$ui/title.modulate.a = lerpf($ui/title.modulate.a,0.0,delta*3.0)
+		$ui/title.modulate.a = move_toward($ui/title.modulate.a,0.0,delta/3.0)
+	
+	
+	
+	if died:
+		glitch.material.set_shader_parameter("shake_power",
+		lerpf(glitch.material.get_shader_parameter("shake_power"),0.1,delta/2.0))
+		
+		glitch.material.set_shader_parameter("shake_color_rate",
+		lerpf(glitch.material.get_shader_parameter("shake_color_rate"),0.03,delta/2.0))
 
 func _on_player_hit():
 	await get_tree().create_timer(0.3, true, false, true).timeout
@@ -160,3 +172,15 @@ func remove_shards():
 				
 				child.queue_free()
 				continue
+
+func die():
+	died = true
+	glitch.show()
+	await get_tree().create_timer(2.0).timeout
+	Global.fadescreen(true,true,true)
+	$game/loaded_scene.get_children()[0].queue_free()
+	await get_tree().create_timer(2.0).timeout
+	get_tree().reload_current_scene()
+	Global.fadescreen(false,true,false)
+	Global.mod_can_move(true)
+	
