@@ -11,6 +11,8 @@ extends Area2D
 @export var emit_signal = false
 @export var signal_string: String = "" 
 
+@export var is_voidwell = false
+
 var is_player_active = false
 var completed = false
 
@@ -44,6 +46,15 @@ func _on_body_entered(body) -> void:
 			start()
 
 func start():
+	if is_voidwell:
+		var well = signal_string.split("voidwell")[1]
+		Global.mod_can_move(false)
+		Global.set_voidwell(well)
+		var particles = get_parent().get_node("use")
+		particles.emitting = true
+		await get_tree().create_timer(1.0).timeout
+		particles.emitting = false
+		Global.mod_can_move(true)
 	if item_required != "":
 		if not Global.items[item_required]:
 			return
@@ -57,6 +68,7 @@ func start():
 	await Dialogic.timeline_ended
 	print("done!")
 	active = false
+		
 
 
 func _on_body_exited(body: Node2D) -> void:
