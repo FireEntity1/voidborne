@@ -222,12 +222,12 @@ onedirection = true
 [node name="voidwell_hold" type="Node2D" parent="."]
 
 [node name="voidwell" parent="voidwell_hold" instance=ExtResource("12_rweyd")]
-position = Vector2(10094, 3176)
-id = "outlands_upper_one"
+position = Vector2(-2082, 1128)
+id = "voidnexus_upper"
 
 [node name="voidwell2" parent="voidwell_hold" instance=ExtResource("12_rweyd")]
-position = Vector2(-2082, 1128)
-id = "outlands_upper_one"
+position = Vector2(12238, 232)
+id = "voidnexus_initial"
 
 [node name="light_shards" type="Node2D" parent="."]
 

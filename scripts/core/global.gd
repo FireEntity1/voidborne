@@ -70,7 +70,7 @@ var state = {
 		"voidblast": true,
 	},
 	# basic stuff
-	"area": "outlands",
+	"area": "voidnexus",
 	"voidwell_id":"",
 	"health": 10,
 	"max_health": 10,
@@ -107,7 +107,7 @@ var player: CharacterBody2D
 var root: Node2D
 
 func _ready() -> void:
-	save()
+	#save()
 	load_save()
 	health = state.max_health
 	print(state)
@@ -143,6 +143,7 @@ func change_scene(area: String, location: String = "default", elevator_arrival: 
 
 func set_voidwell(id: String):
 	state.voidwell_id = id
+	state.area = root.get_node("game").get_node("loaded_scene").get_children()[0].name
 	print(state.voidwell_id)
 
 func encode_vector(value: Variant):

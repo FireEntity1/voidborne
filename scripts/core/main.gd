@@ -21,9 +21,9 @@ func _ready() -> void:
 	Global.root = self
 	Global.connect("vingette",_vingette)
 	Global.connect("focus_vingette",_focus_vingette)
-	change_area("outlands")
+	change_area(Global.state.area)
 	Global.health = Global.player.health
-	Global.state.voidwell_id = "outlands_boss"
+	#Global.state.voidwell_id = "outlands_boss"
 	change_location(Global.state.voidwell_id)
 
 func _process(delta: float) -> void:
@@ -135,6 +135,7 @@ func get_location(id: String):
 	for child: Area2D in hold:
 		if child.id == id:
 			return child.global_position
+	return $game/loaded_scene.get_children()[0].get_node("spawn_pos").get_node("default").global_position
 
 func _dialogic_signal(param:String):
 	print(param)

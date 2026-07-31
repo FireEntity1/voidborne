@@ -48,6 +48,7 @@ func _on_body_entered(body) -> void:
 func start():
 	if is_voidwell:
 		var well = signal_string.split("voidwell")[1]
+		Global.save()
 		Global.mod_can_move(false)
 		Global.set_voidwell(well)
 		var particles = get_parent().get_node("use")

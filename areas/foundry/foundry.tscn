@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=4 uid="uid://c31j2tw7k2jqi"]
+[gd_scene load_steps=47 format=4 uid="uid://c31j2tw7k2jqi"]
 
 [ext_resource type="Texture2D" uid="uid://1f1dcaidw5ya" path="res://sprites/foundry_tiles.png" id="1_qturw"]
 [ext_resource type="Script" uid="uid://cle4ltxxwdvan" path="res://scripts/world/foundry.gd" id="1_r7a1b"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://c5614u464p3tk" path="res://components/enemies/cinderling.tscn" id="9_g15l6"]
 [ext_resource type="Resource" uid="uid://b0cpk31c62mqb" path="res://dialogic/timelines/foundry/marn.dtl" id="10_60m6c"]
 [ext_resource type="PackedScene" uid="uid://bev16qhgjiq5e" path="res://components/foundry/squisher.tscn" id="10_xa7cm"]
+[ext_resource type="PackedScene" uid="uid://wxx5p2crs4lb" path="res://components/core/voidwell.tscn" id="11_as6hk"]
 [ext_resource type="PackedScene" uid="uid://bxldkxc6j8cya" path="res://components/npc/foundry_resident.tscn" id="11_yssb6"]
 [ext_resource type="PackedScene" uid="uid://cxuqcr8jqffrw" path="res://components/npc/weaponsmith.tscn" id="13_8tmxa"]
 [ext_resource type="PackedScene" uid="uid://l6vgldibdk3e" path="res://components/triggers/arena.tscn" id="15_p85ij"]
@@ -440,7 +441,10 @@ position = Vector2(17153, -4560)
 position = Vector2(18169, -4552)
 
 [node name="voidwell_hold" type="Node2D" parent="."]
-position = Vector2(-6013, 4250)
+
+[node name="voidwell" parent="voidwell_hold" instance=ExtResource("11_as6hk")]
+position = Vector2(13327, 1498)
+id = "foundry_weaponsmith"
 
 [node name="npcs" type="Node2D" parent="."]
 
@@ -461,7 +465,7 @@ tile_map_data = PackedByteArray("AAAAAAAAAAABAAAAAAABAAAAAAABAAAAAAACAAAAAAABAAA
 tile_set = SubResource("TileSet_s664x")
 
 [node name="weaponsmith" parent="." instance=ExtResource("13_8tmxa")]
-position = Vector2(12732, 1611)
+position = Vector2(12500, 1611)
 
 [node name="light_shards" type="Node2D" parent="."]
 

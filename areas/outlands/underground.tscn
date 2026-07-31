@@ -307,6 +307,7 @@ process_material = SubResource("ParticleProcessMaterial_ibjfp")
 
 [node name="voidwell" parent="voidwell_hold" instance=ExtResource("4_0oqmg")]
 position = Vector2(10860, 64)
+id = "underground_main"
 
 [node name="player_hold" type="Node2D" parent="."]
 
