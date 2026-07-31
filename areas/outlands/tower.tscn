@@ -155,6 +155,24 @@ tile_set = SubResource("TileSet_2lcuc")
 position = Vector2(72, -17504)
 scale = Vector2(12, 12)
 
+[node name="light_shards" type="Node2D" parent="."]
+
+[node name="light_shard" parent="light_shards" instance=ExtResource("14_j3bbb")]
+position = Vector2(-1, -4295)
+id = 14
+
+[node name="light_shard2" parent="light_shards" instance=ExtResource("14_j3bbb")]
+position = Vector2(50, -10882)
+id = 15
+
+[node name="light_shard3" parent="light_shards" instance=ExtResource("14_j3bbb")]
+position = Vector2(-759, -16685)
+id = 16
+
+[node name="light_shard4" parent="light_shards" instance=ExtResource("14_j3bbb")]
+position = Vector2(900, -16707)
+id = 17
+
 [node name="player_hold" type="Node2D" parent="."]
 
 [node name="spawn_pos" type="Node2D" parent="."]
@@ -246,31 +264,33 @@ position = Vector2(1182, 124)
 [node name="marker4" type="Marker2D" parent="arena2"]
 position = Vector2(-1326, 120)
 
-[node name="lightposts" parent="." instance=ExtResource("7_ms06i")]
+[node name="lightpost_hold" type="Node2D" parent="."]
+
+[node name="lightposts" parent="lightpost_hold" instance=ExtResource("7_ms06i")]
 position = Vector2(-4417, -4467)
 count = 5
 space = 2000
 type = "toplight"
 
-[node name="lightposts2" parent="." instance=ExtResource("7_ms06i")]
+[node name="lightposts2" parent="lightpost_hold" instance=ExtResource("7_ms06i")]
 position = Vector2(-3332, -5367)
 count = 2
 space = 2000
 type = "toplight"
 
-[node name="lightposts3" parent="." instance=ExtResource("7_ms06i")]
+[node name="lightposts3" parent="lightpost_hold" instance=ExtResource("7_ms06i")]
 position = Vector2(3629, -5367)
 count = 2
 space = -2000
 type = "toplight"
 
-[node name="lightposts4" parent="." instance=ExtResource("7_ms06i")]
+[node name="lightposts4" parent="lightpost_hold" instance=ExtResource("7_ms06i")]
 position = Vector2(-4115, -11380)
 count = 2
 space = 1200
 type = "toplight"
 
-[node name="lightposts5" parent="." instance=ExtResource("7_ms06i")]
+[node name="lightposts5" parent="lightpost_hold" instance=ExtResource("7_ms06i")]
 position = Vector2(4173, -11383)
 count = 2
 space = -1200
@@ -281,6 +301,45 @@ type = "toplight"
 [node name="voidwell" parent="voidwell_hold" instance=ExtResource("15_lf7ir")]
 position = Vector2(64, -10816)
 id = "tower"
+
+[node name="doors" type="Node2D" parent="."]
+
+[node name="door" parent="doors" instance=ExtResource("8_71cyo")]
+position = Vector2(1600, -10944)
+rotation = 1.5708
+open_signal = "tower_arena2_done"
+close_signal = "tower_arena2_begin"
+
+[node name="door3" parent="doors" instance=ExtResource("8_71cyo")]
+position = Vector2(4672, -10944)
+rotation = 1.5708
+open_signal = "tower_arena2_done"
+close_signal = "tower_arena2_begin"
+closed = false
+
+[node name="door2" parent="doors" instance=ExtResource("8_71cyo")]
+position = Vector2(-1472, -10944)
+rotation = 1.5708
+open_signal = "tower_arena1_done"
+close_signal = "tower_arena1_begin"
+closed = false
+
+[node name="door4" parent="doors" instance=ExtResource("8_71cyo")]
+position = Vector2(-4544, -10944)
+rotation = 1.5708
+open_signal = "tower_arena1_done"
+close_signal = "tower_arena1_begin"
+
+[node name="door5" parent="doors" instance=ExtResource("8_71cyo")]
+position = Vector2(-320, -11840)
+rotation = 1.5708
+close_signal = "light_switch"
+closed = false
+
+[node name="door6" parent="doors" instance=ExtResource("8_71cyo")]
+position = Vector2(448, -11840)
+rotation = 1.5708
+open_signal = "light_switch"
 
 [node name="world" type="TileMapLayer" parent="."]
 scale = Vector2(8, 8)
@@ -316,32 +375,6 @@ location = "to_tower"
 arrival_elevator_path = "elevator"
 arrival_elevator_terminal = "top"
 
-[node name="door" parent="." instance=ExtResource("8_71cyo")]
-position = Vector2(1600, -10944)
-rotation = 1.5708
-open_signal = "tower_arena2_done"
-close_signal = "tower_arena2_begin"
-
-[node name="door3" parent="." instance=ExtResource("8_71cyo")]
-position = Vector2(4672, -10944)
-rotation = 1.5708
-open_signal = "tower_arena2_done"
-close_signal = "tower_arena2_begin"
-closed = false
-
-[node name="door2" parent="." instance=ExtResource("8_71cyo")]
-position = Vector2(-1472, -10944)
-rotation = 1.5708
-open_signal = "tower_arena1_done"
-close_signal = "tower_arena1_begin"
-closed = false
-
-[node name="door4" parent="." instance=ExtResource("8_71cyo")]
-position = Vector2(-4544, -10944)
-rotation = 1.5708
-open_signal = "tower_arena1_done"
-close_signal = "tower_arena1_begin"
-
 [node name="overlay" type="TextureRect" parent="."]
 visible = false
 offset_left = -8745.0
@@ -349,32 +382,3 @@ offset_top = -18630.0
 offset_right = 8912.0
 offset_bottom = 64.0
 texture = SubResource("GradientTexture2D_4rn5a")
-
-[node name="door5" parent="." instance=ExtResource("8_71cyo")]
-position = Vector2(-320, -11840)
-rotation = 1.5708
-close_signal = "light_switch"
-closed = false
-
-[node name="door6" parent="." instance=ExtResource("8_71cyo")]
-position = Vector2(448, -11840)
-rotation = 1.5708
-open_signal = "light_switch"
-
-[node name="light_shards" type="Node2D" parent="."]
-
-[node name="light_shard" parent="light_shards" instance=ExtResource("14_j3bbb")]
-position = Vector2(-1, -4295)
-id = 14
-
-[node name="light_shard2" parent="light_shards" instance=ExtResource("14_j3bbb")]
-position = Vector2(50, -10882)
-id = 15
-
-[node name="light_shard3" parent="light_shards" instance=ExtResource("14_j3bbb")]
-position = Vector2(-759, -16685)
-id = 16
-
-[node name="light_shard4" parent="light_shards" instance=ExtResource("14_j3bbb")]
-position = Vector2(900, -16707)
-id = 17

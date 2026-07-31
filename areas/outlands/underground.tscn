@@ -254,34 +254,38 @@ scale = Vector2(10, 10)
 tile_map_data = PackedByteArray("AAC8//H/AQAAAAMAAAAkAP3/AAAAAAAAAAAkAP7/AAAAAAUAAAAkAP//AAAAAAYAAAAlAP3/AAABAAAAAAAlAP7/AAABAAUAAAAlAP//AAABAAYAAAAmAP3/AAACAAAAAAAmAP7/AAACAAUAAAAmAP//AAACAAYAAAAnAP3/AAADAAAAAAAnAP7/AAADAAUAAAAnAP//AAADAAYAAAAoAP3/AAAEAAAAAAAoAP7/AAAEAAUAAAAoAP//AAAEAAYAAAAcAPv/AAAAAAAAAAAcAPz/AAAAAAMAAAAcAP3/AAAAAAMAAAAcAP7/AAAAAAUAAAAcAP//AAAAAAYAAAAdAPv/AAABAAAAAAAdAPz/AAABAAMAAAAdAP3/AAABAAMAAAAdAP7/AAABAAUAAAAdAP//AAABAAYAAAAeAPv/AAACAAAAAAAeAPz/AAACAAMAAAAeAP3/AAACAAMAAAAeAP7/AAACAAUAAAAeAP//AAACAAYAAAAfAPv/AAADAAAAAAAfAPz/AAADAAMAAAAfAP3/AAADAAMAAAAfAP7/AAADAAUAAAAfAP//AAADAAYAAAAgAPv/AAAEAAAAAAAgAPz/AAAEAAMAAAAgAP3/AAAEAAMAAAAgAP7/AAAEAAUAAAAgAP//AAAEAAYAAAATAPz/AAAAAAAAAAATAP3/AAAAAAMAAAATAP7/AAAAAAUAAAATAP//AAAAAAYAAAAUAPz/AAABAAAAAAAUAP3/AAABAAMAAAAUAP7/AAABAAUAAAAUAP//AAABAAYAAAAVAPz/AAACAAAAAAAVAP3/AAACAAMAAAAVAP7/AAACAAUAAAAVAP//AAACAAYAAAAWAPz/AAADAAAAAAAWAP3/AAADAAMAAAAWAP7/AAADAAUAAAAWAP//AAADAAYAAAAXAPz/AAAEAAAAAAAXAP3/AAAEAAMAAAAXAP7/AAAEAAUAAAAXAP//AAAEAAYAAAA=")
 tile_set = SubResource("TileSet_ga4r2")
 
-[node name="lightposts" parent="." instance=ExtResource("16_ga4r2")]
+[node name="lightpost_hold" type="Node2D" parent="."]
+
+[node name="lightposts" parent="lightpost_hold" instance=ExtResource("16_ga4r2")]
 position = Vector2(12128, -128)
 count = 3
 space = 1000
 type = "toplight"
 
-[node name="lightposts2" parent="." instance=ExtResource("16_ga4r2")]
+[node name="lightposts2" parent="lightpost_hold" instance=ExtResource("16_ga4r2")]
 position = Vector2(18147, -128)
 count = 3
 space = 1000
 type = "toplight"
 
-[node name="lightposts3" parent="." instance=ExtResource("16_ga4r2")]
+[node name="lightposts3" parent="lightpost_hold" instance=ExtResource("16_ga4r2")]
 position = Vector2(22476, 1024)
 count = 6
 space = 1000
 
-[node name="lightposts4" parent="." instance=ExtResource("16_ga4r2")]
+[node name="lightposts4" parent="lightpost_hold" instance=ExtResource("16_ga4r2")]
 position = Vector2(23834, 3075)
 count = 4
 space = 1000
 
-[node name="lightposts5" parent="." instance=ExtResource("16_ga4r2")]
+[node name="lightposts5" parent="lightpost_hold" instance=ExtResource("16_ga4r2")]
 position = Vector2(30086, 1029)
 count = 3
 space = 1000
 
-[node name="void" type="GPUParticles2D" parent="."]
+[node name="ambient_particles" type="Node2D" parent="."]
+
+[node name="void" type="GPUParticles2D" parent="ambient_particles"]
 position = Vector2(6273, -84)
 amount = 256
 texture = SubResource("GradientTexture2D_timks")
@@ -290,7 +294,7 @@ preprocess = 2.46
 visibility_rect = Rect2(-4000, -2000, 12000, 5000)
 process_material = SubResource("ParticleProcessMaterial_ibjfp")
 
-[node name="void2" type="GPUParticles2D" parent="."]
+[node name="void2" type="GPUParticles2D" parent="ambient_particles"]
 position = Vector2(11419, 2411)
 amount = 256
 texture = SubResource("GradientTexture2D_timks")
@@ -303,6 +307,8 @@ process_material = SubResource("ParticleProcessMaterial_ibjfp")
 
 [node name="voidwell" parent="voidwell_hold" instance=ExtResource("4_0oqmg")]
 position = Vector2(10860, 64)
+
+[node name="player_hold" type="Node2D" parent="."]
 
 [node name="world" type="TileMapLayer" parent="."]
 scale = Vector2(8, 8)
@@ -327,8 +333,6 @@ id = 12
 position = Vector2(32763, 765)
 id = 13
 
-[node name="player_hold" type="Node2D" parent="."]
-
 [node name="forsaken_prism" parent="." instance=ExtResource("6_xfklv")]
 position = Vector2(13572, 2048)
 
@@ -351,37 +355,43 @@ location = "to_underground"
 position = Vector2(6463, 2691)
 occluder = SubResource("OccluderPolygon2D_gffnh")
 
-[node name="door" parent="." instance=ExtResource("5_smh35")]
+[node name="doors" type="Node2D" parent="."]
+
+[node name="door" parent="doors" instance=ExtResource("5_smh35")]
 position = Vector2(11968, 2560)
 open_signal = "door_forsaken_boss_open"
 close_signal = "door_forsaken_boss_close"
 closed = false
 
-[node name="door2" parent="." instance=ExtResource("5_smh35")]
+[node name="door2" parent="doors" instance=ExtResource("5_smh35")]
 position = Vector2(15168, 2560)
 open_signal = "door_forsaken_boss_open"
 close_signal = "door_forsaken_boss_close"
+
+[node name="door3" parent="doors" instance=ExtResource("5_smh35")]
+position = Vector2(14528, 128)
+open_signal = "outlands_underground_arena_end"
+close_signal = "outlands_underground_arena_start"
+closed = false
+
+[node name="door4" parent="doors" instance=ExtResource("5_smh35")]
+position = Vector2(17216, 128)
+open_signal = "outlands_underground_arena_end"
+close_signal = "outlands_underground_arena_start"
+
+[node name="door5" parent="doors" instance=ExtResource("5_smh35")]
+position = Vector2(30144, 2176)
+open_signal = "cavern_unlock"
 
 [node name="boss" parent="." node_paths=PackedStringArray("boss") instance=ExtResource("7_xb623")]
 position = Vector2(13564, 2224)
 scale = Vector2(0.12, 1)
 boss = NodePath("../forsaken_prism")
 
-[node name="item" parent="." instance=ExtResource("9_ek2py")]
+[node name="item_dash" parent="." instance=ExtResource("9_ek2py")]
 position = Vector2(19337, 2602)
 sprite = SubResource("SpriteFrames_nl6yn")
 item_id = "dash"
-
-[node name="door3" parent="." instance=ExtResource("5_smh35")]
-position = Vector2(14528, 128)
-open_signal = "outlands_underground_arena_end"
-close_signal = "outlands_underground_arena_start"
-closed = false
-
-[node name="door4" parent="." instance=ExtResource("5_smh35")]
-position = Vector2(17216, 128)
-open_signal = "outlands_underground_arena_end"
-close_signal = "outlands_underground_arena_start"
 
 [node name="arena" parent="." instance=ExtResource("12_nl6yn")]
 position = Vector2(15906, 131)
@@ -417,10 +427,6 @@ text = "SPEAK"
 position = Vector2(24958, 2975)
 text = "SPEAK"
 
-[node name="door5" parent="." instance=ExtResource("5_smh35")]
-position = Vector2(30144, 2176)
-open_signal = "cavern_unlock"
-
 [node name="temp" type="Label" parent="."]
 offset_left = 31328.0
 offset_top = 1993.0
@@ -442,3 +448,5 @@ position = Vector2(30, -45)
 position = Vector2(13574, 2529)
 scale = Vector2(158.801, 74.0526)
 zoom = 0.8
+
+[node name="npc" type="Node2D" parent="."]

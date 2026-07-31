@@ -195,22 +195,24 @@ position = Vector2(-804, -34)
 [node name="marker2" type="Marker2D" parent="arena"]
 position = Vector2(803, -34)
 
-[node name="door" parent="." instance=ExtResource("6_vy1cv")]
+[node name="doors" type="Node2D" parent="."]
+
+[node name="door" parent="doors" instance=ExtResource("6_vy1cv")]
 position = Vector2(7882, -24)
 rotation = 1.5708
 closed = false
 
-[node name="door2" parent="." instance=ExtResource("6_vy1cv")]
+[node name="door2" parent="doors" instance=ExtResource("6_vy1cv")]
 position = Vector2(4298, 1896)
 rotation = 1.5708
 open_signal = "_door_voidnexus_arena"
 
-[node name="door3" parent="." instance=ExtResource("6_vy1cv")]
+[node name="door3" parent="doors" instance=ExtResource("6_vy1cv")]
 position = Vector2(-5302, -408)
 rotation = 1.5708
 closed = false
 
-[node name="door4" parent="." instance=ExtResource("6_vy1cv")]
+[node name="door4" parent="doors" instance=ExtResource("6_vy1cv")]
 position = Vector2(-1142, 5160)
 
 [node name="breakwall" parent="." instance=ExtResource("12_wpvqk")]
@@ -278,8 +280,8 @@ offset_right = 16064.0
 offset_bottom = -1908.0
 texture = SubResource("GradientTexture2D_hmamd")
 
-[node name="transition" parent="." instance=ExtResource("13_rweyd")]
-position = Vector2(14398, -2543)
+[node name="transition" parent="fade" instance=ExtResource("13_rweyd")]
+position = Vector2(1949, 831)
 to = "outlands"
 location = "default"
 

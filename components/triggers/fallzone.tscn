@@ -23,7 +23,7 @@ script = ExtResource("1_tcda1")
 position = Vector2(310, 219)
 shape = SubResource("RectangleShape2D_5oyw0")
 
-[node name="to_underground" type="TextureRect" parent="."]
+[node name="gradient" type="TextureRect" parent="."]
 offset_left = -1220.0
 offset_top = 1148.0
 offset_right = 187.0
