@@ -32,29 +32,19 @@ var initial_terminal_override: Variant = null
 func _ready() -> void:
 	var movement_segments: int = max(length - visible_segments, 0)
 	var movement_distance: float = movement_segments * segment_height
-
-	#is_at_top = starts_at_top
-#
-	#if starts_at_top:
-		#top_y = global_position.y
-		#bottom_y = global_position.y + movement_distance
-	#else:
-		#bottom_y = global_position.y
-		#top_y = global_position.y - movement_distance
 	
-	bottom_y = global_position.y
-	top_y = bottom_y - movement_distance
+	if starts_at_top:
+		top_y = global_position.y
+		bottom_y = top_y + movement_distance
+	else:
+		bottom_y = global_position.y
+		top_y = bottom_y - movement_distance
 	
 	var initial_at_top = starts_at_top
 	if initial_terminal_override != null:
 		initial_at_top = initial_terminal_override
-	
-	if initial_at_top:
-		global_position.y = top_y
-	
-	
+	global_position.y = top_y if initial_at_top else bottom_y
 	is_at_top = initial_at_top
-	
 
 	departure_y = global_position.y
 	
@@ -150,9 +140,6 @@ func _on_trigger_body_entered(body: Node2D) -> void:
 		return
 
 	begin_trip(body)
-
-	#await get_tree().create_timer(0.02).timeout
-	#Global.mod_can_move(false)
 
 func set_initial_terminal(at_top: bool) -> void:
 	initial_terminal_override = at_top
