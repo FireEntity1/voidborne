@@ -154,7 +154,7 @@ process_material = SubResource("ParticleProcessMaterial_i0mr5")
 [node name="sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_75oox")
 autoplay = "default"
-frame_progress = 0.451815
+frame_progress = 0.532605
 
 [node name="timeline_trigger" parent="." instance=ExtResource("3_visee")]
 position = Vector2(-0.166667, 1.75)
