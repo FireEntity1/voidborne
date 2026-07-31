@@ -180,7 +180,7 @@ func die():
 	Global.fadescreen(true,true,true)
 	$game/loaded_scene.get_children()[0].queue_free()
 	await get_tree().create_timer(2.0).timeout
-	get_tree().reload_current_scene()
+	get_tree().change_scene_to_file("res://scenes/death.tscn")
 	Global.fadescreen(false,true,false)
 	Global.mod_can_move(true)
 	

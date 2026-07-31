@@ -1,0 +1,49 @@
+[gd_scene load_steps=3 format=3 uid="uid://ce0p60ffdvlay"]
+
+[ext_resource type="Theme" uid="uid://cdhymgfj7lkn7" path="res://resources/game.tres" id="1_0hhgj"]
+[ext_resource type="Script" uid="uid://bc00nl8gms8en" path="res://scripts/core/death.gd" id="1_w8wr1"]
+
+[node name="death" type="Node2D"]
+script = ExtResource("1_w8wr1")
+
+[node name="bg" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(1920, 1080)
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0, 0, 0, 1)
+
+[node name="text" type="Label" parent="."]
+offset_top = 328.0
+offset_right = 1920.0
+offset_bottom = 578.0
+theme_override_font_sizes/font_size = 150
+text = "the light overtook."
+horizontal_alignment = 1
+
+[node name="tryagain" type="Button" parent="."]
+offset_left = 628.0
+offset_top = 547.0
+offset_right = 1292.0
+offset_bottom = 701.0
+theme = ExtResource("1_0hhgj")
+theme_override_font_sizes/font_size = 50
+text = "rise once more"
+
+[node name="quit" type="Button" parent="."]
+offset_left = 628.0
+offset_top = 698.0
+offset_right = 1292.0
+offset_bottom = 878.0
+theme = ExtResource("1_0hhgj")
+theme_override_font_sizes/font_size = 50
+text = "surrender to the light"
+
+[node name="fade" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(1920, 1080)
+offset_right = 1920.0
+offset_bottom = 1080.0
+mouse_filter = 2
+color = Color(0, 0, 0, 0)
+
+[connection signal="button_up" from="tryagain" to="." method="_on_tryagain_button_up"]
+[connection signal="button_up" from="quit" to="." method="_on_quit_button_up"]
