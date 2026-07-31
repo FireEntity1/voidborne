@@ -21,10 +21,10 @@ func _ready() -> void:
 	Global.root = self
 	Global.connect("vingette",_vingette)
 	Global.connect("focus_vingette",_focus_vingette)
-	change_area("foundry")
+	change_area("outlands")
 	Global.health = Global.player.health
-	Global.state.voidwell_id = "tower"
-	#change_location(Global.state.voidwell_id)
+	Global.state.voidwell_id = "outlands_boss"
+	change_location(Global.state.voidwell_id)
 
 func _process(delta: float) -> void:
 	fade.modulate.a = move_toward(fade.modulate.a, 1.0, delta) if Global.fade.active else move_toward(fade.modulate.a, 0.0, delta)

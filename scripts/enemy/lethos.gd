@@ -18,9 +18,18 @@ var dir = true
 
 var final_pos: Vector2
 
+@onready var start_position = global_position - Vector2(0,200)
+
 var color = 1.0
 
 func _ready() -> void:
+	var tween = create_tween().set_loops()
+	tween.set_trans(Tween.TRANS_SINE)
+	tween.set_ease(Tween.EASE_IN_OUT)
+	
+	tween.tween_property(self,"position:y",start_position.y - 40.0,1.2)
+	tween.tween_property(self,"position:y",start_position.y + 40.0,1.2)
+	
 	move_target = [position.x-move_range,position.x+move_range]
 	Dialogic.connect("signal_event",_signal_event)
 	$collision.disabled = true
@@ -90,6 +99,7 @@ func _signal_event(arg):
 		running = true
 		$collision.disabled = false
 		$collision2.disabled = false
+		Dialogic.emit_signal("signal_event","title_Lethos")
 		$attack.start()
 	if arg == "lethos_cam":
 		$bosscam.make_current()
