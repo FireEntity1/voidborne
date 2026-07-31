@@ -202,13 +202,20 @@ func attack() -> void:
 	slash.set_frame_and_progress(0,0.0)
 	
 	var pogo = false
+	var particles: GPUParticles2D = $hit_particles
 	
 	if Input.is_action_pressed("up"):
 		slash.rotation_degrees = 120
+		particles.process_material.direction = Vector3(0,-1,0)
+		particles.position = Vector2(0,-20)
 	elif Input.is_action_pressed("down") and not is_on_floor():
+		particles.process_material.direction = Vector3(0,1,0)
+		particles.position = Vector2(0,20)
 		pogo = true
 		slash.rotation_degrees = -60
 	else:
+		particles.process_material.direction = Vector3(-1*previous_direction,0,0)
+		particles.position = Vector2(20*previous_direction,0)
 		slash.rotation_degrees = 30
 	slash.force_update_transform()
 	$sprite/slash/area.force_update_transform()
@@ -226,6 +233,7 @@ func attack() -> void:
 		if enemy.is_in_group("enemy"):
 			if enemy.has_method("damage"):
 				enemy.damage(damage)
+				did_hit = true
 				Global.voidmeter += 1
 			if pogo:
 				pogo = false
@@ -234,11 +242,12 @@ func attack() -> void:
 	for area in areas:
 		if area.is_in_group("hittable"):
 			area.hit()
-	$sprite/slash/hit_particles.emitting = did_hit
+	$hit_particles.restart()
+	$hit_particles.emitting = did_hit
 	
 	await slash.animation_finished
 	slash.visible = false
-	$sprite/slash/hit_particles.emitting = false
+	$hit_particles.emitting = false
 	
 	await get_tree().create_timer(attack_cooldown).timeout
 	can_attack = true
