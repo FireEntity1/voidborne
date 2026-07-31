@@ -1,4 +1,4 @@
-[gd_scene load_steps=70 format=3 uid="uid://dq7ng5vi3rwcu"]
+[gd_scene load_steps=75 format=3 uid="uid://dq7ng5vi3rwcu"]
 
 [ext_resource type="Script" uid="uid://brq7vdr3t803u" path="res://scripts/core/player.gd" id="1_hpv3a"]
 [ext_resource type="Texture2D" uid="uid://c582x5ti7j4no" path="res://sprites/voidborn.png" id="2_hpv3a"]
@@ -69,6 +69,33 @@ initial_velocity_max = 10.0
 gravity = Vector3(0, 50, 0)
 scale_curve = SubResource("CurveTexture_gfmea")
 color_ramp = SubResource("GradientTexture1D_gfmea")
+
+[sub_resource type="Gradient" id="Gradient_gfmea"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_njjvt"]
+gradient = SubResource("Gradient_gfmea")
+width = 16
+height = 16
+
+[sub_resource type="Curve" id="Curve_gfmea"]
+_data = [Vector2(0.0189573, 0), 0.0, 0.0, 0, 0, Vector2(0.220379, 1), 0.0, 0.0, 0, 0, Vector2(0.748815, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_njjvt"]
+curve = SubResource("Curve_gfmea")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_gfmea"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(4, 5, 1)
+direction = Vector3(0, -1, 0)
+spread = 93.75
+initial_velocity_min = 14.71
+initial_velocity_max = 34.31
+gravity = Vector3(0, -50, 0)
+scale_curve = SubResource("CurveTexture_njjvt")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lr4tp"]
 atlas = ExtResource("3_5a7ls")
@@ -471,6 +498,14 @@ speed_scale = 3.0
 explosiveness = 0.95
 randomness = 0.56
 process_material = SubResource("ParticleProcessMaterial_bl7dy")
+
+[node name="dying_particles" type="GPUParticles2D" parent="."]
+position = Vector2(2.5, -0.625)
+emitting = false
+amount = 16
+texture = SubResource("GradientTexture2D_njjvt")
+speed_scale = 2.0
+process_material = SubResource("ParticleProcessMaterial_gfmea")
 
 [node name="sprite" type="AnimatedSprite2D" parent="."]
 modulate = Color(1.4, 1.4, 1.4, 1)

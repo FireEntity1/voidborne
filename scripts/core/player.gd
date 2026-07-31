@@ -45,7 +45,7 @@ var next_heal_time = CAST_FIRST_HEAL_DELAY
 var cast_active = false
 var is_focusing = false
 
-@export var max_health := 10
+@export var max_health := 6
 var health := 10
 signal health_changed(current_health: int, max_health: int)
 
@@ -276,9 +276,9 @@ func hit(damage=1, knock:bool = false, hit_location = Vector2.ZERO) -> void:
 	player_hit.emit()
 		
 	print(health)
-		
-	if health <= 0:
-		get_tree().reload_current_scene()
+	
+	if health <= 1:
+		die()
 		return
 	
 	take_damage(damage)
@@ -312,6 +312,12 @@ func _dialogic_signal(argument: String):
 func set_health(value: int) -> void:
 	var old_health = health
 	health = clampi(value, 0, max_health)
+	if health >= 1 and health <= 2:
+		$dying_particles.emitting = true
+		Global.screen_vingette(true,0.0,0.5)
+	else:
+		$dying_particles.emitting = false
+		Global.screen_vingette(false)
 	if health != old_health:
 		health_changed.emit(health, max_health)
 
@@ -343,3 +349,10 @@ func apply_upgrades():
 		elif lookup.effect == "range":
 			$sprite/slash/area/collision.shape.radius += lookup.amt
 	print($sprite/slash/area/collision.shape.radius)
+
+func die():
+	Global.mod_can_move(false)
+	Global.screen_vingette(true,0.0,0.4)
+	Dialogic.emit_signal("signal_event","cam_zoom_4.0")
+	await get_tree().create_timer(1.4).timeout
+	Global.fadescreen(true,true,false)

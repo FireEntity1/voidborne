@@ -73,7 +73,7 @@ var state = {
 	"area": "voidnexus",
 	"voidwell_id":"",
 	"health": 10,
-	"max_health": 10,
+	"max_health": 6,
 	
 	"light_shards": 0,
 	
