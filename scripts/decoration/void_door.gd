@@ -10,18 +10,25 @@ func _ready() -> void:
 	Dialogic.signal_event.connect(open)
 	is_closed = not closed
 	if not closed:
-		open(open_signal)
+		$sprite.play("open")
+		$collision.disabled = true
 	elif closed:
-		open(close_signal)
+		$sprite.play("close")
+		$collision.disabled = false
 	is_closed = closed
 
 func open(arg):
+	if not arg is String or arg.is_empty():
+		return
+	
 	if arg == open_signal and is_closed:
 		$sprite.play("open")
 		$collision.disabled = true
+		is_closed = false
 	elif arg == close_signal and not is_closed:
 		$sprite.play("close")
 		$collision.disabled = false
+		is_closed = true
 
 func hit():
 	$sprite.play("default")

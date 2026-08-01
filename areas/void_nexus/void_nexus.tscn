@@ -200,7 +200,6 @@ position = Vector2(803, -34)
 [node name="door" parent="doors" instance=ExtResource("6_vy1cv")]
 position = Vector2(7882, -24)
 rotation = 1.5708
-closed = false
 
 [node name="door2" parent="doors" instance=ExtResource("6_vy1cv")]
 position = Vector2(4298, 1896)
