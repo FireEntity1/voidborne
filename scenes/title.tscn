@@ -1,43 +1,24 @@
-[gd_scene load_steps=14 format=3 uid="uid://cfrttr2avymic"]
+[gd_scene load_steps=8 format=3 uid="uid://cfrttr2avymic"]
 
 [ext_resource type="Script" uid="uid://35uss2p7f8fg" path="res://scripts/core/title.gd" id="1_p6dhs"]
-[ext_resource type="Shader" uid="uid://bbsxfqbwg6r80" path="res://resources/shaders/sky.gdshader" id="2_pyl7j"]
+[ext_resource type="Shader" uid="uid://bns6x60fcqhgn" path="res://resources/shaders/swirl.gdshader" id="2_b3w7a"]
 [ext_resource type="Theme" uid="uid://cdhymgfj7lkn7" path="res://resources/game.tres" id="3_4rr2b"]
 [ext_resource type="Shader" uid="uid://vju4x68rih5k" path="res://resources/shaders/fog_spots.gdshader" id="3_b3w7a"]
 [ext_resource type="PackedScene" uid="uid://cf1drldhcrqob" path="res://components/settings.tscn" id="4_pyl7j"]
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_j8o6j"]
-seed = 5
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_u7j7y"]
-seamless = true
-noise = SubResource("FastNoiseLite_j8o6j")
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_i8wpt"]
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_fdyms"]
-width = 256
-height = 256
-seamless = true
-noise = SubResource("FastNoiseLite_i8wpt")
-
-[sub_resource type="Gradient" id="Gradient_6cqm2"]
-colors = PackedColorArray(0, 0, 0, 1, 0.195661, 0.238505, 0.318088, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_l0ujy"]
-gradient = SubResource("Gradient_6cqm2")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_mafm3"]
-shader = ExtResource("2_pyl7j")
-shader_parameter/pixelation = Vector2(128, 128)
-shader_parameter/cloud_noise1 = SubResource("NoiseTexture2D_u7j7y")
-shader_parameter/scroll_speed1 = Vector2(0.02, 0.007)
-shader_parameter/cloud_noise2 = SubResource("NoiseTexture2D_fdyms")
-shader_parameter/scroll_speed2 = Vector2(-0.015, -0.004)
-shader_parameter/center_pos = Vector2(0, 0)
-shader_parameter/position_impact = 0.75
-shader_parameter/color_gardient = SubResource("GradientTexture1D_l0ujy")
-shader_parameter/ALPHA = 0.7
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4rr2b"]
+shader = ExtResource("2_b3w7a")
+shader_parameter/spin_rotation_speed = 0.2
+shader_parameter/move_speed = 7.0
+shader_parameter/offset = Vector2(0, 0)
+shader_parameter/colour_1 = Color(0, 0, 0, 1)
+shader_parameter/colour_2 = Color(0.07, 0.07, 0.07, 1)
+shader_parameter/colour_3 = Color(0.15, 0.15, 0.15, 1)
+shader_parameter/contrast = 3.5
+shader_parameter/lighting = 0.0
+shader_parameter/spin_amount = 0.0
+shader_parameter/pixel_filter = 200.0
+shader_parameter/is_rotating = true
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_j8o6j"]
 shader = ExtResource("3_b3w7a")
@@ -55,12 +36,12 @@ shader_parameter/seed = 12.0
 [node name="title" type="Node2D"]
 script = ExtResource("1_p6dhs")
 
-[node name="sky" type="ColorRect" parent="."]
-material = SubResource("ShaderMaterial_mafm3")
-offset_left = -77.0
-offset_top = -88.0
-offset_right = 1974.0
-offset_bottom = 1161.0
+[node name="swirl" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_4rr2b")
+offset_left = -65.0
+offset_top = -45.0
+offset_right = 1968.0
+offset_bottom = 1135.0
 
 [node name="centre" type="CenterContainer" parent="."]
 offset_right = 1920.0

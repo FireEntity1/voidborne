@@ -45,6 +45,8 @@ var next_heal_time = CAST_FIRST_HEAL_DELAY
 var cast_active = false
 var is_focusing = false
 
+var dead = false
+
 @export var max_health := 6
 var health := 10
 signal health_changed(current_health: int, max_health: int)
@@ -277,10 +279,6 @@ func hit(damage=1, knock:bool = false, hit_location = Vector2.ZERO) -> void:
 		
 	print(health)
 	
-	if health <= 1:
-		die()
-		return
-	
 	take_damage(damage)
 	Global.can_move = true
 	velocity.x = knockback_direction * knockback_x
@@ -290,6 +288,10 @@ func hit(damage=1, knock:bool = false, hit_location = Vector2.ZERO) -> void:
 	was_hit = false
 	await get_tree().create_timer(invincible_time - hit_stun_time).timeout
 	invincible = false
+	
+	if health <= 1:
+		die()
+		return
 
 func flash_hit() -> void:
 	$sprite.modulate = Color(4.0,2.4,2.4)
@@ -351,5 +353,9 @@ func apply_upgrades():
 	print($sprite/slash/area/collision.shape.radius)
 
 func die():
+	if dead:
+		return
+	dead = true
+	Global.mod_can_move(false)
 	Global.root.die()
 	return
