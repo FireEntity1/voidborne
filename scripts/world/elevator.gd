@@ -148,6 +148,7 @@ func get_boarding_position() -> Vector2:
 	return $boarding_position.global_position
 
 func begin_trip(body: CharacterBody2D) -> bool:
+	$base/audio.play(2)
 	if moving:
 		return false
 	player = body
@@ -158,4 +159,7 @@ func begin_trip(body: CharacterBody2D) -> bool:
 	$base/side_r.set_deferred("disabled",false)
 	$base/base.play("default")
 	Global.mod_can_move(false)
+	while moving:
+		await get_tree().process_frame
+	$base/audio.play(33)
 	return true

@@ -1,8 +1,9 @@
-[gd_scene load_steps=17 format=3 uid="uid://g7udiwmfyemd"]
+[gd_scene load_steps=18 format=3 uid="uid://g7udiwmfyemd"]
 
 [ext_resource type="Script" uid="uid://bthphvhs6em3k" path="res://scripts/world/elevator.gd" id="1_6c7du"]
 [ext_resource type="Texture2D" uid="uid://bqbcj4k54p2fb" path="res://sprites/elevator.png" id="1_l2c5a"]
 [ext_resource type="Texture2D" uid="uid://lvsb5jkcikid" path="res://sprites/elevator_chain.png" id="2_sqgel"]
+[ext_resource type="AudioStream" uid="uid://ctq3h222cmuyo" path="res://audio/sfx/elevator.mp3" id="4_5cid8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5cid8"]
 size = Vector2(26.7501, 0.165333)
@@ -123,6 +124,12 @@ collision_mask = 2
 [node name="collision" type="CollisionShape2D" parent="base/trigger"]
 position = Vector2(0, -13.25)
 shape = SubResource("RectangleShape2D_6c7du")
+
+[node name="audio" type="AudioStreamPlayer2D" parent="base"]
+stream = ExtResource("4_5cid8")
+volume_db = 2.0
+attenuation = 0.267943
+panning_strength = 0.37
 
 [node name="boarding_position" type="Marker2D" parent="."]
 position = Vector2(0, -9)
