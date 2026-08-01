@@ -18,6 +18,8 @@ var player: CharacterBody2D
 
 @export var dir_speed = 1
 
+var knockback = 0
+
 var alive = true
 
 func _ready() -> void:
@@ -72,7 +74,10 @@ func _physics_process(delta: float) -> void:
 	else:
 		sprite.play("idle")
 		velocity.x = move_toward(velocity.x, 0.0, acceleration * delta)
-
+	
+	if knockback != 0:
+		velocity.x = 700.0*knockback
+	
 	move_and_slide()
 
 	if shader_mat:
@@ -91,11 +96,13 @@ func damage(damage):
 	var direction = sign(player.global_position.x - global_position.x)
 	if abs(player.global_position.x - global_position.x) < 80:
 		direction = 0
-	velocity.x -= direction*300
+	knockback = -direction
 	modulate.r = 1.8
 	await get_tree().create_timer(0.1).timeout
 	modulate.r = 1.2
 	await get_tree().create_timer(0.1).timeout
+	velocity.x = knockback*400
+	knockback = 0
 
 func die():
 	$death_particles.emitting = true
