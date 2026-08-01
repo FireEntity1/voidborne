@@ -56,7 +56,8 @@ signal health_changed(current_health: int, max_health: int)
 @onready var sounds = {
 	"swing": $audio/swing,
 	"hit": $audio/hit,
-	"woosh": $audio/woosh
+	"woosh": $audio/woosh,
+	"damage": $audio/damage
 }
 
 signal player_hit
@@ -336,6 +337,7 @@ func set_health(value: int) -> void:
 	print(health)
 
 func take_damage(amount: int) -> void:
+	sounds.damage.play()
 	set_health(health - amount)
 
 func heal(amount: int) -> void:
