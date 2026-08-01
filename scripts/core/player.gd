@@ -300,7 +300,7 @@ func hit(damage=1, knock:bool = false, hit_location = Vector2.ZERO) -> void:
 	await get_tree().create_timer(invincible_time - hit_stun_time).timeout
 	invincible = false
 	
-	if health <= 1:
+	if health < 1:
 		die()
 		return
 
@@ -333,6 +333,7 @@ func set_health(value: int) -> void:
 		Global.screen_vingette(false)
 	if health != old_health:
 		health_changed.emit(health, max_health)
+	print(health)
 
 func take_damage(amount: int) -> void:
 	set_health(health - amount)
