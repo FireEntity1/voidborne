@@ -53,6 +53,11 @@ signal health_changed(current_health: int, max_health: int)
 
 @onready var slash = $sprite/slash
 
+@onready var sounds = {
+	"swing": $audio/swing,
+	"hit": $audio/hit
+}
+
 signal player_hit
 
 func _ready() -> void:
@@ -202,7 +207,7 @@ func attack() -> void:
 	slash.stop()
 	slash.visible = false
 	slash.set_frame_and_progress(0,0.0)
-	
+	sounds.swing.play()
 	var pogo = false
 	var particles: GPUParticles2D = $hit_particles
 	
@@ -246,6 +251,9 @@ func attack() -> void:
 			area.hit()
 	$hit_particles.restart()
 	$hit_particles.emitting = did_hit
+	
+	if did_hit:
+		sounds.hit.play( )
 	
 	await slash.animation_finished
 	slash.visible = false

@@ -1,4 +1,4 @@
-[gd_scene load_steps=75 format=3 uid="uid://dq7ng5vi3rwcu"]
+[gd_scene load_steps=77 format=3 uid="uid://dq7ng5vi3rwcu"]
 
 [ext_resource type="Script" uid="uid://brq7vdr3t803u" path="res://scripts/core/player.gd" id="1_hpv3a"]
 [ext_resource type="Texture2D" uid="uid://c582x5ti7j4no" path="res://sprites/voidborn.png" id="2_hpv3a"]
@@ -9,6 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://bpx0jrmjudect" path="res://sprites/voidborn-jump-move.png" id="5_km066"]
 [ext_resource type="Texture2D" uid="uid://b81vbncrinxqu" path="res://sprites/voidborn-move.png" id="6_lkhqe"]
 [ext_resource type="Texture2D" uid="uid://clamd7c3rq7bo" path="res://sprites/swing.png" id="9_5a7ls"]
+[ext_resource type="AudioStream" uid="uid://by3jkn1saea2l" path="res://audio/sfx/swish.mp3" id="10_bl7dy"]
+[ext_resource type="AudioStream" uid="uid://dqxulhb6r651d" path="res://audio/sfx/thud.wav" id="11_gfmea"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hpv3a"]
 size = Vector2(8, 17.25)
@@ -545,5 +547,16 @@ texture = SubResource("GradientTexture2D_bl7dy")
 lifetime = 2.0
 speed_scale = 1.5
 process_material = SubResource("ParticleProcessMaterial_5a7ls")
+
+[node name="audio" type="Node2D" parent="."]
+
+[node name="swing" type="AudioStreamPlayer2D" parent="audio"]
+stream = ExtResource("10_bl7dy")
+pitch_scale = 1.2
+
+[node name="hit" type="AudioStreamPlayer2D" parent="audio"]
+stream = ExtResource("11_gfmea")
+volume_db = -7.0
+attenuation = 1e-05
 
 [connection signal="body_entered" from="hit" to="." method="_on_hit_body_entered"]
