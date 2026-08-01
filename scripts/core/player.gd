@@ -243,7 +243,7 @@ func attack() -> void:
 			if enemy.has_method("damage"):
 				enemy.damage(damage)
 				did_hit = true
-				if Global.voidmeter < 12:
+				if Global.  voidmeter < 12:
 					Global.voidmeter += 1
 			if pogo:
 				pogo = false

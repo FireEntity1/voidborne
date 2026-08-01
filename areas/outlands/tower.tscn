@@ -333,6 +333,7 @@ close_signal = "tower_arena1_begin"
 [node name="door5" parent="doors" instance=ExtResource("8_71cyo")]
 position = Vector2(-320, -11840)
 rotation = 1.5708
+open_signal = "light_done"
 close_signal = "light_switch"
 closed = false
 

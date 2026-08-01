@@ -4,6 +4,10 @@ extends Area2D
 
 var done = false
 
+func _ready() -> void:
+	if Global.state.outlands_light == true:
+		hit()
+
 func hit():
 	if done:
 		return
@@ -13,3 +17,4 @@ func hit():
 	parent.flash()
 	Dialogic.emit_signal("signal_event","light_switch")
 	Global.state["outlands_light"] = true
+	Dialogic.emit_signal("signal_event","light_done")
