@@ -24,7 +24,7 @@ func _ready() -> void:
 	Global.root = self
 	Global.connect("vingette",_vingette)
 	Global.connect("focus_vingette",_focus_vingette)
-	change_area(Global.state.area)
+	change_area(Global.state.area,"default",{},Global.state.get("respawn_elevators",[]))
 	Global.health = Global.player.health
 	#Global.state.voidwell_id = "outlands_boss"
 	change_location(Global.state.voidwell_id)
@@ -79,12 +79,19 @@ func _update_vingette(radius: float = 0.62) -> void:
 		vingette_tween.tween_property(vingette,"modulate:a",0.0,1.0)
 		vingette_tween.tween_callback(vingette.hide).set_delay(1.0)
  
-func change_area(area: String,location: String = "default",elevator_arrival: Dictionary = {}):
+func change_area(area: String,location: String = "default",elevator_arrival: Dictionary = {},respawn_elevators: Array = []):
 	loaded_scene = area
 	var area_data = Global.levels[area]
+	var new: Node2D = area_data.scene.instantiate()
+	for config in respawn_elevators:
+		var path = config.get("path", "")
+		var elevator = new.get_node_or_null(path)
+		if elevator == null:
+			push_error("respawn elevator not found buckaroo")
+		else:
+			elevator.set_initial_terminal(config.get("at_top",false))
 	for child in $game/loaded_scene.get_children():
 		child.queue_free()
-	var new: Node2D = area_data.scene.instantiate()
 	
 	var arrival_elevator: Node2D = null
 	

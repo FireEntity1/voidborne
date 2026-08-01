@@ -178,6 +178,13 @@ id = 17
 [node name="voidwell" parent="voidwell_hold" instance=ExtResource("15_lf7ir")]
 position = Vector2(64, -10816)
 id = "tower"
+respawn_elevators = Array[Dictionary]([{
+"at_top": true,
+"path": "elevator2"
+}, {
+"at_top": true,
+"path": "elevator"
+}])
 
 [node name="player_hold" type="Node2D" parent="."]
 

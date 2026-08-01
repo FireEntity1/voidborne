@@ -445,6 +445,10 @@ position = Vector2(18169, -4552)
 [node name="voidwell" parent="voidwell_hold" instance=ExtResource("11_as6hk")]
 position = Vector2(13327, 1498)
 id = "foundry_weaponsmith"
+respawn_elevators = Array[Dictionary]([{
+"at_top": false,
+"path": "elevators/elevator5"
+}])
 
 [node name="npcs" type="Node2D" parent="."]
 

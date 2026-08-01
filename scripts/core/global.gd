@@ -70,8 +70,9 @@ var state = {
 		"voidblast": true,
 	},
 	# basic stuff
-	"area": "voidnexus",
-	"voidwell_id":"",
+	"area": "outlands_tower",
+	"voidwell_id":"tower",
+	"respawn_elevators": [],
 	"health": 10,
 	"max_health": 6,
 	
@@ -107,7 +108,6 @@ var player: CharacterBody2D
 var root: Node2D
 
 func _ready() -> void:
-	#save()
 	load_save()
 	health = state.max_health
 	print(state)
@@ -115,6 +115,7 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	Engine.time_scale = move_toward(Engine.time_scale,time_scale,delta*10.0)
+	save()
 
 func pause_frames(time: float):
 	time_scale = 0.2
@@ -141,9 +142,10 @@ func mod_can_move(status: bool = true):
 func change_scene(area: String, location: String = "default", elevator_arrival: Dictionary = {}):
 	root.change_area(area, location, elevator_arrival)
 
-func set_voidwell(id: String):
+func set_voidwell(id: String, respawn_elevators: Array = []):
 	state.voidwell_id = id
 	state.area = root.get_node("game").get_node("loaded_scene").get_children()[0].name
+	state.respawn_elevators = respawn_elevators
 	print(state.voidwell_id)
 
 func encode_vector(value: Variant):

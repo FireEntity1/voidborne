@@ -48,9 +48,12 @@ func _on_body_entered(body) -> void:
 func start():
 	if is_voidwell:
 		var well = signal_string.split("voidwell")[1]
-		Global.save()
+		var voidwell = get_parent()
+		var respawn_elevators: Array = voidwell.respawn_elevators.duplicate(true)
+
 		Global.mod_can_move(false)
-		Global.set_voidwell(well)
+		Global.set_voidwell(well, respawn_elevators)
+		Global.save()
 		var particles = get_parent().get_node("use")
 		particles.emitting = true
 		await get_tree().create_timer(1.0).timeout
