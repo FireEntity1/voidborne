@@ -1,4 +1,4 @@
-[gd_scene load_steps=77 format=3 uid="uid://dq7ng5vi3rwcu"]
+[gd_scene load_steps=78 format=3 uid="uid://dq7ng5vi3rwcu"]
 
 [ext_resource type="Script" uid="uid://brq7vdr3t803u" path="res://scripts/core/player.gd" id="1_hpv3a"]
 [ext_resource type="Texture2D" uid="uid://c582x5ti7j4no" path="res://sprites/voidborn.png" id="2_hpv3a"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://clamd7c3rq7bo" path="res://sprites/swing.png" id="9_5a7ls"]
 [ext_resource type="AudioStream" uid="uid://by3jkn1saea2l" path="res://audio/sfx/swish.mp3" id="10_bl7dy"]
 [ext_resource type="AudioStream" uid="uid://dqxulhb6r651d" path="res://audio/sfx/thud.wav" id="11_gfmea"]
+[ext_resource type="AudioStream" uid="uid://dmpoduimfswgm" path="res://audio/sfx/woosh.mp3" id="12_njjvt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hpv3a"]
 size = Vector2(8, 17.25)
@@ -558,5 +559,9 @@ pitch_scale = 1.2
 stream = ExtResource("11_gfmea")
 volume_db = -7.0
 attenuation = 1e-05
+
+[node name="woosh" type="AudioStreamPlayer2D" parent="audio"]
+stream = ExtResource("12_njjvt")
+volume_db = -5.0
 
 [connection signal="body_entered" from="hit" to="." method="_on_hit_body_entered"]

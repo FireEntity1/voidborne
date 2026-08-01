@@ -17,7 +17,7 @@ var can_attack = true
 var can_dash = true
 var is_dashing = false
 
-var dash_cooldown = 0.01
+var dash_cooldown = 0.4
 var attack_cooldown = 0.2
 var was_hit = false
 var hit_location = Vector2.ZERO
@@ -55,7 +55,8 @@ signal health_changed(current_health: int, max_health: int)
 
 @onready var sounds = {
 	"swing": $audio/swing,
-	"hit": $audio/hit
+	"hit": $audio/hit,
+	"woosh": $audio/woosh
 }
 
 signal player_hit
@@ -139,6 +140,7 @@ func _physics_process(delta: float) -> void:
 	
 	if Input.is_action_just_pressed("dash") and Global.can_move and Global.state["items"]["dash"]:
 		is_dashing = true
+		sounds.woosh.play()
 		can_dash = false
 		$dash.restart()
 		$dash.emitting = true
