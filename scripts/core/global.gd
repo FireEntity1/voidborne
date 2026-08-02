@@ -63,6 +63,8 @@ var levels = {
 	}
 }
 
+var default
+
 var state = {
 	"items": {
 		"dash": true,
@@ -109,6 +111,7 @@ var player: CharacterBody2D
 var root: Node2D
 
 func _ready() -> void:
+	default = state.duplicate(true)
 	load_save()
 	health = state.max_health
 	print(state)

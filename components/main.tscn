@@ -21,9 +21,9 @@ shader_parameter/vignette_color = Color(0, 0, 0, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_tipki"]
 shader = ExtResource("4_q15wk")
-shader_parameter/intensity = 6.0
+shader_parameter/intensity = 3.0
 shader_parameter/threshold = 0.0
-shader_parameter/spread = 3.1
+shader_parameter/spread = 2.1
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_nnpke"]
 shader = ExtResource("5_8wsji")

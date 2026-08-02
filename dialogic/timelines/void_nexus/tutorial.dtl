@@ -1,0 +1,16 @@
+Is the void aware of its capabilities?
+- No, teach it.
+	Use A/D or arrow keys to move left and right.
+	[wait time="2.0"]
+	Left click or press X to swing your weapon.
+	[wait time="2.0"]
+	Press space to jump.
+	[wait time="2.0"]
+	Hold W/S or up/down arrow to upswing or downswing.
+	Downswings only work while in the air.
+	[wait time="2.0"]
+	Press E to interact with objects around Halcrya.
+	[wait time="2.0"]
+	It may learn new capabilities later on. It will learn how to use them when it receives them.
+	Good luck, void thing.
+- Yes, continue without learning.
