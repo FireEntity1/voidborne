@@ -67,16 +67,16 @@ var default
 
 var state = {
 	"items": {
-		"dash": true,
+		"dash": false,
 		"ridge_tablet": false,
-		"voidblast": true,
+		"voidblast": false,
 	},
 	"initial": true,
 	# basic stuff
 	"area": "voidnexus",
 	"voidwell_id":"",
 	"respawn_elevators": [],
-	"health": 10,
+	"health": 6,
 	"max_health": 6,
 	
 	"light_shards": 0,
@@ -94,8 +94,8 @@ var state = {
 	"shards_collected": [],
 	
 	# world states and wtv
-	"outlands_light": true,
-	"foundry_unlocked": true,
+	"outlands_light": false,
+	"foundry_unlocked": false,
 	
 }
 
