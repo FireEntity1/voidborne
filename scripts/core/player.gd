@@ -318,7 +318,6 @@ func hit(damage=1, knock:bool = false, hit_location = Vector2.ZERO) -> void:
 	was_hit = false
 	await get_tree().create_timer(invincible_time - hit_stun_time).timeout
 	invincible = false
-	
 
 func flash_hit() -> void:
 	$sprite.modulate = Color(4.0,2.4,2.4)
