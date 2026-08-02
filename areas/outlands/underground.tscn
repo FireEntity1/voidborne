@@ -393,6 +393,8 @@ boss = NodePath("../forsaken_prism")
 position = Vector2(19337, 2602)
 sprite = SubResource("SpriteFrames_nl6yn")
 item_id = "dash"
+item_name = "D A S H "
+item_description = "press CTRL to launch yourself in the direction you are facing"
 
 [node name="arena" parent="." instance=ExtResource("12_nl6yn")]
 position = Vector2(15906, 131)

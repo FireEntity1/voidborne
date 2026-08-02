@@ -1,0 +1,43 @@
+[gd_scene load_steps=2 format=3 uid="uid://ct6h8n6yi8eyf"]
+
+[ext_resource type="Script" uid="uid://d0wnbmbvikfk" path="res://scripts/core/item_pickup.gd" id="1_rkqag"]
+
+[node name="item_pickup" type="CanvasLayer"]
+layer = 10
+script = ExtResource("1_rkqag")
+
+[node name="bg" type="ColorRect" parent="."]
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0, 0, 0, 0.760784)
+
+[node name="centre" type="CenterContainer" parent="bg"]
+custom_minimum_size = Vector2(1920, 1080)
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="vbox" type="VBoxContainer" parent="bg/centre"]
+layout_mode = 2
+
+[node name="title" type="Label" parent="bg/centre/vbox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 96
+text = "U N L O C K E D"
+horizontal_alignment = 1
+
+[node name="name" type="Label" parent="bg/centre/vbox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 96
+text = "V O I D B L A S T"
+horizontal_alignment = 1
+
+[node name="rect" type="ColorRect" parent="bg/centre/vbox"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+color = Color(1, 1, 1, 0)
+
+[node name="description" type="Label" parent="bg/centre/vbox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "press CTRL to launch yourself forwards"
+horizontal_alignment = 1

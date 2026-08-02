@@ -534,6 +534,8 @@ position = Vector2(719, 10)
 position = Vector2(4108, -4324)
 sprite = SubResource("SpriteFrames_rsdli")
 item_id = "voidblast"
+item_name = "V O I D B L A S T"
+item_description = "tap F to launch a stream of void that damages the light."
 
 [node name="audio" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(7288, -898)
