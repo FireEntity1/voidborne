@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=4 uid="uid://cjw5jsk1dmc32"]
+[gd_scene load_steps=41 format=4 uid="uid://cjw5jsk1dmc32"]
 
 [ext_resource type="Texture2D" uid="uid://bk7s8n45qeelk" path="res://sprites/cracked_concrete.png" id="1_gqfbg"]
 [ext_resource type="Script" uid="uid://h3pypeusrmmh" path="res://scripts/world/underground.gd" id="1_timks"]
@@ -20,6 +20,7 @@
 [ext_resource type="Resource" uid="uid://bna2b0nffji4" path="res://dialogic/timelines/outlands/orren_underground.dtl" id="18_ibjfp"]
 [ext_resource type="PackedScene" uid="uid://dh1lee42hp8xa" path="res://components/decoration/cam_zoom_zone.tscn" id="19_timks"]
 [ext_resource type="PackedScene" uid="uid://c0ho8wjd0okb5" path="res://components/core/light_shard.tscn" id="20_k5io8"]
+[ext_resource type="AudioStream" uid="uid://k530774xfy6o" path="res://audio/ambient/underground.wav" id="21_161kk"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jpybe"]
 texture = ExtResource("1_gqfbg")
@@ -453,3 +454,12 @@ scale = Vector2(158.801, 74.0526)
 zoom = 0.8
 
 [node name="npc" type="Node2D" parent="."]
+
+[node name="audio" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(18207, 1294)
+stream = ExtResource("21_161kk")
+volume_db = -8.0
+autoplay = true
+max_distance = 25000.0
+attenuation = 1e-05
+panning_strength = 0.0
