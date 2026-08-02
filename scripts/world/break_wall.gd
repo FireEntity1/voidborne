@@ -14,7 +14,7 @@ func hit():
 	if health <= 0:
 		$static/collision.disabled = true
 		$sprite.hide()
-		print("wall gone")
+		queue_free()
 
 func shake():
 	for i in range(10):

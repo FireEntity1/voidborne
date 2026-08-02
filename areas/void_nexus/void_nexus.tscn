@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=4 uid="uid://cu3pynmxlqcjn"]
+[gd_scene load_steps=31 format=4 uid="uid://cu3pynmxlqcjn"]
 
 [ext_resource type="Shader" uid="uid://vju4x68rih5k" path="res://resources/shaders/fog_spots.gdshader" id="1_obxot"]
 [ext_resource type="Shader" uid="uid://bns6x60fcqhgn" path="res://resources/shaders/swirl.gdshader" id="1_vdein"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://kwapaj5ajref" path="res://components/void_nexus/break_wall.tscn" id="12_wpvqk"]
 [ext_resource type="PackedScene" uid="uid://bx5sw6412n002" path="res://components/core/transition.tscn" id="13_rweyd"]
 [ext_resource type="PackedScene" uid="uid://c0ho8wjd0okb5" path="res://components/core/light_shard.tscn" id="15_o7svj"]
+[ext_resource type="AudioStream" uid="uid://w81x4mlfupu6" path="res://audio/ambient/voidnexus.wav" id="16_y65uw"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gveje"]
 shader = ExtResource("1_vdein")
@@ -296,3 +297,9 @@ occluder = SubResource("OccluderPolygon2D_wpvqk")
 [node name="3" type="LightOccluder2D" parent="particle_collisions"]
 position = Vector2(-502, -2046)
 occluder = SubResource("OccluderPolygon2D_xwhb6")
+
+[node name="audio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("16_y65uw")
+autoplay = true
+max_distance = 16000.0
+attenuation = 1e-05

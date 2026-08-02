@@ -253,6 +253,7 @@ func attack() -> void:
 	for area in areas:
 		if area.is_in_group("hittable"):
 			area.hit()
+			did_hit = true
 	$hit_particles.restart()
 	$hit_particles.emitting = did_hit
 	
