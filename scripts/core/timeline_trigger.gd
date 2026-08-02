@@ -57,6 +57,7 @@ func start():
 		var particles = get_parent().get_node("use")
 		particles.emitting = true
 		await get_tree().create_timer(1.0).timeout
+		Global.player.set_health(Global.player.max_health)
 		particles.emitting = false
 		Global.mod_can_move(true)
 	if item_required != "":

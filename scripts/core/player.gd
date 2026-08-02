@@ -48,7 +48,7 @@ var is_focusing = false
 var dead = false
 
 @export var max_health := 6
-var health := 10
+var health := 6
 signal health_changed(current_health: int, max_health: int)
 
 @onready var slash = $sprite/slash
