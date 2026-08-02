@@ -13,6 +13,7 @@ color = Color(0, 0, 0, 0.760784)
 
 [node name="centre" type="CenterContainer" parent="bg"]
 custom_minimum_size = Vector2(1920, 1080)
+layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
