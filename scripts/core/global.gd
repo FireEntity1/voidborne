@@ -69,6 +69,7 @@ var state = {
 		"ridge_tablet": false,
 		"voidblast": true,
 	},
+	"initial": true,
 	# basic stuff
 	"area": "voidnexus",
 	"voidwell_id":"",

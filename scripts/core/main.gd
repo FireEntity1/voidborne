@@ -12,6 +12,8 @@ var area_vingette = false
 var focus_vingette = false
 var vingette_tween: Tween
 
+var fade_mult = 1.0
+
 var show_title = false
 
 var died = false
@@ -20,6 +22,7 @@ const PLAYER = preload("res://components/core/player.tscn")
 
 func _ready() -> void:
 	#$game/player.connect("player_hit",_on_player_hit)
+	fade_mult = 2.5
 	Dialogic.connect("signal_event",_dialogic_signal)
 	Global.root = self
 	Global.connect("vingette",_vingette)
@@ -28,9 +31,11 @@ func _ready() -> void:
 	Global.health = Global.player.health
 	#Global.state.voidwell_id = "outlands_boss"
 	change_location(Global.state.voidwell_id)
+	await get_tree().create_timer(3.0).timeout
+	fade_mult = 1.0
 
 func _process(delta: float) -> void:
-	fade.modulate.a = move_toward(fade.modulate.a, 1.0, delta) if Global.fade.active else move_toward(fade.modulate.a, 0.0, delta)
+	fade.modulate.a = move_toward(fade.modulate.a, 1.0, delta/fade_mult) if Global.fade.active else move_toward(fade.modulate.a, 0.0, delta/fade_mult)
 	fade.color = Color(0,0,0) if Global.fade.black else Color(1,1,1)
 	if Global.fade.instant:
 		fade.modulate.a = 1.0 if Global.fade.active else 0.0

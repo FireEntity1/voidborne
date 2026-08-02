@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://bukoxqhqs1agm"]
+
+[ext_resource type="Shader" uid="uid://c7rm3ka70mfk5" path="res://resources/shaders/tunnel.gdshader" id="1_ioskq"]
+[ext_resource type="Script" uid="uid://c04e1j6vv5bdf" path="res://scripts/core/intro.gd" id="1_yjqpq"]
+[ext_resource type="Resource" uid="uid://dttv3tdbwauof" path="res://dialogic/timelines/intro.dtl" id="2_4bx60"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yjqpq"]
+shader = ExtResource("1_ioskq")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/scale = 10000.0
+shader_parameter/circle_ratio = 0.0
+shader_parameter/cut_radius = 1.0
+shader_parameter/rotate_speed = 0.0999776
+shader_parameter/time_speed = 1.0
+shader_parameter/frequency_base = 1.0
+shader_parameter/frequency_disturbance_scale = 0.0
+shader_parameter/stop_shine = true
+
+[node name="intro" type="Node2D"]
+script = ExtResource("1_yjqpq")
+timeline = ExtResource("2_4bx60")
+
+[node name="bg" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_yjqpq")
+offset_left = -26.0
+offset_top = -412.0
+offset_right = 1946.0
+offset_bottom = 1492.0
+
+[node name="fade" type="ColorRect" parent="."]
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0, 0, 0, 1)
