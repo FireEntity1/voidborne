@@ -299,7 +299,10 @@ position = Vector2(-502, -2046)
 occluder = SubResource("OccluderPolygon2D_xwhb6")
 
 [node name="audio" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(4320, 767)
 stream = ExtResource("16_y65uw")
+volume_db = -5.0
 autoplay = true
 max_distance = 16000.0
 attenuation = 1e-05
+panning_strength = 0.0

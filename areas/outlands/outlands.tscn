@@ -1,4 +1,4 @@
-[gd_scene load_steps=88 format=4 uid="uid://dx4rxr3ahpfkh"]
+[gd_scene load_steps=89 format=4 uid="uid://dx4rxr3ahpfkh"]
 
 [ext_resource type="Shader" uid="uid://bbsxfqbwg6r80" path="res://resources/shaders/sky.gdshader" id="1_5hdg2"]
 [ext_resource type="Script" uid="uid://crajt0rtnos3k" path="res://scripts/world/outlands.gd" id="1_6xo6o"]
@@ -33,6 +33,7 @@
 [ext_resource type="Texture2D" uid="uid://y5frcf73tyq" path="res://sprites/ridge_tablet.png" id="22_cee0a"]
 [ext_resource type="PackedScene" uid="uid://wxx5p2crs4lb" path="res://components/core/voidwell.tscn" id="24_amlo6"]
 [ext_resource type="PackedScene" uid="uid://c0ho8wjd0okb5" path="res://components/core/light_shard.tscn" id="33_7x5v4"]
+[ext_resource type="AudioStream" uid="uid://dwb2sp0afd1mc" path="res://audio/ambient/outlands.wav" id="34_ten1k"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_i1kom"]
 seed = 5
@@ -1172,5 +1173,15 @@ position = Vector2(40323, -1304)
 
 [node name="to_tower" type="Marker2D" parent="spawn_pos"]
 position = Vector2(10306, -8283)
+
+[node name="audio" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(18459, -2420)
+stream = ExtResource("34_ten1k")
+volume_db = -5.0
+pitch_scale = 0.92
+autoplay = true
+max_distance = 22000.0
+attenuation = 1e-05
+panning_strength = 0.0
 
 [connection signal="body_entered" from="underground_cover_hit" to="." method="_on_underground_cover_2_body_entered"]
