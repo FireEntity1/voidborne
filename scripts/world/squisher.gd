@@ -25,6 +25,7 @@ func _on_timer_timeout() -> void:
 		slam()
 	else:
 		location = "up"
+		$timer.wait_time = 1.0
 		$timer.start()
 
 func _on_body_entered(body: Node2D) -> void:
@@ -39,3 +40,5 @@ func slam():
 		$bottom.position.y,
 		0.5
 	).set_trans(Tween.TRANS_EXPO)
+	await get_tree().create_timer(0.2).timeout
+	$slam.play()

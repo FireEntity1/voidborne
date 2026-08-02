@@ -1,7 +1,8 @@
-[gd_scene load_steps=26 format=3 uid="uid://bev16qhgjiq5e"]
+[gd_scene load_steps=27 format=3 uid="uid://bev16qhgjiq5e"]
 
 [ext_resource type="Script" uid="uid://cl7ddq8g5gfhs" path="res://scripts/world/squisher.gd" id="1_jcqs7"]
 [ext_resource type="Texture2D" uid="uid://exv3p8vy7bs5" path="res://sprites/squisher.png" id="1_lsmjb"]
+[ext_resource type="AudioStream" uid="uid://br71h36xksnjs" path="res://audio/sfx/slam.mp3" id="3_q0u2l"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lsmjb"]
 size = Vector2(31.75, 4.5)
@@ -184,6 +185,12 @@ position = Vector2(0, 48)
 
 [node name="top" type="Marker2D" parent="."]
 position = Vector2(0, 16)
+
+[node name="slam" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_q0u2l")
+volume_db = -3.662
+max_distance = 3000.0
+attenuation = 0.164939
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="timer" to="." method="_on_timer_timeout"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=4 uid="uid://d0db4oaf5tlcm"]
+[gd_scene load_steps=33 format=4 uid="uid://d0db4oaf5tlcm"]
 
 [ext_resource type="Texture2D" uid="uid://1f1dcaidw5ya" path="res://sprites/foundry_tiles.png" id="1_cq5fg"]
 [ext_resource type="Script" uid="uid://bemxuocfbiixe" path="res://scripts/world/tower.gd" id="1_xqb17"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://dhyt3u7vos240" path="res://components/outlands/lightswitch.tscn" id="12_5e2ng"]
 [ext_resource type="PackedScene" uid="uid://c0ho8wjd0okb5" path="res://components/core/light_shard.tscn" id="14_j3bbb"]
 [ext_resource type="PackedScene" uid="uid://wxx5p2crs4lb" path="res://components/core/voidwell.tscn" id="15_lf7ir"]
+[ext_resource type="AudioStream" uid="uid://dyoybgn012yit" path="res://audio/ambient/industrial_hum.wav" id="16_r1su6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vemo6"]
 texture = ExtResource("1_cq5fg")
@@ -390,3 +391,13 @@ offset_top = -18630.0
 offset_right = 8912.0
 offset_bottom = 64.0
 texture = SubResource("GradientTexture2D_4rn5a")
+
+[node name="audio" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(61, -7171)
+stream = ExtResource("16_r1su6")
+volume_db = -5.0
+pitch_scale = 0.89
+autoplay = true
+max_distance = 22000.0
+attenuation = 1e-05
+panning_strength = 0.0
