@@ -15,6 +15,8 @@ func _ready() -> void:
 	await get_tree().create_timer(3.2).timeout
 	$to_outlands/collision.disabled = false
 	$to_outlands.monitoring = true
+	if Global.state.outlands_light == true:
+		$audio.play()
 
 func _physics_process(delta: float) -> void:
 	if switched:
@@ -31,3 +33,4 @@ func flash():
 		Color(1,1,1,0)
 	])
 	switched = true
+	$audio.play()

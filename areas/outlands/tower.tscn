@@ -397,7 +397,6 @@ position = Vector2(61, -7171)
 stream = ExtResource("16_r1su6")
 volume_db = -5.0
 pitch_scale = 0.89
-autoplay = true
 max_distance = 22000.0
 attenuation = 1e-05
 panning_strength = 0.0
