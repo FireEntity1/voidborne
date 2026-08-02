@@ -150,7 +150,7 @@ func _physics_process(delta: float) -> void:
 	else:
 		was_on_floor = false
 	
-	if Input.is_action_just_pressed("dash") and Global.can_move and Global.state["items"]["dash"]:
+	if Input.is_action_just_pressed("dash") and Global.can_move and Global.state["items"]["dash"] and can_dash:
 		is_dashing = true
 		sounds.woosh.play()
 		can_dash = false
@@ -159,6 +159,7 @@ func _physics_process(delta: float) -> void:
 		await get_tree().create_timer(0.1).timeout
 		is_dashing = false
 		await get_tree().create_timer(dash_cooldown).timeout
+		can_dash = true
 	if is_dashing:
 		velocity.x = previous_direction*DASH_VELOCITY
 		$sprite.play("dash")
@@ -360,6 +361,8 @@ func voidblast():
 	var blast = VOIDBLAST.instantiate()
 	blast.position = Vector2(0,-2)
 	blast.scale.x *= previous_direction
+	sounds.hit.play()
+	sounds.swing.play()
 	blast.scale.y = 1
 	$ambient.add_child(blast)
 	await get_tree().create_timer(0.2).timeout

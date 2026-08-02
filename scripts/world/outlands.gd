@@ -2,6 +2,8 @@ extends Node2D
 
 var timer = Timer.new()
 
+var door_open = false
+
 func _ready() -> void:
 	if Global.state.outlands_light == true:
 		$underground_cover.queue_free()
@@ -24,14 +26,20 @@ func _ready() -> void:
 		$door_over.play("default")
 		$door.get_node("collision").disabled = true
 		$door.get_node("sprite").play("open")
+		door_open = true
 
 func _on_signal(arg):
-	if arg == "open_foundry":
+	if arg == "open_foundry" and not door_open:
+		Global.mod_can_move(false)
 		$door_over.play("open")
 		$door.get_node("collision").disabled = true
 		$door.get_node("sprite").play("open")
+		$door_open.play(0.3)
 		await $door_over.animation_finished
 		$door_over.play("default")
+		Global.mod_can_move(true)
+		door_open = true
+		Global.state.foundry_unlocked = true
 
 func _col_timeout():
 	if get_node_or_null("underground_cover_hit") == null:

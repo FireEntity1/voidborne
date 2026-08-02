@@ -1,4 +1,4 @@
-[gd_scene load_steps=89 format=4 uid="uid://dx4rxr3ahpfkh"]
+[gd_scene load_steps=90 format=4 uid="uid://dx4rxr3ahpfkh"]
 
 [ext_resource type="Shader" uid="uid://bbsxfqbwg6r80" path="res://resources/shaders/sky.gdshader" id="1_5hdg2"]
 [ext_resource type="Script" uid="uid://crajt0rtnos3k" path="res://scripts/world/outlands.gd" id="1_6xo6o"]
@@ -34,6 +34,7 @@
 [ext_resource type="PackedScene" uid="uid://wxx5p2crs4lb" path="res://components/core/voidwell.tscn" id="24_amlo6"]
 [ext_resource type="PackedScene" uid="uid://c0ho8wjd0okb5" path="res://components/core/light_shard.tscn" id="33_7x5v4"]
 [ext_resource type="AudioStream" uid="uid://dwb2sp0afd1mc" path="res://audio/ambient/outlands.wav" id="34_ten1k"]
+[ext_resource type="AudioStream" uid="uid://xhveda7tti63" path="res://audio/sfx/door_open.mp3" id="35_kmni5"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_i1kom"]
 seed = 5
@@ -1149,7 +1150,7 @@ start_timeline = ExtResource("16_qbjl0")
 boss = NodePath("../lethos")
 
 [node name="trigger_door_open" parent="." instance=ExtResource("20_w2vbx")]
-position = Vector2(40133, -1337)
+position = Vector2(40042, -1330)
 interact_text = "OPEN"
 item_required = "ridge_tablet"
 emit_signal = true
@@ -1183,5 +1184,14 @@ autoplay = true
 max_distance = 22000.0
 attenuation = 1e-05
 panning_strength = 0.0
+
+[node name="door_open" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(40536, -1388)
+stream = ExtResource("35_kmni5")
+volume_db = -3.0
+pitch_scale = 0.92
+max_distance = 4096.0
+attenuation = 1e-05
+panning_strength = 1.17
 
 [connection signal="body_entered" from="underground_cover_hit" to="." method="_on_underground_cover_2_body_entered"]
