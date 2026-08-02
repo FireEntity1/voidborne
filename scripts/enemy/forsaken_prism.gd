@@ -5,7 +5,7 @@ var mini_prism = preload("res://components/enemies/forsaken_prism.tscn")
 var health = 30.0
 
 var running = false
-@onready var attack = $attack
+@onready var attack: Timer = $attack
 
 var og_pos: Vector2
 
@@ -29,7 +29,7 @@ func _on_attack_timeout():
 
 func spawn_enemy():
 	var enemy = mini_prism.instantiate()
-	enemy.position.x = randi_range(-2000,2000)
+	enemy.position.x = randi_range(-1000,1000)
 	enemy.global_position += Vector2(13572,2048)
 	enemy.scale = Vector2(4.0,4.0)
 	print("spawned")
@@ -56,4 +56,5 @@ func die():
 	$sprite.hide()
 	$col.disabled = true
 	running = false
+	attack.stop()
 	Dialogic.emit_signal("signal_event","door_forsaken_boss_open")

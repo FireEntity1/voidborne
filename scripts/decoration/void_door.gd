@@ -23,11 +23,11 @@ func open(arg):
 	
 	if arg == open_signal and is_closed:
 		$sprite.play("open")
-		$collision.disabled = true
+		$collision.set_deferred("disabled",true)
 		is_closed = false
 	elif arg == close_signal and not is_closed:
 		$sprite.play("close")
-		$collision.disabled = false
+		$collision.set_deferred("disabled",false)
 		is_closed = true
 
 func hit():

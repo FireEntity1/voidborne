@@ -3,6 +3,9 @@ extends Node2D
 @export var start_timeline: DialogicTimeline
 @export var boss: Node
 
+@export var use_signal = false
+@export var emit: String = ""
+
 var started = false
 
 func _ready() -> void:
@@ -10,11 +13,12 @@ func _ready() -> void:
 		Dialogic.signal_event.connect(_on_dialogic_signal)
 
 func _on_trigger_body_entered(body: Node2D) -> void:
+	print(body)
 	if body.is_in_group("player") and not started:
 		if start_timeline != null:
 			Dialogic.start(start_timeline)
 		else:
-			Dialogic.emit_signal("signal_event","boss_start")
+			Dialogic.emit_signal("signal_event","start_boss")
 		started = true
 
 func _on_dialogic_signal(arg):
