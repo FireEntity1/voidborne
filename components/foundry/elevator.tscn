@@ -128,7 +128,7 @@ shape = SubResource("RectangleShape2D_6c7du")
 [node name="audio" type="AudioStreamPlayer2D" parent="base"]
 stream = ExtResource("4_5cid8")
 volume_db = 2.0
-attenuation = 0.267943
+attenuation = 0.933033
 panning_strength = 0.37
 
 [node name="boarding_position" type="Marker2D" parent="."]

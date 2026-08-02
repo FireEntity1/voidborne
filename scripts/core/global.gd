@@ -70,8 +70,8 @@ var state = {
 		"voidblast": true,
 	},
 	# basic stuff
-	"area": "outlands_tower",
-	"voidwell_id":"tower",
+	"area": "voidnexus",
+	"voidwell_id":"",
 	"respawn_elevators": [],
 	"health": 10,
 	"max_health": 6,
@@ -115,7 +115,6 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	Engine.time_scale = move_toward(Engine.time_scale,time_scale,delta*10.0)
-	save()
 
 func pause_frames(time: float):
 	time_scale = 0.2
