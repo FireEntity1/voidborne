@@ -4,5 +4,20 @@ weaponsmith: What brings you here?
 - Upgrading weapon
 	[signal arg="upgrade_menu"]
 - Learning about Halcrya
-	weaponsmith: yap yap yap sahur
+	weaponsmith: You may wonder how I am void and permitted to reside here...
+	weaponsmith: They have deemed me to be "useful" to their cause.
+	weaponsmith: Thus I am allowed to stay down here. Protected by the light.
+	weaponsmith: . . .
+	weaponsmith: The Zenith is scared of our kind.
+	weaponsmith: So it chooses to oppress us so.
+	weaponsmith: The power of the Void Nexus isn't great enough to overcome the light . . .
+	weaponsmith: . . . and there's no other source of void in Halcrya.
+	weaponsmith: . . .
+	weaponsmith: Between us.
+	weaponsmith: There may be a source of void somewhere in the underground.
+	weaponsmith: A source larger than anything the light could even fathom.
+	weaponsmith: Though reaching it will not be easy.
+	weaponsmith: It may not even exist.
+	weaponsmith: You did not hear this from me. Understood?
+	weaponsmith: Good luck, void.
 	do Global.mod_can_move(true)
