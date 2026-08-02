@@ -26,7 +26,6 @@ var upgrades = [
 ]
 
 func _ready() -> void:
-	Global.state.light_shards = 20
 	generate()
 
 func generate():
@@ -52,6 +51,8 @@ func generate():
 		
 		hbox.add_child(label)
 		hbox.add_child(button)
+		
+		$amt.text = str(int(Global.state.light_shards))
 		
 		$container/vbox.add_child(hbox)
 	var button = Button.new()

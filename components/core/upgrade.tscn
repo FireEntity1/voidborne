@@ -1,10 +1,89 @@
-[gd_scene load_steps=5 format=3 uid="uid://lt087w2jnfit"]
+[gd_scene load_steps=17 format=3 uid="uid://lt087w2jnfit"]
 
 [ext_resource type="Script" uid="uid://dlub5utv4c8dy" path="res://scripts/core/upgrade.gd" id="1_bi7em"]
 [ext_resource type="Theme" uid="uid://cdhymgfj7lkn7" path="res://resources/game.tres" id="2_1sh51"]
 [ext_resource type="Texture2D" uid="uid://dljr5mcgyqlmf" path="res://sprites/window.png" id="3_wobh7"]
+[ext_resource type="Texture2D" uid="uid://b8tavhg1m6rb" path="res://sprites/light_shard.png" id="4_ldkgv"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_d33h1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nv2ms"]
+atlas = ExtResource("4_ldkgv")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tibss"]
+atlas = ExtResource("4_ldkgv")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d747l"]
+atlas = ExtResource("4_ldkgv")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y8sry"]
+atlas = ExtResource("4_ldkgv")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v635m"]
+atlas = ExtResource("4_ldkgv")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8m1us"]
+atlas = ExtResource("4_ldkgv")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4yge6"]
+atlas = ExtResource("4_ldkgv")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_558vb"]
+atlas = ExtResource("4_ldkgv")
+region = Rect2(112, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lrqej"]
+atlas = ExtResource("4_ldkgv")
+region = Rect2(128, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3tt3m"]
+atlas = ExtResource("4_ldkgv")
+region = Rect2(144, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p4vim"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nv2ms")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tibss")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d747l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y8sry")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v635m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8m1us")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4yge6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_558vb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lrqej")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3tt3m")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="upgrade" type="Window"]
 transparent_bg = true
@@ -31,3 +110,16 @@ offset_bottom = 500.0
 layout_mode = 2
 theme = ExtResource("2_1sh51")
 theme_override_constants/separation = 20
+
+[node name="shard" type="AnimatedSprite2D" parent="."]
+position = Vector2(713, 43)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_p4vim")
+
+[node name="amt" type="Label" parent="."]
+offset_left = 730.0
+offset_top = 24.0
+offset_right = 793.0
+offset_bottom = 92.0
+theme_override_font_sizes/font_size = 30
+text = "xx"

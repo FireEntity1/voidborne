@@ -163,7 +163,7 @@ position = Vector2(-1, -4295)
 id = 14
 
 [node name="light_shard2" parent="light_shards" instance=ExtResource("14_j3bbb")]
-position = Vector2(50, -10882)
+position = Vector2(66, -11021)
 id = 15
 
 [node name="light_shard3" parent="light_shards" instance=ExtResource("14_j3bbb")]
