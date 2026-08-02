@@ -305,6 +305,11 @@ func hit(damage=1, knock:bool = false, hit_location = Vector2.ZERO) -> void:
 	print(health)
 	
 	take_damage(damage)
+	
+	if health < 1:
+		die()
+		return
+	
 	Global.can_move = true
 	velocity.x = knockback_direction * knockback_x
 	velocity.y = knockback_y
@@ -314,9 +319,6 @@ func hit(damage=1, knock:bool = false, hit_location = Vector2.ZERO) -> void:
 	await get_tree().create_timer(invincible_time - hit_stun_time).timeout
 	invincible = false
 	
-	if health < 1:
-		die()
-		return
 
 func flash_hit() -> void:
 	$sprite.modulate = Color(4.0,2.4,2.4)
@@ -387,5 +389,7 @@ func die():
 		return
 	dead = true
 	Global.mod_can_move(false)
+	$audio/riser.play()
+	#await $audio/riser.finished
 	Global.root.die()
 	return

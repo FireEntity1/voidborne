@@ -188,7 +188,8 @@ func remove_shards():
 func die():
 	died = true
 	glitch.show()
-	await get_tree().create_timer(2.0).timeout
+	await get_tree().create_timer(1.4).timeout
+	Global.screen_vingette(true,0.0,0.4)
 	Global.fadescreen(true,true,true)
 	$game/loaded_scene.get_children()[0].queue_free()
 	await get_tree().create_timer(2.0).timeout

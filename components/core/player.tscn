@@ -1,4 +1,4 @@
-[gd_scene load_steps=80 format=3 uid="uid://dq7ng5vi3rwcu"]
+[gd_scene load_steps=81 format=3 uid="uid://dq7ng5vi3rwcu"]
 
 [ext_resource type="Script" uid="uid://brq7vdr3t803u" path="res://scripts/core/player.gd" id="1_hpv3a"]
 [ext_resource type="Texture2D" uid="uid://c582x5ti7j4no" path="res://sprites/voidborn.png" id="2_hpv3a"]
@@ -13,6 +13,7 @@
 [ext_resource type="AudioStream" uid="uid://cpcyy0lff2us4" path="res://audio/sfx/land.wav" id="11_a1x6b"]
 [ext_resource type="AudioStream" uid="uid://dqxulhb6r651d" path="res://audio/sfx/thud.wav" id="11_gfmea"]
 [ext_resource type="AudioStream" uid="uid://ddhavyhbldfh6" path="res://audio/sfx/hit_thud.wav" id="11_h3qm7"]
+[ext_resource type="AudioStream" uid="uid://b4sunrqjl6gu7" path="res://audio/sfx/riser_short.mp3" id="11_mclkx"]
 [ext_resource type="AudioStream" uid="uid://dmpoduimfswgm" path="res://audio/sfx/woosh.mp3" id="12_njjvt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hpv3a"]
@@ -556,6 +557,11 @@ process_material = SubResource("ParticleProcessMaterial_5a7ls")
 [node name="swing" type="AudioStreamPlayer2D" parent="audio"]
 stream = ExtResource("10_bl7dy")
 pitch_scale = 1.2
+
+[node name="riser" type="AudioStreamPlayer2D" parent="audio"]
+stream = ExtResource("11_mclkx")
+pitch_scale = 1.2
+attenuation = 1e-05
 
 [node name="land" type="AudioStreamPlayer2D" parent="audio"]
 stream = ExtResource("11_a1x6b")
