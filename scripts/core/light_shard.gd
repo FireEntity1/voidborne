@@ -13,6 +13,7 @@ func _on_body_entered(body: Node2D) -> void:
 		Global.state.light_shards += 1
 		Global.state.shards_collected.append(id)
 		collected = true
+		$collision.disabled = true
 		$collect.emitting = true
 		await $collect.finished
 		queue_free()

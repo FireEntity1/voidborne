@@ -354,6 +354,7 @@ func take_damage(amount: int) -> void:
 	set_health(health - amount)
 
 func heal(amount: int) -> void:
+	sounds.woosh.play()
 	set_health(health + amount)
 
 func voidblast():
