@@ -1,7 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://dhyt3u7vos240"]
+[gd_scene load_steps=15 format=3 uid="uid://dhyt3u7vos240"]
 
 [ext_resource type="Script" uid="uid://7pi8f7h7on6q" path="res://scripts/world/lightswitch.gd" id="1_hmt44"]
 [ext_resource type="Texture2D" uid="uid://dlvdijnwsaslp" path="res://sprites/lightswitch.png" id="1_r77ia"]
+[ext_resource type="AudioStream" uid="uid://ddhavyhbldfh6" path="res://audio/sfx/hit_thud.wav" id="3_auork"]
+[ext_resource type="AudioStream" uid="uid://c5aag3x5kbu4m" path="res://audio/sfx/big_slam_metal.wav" id="3_tdcq3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hmt44"]
 atlas = ExtResource("1_r77ia")
@@ -81,3 +83,13 @@ sprite_frames = SubResource("SpriteFrames_mh20k")
 [node name="collision" type="CollisionShape2D" parent="."]
 position = Vector2(-1.125, 9.625)
 shape = SubResource("RectangleShape2D_r77ia")
+
+[node name="slam" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_tdcq3")
+max_distance = 4000.0
+attenuation = 0.125
+
+[node name="hit" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_auork")
+max_distance = 4000.0
+attenuation = 0.0583145

@@ -11,6 +11,7 @@ func _ready() -> void:
 func hit():
 	if done:
 		return
+	$hit.play()
 	done = true
 	$sprite.play()
 	await $sprite.animation_finished
@@ -18,3 +19,4 @@ func hit():
 	Dialogic.emit_signal("signal_event","light_switch")
 	Global.state["outlands_light"] = true
 	Dialogic.emit_signal("signal_event","light_done")
+	$slam.play()
