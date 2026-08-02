@@ -449,6 +449,9 @@ id = "foundry_weaponsmith"
 respawn_elevators = Array[Dictionary]([{
 "at_top": false,
 "path": "elevators/elevator5"
+}, {
+"at_top": true,
+"path": "elevators/elevator"
 }])
 
 [node name="npcs" type="Node2D" parent="."]
