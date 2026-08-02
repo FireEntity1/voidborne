@@ -37,6 +37,8 @@ var prev_zoom = cam_zoom
 
 var invincible = false
 
+var was_on_floor = true
+
 const CAST_TAP_DURATION = 0.3
 const CAST_FIRST_HEAL_DELAY = 1.0
 const CAST_HEAL_INTERVAL = 1.0
@@ -57,7 +59,8 @@ signal health_changed(current_health: int, max_health: int)
 	"swing": $audio/swing,
 	"hit": $audio/hit,
 	"woosh": $audio/woosh,
-	"damage": $audio/damage
+	"damage": $audio/damage,
+	"land": $audio/land
 }
 
 signal player_hit
@@ -138,6 +141,14 @@ func _physics_process(delta: float) -> void:
 				$sprite.play("fall")
 	elif not direction:
 		$sprite.play("default")
+	
+	if is_on_floor() and not was_on_floor:
+		sounds.land.play()
+	
+	if is_on_floor():
+		was_on_floor = true
+	else:
+		was_on_floor = false
 	
 	if Input.is_action_just_pressed("dash") and Global.can_move and Global.state["items"]["dash"]:
 		is_dashing = true

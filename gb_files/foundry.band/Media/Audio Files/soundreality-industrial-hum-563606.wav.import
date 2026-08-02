@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://8u77oqmjdbte"
+path="res://.godot/imported/soundreality-industrial-hum-563606.wav-6a87ed2051c55ad5a4fa5ac1c5ad476e.sample"
+
+[deps]
+
+source_file="res://gb_files/foundry.band/Media/Audio Files/soundreality-industrial-hum-563606.wav"
+dest_files=["res://.godot/imported/soundreality-industrial-hum-563606.wav-6a87ed2051c55ad5a4fa5ac1c5ad476e.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
