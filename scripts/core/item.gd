@@ -18,6 +18,9 @@ func _ready() -> void:
 		$glow.hide()
 	$sprite.sprite_frames = sprite
 	$sprite.play()
+	await get_tree().create_timer(0.5).timeout
+	if Global.state.items[item_id] == true:
+		queue_free()
 
 func _process(delta: float) -> void:
 	if up:
