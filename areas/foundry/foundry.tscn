@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=4 uid="uid://c31j2tw7k2jqi"]
+[gd_scene load_steps=48 format=4 uid="uid://c31j2tw7k2jqi"]
 
 [ext_resource type="Texture2D" uid="uid://1f1dcaidw5ya" path="res://sprites/foundry_tiles.png" id="1_qturw"]
 [ext_resource type="Script" uid="uid://cle4ltxxwdvan" path="res://scripts/world/foundry.gd" id="1_r7a1b"]
@@ -16,7 +16,6 @@
 [ext_resource type="PackedScene" uid="uid://bev16qhgjiq5e" path="res://components/foundry/squisher.tscn" id="10_xa7cm"]
 [ext_resource type="PackedScene" uid="uid://wxx5p2crs4lb" path="res://components/core/voidwell.tscn" id="11_as6hk"]
 [ext_resource type="PackedScene" uid="uid://bxldkxc6j8cya" path="res://components/npc/foundry_resident.tscn" id="11_yssb6"]
-[ext_resource type="PackedScene" uid="uid://dkkoekf26wed6" path="res://components/enemies/forsaken_prism.tscn" id="12_rbb78"]
 [ext_resource type="PackedScene" uid="uid://cxuqcr8jqffrw" path="res://components/npc/weaponsmith.tscn" id="13_8tmxa"]
 [ext_resource type="PackedScene" uid="uid://l6vgldibdk3e" path="res://components/triggers/arena.tscn" id="15_p85ij"]
 [ext_resource type="PackedScene" uid="uid://c0ho8wjd0okb5" path="res://components/core/light_shard.tscn" id="15_r7a1b"]
@@ -550,6 +549,3 @@ autoplay = true
 max_distance = 22000.0
 attenuation = 1e-05
 panning_strength = 0.0
-
-[node name="forsaken_prism" parent="." instance=ExtResource("12_rbb78")]
-position = Vector2(13933, 1410)

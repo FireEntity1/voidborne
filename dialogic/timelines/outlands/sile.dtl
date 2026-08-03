@@ -2,7 +2,7 @@ do Global.mod_can_move(false)
 sile: Greetings.
 sile: The path to the underground is overrun with void.
 sile: By the look of your... kind... you intend to explore those depths.
-sile: Turn on the voidlight at the top of the tower just to the east
+sile: Turn on the voidlight at the top of the tower just to the west.
 sile: It should repel the hostile void enough to clear that gap.
 sile: Good luck, void thing.
 do Global.mod_can_move(true)
