@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bqoacg1kuc11m" path="res://sprites/logo-no-bg.png" id="3_yql1r"]
 [ext_resource type="PackedScene" uid="uid://cf1drldhcrqob" path="res://components/settings.tscn" id="4_pyl7j"]
 [ext_resource type="AudioStream" uid="uid://w81x4mlfupu6" path="res://audio/ambient/voidnexus.wav" id="7_yql1r"]
-[ext_resource type="AudioStream" uid="uid://cx7x4oevwsuwd" path="res://audio/sfx/click.mp3" id="8_ia1n6"]
+[ext_resource type="AudioStream" uid="uid://c0thgn8dihhsd" path="res://audio/sfx/shutter.wav" id="8_ia1n6"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4rr2b"]
 shader = ExtResource("2_b3w7a")
@@ -104,6 +104,7 @@ attenuation = 1e-05
 
 [node name="click" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("8_ia1n6")
+volume_db = 2.0
 
 [connection signal="button_up" from="centre/vbox/play" to="." method="_on_play_button_up"]
 [connection signal="button_up" from="centre/vbox/settings" to="." method="_on_settings_button_up"]

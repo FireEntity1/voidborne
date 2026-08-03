@@ -28,6 +28,7 @@ func die():
 	$sprite.hide()
 	$collision.disabled = true
 	$particles.emitting = true
+	$hit.volume_db = -5
 	$hit.play()
 	await get_tree().create_timer(1.5).timeout
 	queue_free()

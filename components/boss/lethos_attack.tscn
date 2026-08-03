@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://cnmey0xmybl62" path="res://sprites/lethos_attack.png" id="1_ihgoe"]
 [ext_resource type="Script" uid="uid://vyim3n286qyd" path="res://scripts/enemy/lethos_attack.gd" id="1_kouox"]
-[ext_resource type="AudioStream" uid="uid://br71h36xksnjs" path="res://audio/sfx/slam.mp3" id="3_puetb"]
+[ext_resource type="AudioStream" uid="uid://dqxulhb6r651d" path="res://audio/sfx/thud.wav" id="3_puetb"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8bcjy"]
 radius = 5.51277
@@ -96,6 +96,7 @@ process_material = SubResource("ParticleProcessMaterial_kouox")
 
 [node name="hit" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_puetb")
-volume_db = -6.0
+volume_db = -15.0
 max_distance = 8000.0
-attenuation = 0.378929
+attenuation = 1e-05
+panning_strength = 0.0

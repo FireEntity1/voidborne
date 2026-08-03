@@ -9,11 +9,12 @@ func _physics_process(delta: float) -> void:
 		$sprite.modulate.a -= delta*5.0
 
 func _on_body_entered(body: Node2D) -> void:
-	if body.is_in_group("player"):
+	if body.is_in_group("player") and not collected:
 		Global.state.light_shards += 1
 		Global.state.shards_collected.append(id)
 		collected = true
 		$collision.disabled = true
 		$collect.emitting = true
+		$click.play()
 		await $collect.finished
 		queue_free()
