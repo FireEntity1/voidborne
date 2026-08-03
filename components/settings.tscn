@@ -41,18 +41,24 @@ text = "VOLUME"
 [node name="slider" type="HSlider" parent="centre/vbox/volume"]
 custom_minimum_size = Vector2(200, 40)
 layout_mode = 2
+max_value = 1.0
+step = 0.01
+value = 0.3
 
 [node name="reduce_fx" type="HBoxContainer" parent="centre/vbox"]
+visible = false
 layout_mode = 2
 theme_override_constants/separation = 40
 
 [node name="label" type="Label" parent="centre/vbox/reduce_fx"]
+visible = false
 custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "REDUCED FX"
 
 [node name="check" type="CheckBox" parent="centre/vbox/reduce_fx"]
+visible = false
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
 theme_override_icons/checked = ExtResource("1_7g2wo")

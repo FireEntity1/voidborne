@@ -185,7 +185,7 @@ autoplay = "default"
 frame_progress = 0.633344
 
 [node name="attack" type="Timer" parent="."]
-wait_time = 0.5
+wait_time = 4.0
 
 [node name="col" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(-0.5, 30, 15, 0, -16, 0)

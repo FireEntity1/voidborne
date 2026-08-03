@@ -14,6 +14,7 @@ func _physics_process(delta: float) -> void:
 		$fade.modulate.a = lerp($fade.modulate.a,0.0,delta*4.0)
 
 func _on_play_button_up() -> void:
+	$click.play()
 	fade_active = true
 	await get_tree().create_timer(1.0).timeout
 	if not Global.state.initial:
@@ -23,8 +24,10 @@ func _on_play_button_up() -> void:
 
 func _on_quit_button_up() -> void:
 	fade_active = true
+	$click.play()
 	await get_tree().create_timer(1.0).timeout
 	get_tree().quit()
 
 func _on_settings_button_up() -> void:
+	$click.play()
 	$settings.popup_centered()

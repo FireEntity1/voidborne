@@ -110,7 +110,7 @@ gravity = Vector3(0, 0, 0)
 scale_curve = SubResource("CurveTexture_o4uwa")
 
 [node name="light_shard" type="Area2D"]
-scale = Vector2(8, 8)
+scale = Vector2(4, 4)
 collision_layer = 4
 collision_mask = 2
 script = ExtResource("1_o4uwa")

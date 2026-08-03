@@ -50,7 +50,7 @@ func start():
 		var well = signal_string.split("voidwell")[1]
 		var voidwell = get_parent()
 		var respawn_elevators: Array = voidwell.respawn_elevators.duplicate(true)
-
+		voidwell.get_node("sfx").play()
 		Global.mod_can_move(false)
 		Global.set_voidwell(well, respawn_elevators)
 		Global.save()
@@ -61,7 +61,7 @@ func start():
 		particles.emitting = false
 		Global.mod_can_move(true)
 	if item_required != "":
-		if not Global.items[item_required]:
+		if not Global.state.items[item_required]:
 			return
 	if completed and not repeat:
 		return

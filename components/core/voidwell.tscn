@@ -1,8 +1,9 @@
-[gd_scene load_steps=25 format=3 uid="uid://wxx5p2crs4lb"]
+[gd_scene load_steps=26 format=3 uid="uid://wxx5p2crs4lb"]
 
 [ext_resource type="Script" uid="uid://b8nviwxava7j0" path="res://scripts/core/voidwell.gd" id="1_iyyiy"]
 [ext_resource type="Texture2D" uid="uid://3hw6iw5feui2" path="res://sprites/voidwell.png" id="1_vkdeh"]
 [ext_resource type="PackedScene" uid="uid://6t8faj0pjahu" path="res://components/triggers/timeline_trigger.tscn" id="3_visee"]
+[ext_resource type="AudioStream" uid="uid://xhveda7tti63" path="res://audio/sfx/door_open.mp3" id="4_i0mr5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vkdeh"]
 size = Vector2(32, 26)
@@ -199,5 +200,11 @@ scale = Vector2(0.6, 0.6)
 interact_text = "SAVE"
 emit_signal = true
 is_voidwell = true
+
+[node name="sfx" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(-0.166667, 1.16667)
+stream = ExtResource("4_i0mr5")
+volume_db = -5.859
+attenuation = 0.000644291
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

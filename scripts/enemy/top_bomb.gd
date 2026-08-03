@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 var darkening = false
 
-var attack_strength = 2
+var attack_strength = 1
 
 var player_pos = Vector2.ZERO
 

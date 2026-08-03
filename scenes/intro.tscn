@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://bukoxqhqs1agm"]
+[gd_scene load_steps=6 format=3 uid="uid://bukoxqhqs1agm"]
 
 [ext_resource type="Shader" uid="uid://c7rm3ka70mfk5" path="res://resources/shaders/tunnel.gdshader" id="1_ioskq"]
 [ext_resource type="Script" uid="uid://c04e1j6vv5bdf" path="res://scripts/core/intro.gd" id="1_yjqpq"]
 [ext_resource type="Resource" uid="uid://dttv3tdbwauof" path="res://dialogic/timelines/intro.dtl" id="2_4bx60"]
+[ext_resource type="AudioStream" uid="uid://8isdrr5t7ha8" path="res://audio/sfx/more-bass-ambience.mp3" id="4_i2l1n"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_yjqpq"]
 shader = ExtResource("1_ioskq")
@@ -31,3 +32,12 @@ offset_bottom = 1492.0
 offset_right = 1920.0
 offset_bottom = 1080.0
 color = Color(0, 0, 0, 1)
+
+[node name="More-bass-ambience" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(964, 508)
+stream = ExtResource("4_i2l1n")
+volume_db = -3.662
+autoplay = true
+max_distance = 5000.0
+attenuation = 4.31584e-05
+panning_strength = 0.0

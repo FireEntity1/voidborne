@@ -14,6 +14,8 @@ Is the void aware of its capabilities?
 	Hitting enemies will increase the voidmeter.
 	Hold F to use your VOID to heal if it has lost health.
 	[wait time="2.0"]
+	The world's state will save when it interacts with a voidwell. (E)
+	[wait time="2.0"]
 	It may learn new capabilities later on. It will learn how to use them when it receives them.
 	Good luck, void thing.
 - Yes, continue without learning.
