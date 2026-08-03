@@ -2,6 +2,8 @@
 
 **A story game where Void awakens in a world ruled by the Light.**
 
+
+# IMPORTANT:
 **Note, this game is a demo and is in heavy development! Expect bugs and unfinished content.**
 
 ## Controls
