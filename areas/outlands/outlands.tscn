@@ -1162,7 +1162,7 @@ position = Vector2(16341, -8673)
 sprite = SubResource("SpriteFrames_1p7xc")
 item_id = "ridge_tablet"
 item_name = "R I D G E    T A B L E T"
-item_description = "Allows the void to enter the foundry at the eastern edge of the outlands."
+item_description = "Allows the void to enter the foundry."
 
 [node name="spawn_pos" type="Node2D" parent="."]
 
