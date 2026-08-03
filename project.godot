@@ -27,6 +27,7 @@ Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 
 directories/dch_directory={
 "???": "res://dialogic/timelines/void_nexus/???.dch",
+"fireentity": "res://dialogic/characters/foundry/fireentity.dch",
 "lethos": "res://dialogic/characters/outlands/lethos.dch",
 "marn": "res://dialogic/characters/foundry/marn.dch",
 "nym": "res://dialogic/characters/outlands/nym.dch",
@@ -41,6 +42,7 @@ directories/dch_directory={
 }
 directories/dtl_directory={
 "end": "res://dialogic/timelines/void_nexus/end.dtl",
+"fireentity": "res://dialogic/timelines/foundry/fireentity.dtl",
 "intro": "res://dialogic/timelines/intro.dtl",
 "lethos_end": "res://dialogic/timelines/outlands/lethos_end.dtl",
 "lethos_start": "res://dialogic/timelines/outlands/lethos_start.dtl",

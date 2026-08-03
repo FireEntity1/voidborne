@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=4 uid="uid://c31j2tw7k2jqi"]
+[gd_scene load_steps=49 format=4 uid="uid://c31j2tw7k2jqi"]
 
 [ext_resource type="Texture2D" uid="uid://1f1dcaidw5ya" path="res://sprites/foundry_tiles.png" id="1_qturw"]
 [ext_resource type="Script" uid="uid://cle4ltxxwdvan" path="res://scripts/world/foundry.gd" id="1_r7a1b"]
@@ -24,6 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://d11xidh5o488w" path="res://components/core/item.tscn" id="18_aghgt"]
 [ext_resource type="Texture2D" uid="uid://0q3p4ipsjfw0" path="res://sprites/dash_item.png" id="19_3x045"]
 [ext_resource type="AudioStream" uid="uid://dyoybgn012yit" path="res://audio/ambient/industrial_hum.wav" id="24_2wr1u"]
+[ext_resource type="Resource" uid="uid://lmpvs0baecps" path="res://dialogic/timelines/foundry/fireentity.dtl" id="25_rbb78"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_80esv"]
 
@@ -455,6 +456,10 @@ respawn_elevators = Array[Dictionary]([{
 }])
 
 [node name="npcs" type="Node2D" parent="."]
+
+[node name="fireentity" parent="npcs" instance=ExtResource("11_yssb6")]
+position = Vector2(16442, -316)
+timeline = ExtResource("25_rbb78")
 
 [node name="npc_vael" parent="npcs" instance=ExtResource("11_yssb6")]
 position = Vector2(5899, -72)
