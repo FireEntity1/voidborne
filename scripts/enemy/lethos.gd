@@ -81,7 +81,9 @@ func die():
 	$collision.disabled = true
 	$collision2.disabled = true
 	$death_particle.emitting = true
-	await get_tree().create_timer(4.0).timeout
+	$riser.play()
+	get_parent().get_node("lethos_music").stop()
+	await $riser.finished
 	Global.fadescreen(true,true,true)
 	$sprite.hide()
 	finished = false
@@ -90,6 +92,7 @@ func die():
 	$death_particle.emitting = false
 	Dialogic.emit_signal("signal_event","lethos_end")
 	await get_tree().create_timer(0.4).timeout
+	$die.play()
 	Global.fadescreen(false,true,true)
 	Global.mod_can_move(true)
 	#Dialogic.start(end_timeline)

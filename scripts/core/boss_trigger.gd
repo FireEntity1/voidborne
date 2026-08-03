@@ -17,6 +17,7 @@ func _on_trigger_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player") and not started:
 		if start_timeline != null:
 			Dialogic.start(start_timeline)
+			get_parent().get_node("audio").stop()
 		else:
 			Dialogic.emit_signal("signal_event","start_boss")
 		started = true

@@ -1,6 +1,6 @@
 do Global.mod_can_move(false)
 do Global.fadescreen(true, true, true)
-[wait time="1.0"]
+[wait time="2.5"]
 [signal arg="lethos_cam"]
 [signal arg="start_boss"]
 do Global.fadescreen(false, true, false)

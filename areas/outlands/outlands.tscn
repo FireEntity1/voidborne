@@ -1,4 +1,4 @@
-[gd_scene load_steps=90 format=4 uid="uid://dx4rxr3ahpfkh"]
+[gd_scene load_steps=91 format=4 uid="uid://dx4rxr3ahpfkh"]
 
 [ext_resource type="Shader" uid="uid://bbsxfqbwg6r80" path="res://resources/shaders/sky.gdshader" id="1_5hdg2"]
 [ext_resource type="Script" uid="uid://crajt0rtnos3k" path="res://scripts/world/outlands.gd" id="1_6xo6o"]
@@ -34,6 +34,7 @@
 [ext_resource type="PackedScene" uid="uid://wxx5p2crs4lb" path="res://components/core/voidwell.tscn" id="24_amlo6"]
 [ext_resource type="PackedScene" uid="uid://c0ho8wjd0okb5" path="res://components/core/light_shard.tscn" id="33_7x5v4"]
 [ext_resource type="AudioStream" uid="uid://dwb2sp0afd1mc" path="res://audio/ambient/outlands.wav" id="34_ten1k"]
+[ext_resource type="AudioStream" uid="uid://cth0aw537khw" path="res://audio/ambient/lethos.wav" id="35_3vghc"]
 [ext_resource type="AudioStream" uid="uid://xhveda7tti63" path="res://audio/sfx/door_open.mp3" id="35_kmni5"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_i1kom"]
@@ -1179,8 +1180,16 @@ position = Vector2(10306, -8283)
 position = Vector2(18459, -2420)
 stream = ExtResource("34_ten1k")
 volume_db = -5.0
-pitch_scale = 0.92
+pitch_scale = 0.96
 autoplay = true
+max_distance = 22000.0
+attenuation = 1e-05
+panning_strength = 0.0
+
+[node name="lethos_music" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(24459, -9279)
+stream = ExtResource("35_3vghc")
+volume_db = 2.0
 max_distance = 22000.0
 attenuation = 1e-05
 panning_strength = 0.0
