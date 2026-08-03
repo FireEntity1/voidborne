@@ -1,25 +1,37 @@
-# voidborne
+<img width="752" height="240" alt="logo-no-bg" src="https://github.com/user-attachments/assets/8e6780a6-66d5-4ebb-a28a-fda7bfdd4569" />
 
-A story based game where void enters a world ruled by light.
+**A story game where Void awakens in a world ruled by the Light.**
 
-**currently a heavy work in progress**
+**Note, this game is a demo and is in heavy development! Expect bugs and unfinished content.**
 
-**will be available in ~a month on itch**
+## Controls
+`A`/`D` or `LEFT ARROW` / `RIGHT ARROW` — Move
+`LEFT CLICK` / `X` — Swing
+`F` - Hold to heal, tap to voidblast (unlockable)
+`S`/`D` or `DOWN ARROW` / `UP ARROW` — Hold to swing down/up
+`CTRL` — Dash (unlockable)
+`SPACE` — Jump
+`E` — Interact
 
-stay tuned!!
+## Features
+- Working progression up to the beginning of the foundry area
+- Light shard collection
+- Combat
+- Arenas
+- Boss fights
+- Miniboss fights
+- Upgrading items
+- Items
+- Differing enemy behaviours
+- NPCs
+- Conveyer belts
+- Crushers
+- Elevators
+- Abilities
 
-AD/Left Right – Move
-
-W/Up Arrow – Look up (for attack)
-
-S/Down Arrow – Look down (for pogo)
-
-Ctrl – Dash
-
-Space – Jump
-
-E/Right Click – Heal
-
-Q - Interact
-
-X/Left Click – Attack
+## Areas
+- Void Nexus — Intro area
+- Outlands — Edge of Halcrya
+- Outlands Tower — Void-repellant lighthouse
+- Underground Outlands — Home to civilization and dangers alike
+- Foundry — Halcrya's industrial hell
