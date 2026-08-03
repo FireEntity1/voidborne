@@ -254,7 +254,7 @@ func attack() -> void:
 	for enemy in enemies:
 		if enemy.is_in_group("enemy"):
 			if enemy.has_method("damage"):
-				enemy.damage(200)
+				enemy.damage(damage)
 				did_hit = true
 				if Global.  voidmeter < 12:
 					Global.voidmeter += 1

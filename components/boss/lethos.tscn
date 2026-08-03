@@ -1,9 +1,10 @@
-[gd_scene load_steps=34 format=3 uid="uid://dh502ibqj2pd7"]
+[gd_scene load_steps=35 format=3 uid="uid://dh502ibqj2pd7"]
 
 [ext_resource type="Texture2D" uid="uid://ddx8oairvmg68" path="res://sprites/lethos.png" id="1_no3og"]
 [ext_resource type="Script" uid="uid://i0p0vibet3ch" path="res://scripts/enemy/lethos.gd" id="1_o3dtm"]
 [ext_resource type="AudioStream" uid="uid://c5aag3x5kbu4m" path="res://audio/sfx/big_slam_metal.wav" id="3_4u6vl"]
 [ext_resource type="AudioStream" uid="uid://b4sunrqjl6gu7" path="res://audio/sfx/riser_short.mp3" id="4_tjmyx"]
+[ext_resource type="AudioStream" uid="uid://8isdrr5t7ha8" path="res://audio/sfx/more-bass-ambience.mp3" id="5_jh63k"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_no3og"]
 radius = 9.0
@@ -245,6 +246,12 @@ attenuation = 0.0272047
 
 [node name="riser" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_tjmyx")
+volume_db = -4.0
+max_distance = 5000.0
+attenuation = 0.0272047
+
+[node name="start" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_jh63k")
 volume_db = -4.0
 max_distance = 5000.0
 attenuation = 0.0272047

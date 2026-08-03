@@ -100,11 +100,13 @@ func die():
 func _signal_event(arg):
 	if arg == "lethos_start":
 		running = true
+		$start.stop()
 		$collision.disabled = false
 		$collision2.disabled = false
 		Dialogic.emit_signal("signal_event","title_Lethos")
 		$attack.start()
 	if arg == "lethos_cam":
+		$start.play()
 		$bosscam.make_current()
 
 func _on_attack_timeout() -> void:
