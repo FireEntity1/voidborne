@@ -5,13 +5,13 @@
 **Note, this game is a demo and is in heavy development! Expect bugs and unfinished content.**
 
 ## Controls
-`A`/`D` or `LEFT ARROW` / `RIGHT ARROW` — Move
-`LEFT CLICK` / `X` — Swing
-`F` - Hold to heal, tap to voidblast (unlockable)
-`S`/`D` or `DOWN ARROW` / `UP ARROW` — Hold to swing down/up
-`CTRL` — Dash (unlockable)
-`SPACE` — Jump
-`E` — Interact
+- `A`/`D` or `LEFT ARROW` / `RIGHT ARROW` — Move
+- `LEFT CLICK` / `X` — Swing
+- `F` - Hold to heal, tap to voidblast (unlockable)
+- `S`/`D` or `DOWN ARROW` / `UP ARROW` — Hold to swing down/up
+- `CTRL` — Dash (unlockable)
+- `SPACE` — Jump
+- `E` — Interact
 
 ## Features
 - Working progression up to the beginning of the foundry area
@@ -35,3 +35,9 @@
 - Outlands Tower — Void-repellant lighthouse
 - Underground Outlands — Home to civilization and dangers alike
 - Foundry — Halcrya's industrial hell
+
+## Screenshots
+<img width="951" height="532" alt="image" src="https://github.com/user-attachments/assets/1b8eeed9-220d-4377-8069-ff4832aed7f3" />
+<img width="946" height="521" alt="image" src="https://github.com/user-attachments/assets/26095ab3-4bce-4994-8055-939649d983c9" />
+<img width="946" height="526" alt="image" src="https://github.com/user-attachments/assets/7d959982-ce1f-44b7-8dcf-7c82a0fc8a9e" />
+
