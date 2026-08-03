@@ -6,6 +6,11 @@
 # IMPORTANT:
 **Note, this game is a demo and is in heavy development! Expect bugs and unfinished content.**
 
+## Run Instructions
+1. Go to the releases tab in this repository
+2. Download the version for your respective operating system
+3. Run the game and enjoy the demo!
+
 ## Controls
 - `A`/`D` or `LEFT ARROW` / `RIGHT ARROW` — Move
 - `LEFT CLICK` / `X` — Swing
